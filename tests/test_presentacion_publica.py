@@ -173,7 +173,7 @@ def test_detalle_es_una_ficha_institucional_consistente_con_el_comprobante():
     assert "informes ya cerrados y resultado conocido" in respuesta.text
     assert 'href="https://doi.org/10.5281/zenodo.22063241"' in respuesta.text  # serie
     assert 'href="https://doi.org/10.5281/zenodo.23851688"' in respuesta.text  # versión 9.4
-    assert "zenodo.23623905" not in respuesta.text  # la 9.2 ya no es la vigente
+    assert "zenodo.[versión anterior]" not in respuesta.text  # la 9.2 ya no es la vigente
     assert "No se encontró todavía un DOI" not in respuesta.text
     assert "no aporta valor suficiente" in respuesta.text
     assert "cantidad de casos, duración, permisos, proveedores" in respuesta.text

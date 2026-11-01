@@ -183,7 +183,7 @@ Pruebas: tests/test_auditoria_0161.py (19). Suite completa: 2619 pruebas de Pyth
 
 ## 0.10.41.4 · 25/10/2026
 
-- Documento metodológico v9.3, publicado en Zenodo el 25/10/2026 (10.5281/zenodo.23649172; la 9.2 era 10.5281/zenodo.23623905; serie 10.5281/zenodo.22063241): la ficha enlaza esta versión y las páginas citan la v9.3.
+- Documento metodológico v9.3, publicado en Zenodo el 25/10/2026 (10.5281/zenodo.[versión anterior]; la 9.2 era 10.5281/zenodo.[versión anterior]; serie 10.5281/zenodo.22063241): la ficha enlaza esta versión y las páginas citan la v9.3.
 
 ## 0.10.41.3 · 25/10/2026
 
@@ -213,7 +213,7 @@ Pruebas: tests/test_auditoria_0161.py (19). Suite completa: 2619 pruebas de Pyth
 
 - Seguridad de los datos en las dos revisiones. Se revisó en el código todo el recorrido de los datos. La revisión rápida no envía nada a proveedores de IA: no corren el lector del cuadro, ni la lectura de señales, ni la exploración. Lo único que sale del servidor es el aviso por correo de que terminó, con el número del informe y un enlace (si falla, también el mensaje del error). En la revisión profunda, las lectoras de IA reciben los rótulos y la estructura de cada cuadro con todas las cifras ocultas, años incluidos, y la lectura de las señales recibe los hallazgos del motor con sus valores. La pantalla de carga, la presentación, la ficha y la charla lo dicen así. Una prueba nueva corre la revisión rápida con toda salida de red prohibida y comprueba que el análisis termina y que el correo no lleva datos del informe.
 - La ficha, la charla y la presentación decían que «la interpretación confirmada selecciona los controles». Desde 0.10.28 la interpretación con IA orienta y suma controles (presupuesto, ponderaciones, pagos, antecedentes, exploratorios) pero no apaga las cuentas, y en la revisión rápida no hay interpretación con IA: las frases se corrigieron, con una prueba que lo fija.
-- Documento metodológico v9.2 publicado en Zenodo el 24/10/2026 (10.5281/zenodo.23623905; serie 10.5281/zenodo.22063241): la ficha enlaza esta versión.
+- Documento metodológico v9.2 publicado en Zenodo el 24/10/2026 (10.5281/zenodo.[versión anterior]; serie 10.5281/zenodo.22063241): la ficha enlaza esta versión.
 - Sin cambios en el motor (multilente-0.10.37): no se volvieron a medir los bancos.
 
 ## 0.10.38 · 24/10/2026
@@ -287,12 +287,12 @@ Pruebas: tests/test_auditoria_0161.py (19). Suite completa: 2619 pruebas de Pyth
 
 ## 0.10.26 · 24/10/2026
 
-- La ficha técnica cita el documento metodológico v9.1, publicado en Zenodo el 24/10/2026 (10.5281/zenodo.23609356): el mismo texto de la v9 con las mediciones descritas como en la 0.10.25 (copias alteradas a propósito, planillas publicadas sin alterar, ocho posibles errores con su fecha). La descripción del registro v9 también se corrigió.
+- La ficha técnica cita el documento metodológico v9.1, publicado en Zenodo el 24/10/2026 (10.5281/zenodo.[versión anterior]): el mismo texto de la v9 con las mediciones descritas como en la 0.10.25 (copias alteradas a propósito, planillas publicadas sin alterar, ocho posibles errores con su fecha). La descripción del registro v9 también se corrigió.
 
 ## 0.10.25 · 24/10/2026
 
 - Revisión de veracidad de las páginas públicas. «Qué podés esperar, medido» dice ahora exactamente qué se midió: el 79 de 123 es sobre copias de planillas oficiales con un error insertado (casi 2 de cada 3); el 90 de 132 es sobre planillas oficiales publicadas, sin alterar, que no son «correctas» por definición: entre ellas están los posibles errores reales. Las 951 → 249 son señales altas, no todas falsas alarmas. Los 8 posibles errores salen de la revisión del 22/10/2026 (aplicación 0.10.3); el motor 0.10.23, sin la lectura con IA, sigue marcando 7 (5 en prioridad alta y 2 en media) y el octavo (una jurisdicción) había salido de una relación leída por IA. «Cada informe empieza diciendo qué pudo leer y qué no», como hace el comprobante.
-- Ficha técnica: documento metodológico v9, publicado en Zenodo el 24/10/2026 (10.5281/zenodo.23608946); 83 pruebas de JavaScript; el recuadro de la cabecera, que salía con letra clara sobre fondo claro, se lee.
+- Ficha técnica: documento metodológico v9, publicado en Zenodo el 24/10/2026 (10.5281/zenodo.[versión anterior]); 83 pruebas de JavaScript; el recuadro de la cabecera, que salía con letra clara sobre fondo claro, se lee.
 - Charla: edición actualizada al 24/10/2026.
 
 ## 0.10.24 · 24/10/2026
@@ -1026,7 +1026,7 @@ Camino a 1.0.0: los seis casos en que la quinta medición encontró al informe c
 - **Banco de autoajuste:** `/home/autoajuste/evaluar.py` saltea el tope diario de IA, que desde su llegada cortaba la
   ronda con HTTP 429 a partir del caso 16.
 - **Documento principal v7** publicado en Zenodo el 12/10/2026 (versión v0.7.0):
-  DOI 10.5281/zenodo.23329097; serie 10.5281/zenodo.22063241. `DOCUMENT_VERSION = "7"`. El archivo depositado
+  DOI 10.5281/zenodo.[versión anterior]; serie 10.5281/zenodo.22063241. `DOCUMENT_VERSION = "7"`. El archivo depositado
   (`Gobernanza-v7-12-10.docx`) describe el corte 0.9.6 (1680 pruebas Python y 52 JavaScript) y
   anticipa la etiqueta de cohorte de esta versión.
 - Motor sin cambios: bancos y ejemplos públicos idénticos.
@@ -1034,7 +1034,7 @@ Camino a 1.0.0: los seis casos en que la quinta medición encontró al informe c
 ## Documento v6 y ajustes con archivos reales · 5 de octubre de 2026
 
 - **Documento principal v6** publicado en Zenodo el 04/10/2026 (versión v0.6.0):
-  DOI 10.5281/zenodo.23142298; serie 10.5281/zenodo.22063241. `DOCUMENT_VERSION = "6"`.
+  DOI 10.5281/zenodo.[versión anterior]; serie 10.5281/zenodo.22063241. `DOCUMENT_VERSION = "6"`.
 - **Prueba con archivos públicos del BID** (IDB Data Wall 2026, 100 hojas; Marco de Impacto,
   consolidado y detalle por proyecto). Sin errores confirmados en los datos del BID; la prueba
   expuso fallas de Gobernanza, corregidas: celdas con fecha (error 500 y fechas como
@@ -2216,7 +2216,7 @@ El documento principal adopta la numeración de su serie en Zenodo y pasa a **v5
 nuevas separan regresiones que antes vivían dentro de otras: 340 pruebas Python.
 Motor multilente-0.7.2, API 0.3.0, B-1 v1.2 y R-1 v1.1 no cambian.
 
-El documento v5 se publicó en Zenodo el 20/09/2026 con DOI 10.5281/zenodo.22863746
+El documento v5 se publicó en Zenodo el 20/09/2026 con DOI 10.5281/zenodo.[versión anterior]
 (archivo idéntico al generado: MD5 0d830bbca7f45cf234b045335b401245). La ficha enlaza
 el DOI de la versión y el de la serie.
 
