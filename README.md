@@ -234,6 +234,9 @@ qué controles tiene que pasar cada cambio. La regla principal: **no se reducen 
 casos esperados para obtener un resultado verde**, y cada corrección de lectura conserva un caso de
 regresión que reproduce el problema.
 
+Para reportar una vulnerabilidad, no abras un *issue* público: seguí la
+[política de seguridad](SECURITY.md).
+
 ## Código de conducta
 ---
 
