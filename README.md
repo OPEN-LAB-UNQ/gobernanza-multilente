@@ -20,11 +20,11 @@
 ## Badges o escudos
 ---
 
-![versión](https://img.shields.io/badge/versión-0.10.63-blue)
+![versión](https://img.shields.io/badge/versión-0.10.64-blue)
 ![motor](https://img.shields.io/badge/motor-multilente--0.10.61-blue)
 ![pruebas](https://img.shields.io/badge/pruebas-2484%20pasan%2C%201%20omitida-brightgreen)
 ![licencia](https://img.shields.io/badge/licencia-MIT-green)
-![python](https://img.shields.io/badge/python-3.9%2B-blue)
+![python](https://img.shields.io/badge/python-3.11%2B-blue)
 
 <!-- Al publicar el repositorio, reemplazar ORGANIZACION_PROYECTO por la clave de SonarCloud:
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ORGANIZACION_PROYECTO&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=ORGANIZACION_PROYECTO)
@@ -181,7 +181,7 @@ suite completa y la regresión de Excel sobre una copia temporal, sin base ni cr
 
 ### Dependencias
 
-- **Python 3.9 o posterior** y **PostgreSQL 15 o posterior**.
+- **Python 3.11 o posterior** (la aplicación corre con Python 3.12) y **PostgreSQL 15 o posterior**.
 - Bibliotecas de Python en [`requirements.txt`](requirements.txt): FastAPI, Uvicorn, SQLAlchemy, Alembic,
   pandas, openpyxl, xlrd, pypdf, pdfplumber, pypdfium2, Pillow y ReportLab, entre otras.
 - **Opcional:** `tesseract` con los idiomas `spa` y `eng`, para leer PDF escaneados e imágenes en el

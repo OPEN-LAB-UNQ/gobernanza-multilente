@@ -16,3 +16,5 @@ var/
 !static/samples/*.xlsx
 !static/public-samples/
 !static/public-samples/**
+venv312/
+venv-py39/

@@ -45,7 +45,7 @@ las más importantes: tienen prioridad.
 
 ## Estilo
 
-- Código en Python 3.9 o posterior, verificado con `ruff` (configuración en `pyproject.toml`).
+- Código en Python 3.11 o posterior, verificado con `ruff` (configuración en `pyproject.toml`).
 - Nombres, comentarios y mensajes al usuario en español, en lenguaje llano.
 - Cada versión registra sus cambios en `HISTORIA.md`.
 

@@ -2,7 +2,7 @@
 
 # Gobernanza Multilente
 
-Aplicación **v0.10.62**; documento principal **v9.3** (25/10/2026); motor
+Aplicación **v0.10.64**; documento principal **v9.3** (25/10/2026); motor
 **multilente-0.10.61**; API **0.4.3**; protocolos **B-1 v1.2** y **R-1 v1.1**.
 
 Gobernanza Multilente lleva los principios de gobernanza a algo que se puede

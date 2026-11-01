@@ -1,3 +1,14 @@
+## 0.10.64 · 31/10/2026
+
+Python 3.12 y dependencias actualizadas. Motor sin cambios (multilente-0.10.61). La aplicación corría con Python 3.9, que dejó de tener soporte en octubre de 2025, y declaraba versiones con avisos de seguridad conocidos en la base OSV: Starlette 0.41 (por FastAPI 0.115), python-multipart 0.0.20, pypdf 6.16, Pillow 11.3, python-dotenv 1.0 y pdfminer.six 20251107 (por pdfplumber 0.11.8); en desarrollo, pytest 8.4. Las correcciones de varias exigen Python 3.11 o posterior.
+
+- Entorno nuevo con Python 3.12 (`venv312`); el anterior, con Python 3.9, queda guardado para volver atrás.
+- FastAPI 0.115.6 → 0.162.0 (Starlette 0.41.3 → 1.10.0), python-multipart 0.0.20 → 0.0.33, pypdf 6.16.1 → 6.21.4, Pillow 11.3.0 → 13.0.0, python-dotenv 1.0.1 → 1.2.4 y pdfplumber 0.11.8 → 0.11.10 (pdfminer.six 20260107); en desarrollo, pytest 8.4.2 → 9.2.0. El resto, igual.
+- Los 66 paquetes instalados, sin avisos conocidos en OSV al 31/10/2026.
+- Requisito de instalación: Python 3.11 o posterior.
+
+Pruebas: sin cambios en el código; suite completa con Python 3.12: 2642 pruebas de Python y 122 de pantalla.
+
 ## 0.10.63 · 30/10/2026
 
 Tutora de la Incubadora. Caso real del 30/10: un participante de una comisión del grupo original se quejó de que la herramienta le preguntaba una y otra vez lo mismo. Su conversación mostró tres problemas, corregidos sin cambiar el motor (multilente-0.10.61).

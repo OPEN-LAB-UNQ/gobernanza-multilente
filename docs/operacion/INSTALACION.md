@@ -6,7 +6,7 @@ en PDF e inicio de una revisión B-1 v1.2 con sus 11 controles.
 
 ## Requisitos
 
-- Python 3.9 o posterior.
+- Python 3.11 o posterior (en producción, Python 3.12 desde la versión 0.10.64).
 - PostgreSQL 15 (no requiere extensiones).
 - Opcional: `tesseract` con los idiomas `spa` y `eng`, para leer PDF escaneados
   e imágenes en el propio servidor. Sin él, esas lecturas se declaran como no
