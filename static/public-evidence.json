@@ -1,0 +1,23 @@
+{
+  "tests": {
+    "date": "30/10/2026",
+    "collected": 2642,
+    "passed": 2642,
+    "failed": 0,
+    "skipped": 0,
+    "xfailed": 0
+  },
+  "code_fingerprint": "97e30aa35c74570adbc9a619b8d6a52831f52e2fe07da38bb6c855061fece776",
+  "uso": {
+    "informes": 148,
+    "informes_con_devolucion": 146,
+    "participantes": 51,
+    "observaciones": 532,
+    "informes_sin_senales": 50,
+    "proyectos": 74,
+    "proyectos_entregados": 35,
+    "desde": "25/08/2026",
+    "hasta": "29/10/2026",
+    "fecha": "30/10/2026"
+  }
+}

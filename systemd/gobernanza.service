@@ -1,0 +1,35 @@
+[Unit]
+Description=Gobernanza - lectura multilente para decision institucional
+After=network-online.target postgresql.service
+
+[Service]
+Type=simple
+User=gobernanzaapp
+Group=gobernanzaapp
+WorkingDirectory=/home/gobernanza
+EnvironmentFile=/home/gobernanza/.env
+ExecStartPre=/home/gobernanza/venv/bin/alembic upgrade head
+# El límite de intentos de login vive en memoria y es por proceso. No agregar
+# --workers sin mover antes ese control a un almacén compartido (Postgres/Redis).
+ExecStart=/home/gobernanza/venv/bin/uvicorn main:app --host 127.0.0.1 --port 6163
+Restart=on-failure
+RestartSec=5
+UMask=0027
+PrivateTmp=true
+PrivateDevices=true
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/gobernanza/var /home/gobernanza/backups /home/gobernanza/APRENDIZAJES.md /home/gobernanza/APRENDIZAJES_INCUBADORA.md
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+RestrictRealtime=true
+LockPersonality=true
+CapabilityBoundingSet=
+MemoryMax=2G
+TasksMax=128
+
+[Install]
+WantedBy=multi-user.target

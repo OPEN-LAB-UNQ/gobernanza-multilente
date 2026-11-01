@@ -1,0 +1,442 @@
+    <section class="detail-hero" id="inicio-detalle">
+      <div class="wrap">
+        <div>
+          <a class="detail-back" href="/presentacion">← Volver a la presentación</a>
+          <p class="eyebrow">Gobernanza Multilente · ficha técnica</p>
+          <h1>Metodología, resguardos y estado de validación.</h1>
+          <p>Gobernanza Multilente lleva los principios de gobernanza a algo que se puede comprobar. Esta ficha documenta qué comprueba, qué interpreta, qué deja como hipótesis y qué no puede evaluar; cómo trata la información; qué entrega y qué falta demostrar en la versión vigente.</p>
+          <p class="detail-callout"><strong>En cinco frases.</strong> Es como llevarle una radiografía a otra persona: te dice qué parte pudo mirar y cuál está borrosa, te señala la mancha rara y te pide que lo verifiques.</p>
+          <ol class="cinco-frases"><li>Le traés un informe con datos antes de decidir o publicar.</li><li>Primero te dice qué partes pudo leer y cuáles no; sobre lo que no leyó no opina.</li><li>En lo que leyó, hace las cuentas y busca lo raro: totales que no cierran, saltos de escala, valores fuera de lugar.</li><li>Te marca la celda y te sugiere qué preguntarle al área, sin afirmar que es un error.</li><li>La decisión es tuya: es una segunda mirada, no un auditor.</li></ol>
+          <p class="detail-callout"><strong>Qué podés esperar, medido.</strong> Avisa lo que no mira: cada informe empieza diciendo qué pudo leer y qué no. Sobre lo que no leyó no opina. Echa luz donde no se miraba: en 123 copias de planillas oficiales con un error escondido a propósito, lo señala en 119: más de 9 de cada 10. En planillas oficiales publicadas, sin alterar, la revisión del 22/10/2026 encontró 8 posibles errores con la cuenta a la vista; el motor actual marca los 8. Los 8 ejemplos con error de la aplicación se detectan por el recorrido completo, con la lectura con IA. Sobre el ruido: de 132 planillas oficiales publicadas, sin alterar, 88 salen sin ninguna señal de prioridad alta; no es una tasa de acierto. En esas 132, las señales altas bajaron de 951 a 172 entre el 23 y el 24/10/2026, y a 169 el 28/10/2026; no todas las que quedan son falsas alarmas: entre ellas están los posibles errores reales. No promete encontrarlo todo: se le pueden pasar errores. Su valor es echar luz sobre algo que antes nadie miraba. Mediciones del 28/10/2026 con el motor multilente-0.10.59, sin la lectura con IA; las versiones posteriores no cambiaron los controles.</p>
+        </div>
+        <aside class="detail-index" aria-label="Versión vigente">
+          <strong>Versión vigente</strong>
+          <dl class="detail-facts">
+            <div><dt>Aplicación</dt><dd>__APP_VERSION__</dd></div>
+            <div><dt>Motor de análisis</dt><dd>__MOTOR_VERSION__</dd></div>
+            <div><dt>Documento metodológico</dt><dd>v__DOCUMENT_VERSION__</dd></div>
+            <div><dt>Pruebas automatizadas aprobadas</dt><dd>__TEST_SUMMARY__</dd></div>
+          </dl>
+          <span>Cada sección distingue lo implementado, lo probado técnicamente y lo que aún requiere validación institucional.</span>
+        </aside>
+      </div>
+    </section>
+
+    <div class="ficha wrap">
+      <nav class="ficha-toc" aria-label="Índice de la ficha">
+        <a href="#alcance">Qué es y para quién</a>
+        <a href="#metodologia">Cómo trabaja</a>
+        <a href="#dos-revisiones">Revisión rápida y profunda</a>
+        <a href="#lector-del-cuadro">Nuevo: lector del cuadro</a>
+        <a href="#procesamiento">Datos y privacidad</a>
+        <a href="#constancia">Qué entrega</a>
+        <a href="#validacion">Evidencia y límites</a>
+        <a href="#prueba-detalle">Validación y documentación</a>
+      </nav>
+      <div class="ficha-main">
+
+      <section class="ficha-block" id="alcance">
+        <div class="section-kicker">01 · Qué es y para quién</div>
+        <h2>Revisar mejor sin trasladar la decisión al sistema.</h2>
+        <p>Gobernanza Multilente ayuda a revisar informes con datos agregados, terminados o en elaboración. Organiza la revisión mediante seis lentes y una capa conciliadora, señala qué necesita explicación y deja registro de lo evaluado y de sus límites. La interpretación y la decisión siguen siendo humanas.</p>
+        <p>Los destinatarios son tanto quienes reciben el informe para decidir como los equipos que lo elaboran. Revisar durante su construcción no significa que el sistema redacte el informe ni decida por sus responsables. Los dos usos conservan las mismas reglas y límites; no se analizan expedientes ni personas identificables.</p>
+        <p id="archivos-alcance">Multilente analiza Excel y CSV con cuadros de datos agregados. Los PDF y las imágenes pasan antes por una revisión de lectura: ves el original al lado de la tabla leída, corregís lo necesario y confirmás; recién ahí se analiza. No lee Word ni datos individuales.</p>
+        <h3 id="modulos">Un marco común, cuatro módulos con propósitos distintos</h3>
+        <div class="ficha-cols2">
+          <article class="ficha-card"><h4>Multilente</h4><p>Revisar informes agregados y formular preguntas con evidencia y límites. Es el objeto principal de esta ficha.</p></article>
+          <article class="ficha-card"><h4>Incubadora</h4><p>Desarrollar una propuesta fundamentada a partir de un problema, con acompañamiento y revisión docente. Puede concluir que conviene una solución más simple o no incorporar tecnología.</p></article>
+          <article class="ficha-card"><h4>Conexiones</h4><p>Explorar temas compartidos y oportunidades de colaboración entre proyectos, sin calificar a sus autores ni autorizar implementaciones.</p></article>
+          <article class="ficha-card"><h4>Monitoreo</h4><p>Registrar avances, riesgos, decisiones, indicadores y aprendizajes de las iniciativas que se decida implementar; el registro no demuestra por sí solo impacto.</p></article>
+        </div>
+        <p>Estos módulos no son etapas obligatorias de un único circuito.</p>
+        <p><strong>Protocolos, no módulos:</strong> B-1 es una revisión institucional opcional sobre informes; R-1, una evaluación opcional y separada sobre proyectos. Ninguno se completa por usar un módulo. Sus constancias acreditan un procedimiento propio, no una certificación externa ni una autorización para implementar.</p>
+        <details class="ficha-more"><summary>Pre-devolución automática y revisión docente en Incubadora</summary>
+          <p>Incubadora puede ofrecer una <strong>pre-devolución automática identificada como IA</strong>, con sus fuentes de orientación declaradas —en el uso formativo actual, notas de orientación del docente responsable—. No es una calificación ni la devolución docente. En ese uso formativo, la devolución docente corresponde al docente responsable, Maximiliano Pérez, asistido por IA y después de su revisión personal; en otros usos, al responsable designado. La tutoría, la pre-devolución y la revisión docente tampoco equivalen a completar R-1.</p>
+        </details>
+      </section>
+
+      <section class="ficha-block" id="metodologia">
+        <div class="section-kicker">02 · Cómo trabaja</div>
+        <h2>Tres niveles de trabajo, seis lentes, una capa conciliadora y principios transversales.</h2>
+        <p>Son dimensiones distintas: los niveles describen el tipo de tarea; las lentes indican dónde mirar; los principios establecen las condiciones para sostener y revisar un resultado. No son etapas obligatorias ni una escala de certeza.</p>
+        <div class="ficha-cols3">
+          <article class="ficha-card"><span class="ficha-num">01</span><h4>Verificación determinística</h4><p>Reglas y cálculos reproducibles bajo las mismas entradas, versión y condiciones. La repetibilidad no demuestra que los datos de origen sean verdaderos.</p></article>
+          <article class="ficha-card"><span class="ficha-num">02</span><h4>Interpretación contextual</h4><p>Relaciona afirmaciones, datos y condiciones de comparación. La IA puede asistir, pero su lectura requiere contraste con evidencia.</p></article>
+          <article class="ficha-card"><span class="ficha-num">03</span><h4>Exploración</h4><p>Propone hipótesis para investigar. Incluye las asociaciones de Rizoma y la función experimental separada; no fundamenta conformidad institucional.</p></article>
+        </div>
+        <p>Los diez principios se agrupan en origen de la evidencia, calidad de la lectura y resultado revisable. No son lentes adicionales ni todos son controles automáticos. <a href="/presentacion#faq-principios">Consultar los diez principios</a>. La trazabilidad atraviesa los tres niveles.</p>
+
+        <h3 id="lentes">Una explicación técnica de cada mirada</h3>
+        <p>No todas las lentes se ejecutan en todos los informes: la disponibilidad y comparabilidad de los datos determina qué puede evaluarse. Ninguna señal equivale por sí sola a una conclusión institucional.</p>
+        <div class="ficha-lenses" role="list">
+          <div class="ficha-lens-head" aria-hidden="true"><span>Lente</span><span>Finalidad y evidencia</span><span>Puede señalar</span><span>No concluye</span><span>Requiere</span></div>
+          <article class="lens"><div class="ficha-lens-name"><span class="lens-index">01</span><h4>Ajedrecista</h4><small>coherencia interna</small></div>
+            <div><span class="ficha-label">Finalidad y evidencia</span><p>Contrasta estructura, totales, etapas y series dentro del informe.</p></div>
+            <div><span class="ficha-label">Puede señalar</span><p>Relaciones imposibles o que necesitan contexto.</p></div>
+            <div><span class="ficha-label">No concluye</span><p>Que exista irregularidad.</p></div>
+            <div><span class="ficha-label">Requiere</span><p>Campos y definiciones comparables.</p></div></article>
+          <article class="lens"><div class="ficha-lens-name"><span class="lens-index">02</span><h4>Matemático</h4><small>cálculos y métodos</small></div>
+            <div><span class="ficha-label">Finalidad y evidencia</span><p>Revisa componentes, fórmulas, ponderaciones y criterios declarados.</p></div>
+            <div><span class="ficha-label">Puede señalar</span><p>Operaciones que no cierran o cambios de método.</p></div>
+            <div><span class="ficha-label">No concluye</span><p>Que un método sea ilegítimo.</p></div>
+            <div><span class="ficha-label">Requiere</span><p>Componentes, pesos o definiciones suficientes.</p></div></article>
+          <article class="lens"><div class="ficha-lens-name"><span class="lens-index">03</span><h4>Cronista</h4><small>evolución temporal</small></div>
+            <div><span class="ficha-label">Finalidad y evidencia</span><p>Compara series y períodos.</p></div>
+            <div><span class="ficha-label">Puede señalar</span><p>Saltos, quiebres o retrocesos.</p></div>
+            <div><span class="ficha-label">No concluye</span><p>Su causa.</p></div>
+            <div><span class="ficha-label">Requiere</span><p>Series temporalmente comparables.</p></div></article>
+          <article class="lens"><div class="ficha-lens-name"><span class="lens-index">04</span><h4>Orquesta</h4><small>coherencia documental</small></div>
+            <div><span class="ficha-label">Finalidad y evidencia</span><p>Cruza magnitudes relacionadas dentro del informe y entre fuentes disponibles.</p></div>
+            <div><span class="ficha-label">Puede señalar</span><p>Diferencias que requieren conciliación.</p></div>
+            <div><span class="ficha-label">No concluye</span><p>Que una fuente sea falsa.</p></div>
+            <div><span class="ficha-label">Requiere</span><p>Mismo objeto, período y criterio.</p></div></article>
+          <article class="lens"><div class="ficha-lens-name"><span class="lens-index">05</span><h4>Radiólogo</h4><small>antecedentes</small></div>
+            <div><span class="ficha-label">Finalidad y evidencia</span><p>Compara con antecedentes del presupuesto público; en organizaciones todavía no tiene un banco propio.</p></div>
+            <div><span class="ficha-label">Puede señalar</span><p>Distancias o patrones atípicos.</p></div>
+            <div><span class="ficha-label">No concluye</span><p>Que el antecedente sea norma ni que la diferencia sea un error.</p></div>
+            <div><span class="ficha-label">Requiere</span><p>Casos comparables.</p></div></article>
+          <article class="lens"><div class="ficha-lens-name"><span class="lens-index">06</span><h4>Rizoma</h4><small>conexiones exploratorias</small></div>
+            <div><span class="ficha-label">Finalidad y evidencia</span><p>Busca asociaciones no obvias entre columnas numéricas mediante cálculos del análisis multilente.</p></div>
+            <div><span class="ficha-label">Resultado</span><p>Hipótesis a investigar.</p></div>
+            <div><span class="ficha-label">No concluye</span><p>Causalidad, irregularidad ni conformidad; sus señales pueden registrarse, pero no fundamentan conformidad.</p></div>
+            <div><span class="ficha-label">Requiere</span><p>Al menos cinco observaciones completas por par de columnas numéricas, con variación en ambas y una relación no obvia. Si no hay pares evaluables, se declara esa limitación.</p></div></article>
+          <article class="lens"><div class="ficha-lens-name"><span class="lens-index">07</span><h4>Conciliador</h4><small>contexto técnico</small></div>
+            <div><span class="ficha-label">Finalidad y evidencia</span><p>Reglas que releen señales ya detectadas junto con el contexto de carga, acumulación o cobertura. También presenta las señales del lector del cuadro: relaciones propuestas por al menos dos modelos de IA, sin ver las cifras, y comprobadas con los números por reglas.</p></div>
+            <div><span class="ficha-label">Puede señalar</span><p>Explicaciones alternativas o un ajuste de prioridad, dejando registro.</p></div>
+            <div><span class="ficha-label">No concluye</span><p>Que una observación esté resuelta. Sus propias reglas no usan IA; en las señales del lector, la IA sólo propuso la relación y la cuenta la hicieron las reglas.</p></div>
+            <div><span class="ficha-label">Requiere</span><p>Señales ya detectadas por las otras lentes o por el lector del cuadro.</p></div></article>
+        </div>
+
+        <h3 id="procedimiento">De la carga al registro, con posibilidad de una nueva revisión</h3>
+        <ol class="detail-flow" aria-label="Etapas del procedimiento">
+          <li><strong>Carga</strong><span>Documento o datos agregados.</span></li>
+          <li><strong>Revisión</strong><span>Controles aplicables y lecturas habilitadas.</span></li>
+          <li><strong>Reporte y registro</strong><span>Observaciones, preguntas, límites y comprobante automático.</span></li>
+          <li><strong>Revisión humana</strong><span>Interpretar, pedir contexto o corregir cuando corresponda.</span></li>
+          <li><strong>Nuevo análisis opcional</strong><span>Si cambian datos o criterios: nuevo análisis vinculado y nuevo comprobante.</span></li>
+        </ol>
+        <p class="detail-callout"><strong>Explicar no es superar un control.</strong> Una respuesta textual aporta contexto, pero una corrección de datos o reglas requiere volver a ejecutar los controles correspondientes. El primer comprobante no depende de resolver todas las observaciones ni de iniciar B-1.</p>
+
+        <h3 id="reglas-ia-detalle">El origen de cada señal importa</h3>
+        <div class="detail-table-wrap"><table class="detail-table">
+          <thead><tr><th>Componente</th><th>Función</th><th>Lectura del resultado</th></tr></thead>
+          <tbody>
+            <tr><th>Reglas determinísticas</th><td>Comprueban condiciones definidas.</td><td>Reproducible, si se conservan entradas, versión y condiciones.</td></tr>
+            <tr><th>Modelos de lenguaje</th><td>Interpretan y contextualizan señales cuando se habilitan.</td><td>Probabilística; debe contrastarse con la evidencia.</td></tr>
+            <tr><th>Interpretación previa</th><td>Dos proveedores, OpenAI y Google Gemini, proponen el significado y las relaciones de cada cuadro con las cifras ocultas, incluidos años y números como texto.</td><td>La persona confirma o modifica antes de controlar. La interpretación orienta y suma controles (presupuesto, ponderaciones, pagos, antecedentes, exploratorios), pero no apaga las cuentas; las relaciones requieren que las propongan los dos. No certifica el cuadro.</td></tr>
+            <tr><th>Rizoma</th><td>Busca asociaciones no obvias entre variables numéricas dentro del análisis multilente.</td><td>Cálculo reproducible, interpretación exploratoria; no demuestra causalidad ni conformidad.</td></tr>
+            <tr><th>Conciliador</th><td>Aplica reglas de contexto técnico a señales existentes y presenta las del lector del cuadro.</td><td>Reproducible; no resuelve por sí solo una observación.</td></tr>
+            <tr><th>Función experimental separada</th><td>Usa OpenAI para proponer preguntas nuevas o redactar correlaciones calculadas localmente, si un usuario habilitado la invoca.</td><td>Hipótesis no validada, fuera del comprobante automático habitual.</td></tr>
+          </tbody>
+        </table></div>
+        <p class="detail-callout">La coincidencia entre modelos no demuestra certeza. Se preservan divergencias, explicaciones alternativas y límites de cobertura.</p>
+      </section>
+
+      <section class="ficha-block" id="dos-revisiones">
+        <div class="section-kicker">Desde la aplicación 0.10.35 · Dos niveles</div>
+        <h2>Revisión rápida y revisión profunda</h2>
+        <p>Como en una radiografía: la rápida pasa los rayos X a todo el libro, sin IA, en segundos; la profunda estudia en detalle lo que vale la pena, con la IA y tu confirmación. La rápida es la opción por defecto. Al final de su informe, «Pasar a revisión profunda» reenvía los mismos archivos.</p>
+        <div class="detail-table-wrap"><table class="detail-table">
+          <thead><tr><th>Qué corre</th><th>Rápida</th><th>Profunda</th></tr></thead>
+          <tbody>
+            <tr><th>Interpretación previa con IA</th><td>No</td><td>Sí: dos lectoras y tu confirmación</td></tr>
+            <tr><th>Totales que no cierran (fila, columna, paneles, «Total» arriba, triangulación)</th><td>Sí</td><td>Sí</td></tr>
+            <tr><th>Decimal en columna de conteos, signo, escala, valor repetido, período faltante o duplicado</th><td>Sí</td><td>Sí</td></tr>
+            <tr><th>Fórmula distinta del resto, valor pegado sobre una fórmula</th><td>Sí</td><td>Sí</td></tr>
+            <tr><th>Series en el tiempo (saltos, cambios de escala, acumulados)</th><td>Sí, dentro de cada hoja</td><td>Sí</td></tr>
+            <tr><th>Reglas de presupuesto (pagado ≤ devengado ≤ crédito)</th><td>Sí, si declarás el dominio en el formulario</td><td>Sí, también si lo reconoce la IA</td></tr>
+            <tr><th>Relaciones que propone el lector del cuadro (IA)</th><td>No</td><td>Sí</td></tr>
+            <tr><th>Cruces entre ediciones y con antecedentes</th><td>No</td><td>Sí</td></tr>
+            <tr><th>Asociaciones exploratorias (Rizoma)</th><td>No</td><td>Sí</td></tr>
+            <tr><th>Lectura de las señales con IA</th><td>No</td><td>Sí</td></tr>
+            <tr><th>Qué sale del servidor</th><td>Nada hacia proveedores de IA; sólo el aviso por correo, con el número del informe y un enlace</td><td>A las lectoras de IA, rótulos y estructura sin las cifras; a la lectura de las señales, los hallazgos con sus valores</td></tr>
+            <tr><th>Costo de IA y cupo diario</th><td>Ninguno</td><td>El de siempre</td></tr>
+          </tbody>
+        </table></div>
+        <p class="detail-callout"><strong>Lo que la rápida no hace, lo dice.</strong> Su informe empieza diciendo qué no corrió. Las mediciones de esta ficha (los 119 de 123 errores insertados, las señales en planillas publicadas) son del motor sin la lectura con IA, es decir, de lo que corre en la revisión rápida. De los 8 ejemplos con error de la aplicación, el octavo es una asociación exploratoria: sólo lo ve la profunda.</p>
+        <p class="detail-callout"><strong>La seguridad mira todo el recorrido de los datos.</strong> En la revisión rápida los datos del informe no salen del servidor: no se envía nada a proveedores de IA, y por eso sirve para informes reservados, de uso interno; datos de personas no se cargan en ninguna de las dos. Sólo sale el aviso por correo de que terminó, con el número del informe y un enlace (si el análisis falla, un aviso con el número de trabajo, sin el detalle técnico del error). En la profunda, las lectoras de IA reciben los rótulos y la estructura de cada cuadro con las cifras ocultas, y la lectura de las señales recibe los hallazgos con sus valores.</p>
+      </section>
+
+      <section class="ficha-block" id="lector-del-cuadro">
+        <div class="section-kicker">Actualización del 22/10/2026 · Interpretación previa y confirmación</div>
+        <h2>La IA propone, las reglas comprueban, la persona decide.</h2>
+        <p>Antes de ejecutar controles sustantivos, la IA propone la institución, el régimen, el tipo de cuadro, el significado de sus columnas y sus relaciones. La persona revisa esa propuesta; la interpretación confirmada orienta y suma controles a cada cuadro, pero no apaga las cuentas: totales, coherencia, fórmulas, relaciones y series corren igual. En la revisión rápida no hay interpretación con IA. Una propuesta no es una conclusión.</p>
+        <ol class="detail-flow" aria-label="Cómo funciona el lector del cuadro">
+          <li><strong>Lectura a ciegas</strong><span>Se ocultan las cifras con «#», incluidos los años y los números escritos como texto. Las coordenadas y la estructura se distinguen de los datos.</span></li>
+          <li><strong>Acuerdo</strong><span>Dos modelos, de OpenAI y de Google Gemini, leen por separado y eligen de una lista cerrada. Los dos deben proponer la misma relación; compartir algunas celdas no alcanza.</span></li>
+          <li><strong>Confirmación previa</strong><span>«Sí, analizar», «No, modificar» o «Reanalizar con más detalle». Cada nueva lectura requiere una nueva confirmación vinculada al archivo exacto y a la persona.</span></li>
+          <li><strong>Comprobación</strong><span>La interpretación confirmada orienta y suma controles; las cuentas corren siempre. Las reglas verifican sus condiciones matemáticas y calculan con los números reales. Las relaciones con pocas aplicaciones requieren además una confirmación específica.</span></li>
+          <li><strong>Registro</strong><span>La lectura, sus límites y las respuestas quedan asociados al archivo, la hoja y la relación. Reanalizar conserva el historial.</span></li>
+        </ol>
+        <div class="ficha-cols3">
+          <article class="ficha-card"><h4>Si la relación se sostiene</h4><p>Las diferencias puntuales pueden convertirse en señales verificables. Una suma que no cierra permite mostrar la cuenta, pero no demuestra si está equivocado el total o alguna de sus partes. Cuando dos sumas que no cierran por la misma diferencia —la de una fila y la de una columna— comparten una sola celda, y con esa celda corregida cerrarían las dos, se la nombra como la ubicación más probable; si la celda no tiene un número publicado, no se la nombra.</p></article>
+          <article class="ficha-card"><h4>Si la lectura no se sostiene</h4><p>Se descarta para ese control. Esto reduce acusaciones basadas en una lectura equivocada, aunque también puede dejar un error sin detectar.</p></article>
+          <article class="ficha-card"><h4>Si la lectura queda incompleta</h4><p>La pantalla y el PDF lo informan, incluso cuando no hay preguntas ni señales. La falta de respuestas de los modelos no se presenta como un control aprobado.</p></article>
+        </div>
+        <p class="detail-callout" id="que-cambia-recorrido"><strong>Qué cambia en el recorrido.</strong> Una fecha de pago no se trata como una serie mensual agregada. Una universidad no se presume pública. Cada cuadro tiene su interpretación y su selección de controles. La lectura inicial usa una muestra declarada; la opción detallada amplía filas y contexto. Las cuentas usan los datos disponibles, y el informe declara los límites de lectura y de verificación. El informe muestra la cobertura del lector, las preguntas pendientes y lo que quedó fuera. Las respuestas se guardan por archivo, hoja y relación; su historial se conserva al volver a analizar.</p>
+        <details class="ficha-more"><summary>Reglas y límites concretos de esta versión</summary>
+          <p>Para relaciones repetidas, la regla general exige que se cumplan en al menos el 70 % de las aplicaciones; en «no se repite», el umbral es 90 %. Las relaciones con pocas aplicaciones pueden quedar pendientes de confirmación. Los controles de plausibilidad tienen criterios propios. Estos umbrales son reglas operativas, no probabilidades de que el cuadro sea correcto.</p>
+          <p>La representación de celdas conserva topes de 5.000 filas y 512 columnas por hoja, y 300.000 celdas por informe. La interpretación inicial presenta hasta 24 filas y cuatro finales por cuadro; la detallada, hasta 300 y cuatro finales, con más notas del archivo. Los topes de texto pueden reducir ese alcance; se muestran los conteos efectivos. Esto no equivale a una lectura semántica exhaustiva. Las cuentas se aplican a los datos disponibles en cada control y se declaran los recortes; las relaciones muestran hasta cinco diferencias por relación.</p>
+          <p>Los encabezados combinados conservan los grupos y sus variables, también cuando los rótulos combinados bajan a una segunda fila con los nombres de cada columna (como en los cuadros de un censo nacional); una fila de unidades no se toma como encabezado. Sin celdas combinadas, una segunda fila de rótulos todavía puede no reconocerse. Un total que va arriba de sus filas también sirve para ubicar la celda que no cierra. Cuando el año y el mes están en columnas distintas, se leen como un mismo período; la cobertura temporal se contrasta con las celdas originales. Un rótulo de edad, como «Menor de 1 año», no se toma como una fecha. Las variaciones se describen según el período observado: un cambio mensual no se presenta como anual.</p>
+          <p>Las filas de unidades se conservan como metadatos. Benford sólo se habilita para cuadros confirmados como pagos con columnas de importes y sin eje de serie agregada; además debe cumplir sus condiciones numéricas. Una fecha operativa no deshabilita por sí sola ese control, ni una serie en otra hoja afecta al cuadro de pagos.</p>
+          <p>«Reanalizar con más detalle» solicita nuevas lecturas con mayor contexto, conserva el historial e invalida la confirmación anterior. La cola permite recuperar trabajos interrumpidos. Si no hay acuerdo, el cuadro queda sin clasificar y sus controles semánticos quedan pendientes, salvo corrección humana explícita.</p>
+          <p>Esta etapa usa OpenAI y Google Gemini. Desde la versión 0.10.60 DeepSeek ya no lee los cuadros: participa sólo si quien administra el despliegue lo agrega a mano, y entonces vale lo que acuerden dos de las tres. Es independiente del perfil elegido para comentar las señales. El flujo actual no ofrece interpretación previa íntegramente local: la indisponibilidad de proveedores se declara y no equivale a una lectura aprobada.</p>
+          <p><strong>Límite observado:</strong> con dos lectoras se acuerdan menos relaciones. En dos pruebas del 28/10/2026 con tres planillas oficiales y seis copias con un error insertado, las relaciones acordadas por GPT y Gemini detectaron 2 y 0 de los 6 errores; las de Gemini y DeepSeek, 4. En la segunda, un libro de 18 cuadros quedó con 4 o 5 cuadros sin clasificar. Mide sólo al lector: los controles de la revisión, que corren aparte, detectaron los seis.</p>
+        </details>
+        <h3 id="pruebas-instituto">Pruebas con dos Excel públicos de un instituto de estadística</h3>
+        <p><strong>Corte del 21/10/2026, aplicación 0.9.25.1.</strong> Se usaron archivos oficiales y se introdujeron alteraciones solo en copias de prueba. Estos ensayos guiaron correcciones del sistema; no son una evaluación externa ni una prueba ciega de eficacia.</p>
+        <div class="ficha-cols2">
+          <article class="ficha-card"><h4>Canasta de crianza: una hoja, 81 meses</h4><p>La copia de la <a href="https://datos.ejemplo/fuente.xlsx">serie oficial de crianza</a> abarca enero de 2020 a septiembre de 2026. Se conservaron 972 importes y se reconocieron las 12 series mensuales de cuatro grupos de edad. La comprobación de 324 sumas dio una diferencia máxima de $0,01, compatible con el redondeo.</p><p>Los tres lectores completaron la lectura, con cinco relaciones acordadas y sin diferencias aritméticas señaladas. Una respuesta de Gemini falló y se recuperó reintentando solo esa lectura. Las dos señales numéricas del análisis fueron variaciones mensuales, en diciembre de 2023 y febrero de 2024: requieren contexto, no demuestran errores.</p></article>
+          <article class="ficha-card"><h4>Supermercados: el cuadro llega a la columna 338</h4><p>En la <a href="https://datos.ejemplo/fuente.xlsx">serie oficial de supermercados</a>, se conservaron 690 filas de datos de seis hojas numéricas; las seis filas de unidades se registraron como metadatos. El lector recorrió 12 bloques y acordó 107 relaciones. No encontró diferencias aritméticas en esas relaciones.</p><p>La prueba incluyó una alteración en CO100 del Cuadro 5, más allá de las primeras 80 columnas: fue detectada. Al restaurar el valor desapareció esa señal. Esto verifica un caso de tabla ancha; no garantiza detectar cualquier error fuera de ese caso.</p></article>
+        </div>
+        <details class="ficha-more"><summary>Cómo se comprobó que el lector seguía detectando errores</summary>
+          <p>En crianza se sumaron $100.000, por separado, a E40, H40, K40 y N40, un total de cada grupo de edad. Se detectaron las cuatro alteraciones. Al restaurar cada valor, desapareció la señal aritmética correspondiente. Los 324 cierres del original se comprobaron además directamente contra sus componentes.</p>
+          <p>La copia de crianza ensayada se identifica por SHA-256 <code style="overflow-wrap:anywhere">822a0d40aa5bcf81d41910c571b99097a971ac47a40d7a7843d6e213694aaa35</code>. El archivo de la fuente puede actualizarse después de este corte.</p>
+          <p><strong>Límite observado:</strong> la exploración libre de IA completó dos de tres modelos y produjo algunas hipótesis poco útiles. Es una etapa distinta del lector a ciegas; sus sugerencias no son errores comprobados. Leer todas las series tampoco significa que todos los controles sean aplicables.</p>
+        </details>
+        <p class="detail-callout"><strong>Implementación y eficacia son cosas distintas.</strong> El 22/10/2026 se repitieron 93 archivos públicos de Excel con la aplicación 0.10.1: 88 análisis completos, dos interpretaciones pendientes de confirmación humana, tres archivos sin tabla numérica y ningún fallo técnico. Todos los análisis completos generaron el informe y el anexo PDF; una alteración conocida en E20 volvió a detectarse. Con la 0.10.3, la misma repetición dio 84 análisis completos, seis interpretaciones pendientes y tres archivos sin tabla numérica, sin fallos técnicos y con E20 detectada. Entre los originales analizados quedaron señales altas: en 26 de 87 con la 0.10.1 (76 señales) y en 24 de 83 con la 0.10.3 (67); todavía no se revisaron una por una, así que no se cuentan ni como errores ni como falsas alarmas. Las versiones posteriores no se repitieron todavía con esos archivos. La confirmación de estas campañas fue simulada solo cuando había clasificación conocida y acuerdo suficiente. No mide la calidad de una decisión humana ni la tasa general de aciertos frente a errores desconocidos.</p>
+        <p class="ficha-note">Versión de la aplicación: __APP_VERSION__. El lector está activo en el despliegue de referencia. Su disponibilidad puede variar por configuración y por las respuestas de los proveedores. La cobertura de lectura no equivale a ausencia de errores.</p>
+      </section>
+
+      <section class="ficha-block" id="procesamiento">
+        <div class="section-kicker">03 · Datos y privacidad</div>
+        <h2>El tratamiento de datos se acuerda antes de usar casos reales.</h2>
+        <p>La aplicación no comprueba automáticamente la autorización institucional. La organización o el organismo debe definir datos admisibles, proveedores, accesos, retención y modalidad de procesamiento antes de cargar información.</p>
+        <div class="ficha-cols3">
+          <article class="ficha-card"><span class="ficha-num">01</span><h4>Información agregada</h4><p>La carga excluye columnas identificatorias y enmascara ciertos patrones personales en texto. Si no queda información agregada útil, rechaza la carga. Los filtros no garantizan anonimización absoluta.</p></article>
+          <article class="ficha-card"><span class="ficha-num">02</span><h4>Infraestructura propia</h4><p>En el despliegue actual, carga, saneamiento, reglas y persistencia ocurren en la infraestructura de la aplicación con acceso restringido. También la revisión de lectura de PDF e imágenes: esos datos no se envían a proveedores de IA. En la revisión rápida, también el análisis entero: no se envía nada a proveedores de IA.</p></article>
+          <article class="ficha-card"><span class="ficha-num">03</span><h4>Triangulación configurable</h4><p>En la revisión profunda, si hay hallazgos y no se elige un perfil, el análisis intenta por defecto OpenAI y Google Gemini. También admite DeepSeek y dos integraciones con modelos de código abierto autoalojados, Renderix y Ollama, si están disponibles y se seleccionan expresamente; Anthropic no está habilitado en este despliegue. La arquitectura admite que un organismo use un modelo autoalojado en su propia infraestructura; el despliegue de referencia corre sobre infraestructura de prueba que no cumple esa condición. Ningún modelo recibe el archivo original. La lectura de señales envía contexto y hallazgos estructurados, con valores extraídos; la exploración del libro, que forma parte del análisis, envía además los textos ya saneados de sus celdas, rótulos y hojas. Una lista vacía de modelos no desactiva la triangulación: activa el perfil por defecto. Cada persona tiene un tope diario de análisis con IA y de mensajes de tutoría, configurable por la institución.</p></article>
+        </div>
+        <p class="ficha-note">En la revisión profunda, el <a href="#lector-del-cuadro">lector del cuadro</a> añade una ruta separada hacia OpenAI y Gemini: envía rótulos y estructura con las cifras de la grilla ocultas, incluidos años y números escritos como texto. Elegir un modelo local para la triangulación no desactiva esta ruta; para un uso íntegramente local hay que apagar también el lector o pedir la revisión rápida, que no lo usa.</p>
+        <details class="ficha-more"><summary>Exploración experimental: una ruta separada</summary>
+          <p>Un usuario habilitado la activa mediante una acción específica. Su pista de preguntas envía a OpenAI período, dominio, nombres de columnas, cantidad de filas y hasta cinco filas ya saneadas, además de preguntas existentes. La pista de correlaciones calcula localmente y puede enviar a OpenAI nombres de variables, coeficiente y cantidad de observaciones para redactar la salida. No se envía el archivo original por estas rutas. Hoy esta función no ofrece proveedor local: si se exige procesamiento íntegramente local, debe excluirse del protocolo y no ejecutarse; el análisis ordinario debe configurarse expresamente con un modelo local disponible.</p>
+        </details>
+        <p class="ficha-note">La autorización institucional es un requisito de uso, no una barrera automática implementada por el sistema.</p>
+      </section>
+
+      <section class="ficha-block" id="constancia">
+        <div class="section-kicker">04 · Qué entrega</div>
+        <h2>El comprobante documenta una ejecución, no una aprobación.</h2>
+        <p>Los controles determinísticos pueden reproducirse automáticamente bajo las mismas entradas, reglas y versión, sin necesidad de recalcular manualmente cada operación. La interpretación de los resultados y cualquier decisión institucional permanecen bajo responsabilidad humana.</p>
+        <div class="privacy-box">
+          <div class="privacy-col"><h3>El comprobante incluye</h3><ul>
+            <li>Informe, área, período, dominio y fecha de generación.</li>
+            <li>Huella del objeto analizado y versión del motor.</li>
+            <li>Controles ejecutados, resultados, cobertura y límites.</li>
+            <li>Señales exploratorias identificadas por separado, si existen.</li>
+            <li>Manifiesto de origen y versión de código cuando están disponibles.</li>
+          </ul></div>
+          <div class="privacy-col private"><h3>El comprobante no implica</h3><ul>
+            <li>Aprobación humana o conformidad sustantiva del informe.</li>
+            <li>Certificación de veracidad o ausencia de errores.</li>
+            <li>Auditoría, dictamen jurídico ni atribución de responsabilidad.</li>
+            <li>Validación institucional de la utilidad de la herramienta.</li>
+            <li>Publicación del informe o de su evidencia interna.</li>
+          </ul></div>
+        </div>
+        <p class="ficha-note">Si cambian el informe o las reglas, corresponde una nueva ejecución y un nuevo comprobante. Existe además un procedimiento institucional opcional y separado, con revisión humana documentada y requisitos propios; no es el comprobante automático habitual. Las hipótesis exploratorias no pueden fundamentar conformidad.</p>
+      </section>
+
+      <section class="ficha-block" id="validacion">
+        <div class="section-kicker">05 · Evidencia y límites</div>
+        <h2>Qué está probado y qué falta demostrar.</h2>
+        <p>Implementación, pruebas automatizadas y eficacia institucional son tres niveles distintos. Los resultados de las pruebas corresponden a un corte fechado, no a una garantía permanente.</p>
+        <div class="validation-grid">
+          <article class="validation-card"><strong>Implementado</strong><h3>Funciones existentes</h3><p>Carga saneada, lentes aplicables, controles, triangulación configurable, comprobante y una exploración experimental separada. Su existencia no prueba utilidad institucional.</p></article>
+          <article class="validation-card"><strong>__TEST_SUMMARY__</strong><h3>Pruebas automatizadas</h3><p>Resultado del __TEST_DATE__. Comprueban comportamientos programados de esa versión; no validan por sí solas la utilidad institucional ni cubren cada cambio posterior. El detalle puede consultarse debajo.</p></article>
+          <article class="validation-card"><strong>Pendiente</strong><h3>Validación empírica</h3><p>Falta medir falsas alarmas, omisiones, tiempos, concordancia, claridad de preguntas y utilidad para personas decisoras con casos cerrados y evaluación externa.</p></article>
+        </div>
+        <p class="ficha-note"><strong>Versiones separadas:</strong> aplicación __APP_VERSION__; motor __MOTOR_VERSION__; documento metodológico v__DOCUMENT_VERSION__ (publicado). La evidencia de esta página corresponde a la aplicación actual; el documento publicado conserva su propia fecha y revisión.</p>
+        <details class="ficha-more"><summary>Detalle de las pruebas y versiones del código</summary>
+          <p><strong>Resultados del __TEST_DATE__:</strong> pruebas incluidas: __TEST_COLLECTED__; aprobadas: __TEST_PASSED__; fallidas: __TEST_FAILED__; omitidas: __TEST_SKIPPED__; con fallo esperado: __TEST_XFAILED__. Aparte, la interfaz tiene 83 pruebas de JavaScript, todas aprobadas en el corte del 24/10/2026.</p>
+          <p><strong>Identificador del código Python probado:</strong> <code>__TEST_CODE_VERSION__</code>. Esta huella permite comparar la versión ensayada con la actual.</p>
+          <p><strong>Datos sintéticos:</strong> las pruebas incluyen casos sin errores y otros con errores conocidos para comprobar comportamientos específicos. Existe además un banco interno de calibración, con alteraciones sembradas en archivos oficiales; todavía no está bajo control de versiones ni publicado. Las planillas son datos preparados para pruebas técnicas; no constituyen evidencia de validación externa.</p>
+          <p>Huella Python calculada para el código actual: <code>__CODE_VERSION__</code>. Si difiere de la huella del corte, hubo cambios de código posteriores a esa corrida. La huella no incluye los recursos de la interfaz.</p>
+        </details>
+
+        <h3 id="criterio-usable">Cuándo la consideramos usable</h3>
+        <p>Para recomendar su uso como complemento de una revisión, la herramienta tiene que cumplir tres condiciones, medidas con archivos que no se usaron para calibrarla. Los umbrales se fijaron el 03/10/2026, antes de conocer el resultado de la medición.</p>
+        <ol>
+          <li><strong>Dice qué no revisó.</strong> Todo archivo, hoja o control que no se pudo leer o ejecutar aparece al comienzo del informe, con su motivo. Es una condición de cumplimiento total: un solo caso en silencio la incumple.</li>
+          <li><strong>No alarma sin motivo.</strong> Como máximo una señal de prioridad alta cada cinco archivos correctos.</li>
+          <li><strong>Encuentra una parte razonable de los errores comunes.</strong> Al menos la mitad de los errores de totales, escala, signo, período y unidad, señalados en la celda correcta, en los formatos habituales: Excel, CSV y PDF con texto.</li>
+        </ol>
+        <p>Historial de quince mediciones, hasta la versión 0.9.16: cada una usó archivos nuevos que no se habían usado para corregir el motor. Estos resultados no describen la eficacia de la versión actual ni del nuevo lector:</p>
+        <div class="ficha-tabla-wrap"><table class="ficha-tabla">
+          <thead><tr><th>Medición</th><th>Archivos</th><th>Errores en la celda correcta<br><small>Excel · CSV · PDF (el PDF se analizaba directo; desde 0.9.6 pasa por la revisión de lectura)</small></th><th>Alarmas altas en archivos correctos</th><th>Dice qué no revisó</th></tr></thead>
+          <tbody>
+            <tr><td>1.ª · 0.9.0</td><td>76</td><td>94 % · 0 % · 25 %</td><td>4 en 15</td><td>No</td></tr>
+            <tr><td>2.ª · 0.9.1</td><td>91</td><td>86 % · 60 % · 87 %</td><td>1 en 17</td><td>No</td></tr>
+            <tr><td>3.ª · 0.9.2</td><td>87</td><td>82,5 % · 87 % · 87 %</td><td>0 en 17</td><td>No</td></tr>
+            <tr><td>4.ª · 0.9.3</td><td>84</td><td>80 % · 70 % · 67 %</td><td>18 en 18</td><td>No</td></tr>
+            <tr><td>5.ª · 0.9.4</td><td>91</td><td>83 % · 83 % · 75 %</td><td>1 en 18</td><td>No (85 de 91)</td></tr>
+            <tr><td>6.ª · 0.9.6</td><td>92</td><td>90 % · 92 % · 67 %</td><td>1 en 18</td><td>No (90 de 92)</td></tr>
+            <tr><td>7.ª · 0.9.7</td><td>92</td><td>93 % · 100 % · 100 %</td><td>1 en 18</td><td>No (91 de 92)</td></tr>
+            <tr><td>8.ª · 0.9.8</td><td>92</td><td>97 % · 100 % · 92 %</td><td>1 en 18</td><td>No (85 de 92)</td></tr>
+            <tr><td>9.ª · 0.9.9</td><td>92</td><td>97 % · 100 % · 83 %</td><td>0 en 18</td><td>No (90 de 92)</td></tr>
+            <tr><td>10.ª · 0.9.10</td><td>92</td><td>97 % · 100 % · 92 %</td><td>1 en 18</td><td>No (86 de 92)</td></tr>
+            <tr><td>11.ª · 0.9.11</td><td>92</td><td>100 % · 100 % · 92 %</td><td>0 en 18</td><td>No (86 de 92)</td></tr>
+            <tr><td>12.ª · 0.9.12</td><td>92</td><td>100 % · 100 % · 92 %</td><td>1 en 18</td><td>No (86 de 92)</td></tr>
+            <tr><td>13.ª · 0.9.13</td><td>92</td><td>100 % · 100 % · 75 %</td><td>0 en 18</td><td>No (87 de 92)</td></tr>
+            <tr><td>14.ª · 0.9.14</td><td>92</td><td>100 % · 100 % · 92 %</td><td>0 en 18</td><td>No (89 de 92)</td></tr>
+            <tr><td>15.ª · 0.9.16</td><td>92</td><td>100 % · 100 % · 92 %</td><td>0 en 18</td><td>No (90 de 92)</td></tr>
+          </tbody>
+        </table></div>
+        <p>Mínimos fijados: la mitad de los errores en cada formato; como máximo una alarma alta cada cinco archivos correctos; ningún caso sin declarar.</p>
+        <details class="ficha-more"><summary>Detalle de cada medición</summary>
+        <p><strong>Primera medición (03/10/2026, motor multilente-0.9.0).</strong> 76 archivos nuevos, que no se usaron para corregir el motor: 15 correctos, 57 con un error común cada uno y 4 que no se pueden leer.</p>
+        <ul>
+          <li><strong>Dice qué no revisó: no cumple.</strong> Declaró el PDF escaneado, el archivo dañado, las hojas vacías y las fórmulas sin valor guardado, pero en una hoja tomó una fila de datos como encabezado y perdió dos filas sin avisar.</li>
+          <li><strong>No alarma sin motivo: no cumple por poco.</strong> En los 15 archivos correctos hubo un caso de prioridad alta, que reúne cuatro señales (el máximo admitido es tres): un programa presupuestario chico tomado como posible error de escala.</li>
+          <li><strong>Errores comunes en la celda correcta: cumple en Excel, no en CSV ni en PDF.</strong> Excel 31 de 33 (94 %); CSV 0 de 12; PDF con texto 3 de 12 (25 %). En total, 34 de 57 (60 %), pero el criterio se exige en cada formato.</li>
+        </ul>
+        <p>Conclusión: en esa versión no la consideramos usable según sus propios criterios.</p>
+        <p><strong>Segunda medición (03/10/2026, motor multilente-0.9.1).</strong> 91 archivos nuevos, generados después de corregir y distintos de los anteriores en temas y formatos: 18 correctos, 65 con un error común cada uno y 8 que no se pueden leer o tienen una hoja oculta.</p>
+        <ul>
+          <li><strong>Dice qué no revisó: no cumple.</strong> Declaró el PDF escaneado o truncado, el archivo dañado, las hojas vacías, las fórmulas sin valor guardado y la hoja oculta. Pero cuando una hoja tiene un segundo cuadro debajo del primero, o una columna trae la unidad en el encabezado («2024 (miles)»), esa parte quedó sin controlar y el informe no lo dijo. Además, algunos CSV con una línea de título se rechazaron con un motivo inexacto.</li>
+          <li><strong>No alarma sin motivo: cumple.</strong> Una señal de prioridad alta en 17 archivos correctos (el máximo admitido es tres): una fila «Total» leída como período.</li>
+          <li><strong>Errores comunes en la celda correcta: cumple en los tres formatos.</strong> Excel 30 de 35 (86 %); CSV 9 de 15 (60 %); PDF con texto 13 de 15 (87 %). La familia más floja es la unidad mezclada.</li>
+        </ul>
+        <p>Conclusión: todavía no la consideramos usable, porque el primer criterio exige no callar ningún caso. Cuatro puntajes se revisaron a mano después de la corrida y quedaron documentados con su motivo.</p>
+        <p><strong>Tercera y cuarta medición (03/10/2026, motores multilente-0.9.2 y 0.9.3).</strong> Cada una con un conjunto nuevo, de temas distintos de los anteriores: 87 archivos la tercera y 84 la cuarta.</p>
+        <ul>
+          <li><strong>Errores comunes en la celda correcta: cumple en las dos.</strong> Tercera: Excel 33 de 40 (82,5 %), CSV 13 de 15 (86,7 %), PDF 13 de 15 (86,7 %). Cuarta: Excel 20 de 25 (80 %), CSV 7 de 10 (70 %), PDF 10 de 15 (67 %). La unidad mezclada sigue siendo la familia más floja, y en los totales la señal a veces apunta al total general en lugar de a la celda alterada.</li>
+          <li><strong>No alarma sin motivo: cumple en la tercera, no en la cuarta.</strong> Tercera: ninguna señal alta en 17 archivos correctos. Cuarta: 18 señales altas en 18 correctos, casi todas «valor aislado» sobre series sintéticas con saltos bruscos; ese conjunto era más irregular que una serie real, pero el resultado cuenta igual.</li>
+          <li><strong>Dice qué no revisó: no cumple en ninguna.</strong> La tercera declaró todas las partes no leídas, incluidos los cuadros apilados, pero en tres PDF leyó «1.054» como decimal sin avisar (corregido en 0.9.3). La cuarta encontró otros casos en silencio: PDF en inglés con coma de miles leídos como decimales, otra disposición de cuadros apilados, una columna «2025 (p)» descartada, una página escaneada contada como leída y filas de CSV corridas una columna.</li>
+        </ul>
+        <p><strong>Quinta medición (04/10/2026, motor multilente-0.9.4).</strong> 91 archivos nuevos, con series de comportamiento realista (tendencia, estacionalidad y ruido moderado): 18 correctos, 3 correctos volátiles, 54 con un error y 16 de lectura y cobertura.</p>
+        <ul>
+          <li><strong>Errores comunes en la celda correcta: cumple.</strong> Excel 25 de 30 (83 %), CSV 10 de 12 (83 %), PDF 9 de 12 (75 %). Por familia: totales 12 de 12, escala 11 de 12, signo 10 de 10, período 6 de 10, unidad 5 de 10.</li>
+          <li><strong>No alarma sin motivo: cumple.</strong> Una señal alta en 18 archivos correctos (un valor que se repite de verdad en dos años) y ninguna en los 3 volátiles.</li>
+          <li><strong>Dice qué no revisó: no cumple.</strong> 85 de 91 casos bien. En silencio: números guardados como texto en Excel («475.735») leídos como decimales en algunas columnas, y dos archivos (CSV y PDF) en los que el control de cierre de totales no corrió sin decirlo. En otros tres Excel el control no ejecutado se declara, pero no al comienzo del informe.</li>
+        </ul>
+        <p><strong>Sexta medición (14/10/2026, motor multilente-0.9.6).</strong> 92 casos nuevos, de temas que no se habían usado: 18 correctos, 3 correctos volátiles, 54 con un error y 17 de lectura y cobertura. Por primera vez el PDF se midió por el circuito actual: lectura local, revisión de la tabla por una persona (simulada, que confirma lo que ve sin corregirlo) y recién después el análisis.</p>
+        <ul>
+          <li><strong>Errores comunes en la celda correcta: cumple.</strong> Excel 27 de 30 (90 %), CSV 11 de 12 (92 %), PDF 8 de 12 (67 %; 58 % sin el único ajuste manual, documentado). Por familia: escala 12 de 12, signo 10 de 10, totales 11 de 12, período 9 de 10 y unidad 4 de 10: un rubro entero en otra escala, con el total sin recalcular, no se señaló en ninguno de 5 casos (se declaró el cierre como no comprobado).</li>
+          <li><strong>No alarma sin motivo: cumple.</strong> Una señal alta en 18 archivos correctos (dos totales anuales iguales por coincidencia) y ninguna en los 3 volátiles.</li>
+          <li><strong>Dice qué no revisó: no cumple.</strong> 90 de 92 casos bien. En silencio, al comienzo del informe ejecutivo: una hoja oculta con datos (se leyó, pero que estaba oculta figura sólo en el anexo) y celdas «s/d» que impidieron comprobar dos cierres. Además, en siete casos de PDF el aviso estuvo sólo en la pantalla de revisión de lectura y no en el informe: cuadros mensuales con columnas fundidas o sin rótulo, un PDF truncado y uno dañado dentro de una carga con otros archivos.</li>
+        </ul>
+        <p><strong>Séptima medición (14/10/2026, motor multilente-0.9.7).</strong> 92 casos nuevos, de temas que no se habían usado, con el mismo protocolo que la sexta. Esta vez «dice qué no revisó» se juzgó sólo con el informe, sin contar lo que muestra la pantalla de revisión de lectura.</p>
+        <ul>
+          <li><strong>Errores comunes en la celda correcta: cumple.</strong> Excel 28 de 30 (93 %), CSV 12 de 12, PDF 12 de 12. Por familia: totales 12 de 12, escala 12 de 12, período 10 de 10, signo 9 de 10 y unidad 9 de 10 (un rubro mil veces mayor, que quedó unas 50 veces por encima del total, no se señaló).</li>
+          <li><strong>No alarma sin motivo: cumple.</strong> Una señal alta en 18 archivos correctos (un valor que se repite de verdad en dos meses) y ninguna en los volátiles.</li>
+          <li><strong>Dice qué no revisó: no cumple.</strong> 91 de 92 casos bien. En silencio: cifras guardadas como texto con una llamada de nota pegada («171.535*») se leyeron mil veces más chicas y el informe presentó ese error de lectura como una consulta para el área. Además, un PDF truncado no genera informe y el aviso queda sólo en la pantalla de revisión. Se declararon bien las hojas, filas y columnas ocultas, las celdas «s/d» y «-», los números como texto, el PDF mensual, el PDF en inglés, el PDF escaneado y la carga mixta con un PDF derivado a revisión.</li>
+        </ul>
+        <p><strong>Octava medición (14/10/2026, motor multilente-0.9.8).</strong> 92 casos nuevos, con el mismo protocolo que la séptima. Esta vez los 17 casos de lectura se armaron a propósito con situaciones que no se habían usado en ninguna medición anterior.</p>
+        <ul>
+          <li><strong>Errores comunes en la celda correcta: cumple.</strong> Excel 29 de 30 (97 %), CSV 12 de 12, PDF 11 de 12 (92 %). Por familia: totales 12 de 12, unidad 10 de 10, signo 10 de 10, escala 11 de 12 (un valor diez veces mayor en el primer año sólo tuvo una señal de contexto) y período 9 de 10 (un año repetido en el encabezado de un PDF se marcó en la pantalla de revisión pero no llegó al informe).</li>
+          <li><strong>No alarma sin motivo: cumple.</strong> Una señal alta en 18 archivos correctos (un valor que se repite por azar en dos meses) y ninguna en los volátiles.</li>
+          <li><strong>Dice qué no revisó: no cumple.</strong> 85 de 92 casos bien; los 75 casos comunes, todos bien. Los siete en silencio son situaciones de lectura nuevas: meses escritos como texto («enero de 2025»), un CSV con una comilla sin cerrar que se tragó la mitad de las cifras, un encabezado repetido a mitad de un CSV tomado como un registro, celdas combinadas en vertical que dejaron filas sin su rótulo, y tres PDF: dos cuadros en una página (la revisión no propuso ninguna tabla), un cuadro impreso de costado (leído desarmado) y el signo «−» tipográfico (esas celdas llegaron vacías).</li>
+        </ul>
+        <p><strong>Novena medición (15/10/2026, motor multilente-0.9.9).</strong> 92 casos nuevos, con el mismo protocolo y, otra vez, 17 situaciones de lectura que no se habían usado. Es la primera medición con la salvaguarda de cifras: el informe compara las cifras del archivo original con las que efectivamente se analizaron y declara cualquier pérdida al comienzo.</p>
+        <ul>
+          <li><strong>Errores comunes en la celda correcta: cumple.</strong> Excel 29 de 30 (97 %), CSV 12 de 12, PDF 10 de 12 (83 %). En dos de los PDF la señal estaba en la celda correcta (un año repetido en el encabezado y una columna con rótulos fundidos), pero la regla automática de puntaje no la reconoció por el nombre de la columna; ubicada por posición, PDF da 12 de 12. El fallo real: un valor diez veces mayor en el primer año sólo tuvo una señal de contexto, como en la octava.</li>
+          <li><strong>No alarma sin motivo: cumple.</strong> Ninguna señal alta en 18 archivos correctos ni en los volátiles.</li>
+          <li><strong>Dice qué no revisó: no cumple.</strong> 90 de 92 casos bien, frente a 85 en la octava. En silencio: un CSV con cifras en notación científica («4.203222e+06»), que no se leyeron y que la salvaguarda tampoco reconoció como cifras, y un PDF en el que la lectura fundió dos rótulos de fila: las cifras llegaron bien, pero no se sabe cuál es cuál y el informe no lo dice (caso leve; con la regla más favorable, 91 de 92). Además, un PDF que se abre sin clave y sólo restringe copiar e imprimir se rechazó pidiendo «una copia sin contraseña»: cuenta como rechazo con motivo, pero el motivo es inexacto.</li>
+        </ul>
+        <p><strong>Décima medición (15/10/2026, motor multilente-0.9.10).</strong> 92 casos nuevos, con el mismo protocolo y otras 17 situaciones de lectura que no se habían usado.</p>
+        <ul>
+          <li><strong>Errores comunes en la celda correcta: cumple.</strong> Excel 29 de 30 (97 %), CSV 12 de 12, PDF 11 de 12 (92 %; 12 de 12 ubicando la celda por posición). El fallo real, por tercera medición seguida: un valor diez veces mayor en el primer año, con el total recalculado, sólo tuvo una señal de contexto.</li>
+          <li><strong>No alarma sin motivo: cumple.</strong> Una señal alta en 18 archivos correctos (un valor que se repite de verdad en dos meses) y ninguna en los volátiles.</li>
+          <li><strong>Dice qué no revisó: no cumple.</strong> 86 de 92 casos bien (89 de 92 sin contar tres casos leves, en los que las cifras llegan bien y sólo se leen mal los rótulos). En silencio: un CSV con líneas de comentario «#» entre las filas, tomadas como un registro más; un PDF cuyo cuadro sigue en la página siguiente sin repetir el encabezado, donde la primera fila de esa página se tomó como encabezado y sus cifras no se analizaron; y un CSV cortado a mitad de una línea, analizado como si estuviera completo. La salvaguarda de cifras no los alcanzó: en el primero sobra un registro en lugar de faltar cifras, en el segundo las cifras entran en la tabla pero no al análisis, y en el tercero el archivo original ya llega incompleto.</li>
+        </ul>
+        <p><strong>Undécima medición (15/10/2026, motor multilente-0.9.11).</strong> 92 casos nuevos, con el mismo protocolo y otras 17 situaciones de lectura que no se habían usado.</p>
+        <ul>
+          <li><strong>Errores comunes en la celda correcta: cumple.</strong> Excel 30 de 30, CSV 12 de 12, PDF 11 de 12 (92 %; 12 de 12 ubicando la celda por posición: la señal estaba en el rótulo de período repetido, que la revisión de lectura renombra). El valor diez veces mayor en el primer año, que fallaba desde la octava, ya se señala en la celda.</li>
+          <li><strong>No alarma sin motivo: cumple.</strong> Ninguna señal alta en 18 archivos correctos ni en los volátiles.</li>
+          <li><strong>Dice qué no revisó: no cumple.</strong> 86 de 92 casos bien. Tres silencios no admiten discusión: una columna «Circuito» descartada sin aviso porque la regla que protege datos personales la confundió con un CUIT; un CSV con cifras exportadas como <code>="12345"</code>, que quedaron como texto; y un PDF con llamadas de nota en superíndice pegadas a las cifras («9.857» y su llamada «1» leídos como «9.8571»). Además, dos discutibles (cifras con la unidad pegada, «120 ha», y un PDF sin tabla propuesta en el que la salvaguarda contó sólo las cifras de los párrafos) y uno leve (rótulos de columna en inglés mal partidos).</li>
+        </ul>
+        <p><strong>Duodécima medición (15/10/2026, motor multilente-0.9.12).</strong> 92 casos nuevos, con el mismo protocolo y otras 17 situaciones de lectura que no se habían usado.</p>
+        <ul>
+          <li><strong>Errores comunes en la celda correcta: cumple.</strong> Excel 30 de 30, CSV 12 de 12, PDF 11 de 12 (92 %; 12 de 12 ubicando la celda por posición: otra vez la señal estaba en el rótulo de período repetido, que la revisión de lectura renombra).</li>
+          <li><strong>No alarma sin motivo: cumple.</strong> Una señal alta en 18 archivos correctos (un valor que se repite de verdad en dos años) y ninguna en los volátiles.</li>
+          <li><strong>Dice qué no revisó: no cumple.</strong> 86 de 92 casos bien. Un silencio no admite discusión: un CSV cuya última columna era un período parcial («Ene-jun 2025») quedó fuera de los controles sin aviso, mientras el informe decía que no habían quedado partes sin leer. Tres son discutibles: columnas de coeficiente de variación («CV (%)») intercaladas entre los años, tomadas como períodos mal rotulados y convertidas en consultas altas al área; y dos PDF cuyas cifras no estaban en el texto de la página (en campos de formulario, y en un cuadro pegado como imagen), que la revisión de lectura mostró sin tablas y sin decir por qué. Dos son leves: en una página a dos columnas entró al cuadro texto de la columna vecina, y el rótulo «Mar del Plata» se leyó «del Plata».</li>
+        </ul>
+        <p><strong>Decimotercera medición (16/10/2026, motor multilente-0.9.13).</strong> 92 casos nuevos, con el mismo protocolo y otras 17 situaciones de lectura que no se habían usado.</p>
+        <ul>
+          <li><strong>Errores comunes en la celda correcta: cumple.</strong> Excel 30 de 30, CSV 12 de 12, PDF 9 de 12 (75 %; 12 de 12 ubicando la celda por posición: en los tres casos la señal estaba en la celda del error, pero la lectura había cambiado el rótulo de la columna).</li>
+          <li><strong>No alarma sin motivo: cumple.</strong> Ninguna señal alta en 18 archivos correctos ni en los volátiles.</li>
+          <li><strong>Dice qué no revisó: no cumple.</strong> 87 de 92 casos bien. Dos silencios no admiten discusión: un CSV con punto decimal («12.345» era doce coma tres) leído como miles, mil veces mayor, con el aviso sólo en el anexo; y un PDF que traía la serie completa como archivo adjunto, que no se leyó ni se mencionó. Uno es discutible: un PDF cuyo texto, al copiarse, sale ilegible (se ve bien, pero sus letras están mal codificadas), que la revisión de lectura mostró sin tablas y sin aviso. Dos son leves: años guardados como fechas del 1 de enero, rotulados como meses, y dos indicadores apilados en un mismo CSV, con un motivo inexacto para los cierres que no se comprobaron.</li>
+        </ul>
+        <p><strong>Decimocuarta medición (16/10/2026, motor multilente-0.9.14).</strong> 92 casos nuevos, con el mismo protocolo y otras 17 situaciones de lectura que no se habían usado.</p>
+        <ul>
+          <li><strong>Errores comunes en la celda correcta: cumple.</strong> Excel 30 de 30, CSV 12 de 12, PDF 11 de 12 (92 %; 12 de 12 ubicando la celda por posición: otra vez la señal estaba en el rótulo de período repetido, que la revisión de lectura renombra).</li>
+          <li><strong>No alarma sin motivo: cumple.</strong> Ninguna señal alta en 18 archivos correctos ni en los volátiles.</li>
+          <li><strong>Dice qué no revisó: no cumple.</strong> 89 de 92 casos bien, el mejor resultado hasta ahora, y ningún silencio indiscutible. Dos son discutibles: porcentajes de un Excel leídos como la fracción guardada (0,304 en lugar de 30,4 %) sin aviso, y un archivo «.csv» que en realidad era la página web de inicio de sesión de un portal, analizado como si fuera un cuadro. Uno es leve: en un PDF con la región en una celda combinada vertical, el nombre quedó sólo en una fila de cada grupo, aunque las cifras y los cierres estaban bien.</li>
+        </ul>
+        <p><strong>Decimoquinta medición (17/10/2026, motor multilente-0.9.16).</strong> 92 casos nuevos, con el mismo protocolo y otras 17 situaciones de lectura que no se habían usado.</p>
+        <ul>
+          <li><strong>Errores comunes en la celda correcta: cumple.</strong> Excel 30 de 30, CSV 12 de 12, PDF 11 de 12 (92 %; 12 de 12 ubicando la celda por posición).</li>
+          <li><strong>No alarma sin motivo: cumple.</strong> Ninguna señal alta en 18 archivos correctos ni en los volátiles.</li>
+          <li><strong>Dice qué no revisó: no cumple.</strong> 90 de 92 casos bien, el mejor resultado hasta ahora, y ningún silencio indiscutible. Dos son discutibles: un CSV con códigos de un instituto de estadística como rótulo de fila, en el que las cifras y los cierres salieron bien pero las filas perdieron el nombre, y un PDF con 19 celdas «#####» del que el comienzo del informe declaró sólo 5.</li>
+        </ul>
+        </details>
+        <p>Conclusión de las quince mediciones de la tabla, con la vara de un auditor —los tres criterios a la vez, incluido no dejar nada sin declarar—: ninguna versión los cumplió. Gobernanza no está hecha para esa vara sino para la de una segunda mirada: avisar lo que no mira, que lo que marca valga la pena revisarlo y echar luz sobre algo que antes no se miraba. Con esa vara la aplicación 0.10.23 es usable; los números están al comienzo de esta ficha, en «Qué podés esperar, medido». De la sexta a la decimoquinta se cumplieron dos: no alarma sin motivo, y la detección de errores comunes supera el mínimo en los tres formatos, también en PDF por la revisión de lectura (entre 67 % y 100 %). En Excel se sostuvo pareja en las quince mediciones (entre 80 % y 100 %); en CSV y en PDF con texto fue irregular a lo largo de las mediciones (de 0 % a 100 %). En la séptima, el primer criterio falló por un solo caso; en la octava, con situaciones de lectura nuevas a propósito, por siete. Por eso se agregó una salvaguarda que compara lo que había en el archivo con lo que efectivamente se analizó y declara cualquier diferencia, aunque no sepa por qué se produjo. En la novena, también con situaciones nuevas, los casos en silencio bajaron a dos; en la décima fueron seis, tres de ellos leves, en la undécima otros seis, tres de ellos indiscutibles, en la duodécima también seis, uno solo indiscutible, en la decimotercera cinco, dos de ellos indiscutibles, en la decimocuarta tres, ninguno indiscutible, y en la decimoquinta quedaron dos casos sin declarar. Cada conjunto trae formas nuevas de leer mal un archivo: el criterio no se cambia, y lo que se corrige es la salvaguarda, para que alcance a más de esas formas sin tener que anticiparlas una por una. La próxima medición se hará, otra vez, con archivos nuevos y situaciones de lectura que no se hayan usado.</p>
+        <p class="ficha-note">Cumplirlas no significa que detecte todos los errores: habilita a usarla como complemento, no como garantía. El resultado de cada medición se publica, también cuando no las cumple.</p>
+        <h3 id="validacion-externa">Primera validación con errores reales</h3>
+        <p>Las mediciones anteriores usan archivos armados para la prueba. El 16/10/2026 se midió por primera vez el motor (multilente-0.9.15) con errores reales de publicaciones oficiales que luego se corrigieron: seis errores de publicaciones presupuestarias de dos ministerios de economía de la región (una serie de gasto social en tres ediciones y una rendición de cuentas), más siete controles que no debían alarmar (las ediciones corregidas y una serie de gasto consolidado). Con la vara de un auditor el resultado es bajo; como segunda mirada, señaló en su celda dos de esos errores reales y, en la edición corregida, un descuadre real que nadie había señalado. Se publica completo:</p>
+        <ul>
+          <li><strong>Detección: 2 de 6.</strong> Señaló en la celda un subtotal vacío y un bloque de valores corridos. No vio: un bloque de provincias con las filas corridas (no armó ese cierre), una fila cuyo total no suma por un dígito perdido (no reconoció la jerarquía 1 / 1.1 / 1.1.1, y lo declaró), una incoherencia entre precios corrientes y constantes (no tiene ese control) y un cuadro de préstamos en otra moneda (la revisión de lectura no logró armar el cuadro de ese PDF, y lo avisó).</li>
+          <li><strong>Falsas alarmas: 2 de 7 controles.</strong> En la serie de gasto consolidado marcó un cambio de escala en 1987 que la planilla aclara en una nota («hasta 1986, miles de pesos; desde 1987, millones»). En la edición corregida de la serie de gasto social, en cambio, sus alarmas sobre 2017 eran un descuadre real que nadie había señalado.</li>
+          <li><strong>Dice qué no revisó: 9 de 10 juicios claros.</strong> En el caso de las filas corridas informó cientos de cierres verificados sin decir que ese bloque quedó afuera.</li>
+        </ul>
+        <p>Es una muestra chica y con sesgo: tres de los seis errores vienen de la misma familia de planillas, y varios errores documentados por los organismos no se pueden ver desde la página porque los totales se recalcularon. Aun así muestra lo que las mediciones con archivos armados no mostraban: con planillas oficiales reales, la lectura de PDF y el reconocimiento de jerarquías de cuentas son el punto débil. Los arreglos que salgan de esta validación no se pueden medir otra vez con los mismos archivos: la próxima validación externa usará errores nuevos.</p>
+        <h3 id="validacion-externa-2-3">Segunda y tercera validación con errores reales</h3>
+        <p>El 17/10/2026 se repitió la prueba con errores nuevos, de otros organismos, con el motor multilente-0.9.16 y el diseño fijado por escrito antes de correrlo. Los errores son reales: el propio organismo los corrigió después, según una fe de erratas o al comparar dos versiones del mismo archivo, y se analizaron la versión con error y la corregida.</p>
+        <ul>
+          <li><strong>Informes en PDF de dos institutos nacionales de estadística: 0 de 6.</strong> Cuatro de los seis errores requerían controles que la herramienta no tiene: un rótulo que contradice el título, un dato que contradice la nota metodológica, un cociente entre cuadros y un acumulado que sólo se ve con otra edición. En los otros dos la tabla se leyó, pero no se reconoció como total una fila que no se llama «Total» ni como serie un cuadro con el año sólo en la primera fila. Hubo falsas alarmas en 4 de 8 controles. En uso real, la tabla de un PDF la revisa y corrige una persona antes del análisis; en esta prueba se confirmó tal como se leyó. El PDF es, hoy, el punto más débil de la herramienta.</li>
+          <li><strong>Planillas Excel de organismos nacionales y provinciales de estadística y de presupuesto: 2 de 8.</strong> Señaló en la celda un valor diez veces menor y un dígito de menos. No vio un trimestre repetido, una escala mil veces menor, un saldo que no cierra ni un «Saldo bruto» que no suma sus sectores, y ese último cuadro no se mencionó en el informe. Hubo falsas alarmas en 6 de 10 controles: en los libros de balanza de pagos, con los períodos en columnas y flujos que pueden ser negativos, entre 400 y 500 alarmas altas por libro.</li>
+        </ul>
+        <p>Con esos resultados se corrigió el motor (multilente-0.9.17, aplicación 0.9.21). Con las mismas planillas Excel detecta 3 de 8, las falsas alarmas quedan en 1 de 10 controles y bajan a menos de 100 por libro de balanza de pagos; en 63 planillas oficiales vigentes y correctas, las alarmas altas bajaron de 4.418 a 2.000. Como esos arreglos salen de los mismos archivos, estas cifras no prueban la mejora frente a planillas nuevas: la próxima validación usará otros errores. La lección de estas pruebas es que las mediciones con archivos armados no reflejaban la forma de las planillas oficiales; por eso la calibración pasa a hacerse sobre un banco de planillas oficiales reales, que se usan sólo para medir y no se redistribuyen.</p>
+        <h3 id="validacion-externa-4-5">Cuarta y quinta validación con errores reales nuevos</h3>
+        <p>El 20/10/2026 se midió con errores que ningún motor había visto, con el diseño y las metas fijados por escrito antes de correr. La meta era detectar al menos la mitad y dar falsas alarmas en a lo sumo uno de cada cinco controles. No se cumplió, y se publica igual:</p>
+        <ul>
+          <li><strong>Cuarta validación (planillas Excel de un instituto nacional de estadística y de un ministerio de economía provincial): 0 de 5,</strong> con la versión 0.9.21.1, con la 0.9.22 y con el sondeo previo. Falsas alarmas en 5 de 9 controles. Los cinco errores eran relaciones que la planilla no declara: un acumulado que suma un mes de menos, un subtotal que incluye un préstamo ajeno, un saldo que no es exportación menos importación, ceros en un índice y un dato de un censo que repite el del anterior. Una hoja no se pudo leer y se declaró.</li>
+          <li><strong>Quinta validación: 0 de 2</strong> (un total de pernoctaciones cargado a mano en una encuesta hotelera oficial y un tipo de cambio semanal repetido en una serie financiera oficial). Sin el sondeo hubo falsas alarmas en 2 de 5 controles; con el sondeo, en ninguno. Encontrar errores reales nuevos es difícil: en tres horas de búsqueda sobre cientos de versiones oficiales aparecieron sólo dos, y casi todos los cambios entre versiones son revisiones normales.</li>
+        </ul>
+        <p>Lo que enseñaron sobre esas versiones: controlar lo que el cuadro declara (totales rotulados, códigos, fórmulas) no alcanza para reconocer todas sus relaciones de significado. Desde la aplicación 0.9.22, antes de presentar las señales de una hoja, un sondeo previo revisa si la lectura es confiable: si una misma regla salta en muchos lugares distintos, es más probable que el cuadro se haya leído mal que una hoja con decenas de errores, aunque también puede ser un error de plantilla repetido; como el sondeo no puede distinguirlos, esa parte se declara al comienzo como «sin controlar». En 63 planillas oficiales correctas, las alarmas altas pasaron de 2.000 a 276; con 123 errores insertados en ellas se detectan 80, uno menos que sin el sondeo. En ese corte se estaba probando un lector separado y todavía no había detectado errores en los casos nuevos de esa prueba. Desde la aplicación 0.9.24, el <a href="#lector-del-cuadro">lector del cuadro</a> forma parte del análisis: propone relaciones y las reglas las comprueban. Las correcciones posteriores de acuerdo y confirmación ya están incorporadas; su evaluación amplia sigue pendiente de resultados.</p>
+        <h3 id="verificacion-independiente">Dos comprobaciones con métodos independientes del motor</h3>
+        <p>No miden la detección en casos externos (para eso está la validación de arriba): buscan descartar que el resultado dependa de rasgos irrelevantes del archivo o que coincida con lo esperado sólo porque el motor y sus pruebas comparten los mismos supuestos.</p>
+        <ul>
+          <li><strong>Pruebas de invariancia.</strong> Los tres libros del banco con alteraciones sembradas (25 en total) se sometieron a seis transformaciones que no cambian su contenido: otro nombre de archivo, hojas renombradas, orden de las hojas invertido, el contenido desplazado dos filas y una columna, los números multiplicados por 1000 salvo los años, y fórmulas reemplazadas por sus valores. En las 18 corridas, con el motor multilente-0.9.4, se señalaron las 25 alteraciones. En las cinco primeras transformaciones las señales de control fueron idénticas, celda por celda; en la última sólo desaparecieron dos avisos de «valor fijo distinto de la fórmula», que no pueden darse cuando el libro ya no tiene fórmulas.</li>
+          <li><strong>Verificador independiente.</strong> Un segundo programa, que no importa código de la aplicación, no lee encabezados ni palabras como «Total»: descubre por fuerza bruta qué filas suman a otra, recalcula las fórmulas con un evaluador propio y busca valores atípicos con otro criterio. Señaló las 25 alteraciones y, sobre un cuadro oficial de gasto social sin alterar, llegó por separado a las mismas cuatro inconsistencias aritméticas que el motor.</li>
+        </ul>
+        <p>Las diferencias entre ambos son de criterio, no de cálculo: el motor marca picos en series chicas y volátiles que el verificador no marca; el verificador marca diferencias menores al 0,2 % que el motor trata como redondeo de la fuente.</p>
+        <p class="ficha-note">Las hizo el mismo equipo que desarrolla la herramienta, sobre archivos de una misma familia, y no reemplazan la prueba ciega externa. Un segundo programa del mismo autor reduce, pero no elimina, el riesgo de supuestos compartidos.</p>
+        <h3 id="limites">Una observación abre una pregunta, no una conclusión sancionatoria</h3>
+        <ul class="detail-limits">
+          <li>No decide, firma, aprueba ni sanciona.</li>
+          <li>La lectura automática no es auditoría, certificación de veracidad ni herramienta antifraude.</li>
+          <li>No atribuye responsabilidades ni determina irregularidades.</li>
+          <li>No evalúa mérito, oportunidad o conveniencia de una decisión.</li>
+          <li>No sustituye controles internos, criterio profesional o asesoramiento jurídico.</li>
+          <li>No garantiza que un informe esté libre de errores; lo no evaluado no equivale a control superado.</li>
+        </ul>
+      </section>
+
+      <section class="ficha-block" id="prueba-detalle">
+        <div class="section-kicker">06 · Validación institucional y documentación</div>
+        <h2>Probar utilidad, ajustes o falta de valor en un contexto concreto.</h2>
+        <p>Se propone una evaluación con informes ya cerrados y resultado conocido, sin intervenir sobre decisiones reales ni integrar inicialmente sistemas internos. La organización o el organismo y el equipo acuerdan antes de empezar la cantidad de casos, duración, permisos, proveedores y criterios de evaluación.</p>
+        <div class="ficha-cols3">
+          <article class="ficha-card"><h4>Comparación</h4><p>Qué señaló la herramienta y qué observó un evaluador humano.</p></article>
+          <article class="ficha-card"><h4>Errores y omisiones</h4><p>Hallazgos útiles, falsas alarmas y señales que no detectó.</p></article>
+          <article class="ficha-card"><h4>Uso</h4><p>Tiempo requerido, claridad de las preguntas y utilidad para quien decide.</p></article>
+        </div>
+        <p class="detail-callout">La evaluación puede concluir que la herramienta aporta valor, que necesita ajustes o que no aporta valor suficiente para ese contexto. Los tres son resultados válidos.</p>
+        <p><strong>Condiciones económicas:</strong> cualquier costo o gratuidad debe acordarse para el alcance concreto del piloto. Esta ficha no constituye una oferta abierta de trabajo gratuito.</p>
+        <p id="contacto-detalle">Escribí a <strong>Maximiliano Pérez</strong>: <span style="overflow-wrap: anywhere">maximilianoperez1981@gmail.com</span>.</p>
+
+        <h3 id="documentacion">Fuentes y estado de publicación</h3>
+        <div class="resource-grid">
+          <article class="resource-card"><strong>Documento principal v__DOCUMENT_VERSION__</strong><p>Publicado en Zenodo el 25/10/2026. El DOI de esta versión identifica exactamente este texto; el DOI de la serie reúne todas las versiones y resuelve siempre a la más reciente. Este sitio no distribuye el archivo.</p><a class="text-link" href="https://doi.org/10.5281/zenodo.23649172" target="_blank" rel="noopener noreferrer">Esta versión: doi.org/10.5281/zenodo.23649172 →</a><br><a class="text-link" href="https://doi.org/10.5281/zenodo.22063241" target="_blank" rel="noopener noreferrer">Serie completa: doi.org/10.5281/zenodo.22063241 →</a></article>
+          <article class="resource-card"><strong>ORCID</strong><p>Identidad académica de Maximiliano Pérez.</p><a class="text-link" href="https://orcid.org/0000-0003-1802-5751" target="_blank" rel="noopener noreferrer">Ver ORCID →</a></article>
+          <article class="resource-card"><strong>Licencia MIT</strong><p>El código es abierto, de OPEN LAB (Universidad Nacional de Quilmes).</p><a class="text-link" href="https://opensource.org/license/mit" target="_blank" rel="noopener noreferrer">Ver licencia →</a></article>
+          <article class="resource-card"><strong>Licencia CC BY 4.0</strong><p>La metodología y la documentación se comparten con atribución.</p><a class="text-link" href="https://creativecommons.org/licenses/by/4.0/deed.es" target="_blank" rel="noopener noreferrer">Ver licencia →</a></article>
+        </div>
+        <p class="detail-antecedent"><strong>Trayectoria previa, proyecto distinto:</strong> una iniciativa de una institución de salud y OPEN LAB, proyecto de extensión de la UNQ, fue premiada en <a href="https://www.iadb.org/es/quienes-somos/temas/modernizacion-del-estado/iniciativas/gobernarte/gobernarte-2025" target="_blank" rel="noopener noreferrer">Gobernarte 2025 del BID</a>. Gobernanza Multilente es un desarrollo distinto de esa iniciativa; ese antecedente no demuestra su eficacia. Una actividad formativa con personal de una institución tampoco equivale a adopción o validación institucional.</p>
+      </section>
+
+      </div>
+    </div>
+      <a class="back-top" href="#inicio-detalle" aria-label="Subir al principio de la ficha">↑ Arriba</a>

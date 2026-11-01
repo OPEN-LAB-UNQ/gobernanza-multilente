@@ -1,0 +1,274 @@
+[
+  {
+    "archivo": "/samples/caso-1-v2-sin-senal.xlsx",
+    "nombre": "Ejecución consistente",
+    "descripcion": "Mes a mes, el pagado queda por debajo del devengado y ambos dentro del crédito vigente.",
+    "opciones": {
+      "dominio": "presupuestario",
+      "revisar_formulas_excel": false,
+      "inferir_patrones_calculo": false,
+      "revisar_metodo_calculo": false,
+      "alcance_series": "auto"
+    },
+    "estado": "correcto",
+    "columna": "bueno",
+    "caso": "1. Orden presupuestario",
+    "tema": "Pagado, devengado y crédito vigente",
+    "orden": 1
+  },
+  {
+    "archivo": "/samples/caso-1-v2-con-senal.xlsx",
+    "nombre": "Pagado supera devengado",
+    "descripcion": "En marzo, el pagado (610) supera al devengado (520) del mismo programa. Es el único dato que cambia respecto del archivo sin señal.",
+    "opciones": {
+      "dominio": "presupuestario",
+      "revisar_formulas_excel": false,
+      "inferir_patrones_calculo": false,
+      "revisar_metodo_calculo": false,
+      "alcance_series": "auto"
+    },
+    "estado": "incorrecto",
+    "columna": "malo",
+    "caso": "1. Orden presupuestario",
+    "tema": "Pagado, devengado y crédito vigente",
+    "orden": 1
+  },
+  {
+    "archivo": "/samples/correcto-servicios-mensuales.xlsx",
+    "nombre": "Totales de servicio cierran",
+    "descripcion": "En todos los meses se cumple consultas = resueltas + pendientes.",
+    "opciones": {
+      "dominio": "general",
+      "revisar_formulas_excel": false,
+      "inferir_patrones_calculo": false,
+      "revisar_metodo_calculo": false,
+      "alcance_series": "auto"
+    },
+    "estado": "correcto",
+    "columna": "bueno",
+    "caso": "2. Cierre operativo",
+    "tema": "Cierre de consultas, resueltas y pendientes",
+    "orden": 2
+  },
+  {
+    "archivo": "/samples/incorrecto-servicios-no-cierran.xlsx",
+    "nombre": "Totales de servicio no cierran",
+    "descripcion": "En abril, 525 resueltas + 42 pendientes suma 567 y no coincide con las 560 consultas declaradas.",
+    "opciones": {
+      "dominio": "general",
+      "revisar_formulas_excel": false,
+      "inferir_patrones_calculo": false,
+      "revisar_metodo_calculo": false,
+      "alcance_series": "auto"
+    },
+    "estado": "incorrecto",
+    "columna": "malo",
+    "caso": "2. Cierre operativo",
+    "tema": "Cierre de consultas, resueltas y pendientes",
+    "orden": 2
+  },
+  {
+    "archivo": "/samples/correcto-devengado-bajo-credito.xlsx",
+    "nombre": "Devengado dentro del crédito",
+    "descripcion": "Pagado y devengado permanecen por debajo del crédito vigente en todos los períodos.",
+    "opciones": {
+      "dominio": "presupuestario",
+      "revisar_formulas_excel": false,
+      "inferir_patrones_calculo": false,
+      "revisar_metodo_calculo": false,
+      "alcance_series": "auto"
+    },
+    "estado": "correcto",
+    "columna": "bueno",
+    "caso": "3. Límite de crédito",
+    "tema": "Devengado dentro del crédito vigente",
+    "orden": 3
+  },
+  {
+    "archivo": "/samples/incorrecto-devengado-mayor-credito.xlsx",
+    "nombre": "Devengado supera crédito",
+    "descripcion": "El gasto devengado queda por encima del crédito vigente. Debería escalar prioridad.",
+    "opciones": {
+      "dominio": "presupuestario",
+      "revisar_formulas_excel": false,
+      "inferir_patrones_calculo": false,
+      "revisar_metodo_calculo": false,
+      "alcance_series": "auto"
+    },
+    "estado": "incorrecto",
+    "columna": "malo",
+    "caso": "3. Límite de crédito",
+    "tema": "Devengado dentro del crédito vigente",
+    "orden": 3
+  },
+  {
+    "archivo": "/samples/caso-4-v2-sin-senal.xlsx",
+    "nombre": "Acumulados sin retrocesos",
+    "descripcion": "El ejecutado y el pagado acumulados crecen o se mantienen en todos los meses.",
+    "opciones": {
+      "dominio": "general",
+      "revisar_formulas_excel": false,
+      "inferir_patrones_calculo": false,
+      "revisar_metodo_calculo": false,
+      "alcance_series": "auto"
+    },
+    "estado": "sin_senal",
+    "columna": "bueno",
+    "caso": "4. Lectura temporal",
+    "tema": "Acumulados y continuidad de serie",
+    "orden": 4
+  },
+  {
+    "archivo": "/samples/caso-4-v2-con-senal.xlsx",
+    "nombre": "Acumulado retrocede",
+    "descripcion": "En abril, el ejecutado acumulado baja de 340 a 310 y el pagado acumulado de 315 a 295: un acumulado no debería retroceder sin una anulación que lo explique.",
+    "opciones": {
+      "dominio": "general",
+      "revisar_formulas_excel": false,
+      "inferir_patrones_calculo": false,
+      "revisar_metodo_calculo": false,
+      "alcance_series": "auto"
+    },
+    "estado": "con_senal",
+    "columna": "malo",
+    "caso": "4. Lectura temporal",
+    "tema": "Acumulados y continuidad de serie",
+    "orden": 4
+  },
+  {
+    "archivo": "/samples/caso-5-v2-sin-senal.xlsx",
+    "nombre": "Fórmulas consistentes",
+    "descripcion": "Todas las filas calculan el promedio ponderado (15 %, 15 %, 20 % y 50 %) y la condición con la misma fórmula. Grupos y notas sintéticos: no es una decisión sobre estudiantes.",
+    "opciones": {
+      "dominio": "general",
+      "revisar_formulas_excel": true,
+      "inferir_patrones_calculo": false,
+      "revisar_metodo_calculo": true,
+      "alcance_series": "auto"
+    },
+    "estado": "correcto",
+    "columna": "bueno",
+    "caso": "5. Fórmulas y método",
+    "tema": "Fórmulas sobre datos de grupos sintéticos",
+    "orden": 5
+  },
+  {
+    "archivo": "/samples/caso-5-v2-con-senal.xlsx",
+    "nombre": "Fórmula alterada y valor pegado",
+    "descripcion": "En G4 el promedio pasa a ser simple (con estas notas da el mismo 7, pero cambió el método) y en H3 la condición quedó escrita a mano, «Promociona», donde la fórmula da REGULAR. Grupos y notas sintéticos.",
+    "opciones": {
+      "dominio": "general",
+      "revisar_formulas_excel": true,
+      "inferir_patrones_calculo": false,
+      "revisar_metodo_calculo": true,
+      "alcance_series": "auto"
+    },
+    "estado": "incorrecto",
+    "columna": "malo",
+    "caso": "5. Fórmulas y método",
+    "tema": "Fórmulas sobre datos de grupos sintéticos",
+    "orden": 5
+  },
+  {
+    "archivo": "/samples/caso-6-v2-sin-senal.xlsx",
+    "nombre": "Avances acompañados",
+    "descripcion": "El avance físico y los productos entregados acompañan al avance financiero en todos los meses.",
+    "opciones": {
+      "dominio": "general",
+      "revisar_formulas_excel": false,
+      "inferir_patrones_calculo": false,
+      "revisar_metodo_calculo": false,
+      "alcance_series": "auto"
+    },
+    "estado": "sin_senal",
+    "columna": "bueno",
+    "caso": "6. Coherencia sistémica",
+    "tema": "Avance físico, financiero y producción",
+    "orden": 6
+  },
+  {
+    "archivo": "/samples/caso-6-v2-con-senal.xlsx",
+    "nombre": "Avance financiero sin avance físico",
+    "descripcion": "Desde marzo el avance financiero sigue subiendo (de 58 % a 95 %) mientras el físico queda casi quieto (de 34 % a 38 %).",
+    "opciones": {
+      "dominio": "general",
+      "revisar_formulas_excel": false,
+      "inferir_patrones_calculo": false,
+      "revisar_metodo_calculo": false,
+      "alcance_series": "auto"
+    },
+    "estado": "con_senal",
+    "columna": "malo",
+    "caso": "6. Coherencia sistémica",
+    "tema": "Avance físico, financiero y producción",
+    "orden": 6
+  },
+  {
+    "archivo": "/samples/correcto-historial-presupuestario.xlsx",
+    "nombre": "Serie estable en el tiempo",
+    "descripcion": "Devengado y pagado se mantienen estables mes a mes; no hay desvío frente al historial interno. No prueba Radiólogo: no se aportan preinformes. Importes mensuales, no acumulados.",
+    "opciones": {
+      "dominio": "presupuestario",
+      "revisar_formulas_excel": false,
+      "inferir_patrones_calculo": false,
+      "revisar_metodo_calculo": false,
+      "alcance_series": "auto"
+    },
+    "estado": "sin_senal",
+    "columna": "bueno",
+    "caso": "7. Evolución dentro del archivo",
+    "tema": "Desvío contra el historial interno del archivo",
+    "orden": 7
+  },
+  {
+    "archivo": "/samples/incorrecto-desvio-historico.xlsx",
+    "nombre": "Desvío fuerte contra el historial",
+    "descripcion": "El último período se dispara muy por fuera del rango de los cinco períodos previos. No prueba Radiólogo: no se aportan preinformes. Importes mensuales, no acumulados.",
+    "opciones": {
+      "dominio": "presupuestario",
+      "revisar_formulas_excel": false,
+      "inferir_patrones_calculo": false,
+      "revisar_metodo_calculo": false,
+      "alcance_series": "auto"
+    },
+    "estado": "con_senal",
+    "columna": "malo",
+    "caso": "7. Evolución dentro del archivo",
+    "tema": "Desvío contra el historial interno del archivo",
+    "orden": 7
+  },
+  {
+    "archivo": "/samples/caso-8-v2-sin-senal.xlsx",
+    "nombre": "Asociación bajo el umbral",
+    "descripcion": "Temperatura y ventas de helados tienen una relación débil, por debajo del umbral: no se señala, y tampoco se afirma que no exista.",
+    "opciones": {
+      "dominio": "general",
+      "revisar_formulas_excel": false,
+      "inferir_patrones_calculo": false,
+      "revisar_metodo_calculo": false,
+      "alcance_series": "auto"
+    },
+    "estado": "sin_senal",
+    "columna": "bueno",
+    "caso": "8. Asociaciones no obvias",
+    "tema": "Asociación lineal: pregunta exploratoria, no error",
+    "orden": 8
+  },
+  {
+    "archivo": "/samples/caso-8-v2-con-senal.xlsx",
+    "nombre": "Asociación fuerte para explorar",
+    "descripcion": "Las ventas suben con la temperatura mes a mes. La asociación fuerte queda como pregunta para explorar: no prueba causalidad.",
+    "opciones": {
+      "dominio": "general",
+      "revisar_formulas_excel": false,
+      "inferir_patrones_calculo": false,
+      "revisar_metodo_calculo": false,
+      "alcance_series": "auto"
+    },
+    "estado": "con_senal",
+    "columna": "malo",
+    "caso": "8. Asociaciones no obvias",
+    "tema": "Asociación lineal: pregunta exploratoria, no error",
+    "orden": 8
+  }
+]

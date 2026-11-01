@@ -1,0 +1,1768 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="__PAGE_DESCRIPTION__">
+  <meta name="theme-color" content="#102a43">
+  <title>__PAGE_TITLE__</title>
+  <link rel="canonical" href="__PAGE_CANONICAL__">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:title" content="__PAGE_TITLE__">
+  <meta property="og:description" content="__PAGE_DESCRIPTION__">
+  <meta property="og:url" content="__PAGE_CANONICAL__">
+  <link rel="preload" href="/fonts/inter-variable-v4.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23b01c2e'/%3E%3Cpath d='M18 21h28M18 32h20M18 43h14' stroke='%23fff' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='45' cy='43' r='7' fill='%23f8e9ec'/%3E%3C/svg%3E">
+  <style>
+    /* Fuente propia: no depende de instalaciones locales ni de servicios externos. */
+    @font-face {
+      font-family: "Gobernanza Inter";
+      src: url("/fonts/inter-variable-v4.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+    }
+    :root {
+      --font-institucional: "Gobernanza Inter", Arial, sans-serif;
+      --ink: #102a43;
+      --ink-2: #243b53;
+      --muted: #52677b;
+      --paper: #f5f8fb;
+      --white: #ffffff;
+      --line: #d8e1e9;
+      --blue: #1f4d78;
+      --blue-soft: #e8f0f7;
+      --amber: #c0892c;
+      --amber-soft: #fff4d8;
+      --success: #246b54;
+      --cyan: #56b4c3;
+      --violet: #8876ba;
+      --coral: #cf7064;
+      --max: 1180px;
+      --shadow: 0 22px 60px rgba(16, 42, 67, .11);
+    }
+    body.page-landing, body.page-detail {
+      --ink: #2e292a;
+      --ink-2: #443c3e;
+      --muted: #62595b;
+      --paper: #faf7f7;
+      --line: #e5dadd;
+      --blue: #b01c2e;
+      --blue-soft: #f8e9ec;
+      --amber: #765d52;
+      --amber-soft: #f1e9e6;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    main > section[id] { scroll-margin-top: 92px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--font-institucional);
+      font-size: 1.0625rem;
+      font-weight: 400;
+      font-optical-sizing: none;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.page-landing .detail-only,
+    body.page-detail .landing-only { display: none !important; }
+
+    a { color: inherit; }
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(216, 225, 233, .86);
+      background: rgba(245, 248, 251, .94);
+      backdrop-filter: blur(14px);
+    }
+    .site-header .wrap {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; font-weight: 600; letter-spacing: -.02em; }
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      position: relative;
+      border-radius: 9px;
+      background: var(--ink);
+      box-shadow: inset 0 -2px 0 rgba(0,0,0,.15);
+    }
+    .brand-mark i { position: absolute; width: 13px; height: 13px; border: 2px solid white; border-radius: 50%; }
+    .brand-mark i:nth-child(1) { left: 6px; top: 7px; }
+    .brand-mark i:nth-child(2) { right: 6px; top: 7px; border-color: var(--amber); }
+    .brand-mark i:nth-child(3) { left: 10px; bottom: 6px; }
+    .nav { display: flex; gap: 24px; align-items: center; }
+    .nav a { color: var(--muted); font-size: .91rem; font-weight: 600; text-decoration: none; }
+    .nav a:hover, .nav a:focus-visible { color: var(--ink); }
+    .nav .nav-contact {
+      padding: 6px 11px;
+      border: 1px solid currentColor;
+      border-radius: 8px;
+      color: var(--blue);
+    }
+    .nav .nav-login {
+      padding: 7px 12px;
+      border-radius: 8px;
+      color: white;
+      background: var(--ink);
+    }
+    .nav .nav-login:hover, .nav .nav-login:focus-visible { color: white; background: var(--blue); }
+
+    .nav-toggle {
+      display: none;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: white;
+      cursor: pointer;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+    .nav-toggle span { width: 18px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform .2s ease, opacity .2s ease; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: white;
+      background:
+        radial-gradient(circle at 84% 16%, rgba(86, 180, 195, .22), transparent 22rem),
+        radial-gradient(circle at 14% 100%, rgba(192, 137, 44, .14), transparent 24rem),
+        linear-gradient(135deg, #0b2033 0%, #183f63 68%, #1f4d78 100%);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .22;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(255,255,255,.22) .7px, transparent .7px);
+      background-size: 18px 18px;
+      mask-image: linear-gradient(90deg, transparent 0%, black 55%, black 100%);
+    }
+    .hero .wrap {
+      min-height: 680px;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(330px, .8fr);
+      align-items: center;
+      gap: 72px;
+      padding-block: 96px;
+    }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--amber);
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { margin-top: 0; line-height: 1.22; letter-spacing: -.02em; }
+    h1 { max-width: 780px; margin-bottom: 25px; font-size: clamp(2.4rem, 4.2vw, 4.25rem); font-weight: 600; }
+    h2 { margin-bottom: 22px; font-size: clamp(1.75rem, 2.5vw, 2.5rem); font-weight: 600; }
+    h3 { margin-bottom: 10px; font-size: 1.125rem; font-weight: 600; }
+    strong, b { font-weight: 600; }
+    .hero-lead { max-width: 690px; margin: 0 0 34px; color: #d8e8f2; font-size: 1.125rem; line-height: 1.65; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 19px;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 999px;
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .button.primary { border-color: var(--amber); color: #172b3a; background: var(--amber); }
+    .button:hover, .button:focus-visible { transform: translateY(-1px); }
+
+    .detail-hero {
+      padding-block: 82px;
+      color: white;
+      background: linear-gradient(135deg, #0b2033, #1f4d78);
+    }
+    .detail-hero .wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: 70px; align-items: end; }
+    .detail-hero h1 { max-width: 820px; margin-bottom: 18px; font-size: clamp(2.25rem,4vw,3.5rem); }
+    .detail-hero p { max-width: 760px; margin: 0; color: #d8e8f2; font-size: 1.16rem; }
+    body .detail-hero p.detail-callout, body.page-detail .detail-hero p.detail-callout { margin-top: 18px; color: var(--ink); }
+    .detail-index { padding: 24px; border: 1px solid rgba(255,255,255,.18); border-radius: 18px; background: rgba(255,255,255,.07); }
+    .detail-index strong { display: block; margin-bottom: 8px; color: var(--amber); }
+    .detail-index span { display: block; color: #d8e8f2; }
+
+    .hero-stage { position: relative; padding: 82px 0 0 34px; }
+    .lens-orbit {
+      position: absolute;
+      z-index: 0;
+      top: -58px;
+      right: -38px;
+      width: 330px;
+      aspect-ratio: 1;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 50%;
+      animation: orbit-turn 38s linear infinite;
+    }
+    .lens-orbit::before, .lens-orbit::after { content: ""; position: absolute; border: 1px solid rgba(255,255,255,.1); border-radius: 50%; }
+    .lens-orbit::before { inset: 42px; }
+    .lens-orbit::after { inset: 92px; background: rgba(255,255,255,.035); }
+    .orb { position: absolute; width: 56px; height: 56px; border-radius: 50%; border: 1px solid rgba(255,255,255,.32); box-shadow: 0 9px 25px rgba(0,0,0,.16); }
+    .orb:nth-child(1) { left: 136px; top: -28px; background: rgba(242,184,75,.82); }
+    .orb:nth-child(2) { right: 5px; top: 47px; background: rgba(86,180,195,.76); }
+    .orb:nth-child(3) { right: -18px; top: 168px; background: rgba(136,118,186,.76); }
+    .orb:nth-child(4) { right: 72px; bottom: -14px; background: rgba(207,112,100,.76); }
+    .orb:nth-child(5) { left: 53px; bottom: 4px; background: rgba(66,128,178,.82); }
+    .orb:nth-child(6) { left: -24px; top: 146px; background: rgba(192,137,44,.74); }
+    .orb:nth-child(7) { left: 12px; top: 35px; background: rgba(95,147,119,.78); }
+    @keyframes orbit-turn { to { transform: rotate(360deg); } }
+
+    .hero-panel {
+      position: relative;
+      z-index: 1;
+      padding: 30px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 24px;
+      background: rgba(10,32,50,.72);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 24px 70px rgba(0,0,0,.16);
+    }
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 14px auto 14px 0;
+      width: 4px;
+      border-radius: 0 8px 8px 0;
+      background: var(--amber);
+    }
+    .panel-label { margin: 0 0 22px; color: #b9d2df; font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+    .signal-row { display: grid; grid-template-columns: 38px 1fr; gap: 13px; padding: 17px 0; border-top: 1px solid rgba(255,255,255,.13); }
+    .signal-row:first-of-type { border-top: 0; }
+    .signal-number { width: 31px; height: 31px; display: grid; place-items: center; border-radius: 50%; color: var(--ink); background: var(--amber); font-size: .82rem; font-weight: 600; }
+    .signal-row strong { display: block; margin-bottom: 3px; }
+    .signal-row span { color: #c7dce7; font-size: .92rem; line-height: 1.45; }
+
+    .stat-band { margin-top: -38px; position: relative; z-index: 4; }
+    .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: white; box-shadow: var(--shadow); }
+    .stat { padding: 28px 30px; border-left: 1px solid var(--line); }
+    .stat:first-child { border-left: 0; }
+    .stat strong { display: block; font-size: 2rem; letter-spacing: -.045em; }
+    .stat span { color: var(--muted); font-size: .9rem; }
+
+    .proof { padding-block: 88px; background: white; }
+    .proof-card { display: grid; grid-template-columns: 1.08fr .92fr; gap: 70px; align-items: center; }
+    .proof-facts { display: grid; gap: 1px; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--line); box-shadow: var(--shadow); }
+    .proof-facts article { padding: 23px 26px; background: var(--paper); }
+    .proof-facts strong { display: block; margin-bottom: 4px; color: var(--blue); font-size: 1.06rem; }
+    .proof-facts span { color: var(--muted); font-size: .92rem; }
+    .text-link { display: inline-flex; margin-top: 16px; color: var(--blue); font-weight: 600; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+
+    section { position: relative; padding-block: 112px; }
+    .section-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: 92px; align-items: start; }
+    .section-kicker { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; color: var(--blue); font-size: .76rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
+    .section-kicker::before { content: ""; width: 28px; height: 3px; background: var(--amber); }
+    .section-intro { max-width: 740px; color: var(--muted); font-size: 1.0625rem; }
+    .faq-section { padding-block: 92px 56px; background: white; }
+    .faq-heading { margin-bottom: 42px; }
+    .faq-heading p { max-width: 680px; margin: 0; color: var(--muted); font-size: 1.0625rem; }
+    .faq-list { max-width: 900px; margin-left: auto; border-top: 1px solid var(--line); }
+    .faq-list > details { border-bottom: 1px solid var(--line); }
+    .faq-list > details > summary { position: relative; padding: 24px 52px 24px 0; color: var(--ink); font-size: 1.15rem; font-weight: 600; cursor: pointer; list-style: none; }
+    .faq-list > details > summary::-webkit-details-marker { display: none; }
+    .faq-list > details > summary::after { content: "+"; position: absolute; top: 20px; right: 4px; color: var(--blue); font-size: 1.6rem; font-weight: 400; }
+    .faq-list > details[open] > summary::after { content: "−"; }
+    .faq-answer { max-width: 780px; padding: 0 52px 25px 0; color: var(--muted); }
+    .faq-answer p { margin: 0; }
+    .faq-answer strong { color: var(--ink-2); }
+    .faq-answer p + p { margin-top: 14px; }
+    .faq-answer ul { margin: 14px 0 0; padding-left: 22px; }
+    .faq-answer li { margin: 7px 0; }
+    .faq-answer li::marker { color: var(--blue); }
+    .faq-lenses { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+    .faq-lenses span { padding: 7px 11px; border: 1px solid #cbd9e5; border-radius: 999px; color: var(--blue); background: var(--blue-soft); font-size: .88rem; font-weight: 600; }
+    .faq-lenses.explained { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+    .faq-lens { overflow: hidden; border: 1px solid #cbd9e5; border-radius: 11px; background: var(--blue-soft); }
+    .faq-list .faq-lens > summary { min-height: 104px; position: relative; display: flex; flex-direction: column; justify-content: center; padding: 14px 42px 14px 16px; cursor: pointer; list-style: none; }
+    .faq-list .faq-lens > summary::-webkit-details-marker { display: none; }
+    .faq-list .faq-lens > summary::after { content: "+"; position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--blue); font-size: 1.3rem; }
+    .faq-list .faq-lens[open] > summary::after { content: "−"; }
+
+    /* Índice + respuesta a dos columnas, como gdlab.iadb.org/es/convocatoria */
+    .faq-body { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 48px; align-items: start; }
+    .faq-toc { position: sticky; top: 84px; display: flex; flex-direction: column; border-top: 2px solid var(--blue); }
+    .faq-toc a {
+      padding: 10px 6px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 600;
+      line-height: 1.35;
+      text-decoration: none;
+    }
+    .faq-toc a:hover { color: var(--blue); }
+    .faq-toc a:focus { outline: none; }
+    .faq-toc a:focus-visible { box-shadow: inset 2px 0 0 var(--blue); }
+    .faq-main { min-width: 0; }
+    .faq-body .faq-list { flex: 1; min-width: 0; margin-left: 0; }
+    .faq-contact { margin-top: 12px; padding: 24px 0; border-top: 1px solid var(--line); color: var(--muted); }
+    .faq-contact h3 { margin: 0 0 10px; color: var(--blue); font-size: 1.22rem; }
+    .faq-contact p { margin: 0; }
+    .faq-contact a { color: var(--blue); text-underline-offset: 3px; }
+    @media (max-width: 900px) {
+      .faq-body { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+      .faq-toc { position: static; flex-direction: row; flex-wrap: wrap; border-top: none; gap: 8px 18px; margin-bottom: 8px; }
+      .faq-toc a { padding: 4px 0; border-bottom: none; }
+    }
+    /* Solo la pregunta seleccionada se muestra a la derecha: sin duplicar títulos */
+    .faq-toc a.is-active {
+      margin-inline: -10px;
+      padding-inline: 10px;
+      border-bottom-color: transparent;
+      border-radius: 6px;
+      color: var(--blue);
+      background: var(--blue-soft);
+      font-weight: 700;
+    }
+    .faq-list > details:not([open]) { display: none; }
+    .faq-list > details > summary { pointer-events: none; outline: none; }
+    .faq-list > details > summary::after { display: none; }
+    .faq-lens strong { color: var(--blue); font-size: .95rem; }
+    .faq-lens small { margin-top: 3px; color: var(--muted); font-size: .84rem; font-weight: 400; line-height: 1.45; }
+    .faq-lens p { margin: 0; padding: 0 16px 16px; border-top: 1px solid #cbd9e5; color: var(--ink-2); font-size: .88rem; line-height: 1.55; }
+    .large-copy { margin: 0; font-size: clamp(1.125rem, 1.65vw, 1.25rem); line-height: 1.65; letter-spacing: 0; }
+    .note { padding: 23px 25px; border-left: 4px solid var(--amber); color: var(--ink-2); background: var(--amber-soft); }
+
+    .problem { overflow: hidden; background: white; }
+    .problem::after { content: ""; position: absolute; width: 420px; height: 420px; right: -260px; bottom: -250px; border: 70px solid var(--blue-soft); border-radius: 50%; opacity: .65; }
+    .problem .wrap { position: relative; z-index: 1; }
+    .problem-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 34px; }
+    .problem-card { padding: 27px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); }
+    .problem-card p { margin-bottom: 0; color: var(--muted); }
+
+    .case-study { overflow: hidden; color: white; background: linear-gradient(145deg, #0d2940, #1f4d78); }
+    .case-study .section-kicker { color: var(--amber); }
+    .case-study .section-intro { color: #d4e4ed; }
+    .quick-example {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: 28px;
+      align-items: center;
+      margin-top: 34px;
+      padding: 25px 28px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 18px;
+      color: var(--ink);
+      background: rgba(255,255,255,.96);
+    }
+    .quick-example strong { display: block; margin-bottom: 5px; font-size: 1.04rem; }
+    .quick-example p { margin: 0; color: var(--muted); }
+    .quick-example em { display: block; margin-top: 7px; color: var(--ink); font-style: normal; font-weight: 600; }
+    .quick-equation { color: var(--blue); font-size: clamp(1.25rem,2.5vw,1.8rem); font-weight: 600; letter-spacing: -.025em; }
+    .quick-equation span { color: #a35e00; }
+    .case-shell { display: grid; grid-template-columns: .92fr 1.08fr; overflow: hidden; margin-top: 46px; border: 1px solid rgba(255,255,255,.18); border-radius: 24px; background: white; box-shadow: 0 28px 80px rgba(0,0,0,.2); }
+    .case-source { padding: 42px; color: var(--ink); background: #f7fafc; }
+    .case-result { padding: 42px; color: var(--ink); background: white; }
+    .case-label { display: inline-flex; margin-bottom: 24px; padding: 6px 11px; border-radius: 999px; color: var(--blue); background: var(--blue-soft); font-size: .73rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+    .case-result .case-label { color: #885d12; background: var(--amber-soft); }
+    .case-total { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 17px 0; border-bottom: 1px solid var(--line); }
+    .case-total span { color: var(--muted); }
+    .case-total strong { font-size: 1.25rem; }
+    .case-difference { margin: 25px 0; padding: 20px 22px; border-left: 4px solid var(--amber); border-radius: 0 12px 12px 0; background: var(--amber-soft); }
+    .case-difference strong { display: block; font-size: 1.55rem; }
+    .case-question { margin: 0; font-size: 1.22rem; line-height: 1.5; letter-spacing: -.015em; }
+    .case-close { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 1px; background: rgba(255,255,255,.18); }
+    .case-close div { padding: 26px; background: rgba(8,31,49,.74); }
+    .case-close strong { display: block; margin-bottom: 5px; color: var(--amber); font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; }
+    .case-close span { color: #d2e1e9; font-size: .91rem; }
+
+    .steps { counter-reset: step; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; margin-top: 48px; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--line); }
+    .step { counter-increment: step; min-height: 245px; padding: 29px 25px; background: white; }
+    .step::before { content: "0" counter(step); display: block; margin-bottom: 44px; color: var(--blue); font-size: .85rem; font-weight: 600; }
+    .step p { margin-bottom: 0; color: var(--muted); font-size: .93rem; }
+
+    .lens-summary { padding-block: 78px; background: white; }
+    .lens-chips { display: flex; flex-wrap: wrap; gap: 11px; margin: 28px 0; }
+    .lens-chip { padding: 9px 14px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-2); background: var(--paper); font-size: .91rem; font-weight: 600; }
+    .bridge-card { display: flex; justify-content: space-between; gap: 28px; align-items: center; margin-top: 28px; padding: 25px 28px; border: 1px solid var(--line); border-radius: 16px; background: var(--blue-soft); }
+    .bridge-card p { margin: 0; color: var(--ink-2); }
+    .bridge-card .text-link { flex: 0 0 auto; margin: 0; }
+
+    .validation { background: var(--paper); }
+    .validation-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 42px; }
+    .validation-card { padding: 28px; border: 1px solid var(--line); border-radius: 16px; background: white; box-shadow: 0 12px 35px rgba(16,42,67,.06); }
+    .validation-card strong { display: block; margin-bottom: 7px; color: var(--blue); font-size: 1.65rem; }
+    .validation-card p { margin: 0; color: var(--muted); }
+    .validation-brief { padding-block: 58px; background: var(--amber-soft); }
+    .validation-brief .wrap { display: flex; justify-content: space-between; gap: 36px; align-items: center; }
+    .validation-brief p { max-width: 780px; margin: 0; color: var(--ink-2); }
+
+    .resources { background: white; }
+    .resource-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 36px; }
+    .resource-card { padding: 27px; border: 1px solid var(--line); border-radius: 15px; background: var(--paper); }
+    .resource-card strong { display: block; margin-bottom: 7px; }
+    .resource-card p { margin: 0 0 12px; color: var(--muted); }
+
+    .lenses { overflow: hidden; color: white; background: var(--ink); }
+    .lenses::before { content: "07"; position: absolute; right: max(24px, calc((100vw - var(--max)) / 2)); top: 46px; color: rgba(255,255,255,.035); font-size: clamp(12rem, 28vw, 26rem); font-weight: 600; line-height: 1; letter-spacing: -.1em; }
+    .lenses .wrap { position: relative; z-index: 1; }
+    .lenses .section-kicker { color: var(--amber); }
+    .lenses .section-intro { color: #c4d4df; }
+    .lens-list { margin-top: 50px; border-top: 1px solid rgba(255,255,255,.14); }
+    .lens {
+      display: grid;
+      grid-template-columns: 48px 180px 1fr;
+      gap: 24px;
+      align-items: baseline;
+      padding: 25px 0;
+      border-bottom: 1px solid rgba(255,255,255,.14);
+      transition: padding .2s ease, background .2s ease;
+    }
+    .lens:hover { padding-inline: 16px; background: rgba(255,255,255,.045); }
+    .lens-index { color: var(--amber); font-size: .8rem; font-weight: 600; }
+    .lens h3 { margin: 0; font-size: 1.08rem; letter-spacing: -.01em; }
+    .lens p { margin: 0; color: #c5d5df; }
+    .lens p strong { color: white; }
+
+    .processing { background: #edf3f7; }
+    .processing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 46px; }
+    .processing-card { min-height: 270px; padding: 30px; border: 1px solid var(--line); border-radius: 16px; background: white; box-shadow: 0 12px 35px rgba(16,42,67,.07); }
+    .processing-card > span { display: inline-grid; width: 34px; height: 34px; margin-bottom: 34px; place-items: center; border-radius: 50%; color: white; background: var(--blue); font-size: .78rem; font-weight: 600; }
+    .processing-card p { margin-bottom: 0; color: var(--muted); }
+
+    .privacy { background: white; }
+    .privacy-box { display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; margin-top: 48px; border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow); }
+    .privacy-col { padding: 35px; }
+    .privacy-col + .privacy-col { border-left: 1px solid var(--line); background: var(--paper); }
+    .privacy-col h3 { display: flex; align-items: center; gap: 10px; }
+    .privacy-col ul { margin: 22px 0 0; padding: 0; list-style: none; }
+    .privacy-col li { position: relative; margin: 13px 0; padding-left: 25px; color: var(--muted); }
+    .privacy-col li::before { content: ""; position: absolute; left: 0; top: .62em; width: 8px; height: 8px; border-radius: 50%; background: var(--blue); }
+    .privacy-col.private li::before { background: #94a8b8; }
+    .revocation-note { margin: 24px 0 0; padding: 20px 24px; border-left: 4px solid var(--blue); color: var(--ink-2); background: var(--blue-soft); }
+
+    .limits { padding-block: 84px; color: white; background: #183b56; }
+    .limits-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 75px; align-items: center; }
+    .limits h2 { margin-bottom: 0; }
+    .limits-list { display: grid; grid-template-columns: 1fr 1fr; gap: 13px 26px; padding: 0; list-style: none; }
+    .limits-list li { padding-left: 21px; position: relative; color: #d3e1e9; }
+    .limits-list li::before { content: "—"; position: absolute; left: 0; color: var(--amber); font-weight: 600; }
+
+    .pilot-card { display: grid; grid-template-columns: .85fr 1.15fr; overflow: hidden; border: 1px solid var(--line); border-radius: 26px; background: white; box-shadow: var(--shadow); }
+    .pilot-heading { position: relative; overflow: hidden; padding: 45px; color: white; background: linear-gradient(145deg, var(--ink), var(--blue)); }
+    .pilot-heading::after { content: ""; position: absolute; right: -90px; bottom: -90px; width: 250px; height: 250px; border: 42px solid rgba(255,255,255,.08); border-radius: 50%; }
+    .pilot-heading h2 { margin-bottom: 18px; }
+    .pilot-heading p { color: #d9ebf1; }
+    .pilot-content { padding: 45px; }
+    .pilot-content ol { margin: 0; padding: 0; list-style: none; counter-reset: pilot; }
+    .pilot-content li { counter-increment: pilot; display: grid; grid-template-columns: 36px 1fr; gap: 15px; margin-bottom: 23px; }
+    .pilot-content li::before { content: counter(pilot); width: 31px; height: 31px; display: grid; place-items: center; border-radius: 50%; color: var(--ink); background: var(--amber); font-size: .8rem; font-weight: 600; }
+    .pilot-content li:last-child { margin-bottom: 0; }
+    .pilot-content strong { display: block; margin-bottom: 3px; }
+    .pilot-content span { color: var(--muted); }
+
+    .status-line { display: flex; gap: 12px; align-items: flex-start; margin-top: 34px; padding: 19px 22px; border-radius: 10px; background: var(--blue-soft); }
+    .status-dot { flex: 0 0 auto; width: 10px; height: 10px; margin-top: .48em; border-radius: 50%; background: var(--success); box-shadow: 0 0 0 5px rgba(36,107,84,.12); }
+    .status-line p { margin: 0; color: var(--ink-2); }
+    .pilot-contact { margin-top: 28px; padding-top: 25px; border-top: 1px solid var(--line); }
+    .pilot-contact p { margin: 0 0 15px; color: var(--ink-2); }
+    .pilot-contact .contact-line { padding: 13px 16px; border-radius: 8px; background: var(--amber-soft); }
+    .contact-line a { color: var(--blue); font-weight: 600; text-underline-offset: 3px; }
+    .pilot-contact .button { color: white; border-color: var(--blue); background: var(--blue); }
+    .pilot-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .pilot-actions button { font: inherit; cursor: pointer; }
+    .pilot-contact .button.button-light { color: var(--blue); background: white; }
+
+
+    footer { padding-block: 42px; border-top: 1px solid var(--line); background: white; }
+    .footer-row { display: flex; justify-content: space-between; gap: 30px; color: var(--muted); font-size: .86rem; }
+    .footer-row strong { color: var(--ink); }
+
+    @media (max-width: 900px) {
+      .site-header .wrap { position: relative; }
+      .nav-toggle { display: flex; }
+      .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 6px 20px 20px;
+        border-bottom: 1px solid var(--line);
+        background: var(--paper);
+      }
+      .nav.is-open { display: flex; }
+      .nav a { padding: 13px 0; border-top: 1px solid var(--line); }
+      .nav a:first-child { border-top: 0; }
+      .nav .nav-contact, .nav .nav-login { margin-top: 14px; text-align: center; }
+      .hero .wrap, .detail-hero .wrap, .section-grid, .limits-grid, .pilot-card, .proof-card, .faq-heading { grid-template-columns: minmax(0, 1fr); }
+      .hero .wrap { min-height: auto; gap: 45px; padding-block: 76px 92px; }
+      .hero .wrap > * { min-width: 0; }
+      .hero-stage { max-width: 620px; padding-top: 55px; }
+      .stat-grid, .steps { grid-template-columns: 1fr 1fr; }
+      .processing-grid, .validation-grid, .resource-grid { grid-template-columns: 1fr; }
+      .case-shell { grid-template-columns: 1fr; }
+      .quick-example { grid-template-columns: 1fr; }
+      .case-close { grid-template-columns: 1fr; }
+      .stat:nth-child(3) { grid-column: 1 / -1; border-top: 1px solid var(--line); }
+      .section-grid, .limits-grid { gap: 35px; }
+      .steps .step { min-height: 215px; }
+      .lens { grid-template-columns: 40px 150px 1fr; }
+      .pilot-heading, .pilot-content { padding: 36px; }
+      .validation-brief .wrap, .bridge-card { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (max-width: 620px) {
+      .wrap { width: calc(100% - 28px); }
+      .hero .wrap { padding-block: 58px 78px; }
+      .hero-stage { padding: 36px 0 0; }
+      .lens-orbit { width: 245px; right: -65px; top: -40px; opacity: .76; }
+      .orb { width: 43px; height: 43px; }
+      h1 { max-width: 100%; font-size: clamp(2.25rem, 9vw, 2.75rem); overflow-wrap: anywhere; }
+      .hero-actions { display: grid; grid-template-columns: 1fr; }
+      .hero-actions .button { width: 100%; }
+      section { padding-block: 76px; }
+      .stat-grid, .problem-cards, .steps, .privacy-box, .limits-list { grid-template-columns: 1fr; }
+      .case-source, .case-result { padding: 28px; }
+      .stat { border-left: 0; border-top: 1px solid var(--line); }
+      .stat:first-child { border-top: 0; }
+      .stat:nth-child(3) { grid-column: auto; }
+      .step { min-height: 0; }
+      .step::before { margin-bottom: 24px; }
+      .lens { grid-template-columns: 35px 1fr; gap: 12px; }
+      .lens p { grid-column: 2; }
+      .privacy-col + .privacy-col { border-left: 0; border-top: 1px solid var(--line); }
+      .pilot-heading, .pilot-content { padding: 28px; }
+      .footer-row { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+
+    /* Estilo alternativo: editorial institucional */
+    body.theme-editorial {
+      --ink: #30232d;
+      --ink-2: #493943;
+      --muted: #695d63;
+      --paper: #f2ede4;
+      --white: #fffdf8;
+      --line: #d8cfc4;
+      --blue: #176d68;
+      --blue-soft: #dcebe7;
+      --amber: #ed684a;
+      --amber-soft: #fbe1d7;
+      --success: #176d68;
+      background: #f2ede4;
+    }
+    .theme-editorial .site-header { border-bottom: 0; color: white; background: rgba(48,35,45,.97); }
+    .theme-editorial .brand-mark { background: var(--amber); }
+    .theme-editorial .brand-mark i:nth-child(2) { border-color: #30232d; }
+    .theme-editorial .nav a { color: #e9dfd5; }
+    .theme-editorial .nav a:hover, .theme-editorial .nav a:focus-visible { color: white; }
+    .theme-editorial .nav .nav-contact { color: #fffdf8; }
+    .theme-editorial .nav .nav-login { color: #30232d; background: #fffdf8; }
+    .theme-editorial .hero { color: #30232d; background: #f2ede4; }
+    .theme-editorial .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 0 50%;
+      background: linear-gradient(145deg, rgba(255,253,248,.4), rgba(237,104,74,.08));
+      clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
+    }
+    .theme-editorial .hero::after { opacity: .16; background-image: radial-gradient(rgba(48,35,45,.32) .7px, transparent .7px); mask-image: linear-gradient(90deg, black, transparent 72%); }
+    .theme-editorial .hero .wrap { grid-template-columns: minmax(340px,.82fr) minmax(0,1.18fr); gap: 88px; }
+    .theme-editorial .hero .wrap > div:first-child { order: 2; }
+    .theme-editorial .hero-stage { order: 1; padding: 56px 34px 0 0; }
+    .theme-editorial h1, .theme-editorial h2 { font-family: var(--font-institucional); font-weight: 600; letter-spacing: -.02em; }
+    .theme-editorial h1 { color: #30232d; font-size: clamp(3.6rem,6.2vw,6.2rem); line-height: .98; }
+    .theme-editorial .eyebrow { color: #176d68; }
+    .theme-editorial .hero-lead { color: #5f5259; }
+    .theme-editorial .button { border-radius: 3px; box-shadow: 5px 5px 0 #30232d; }
+    .theme-editorial .button.primary { border-color: #ed684a; color: white; background: #ed684a; }
+    .theme-editorial .hero-actions .button:not(.primary) { border-color: #30232d; color: #30232d; background: transparent; }
+    .theme-editorial .lens-orbit { top: -92px; right: 18px; border-color: rgba(48,35,45,.17); animation-duration: 55s; }
+    .theme-editorial .lens-orbit::before, .theme-editorial .lens-orbit::after { border-color: rgba(48,35,45,.13); }
+    .theme-editorial .hero-panel { border: 0; border-radius: 3px; color: white; background: #30232d; box-shadow: 14px 14px 0 #ed684a; backdrop-filter: none; }
+    .theme-editorial .hero-panel::before { display: none; }
+    .theme-editorial .signal-row { border-color: rgba(255,255,255,.15); }
+    .theme-editorial .signal-number { color: white; background: #176d68; }
+    .theme-editorial .signal-row span { color: #e0d6dc; }
+    .theme-editorial .stat-band { margin-top: 0; background: #ed684a; }
+    .theme-editorial .stat-band .wrap { width: min(100%, var(--max)); }
+    .theme-editorial .stat-grid { border: 0; border-radius: 0; color: white; background: transparent; box-shadow: none; }
+    .theme-editorial .stat { border-color: rgba(255,255,255,.35); }
+    .theme-editorial .stat span { color: #fff2ed; }
+    .theme-editorial .problem { background: #fffdf8; }
+    .theme-editorial .proof { background: #fffdf8; }
+    .theme-editorial .proof-facts { border-radius: 3px; box-shadow: 10px 10px 0 #d8cfc4; }
+    .theme-editorial .processing { background: #e8dfd4; }
+    .theme-editorial .processing-card { border-radius: 3px; box-shadow: 7px 7px 0 #d8cfc4; }
+    .theme-editorial .problem::after { border-color: #dcebe7; }
+    .theme-editorial .problem-card { border-radius: 3px; background: #f2ede4; }
+    .theme-editorial .note { border-left: 0; border-top: 4px solid #ed684a; background: #fbe1d7; }
+    .theme-editorial .case-study { background: #176d68; }
+    .theme-editorial .quick-example { border-radius: 3px; box-shadow: 8px 8px 0 rgba(48,35,45,.28); }
+    .theme-editorial .case-shell { border-radius: 3px; box-shadow: 14px 14px 0 rgba(48,35,45,.34); }
+    .theme-editorial .case-close div { background: #30232d; }
+    .theme-editorial .step { background: #fffdf8; }
+    .theme-editorial .steps { border-radius: 3px; }
+    .theme-editorial .lenses { color: #30232d; background: #e7ded3; }
+    .theme-editorial .lenses::before { color: rgba(48,35,45,.05); }
+    .theme-editorial .lenses .section-kicker { color: #176d68; }
+    .theme-editorial .lenses .section-intro, .theme-editorial .lens p { color: #695d63; }
+    .theme-editorial .lens p strong { color: #30232d; }
+    .theme-editorial .lens-list, .theme-editorial .lens { border-color: rgba(48,35,45,.16); }
+    .theme-editorial .lens:hover { background: rgba(255,253,248,.55); }
+    .theme-editorial .lens-index { color: #ed684a; }
+    .theme-editorial .privacy { background: #fffdf8; }
+    .theme-editorial .privacy-box, .theme-editorial .pilot-card { border-radius: 3px; box-shadow: 12px 12px 0 #d8cfc4; }
+    .theme-editorial .limits { background: #30232d; }
+    .theme-editorial .pilot-heading { background: #176d68; }
+
+    @media (max-width: 900px) {
+      .theme-editorial .hero .wrap { grid-template-columns: minmax(0,1fr); }
+      .theme-editorial .hero .wrap > div:first-child { order: 1; }
+      .theme-editorial .hero-stage { order: 2; padding-right: 0; }
+      .theme-editorial .hero::before { inset: 45% 0 0; clip-path: none; }
+    }
+
+    @media (max-width: 620px) {
+      .theme-editorial h1 { font-size: clamp(3rem,14vw,4.3rem); }
+      .theme-editorial .stat-band .wrap { width: calc(100% - 28px); }
+    }
+
+    /* Estilo alternativo 3: audaz, digital y modular */
+    body.theme-bold {
+      --ink: #111117;
+      --ink-2: #272735;
+      --muted: #5c5a69;
+      --paper: #f3f0ff;
+      --white: #ffffff;
+      --line: #cfc9e8;
+      --blue: #6246ea;
+      --blue-soft: #e8e1ff;
+      --amber: #dfff4f;
+      --amber-soft: #f3ffc2;
+      --success: #00a896;
+      background: #f3f0ff;
+    }
+    .theme-bold .site-header { position: relative; border-bottom: 3px solid #111117; background: #ffffff; }
+    .theme-bold .brand-mark { border-radius: 50%; background: #6246ea; box-shadow: 4px 4px 0 #dfff4f; }
+    .theme-bold .brand-mark i:nth-child(2) { border-color: #ff4f93; }
+    .theme-bold .nav a { color: #111117; }
+    .theme-bold .nav .nav-login { border: 2px solid #111117; border-radius: 999px; color: #111117; background: #dfff4f; }
+    .theme-bold .hero { color: white; background: #6246ea; }
+    .theme-bold .hero::before { content: ""; position: absolute; width: 380px; height: 380px; left: -150px; top: -110px; border-radius: 50%; background: #ff4f93; }
+    .theme-bold .hero::after { opacity: .3; background-image: linear-gradient(rgba(255,255,255,.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.18) 1px, transparent 1px); background-size: 42px 42px; mask-image: none; }
+    .theme-bold .hero .wrap { min-height: 800px; grid-template-columns: minmax(0,1fr); justify-items: center; gap: 44px; padding-block: 74px 92px; text-align: center; }
+    .theme-bold .hero .wrap > div:first-child { max-width: 1040px; }
+    .theme-bold h1 { max-width: none; margin-bottom: 24px; font-size: clamp(4.4rem,8.5vw,8rem); font-weight: 600; line-height: .9; letter-spacing: -.07em; text-transform: uppercase; }
+    .theme-bold .eyebrow { color: #dfff4f; }
+    .theme-bold .hero-lead { max-width: 830px; margin-inline: auto; color: #f0ecff; }
+    .theme-bold .hero-actions { justify-content: center; }
+    .theme-bold .button { border: 2px solid #111117; border-radius: 999px; box-shadow: 5px 5px 0 #111117; }
+    .theme-bold .button.primary { border-color: #111117; color: #111117; background: #dfff4f; }
+    .theme-bold .hero-actions .button:not(.primary) { color: #111117; background: white; }
+    .theme-bold .hero-stage { width: 100%; max-width: 1080px; padding: 0; }
+    .theme-bold .lens-orbit { width: 500px; top: -405px; right: -195px; opacity: .7; border-color: rgba(255,255,255,.25); }
+    .theme-bold .hero-panel { display: grid; grid-template-columns: 150px repeat(3,minmax(0,1fr)); padding: 0; border: 2px solid #111117; border-radius: 18px; color: #111117; background: white; box-shadow: 10px 10px 0 #111117; backdrop-filter: none; text-align: left; }
+    .theme-bold .hero-panel::before { display: none; }
+    .theme-bold .panel-label { display: grid; place-items: center; margin: 0; padding: 24px; border-radius: 15px 0 0 15px; color: #111117; background: #dfff4f; text-align: center; }
+    .theme-bold .signal-row { grid-template-columns: 34px 1fr; align-items: start; padding: 24px; border-top: 0; border-left: 1px solid #d8d3ee; }
+    .theme-bold .signal-number { color: white; background: #6246ea; }
+    .theme-bold .signal-row span { color: #5c5a69; }
+    .theme-bold .stat-band { margin-top: 0; background: #111117; }
+    .theme-bold .stat-grid { border: 0; border-radius: 0; color: white; background: transparent; box-shadow: none; }
+    .theme-bold .stat { border-color: #343441; }
+    .theme-bold .stat strong { color: #dfff4f; }
+    .theme-bold .stat span { color: #d7d4e6; }
+    .theme-bold section { padding-block: 120px; }
+    .theme-bold .section-kicker { color: #6246ea; }
+    .theme-bold .section-kicker::before { height: 8px; border-radius: 999px; background: #ff4f93; }
+    .theme-bold .problem { background: #ffffff; }
+    .theme-bold .proof { background: #ffffff; }
+    .theme-bold .proof-facts { border: 2px solid #111117; border-radius: 18px; box-shadow: 7px 7px 0 #111117; }
+    .theme-bold .proof-facts article { background: #f3f0ff; }
+    .theme-bold .processing { background: #dfff4f; }
+    .theme-bold .processing-card { border: 2px solid #111117; border-radius: 18px; box-shadow: 6px 6px 0 #111117; }
+    .theme-bold .problem::after { width: 330px; height: 330px; right: -180px; bottom: -180px; border: 0; background: #dfff4f; }
+    .theme-bold .problem-card { border: 2px solid #111117; border-radius: 18px; background: #f3f0ff; box-shadow: 6px 6px 0 #111117; }
+    .theme-bold .problem-card:nth-child(2) { background: #ffe2ef; }
+    .theme-bold .note { border: 2px solid #111117; border-left: 10px solid #6246ea; border-radius: 12px; background: #dfff4f; }
+    .theme-bold .case-study { color: #111117; background: #dfff4f; }
+    .theme-bold .case-study .section-kicker { color: #6246ea; }
+    .theme-bold .case-study .section-intro { color: #34333d; }
+    .theme-bold .quick-example { border: 2px solid #111117; box-shadow: 7px 7px 0 #ff4f93; }
+    .theme-bold .case-shell { border: 2px solid #111117; border-radius: 18px; box-shadow: 10px 10px 0 #111117; }
+    .theme-bold .case-result .case-label { color: white; background: #6246ea; }
+    .theme-bold .case-difference { border-left-color: #ff4f93; background: #ffe2ef; }
+    .theme-bold .case-close { gap: 14px; margin-top: 28px; background: transparent; }
+    .theme-bold .case-close div { border: 2px solid #111117; border-radius: 14px; color: white; background: #111117; box-shadow: 5px 5px 0 #ff4f93; }
+    .theme-bold .case-close strong { color: #dfff4f; }
+    .theme-bold .steps { gap: 12px; overflow: visible; border: 0; background: transparent; }
+    .theme-bold .step { min-height: 270px; border: 2px solid #111117; border-radius: 16px; background: white; box-shadow: 5px 5px 0 #6246ea; }
+    .theme-bold .step:nth-child(even) { background: #ffe2ef; box-shadow-color: #ff4f93; }
+    .theme-bold .step::before { color: #6246ea; }
+    .theme-bold .lenses { color: #111117; background: #f3f0ff; }
+    .theme-bold .lenses::before { color: rgba(98,70,234,.08); }
+    .theme-bold .lenses .section-kicker { color: #6246ea; }
+    .theme-bold .lenses .section-intro, .theme-bold .lens p { color: #5c5a69; }
+    .theme-bold .lens p strong { color: #111117; }
+    .theme-bold .lens-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; border-top: 0; }
+    .theme-bold .lens { grid-template-columns: 40px 145px 1fr; align-items: center; padding: 25px; border: 2px solid #111117; border-radius: 18px; background: white; box-shadow: 6px 6px 0 #111117; }
+    .theme-bold .lens:last-child { grid-column: 1 / -1; }
+    .theme-bold .lens:hover { padding-inline: 25px; background: #dfff4f; }
+    .theme-bold .lens-index { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; color: white; background: #6246ea; }
+    .theme-bold .privacy { background: white; }
+    .theme-bold .privacy-box { border: 2px solid #111117; border-radius: 18px; box-shadow: 8px 8px 0 #6246ea; }
+    .theme-bold .privacy-col + .privacy-col { background: #f3f0ff; }
+    .theme-bold .limits { color: #111117; background: #ff4f93; }
+    .theme-bold .limits-list li { color: #2e2028; }
+    .theme-bold .limits-list li::before { color: #111117; }
+    .theme-bold .pilot-card { border: 2px solid #111117; border-radius: 18px; box-shadow: 10px 10px 0 #111117; }
+    .theme-bold .pilot-heading { background: #6246ea; }
+    .theme-bold .pilot-heading::after { border-color: rgba(223,255,79,.2); }
+    .theme-bold .pilot-content .button { box-shadow: 5px 5px 0 #111117; }
+    .theme-bold footer { border-top: 3px solid #111117; }
+
+    @media (max-width: 900px) {
+      .theme-bold .hero .wrap { min-height: auto; }
+      .theme-bold .hero-panel { grid-template-columns: 1fr 1fr; }
+      .theme-bold .panel-label { grid-column: 1 / -1; border-radius: 15px 15px 0 0; }
+      .theme-bold .signal-row { border-top: 1px solid #d8d3ee; }
+      .theme-bold .signal-row:last-child { grid-column: 1 / -1; }
+      .theme-bold .lens-list { grid-template-columns: 1fr; }
+      .theme-bold .lens:last-child { grid-column: auto; }
+    }
+
+    @media (max-width: 620px) {
+      .theme-bold h1 { font-size: clamp(3.3rem,17vw,4.8rem); }
+      .theme-bold .hero-panel { grid-template-columns: 1fr; }
+      .theme-bold .panel-label, .theme-bold .signal-row:last-child { grid-column: auto; }
+      .theme-bold .signal-row { border-left: 0; }
+      .theme-bold .lens { grid-template-columns: 38px 1fr; }
+      .theme-bold .lens p { grid-column: 2; }
+    }
+
+    /* Presentación institucional: sobria, documental y sin recursos de venta. */
+    .theme-institutional {
+      --ink: #17324d;
+      --ink-2: #29445e;
+      --muted: #5a6e80;
+      --paper: #f4f6f8;
+      --line: #d5dde4;
+      --blue: #24577d;
+      --blue-soft: #e9f0f5;
+      --amber: #a97824;
+      --amber-soft: #f7f0e2;
+      --shadow: 0 12px 32px rgba(23, 50, 77, .07);
+    }
+    .theme-institutional .site-header { background: rgba(255,255,255,.97); }
+    .theme-institutional .brand { letter-spacing: 0; }
+    .theme-institutional .brand-mark { border-radius: 4px; background: var(--blue); box-shadow: none; }
+    .theme-institutional .nav .nav-contact,
+    .theme-institutional .nav .nav-login { border-radius: 4px; }
+    .theme-institutional .hero {
+      color: var(--ink);
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+    .theme-institutional .hero::after,
+    .theme-institutional .lens-orbit { display: none; }
+    .theme-institutional .hero .wrap { min-height: 560px; gap: 64px; padding-block: 78px; }
+    .theme-institutional h1 { max-width: 700px; margin-bottom: 20px; font-size: clamp(3rem,5.2vw,5rem); font-weight: 600; }
+    .theme-institutional h2 { font-size: clamp(1.9rem,3.2vw,2.8rem); font-weight: 600; }
+    .theme-institutional .hero-lead { color: var(--muted); }
+    .theme-institutional .hero-stage { padding: 0; }
+    .theme-institutional .hero-panel {
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--blue);
+      border-radius: 6px;
+      background: var(--paper);
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+    .theme-institutional .hero-panel::before { display: none; }
+    .theme-institutional .panel-label { color: var(--blue); }
+    .theme-institutional .signal-row { border-color: var(--line); }
+    .theme-institutional .signal-number { border-radius: 4px; color: #fff; background: var(--blue); }
+    .theme-institutional .signal-row span { color: var(--muted); }
+    .theme-institutional .button { min-height: 44px; border-radius: 4px; color: var(--blue); border-color: var(--blue); }
+    .theme-institutional .button.primary { color: #fff; border-color: var(--blue); background: var(--blue); }
+    .theme-institutional .stat-band { margin-top: 0; border-bottom: 1px solid var(--line); background: var(--paper); }
+    .theme-institutional .stat-grid { border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+    .theme-institutional .stat strong { color: var(--blue); font-size: 1.25rem; letter-spacing: 0; }
+    .theme-institutional section { padding-block: 88px; }
+    .theme-institutional .section-kicker { letter-spacing: .1em; }
+    .theme-institutional .proof-facts,
+    .theme-institutional .case-shell,
+    .theme-institutional .privacy-box,
+    .theme-institutional .pilot-card { border-radius: 6px; box-shadow: none; }
+    .theme-institutional .problem-card,
+    .theme-institutional .processing-card,
+    .theme-institutional .validation-card,
+    .theme-institutional .resource-card,
+    .theme-institutional .bridge-card { border-radius: 5px; box-shadow: none; }
+    .theme-institutional .case-study { color: var(--ink); background: #eaf0f4; }
+    .theme-institutional .case-study .section-kicker { color: var(--blue); }
+    .theme-institutional .case-study .section-intro { color: var(--muted); }
+    .theme-institutional .quick-example { border-radius: 5px; border-color: var(--line); background: #fff; }
+    .theme-institutional .case-close { background: var(--line); }
+    .theme-institutional .case-close div { background: #fff; }
+    .theme-institutional .case-close strong { color: var(--blue); }
+    .theme-institutional .case-close span { color: var(--muted); }
+    .theme-institutional .steps { border-radius: 5px; }
+    .theme-institutional .step { min-height: 220px; }
+    .theme-institutional .step::before { margin-bottom: 30px; }
+    .theme-institutional .lenses { color: var(--ink); background: #edf1f4; }
+    .theme-institutional .lenses::before { display: none; }
+    .theme-institutional .lenses .section-kicker { color: var(--blue); }
+    .theme-institutional .lenses .section-intro,
+    .theme-institutional .lens p { color: var(--muted); }
+    .theme-institutional .lens p strong { color: var(--ink); }
+    .theme-institutional .lens-list,
+    .theme-institutional .lens { border-color: var(--line); }
+    .theme-institutional .lens:hover { padding-inline: 0; background: transparent; }
+    .theme-institutional .pilot-heading { color: var(--ink); border-right: 1px solid var(--line); background: var(--paper); }
+    .theme-institutional .pilot-heading::after { display: none; }
+    .theme-institutional .pilot-heading p { color: var(--muted); }
+    .theme-institutional .pilot-content li::before { border-radius: 4px; color: #fff; background: var(--blue); }
+    .theme-institutional .contact-line { background: var(--blue-soft); }
+    .theme-institutional .detail-hero { border-bottom: 1px solid var(--line); color: var(--ink); background: #fff; }
+    .theme-institutional .detail-hero p,
+    .theme-institutional .detail-index span { color: var(--muted); }
+    .theme-institutional .detail-index { border-color: var(--line); border-radius: 5px; background: var(--paper); }
+    .theme-institutional .detail-index strong { color: var(--blue); }
+
+    /* Portada de lectura institucional: fotografía y mensaje en dos mitades. */
+    body.page-landing .site-header { border-color: var(--line); background: rgba(255,255,255,.97); }
+    body.page-landing .brand-mark { background: var(--blue); }
+    body.page-landing .nav .nav-login { background: var(--blue); }
+    body.page-landing .hero,
+    body.page-landing.theme-institutional .hero {
+      padding: 0;
+      color: white;
+      border: 0;
+      background: #b01c2e;
+    }
+    body.page-landing .hero::after { display: none; }
+    body.page-landing .hero .wrap,
+    body.page-landing.theme-institutional .hero .wrap {
+      width: 100%;
+      max-width: none;
+      min-height: 560px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      padding: 0;
+    }
+    body.page-landing .hero-copy {
+      grid-column: 2;
+      grid-row: 1;
+      align-self: center;
+      padding: 62px clamp(32px, 5vw, 92px);
+    }
+    body.page-landing .hero-photo {
+      grid-column: 1;
+      grid-row: 1;
+      min-height: 560px;
+      background: url('/hero-revision-institucional-sin-bandera.jpg') center center / cover no-repeat;
+    }
+    body.page-landing .hero-brandline {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 46px;
+      color: #fff;
+      font-size: .88rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+    body.page-landing .hero-brandline::before { content: 'Gobernanza Multilente'; font-size: 1.22rem; letter-spacing: -.025em; text-transform: none; }
+    body.page-landing .hero-brandline span { padding-left: 18px; border-left: 2px solid rgba(255,255,255,.72); }
+    body.page-landing .hero .eyebrow { color: #fff; font-size: .92rem; font-weight: 600; letter-spacing: 0; text-transform: none; }
+    body.page-landing .hero h1,
+    body.page-landing.theme-institutional .hero h1 { max-width: 740px; margin-bottom: 24px; color: #fff; font-size: clamp(2.65rem, 4.15vw, 4.7rem); font-weight: 750; line-height: 1.1; }
+    body.page-landing .hero-lead,
+    body.page-landing.theme-institutional .hero-lead { max-width: 660px; margin-bottom: 30px; color: #fff2f4; font-size: 1.13rem; line-height: 1.55; }
+    body.page-landing .hero .button,
+    body.page-landing.theme-institutional .hero .button { border-radius: 6px; border-color: #fff; color: #fff; background: transparent; }
+    body.page-landing .hero .button.primary,
+    body.page-landing.theme-institutional .hero .button.primary { border-color: #fff; color: #831525; background: #fff; }
+    body.page-landing .faq-section { padding-block: 88px; background: #fff; }
+    body.page-landing .faq-heading { border-bottom: 2px solid var(--blue); padding-bottom: 28px; }
+    body.page-landing .faq-list { max-width: 100%; }
+    body.page-landing .faq-list > details > summary { color: var(--blue); font-size: 1.22rem; }
+    body.page-landing .faq-list > details { border-color: var(--line); }
+    @media (max-width: 900px) {
+      body.page-landing .hero .wrap,
+      body.page-landing.theme-institutional .hero .wrap { grid-template-columns: 1fr; }
+      body.page-landing .hero-photo { grid-column: 1; grid-row: 1; min-height: 300px; }
+      body.page-landing .hero-copy { grid-column: 1; grid-row: 2; padding: 42px 28px 50px; }
+      body.page-landing .hero-brandline { margin-bottom: 28px; }
+    }
+    @media (max-width: 620px) {
+      body.page-landing .hero-photo { min-height: 235px; }
+      body.page-landing .hero h1,
+      body.page-landing.theme-institutional .hero h1 { font-size: clamp(2.35rem, 10vw, 3.2rem); }
+      body.page-landing .hero-brandline { gap: 9px; font-size: .72rem; }
+      body.page-landing .hero-brandline::before { font-size: 1rem; }
+      body.page-landing .hero-brandline span { padding-left: 9px; }
+    }
+
+    /* Recorrido público: usa la identidad existente y concentra cada idea en un bloque. */
+    body.page-landing .story { padding-block: 76px; background: #fff; }
+    body.page-landing .story:nth-of-type(even) { background: var(--paper); }
+    body.page-landing #ejemplos { background: var(--paper); }
+    body.page-landing #trayectoria { background: #fff; }
+    .trajectory-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
+    .trajectory-card { min-width: 0; padding: clamp(22px, 3vw, 32px); border: 1px solid var(--line); border-top: 4px solid var(--blue); border-radius: 8px; background: var(--paper); }
+    .trajectory-card h3 { margin: 8px 0 14px; font-size: clamp(1.2rem, 2vw, 1.45rem); line-height: 1.3; }
+    .trajectory-logo { display: inline-block; margin: 0 0 18px; padding: 12px 14px; background: #fff; }
+    .trajectory-logo img { display: block; width: min(190px, 100%); height: auto; }
+    .trajectory-card p { margin: 0 0 18px; color: var(--muted); font-size: .96rem; }
+    .trajectory-card a { color: var(--blue); font-weight: 700; text-underline-offset: 3px; }
+    .trajectory-wide { grid-column: 1 / -1; }
+    .trajectory-label { color: var(--blue); font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .approach[id], .usage-strip[id], .story[id], .faq-section[id], .pilot-public[id], .faq-contact[id], .faq-list summary[id] { scroll-margin-top: 90px; }
+    /* Al elegir una pregunta, la respuesta y el índice quedan debajo del encabezado fijo, no tapados por él. */
+    .faq-list > details, .faq-list summary[id] { scroll-margin-top: 104px; }
+    .hero-lead strong { color: #fff; font-weight: 750; }
+    /* Ficha institucional: índice lateral fijo y seis bloques, sin bandas de color. */
+    body.page-detail .detail-hero { padding-block: 60px; }
+    body.page-detail .brand-mark, body.page-detail .nav .nav-login { background: var(--blue); }
+    body.page-detail .ficha .button.primary { border-color: var(--blue); color: #fff; background: var(--blue); }
+    body.page-detail .ficha-lens-name .lens-index { color: var(--blue); }
+    body.page-detail .ficha { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 60px; align-items: start; padding-block: 60px 90px; }
+    body.page-detail .ficha-toc { position: sticky; top: 96px; display: flex; flex-direction: column; border-top: 2px solid var(--blue); }
+    body.page-detail .ficha-toc a { padding: 12px 6px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: .93rem; font-weight: 600; line-height: 1.35; text-decoration: none; }
+    body.page-detail .ficha-toc a:hover { color: var(--blue); }
+    body.page-detail .ficha-main { min-width: 0; }
+    body.page-detail .ficha [id] { scroll-margin-top: 100px; }
+    body.page-detail .ficha-block { padding-bottom: 56px; margin-bottom: 56px; border-bottom: 1px solid var(--line); }
+    body.page-detail .ficha-block:last-child { padding-bottom: 0; margin-bottom: 0; border-bottom: 0; }
+    body.page-detail .ficha h2 { max-width: 820px; margin: 6px 0 18px; font-size: clamp(1.6rem, 2.4vw, 2.15rem); line-height: 1.2; }
+    body.page-detail .ficha h3 { margin: 44px 0 12px; color: var(--ink); font-size: 1.22rem; line-height: 1.3; }
+    body.page-detail .ficha h4 { margin: 0 0 6px; color: var(--ink); font-size: 1.02rem; line-height: 1.3; }
+    body.page-detail .ficha-block > p { max-width: 840px; margin: 0 0 14px; color: var(--muted); }
+    body.page-detail .ficha-cols2, body.page-detail .ficha-cols3 { display: grid; gap: 14px; margin: 18px 0 20px; }
+    body.page-detail .ficha-cols2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    body.page-detail .ficha-cols3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    body.page-detail .ficha-card { padding: 18px 20px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+    body.page-detail .ficha-card p { margin: 0; color: var(--muted); font-size: .95rem; }
+    body.page-detail .ficha-num { display: block; margin-bottom: 8px; color: var(--blue); font-size: .8rem; font-weight: 700; letter-spacing: .08em; }
+    body.page-detail .ficha-tabla-wrap { overflow-x: auto; margin: 12px 0; }
+    body.page-detail .ficha-tabla { border-collapse: collapse; width: 100%; font-size: .93rem; }
+    body.page-detail .ficha-tabla th, body.page-detail .ficha-tabla td { border-bottom: 1px solid var(--line, #d8dde3); padding: 8px 10px; text-align: left; vertical-align: top; }
+    body.page-detail .ficha-tabla th { font-weight: 600; }
+    body.page-detail .ficha-tabla small { font-weight: 400; opacity: .8; }
+    body.page-detail .ficha-note { padding: 14px 18px; border-left: 3px solid var(--blue); border-radius: 0 8px 8px 0; background: var(--blue-soft); color: var(--ink-2) !important; font-size: .95rem; }
+    body.page-detail .ficha-more { max-width: 860px; margin: 16px 0; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+    body.page-detail .ficha-more > summary { padding: 14px 18px; color: var(--blue); font-weight: 600; cursor: pointer; }
+    body.page-detail .ficha-more > p { margin: 0; padding: 0 18px 16px; color: var(--muted); font-size: .95rem; }
+    body.page-detail .ficha-lenses { margin: 18px 0 8px; border-top: 2px solid var(--blue); }
+    body.page-detail .ficha-lens-head, body.page-detail .ficha .lens { display: grid; grid-template-columns: 150px repeat(4, minmax(0, 1fr)); gap: 6px 22px; align-items: start; }
+    body.page-detail .ficha-lens-head { padding: 11px 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+    body.page-detail .ficha .lens { padding: 16px 0; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; color: inherit; background: none; transition: none; }
+    body.page-detail .ficha .lens:hover { padding-inline: 0; background: none; }
+    body.page-detail .ficha .lens p { grid-column: auto; margin: 0; color: var(--muted); font-size: .93rem; line-height: 1.5; }
+    body.page-detail .ficha-lens-name .lens-index { display: block; color: var(--amber); font-size: .75rem; font-weight: 700; }
+    body.page-detail .ficha-lens-name small { color: var(--muted); font-size: .85rem; }
+    body.page-detail .ficha-label { display: none; color: var(--ink); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    body.page-detail .ficha .detail-limits { columns: 2; column-gap: 40px; }
+    body.page-detail .ficha .detail-limits li { break-inside: avoid; }
+    /* Ficha a lo ancho: en pantallas grandes el texto usaba ~60 % del ancho y las tablas quedaban apretadas. */
+    @media (min-width: 1001px) {
+      body.page-detail { --max: 1360px; }
+      body.page-detail .ficha { grid-template-columns: 196px minmax(0, 1fr); gap: 44px; padding-block: 44px 80px; }
+      body.page-detail .ficha h2, body.page-detail .ficha-block > p, body.page-detail .ficha-more { max-width: 960px; }
+      body.page-detail .ficha-block { padding-bottom: 44px; margin-bottom: 44px; }
+      body.page-detail .ficha h3 { margin-top: 36px; }
+      body.page-detail .ficha-lens-head, body.page-detail .ficha .lens { grid-template-columns: 170px repeat(4, minmax(0, 1fr)); gap: 6px 26px; }
+    }
+    @media (max-width: 1000px) {
+      body.page-detail .ficha { grid-template-columns: minmax(0, 1fr); gap: 26px; padding-block: 36px 70px; }
+      body.page-detail .ficha-toc { position: static; flex-direction: row; flex-wrap: wrap; gap: 6px 8px; border-top: 0; }
+      body.page-detail .ficha-toc a { padding: 7px 12px; border: 1px solid var(--line); border-radius: 999px; background: #fff; font-size: .85rem; }
+      body.page-detail .ficha-cols2, body.page-detail .ficha-cols3 { grid-template-columns: minmax(0, 1fr); }
+      body.page-detail .ficha-lens-head { display: none; }
+      body.page-detail .ficha .lens { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+      body.page-detail .ficha-label { display: block; margin-bottom: 2px; }
+      body.page-detail .ficha .detail-limits { columns: 1; }
+      body.page-detail .ficha-block { padding-bottom: 40px; margin-bottom: 40px; }
+    }
+    .usage-strip { padding-block: 44px 46px; border-bottom: 1px solid var(--line); background: var(--paper); }
+    .usage-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px 36px; margin: 6px 0 20px; }
+    .usage-item strong { display: block; color: var(--blue); font-size: clamp(1.9rem, 3vw, 2.6rem); font-weight: 700; line-height: 1.1; letter-spacing: -.03em; }
+    .usage-item span { display: block; margin-top: 6px; color: var(--ink-2); font-size: .97rem; line-height: 1.4; }
+    .usage-note { max-width: 900px; margin: 0; color: var(--muted); font-size: .92rem; }
+    @media (max-width: 900px) { .usage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .usage-strip { padding-block: 34px; } }
+    @media (max-width: 620px) { .usage-grid { grid-template-columns: 1fr; } }
+    /* Enfoque: de los principios a algo que se puede comprobar. */
+    .approach { padding-block: 72px 64px; border-bottom: 1px solid var(--line); background: #fff; }
+    .approach h2 { max-width: 820px; margin: 0 0 18px; }
+    .approach-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 28px 64px; align-items: start; }
+    .approach-copy p { margin: 0 0 16px; color: var(--muted); font-size: 1.06rem; }
+    .approach-copy .approach-lead { color: var(--ink); font-size: 1.2rem; font-weight: 600; line-height: 1.45; }
+    .approach-list { margin: 0; padding: 0; list-style: none; border-top: 2px solid var(--blue); }
+    .approach-list li { position: relative; padding: 14px 0 14px 30px; border-bottom: 1px solid var(--line); color: var(--ink); font-weight: 500; line-height: 1.45; }
+    .approach-list li::before { content: ""; position: absolute; left: 4px; top: 22px; width: 9px; height: 9px; border-radius: 50%; background: var(--blue); }
+    .criterio-grid { display: grid; gap: 18px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 26px; }
+    .criterio-grid article { padding: 20px 22px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+    .criterio-grid h3 { margin: 0 0 8px; font-size: 1.06rem; color: var(--blue); }
+    .criterio-grid p { margin: 0; color: var(--muted); line-height: 1.6; }
+    @media (max-width: 760px) { .criterio-grid { grid-template-columns: 1fr; } }
+    .sintesis .approach-lead { max-width: 900px; margin: 0; color: var(--ink); font-size: 1.2rem; font-weight: 600; line-height: 1.45; }
+    .sintesis .criterio-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .sintesis-recorrido { max-width: 900px; margin: 26px 0 0; color: var(--muted); font-size: 1.06rem; line-height: 1.6; }
+    @media (max-width: 900px) { .sintesis .criterio-grid { grid-template-columns: 1fr; } }
+    /* Charla /multilente: misma tipografía, colores y componentes que la presentación. */
+    .charla-hero { padding-block: 72px 64px; color: #fff; background: var(--blue); }
+    .charla-hero h1 { max-width: 900px; margin: 0 0 16px; color: #fff; font-size: clamp(2.1rem, 5vw, 3.6rem); line-height: 1.08; }
+    .charla-antetitulo { max-width: 900px; margin: 0 0 22px; color: rgba(255,255,255,.88); font-size: .8rem; font-weight: 600; letter-spacing: .1em; line-height: 1.5; text-transform: uppercase; }
+    .charla-bajada { margin: 0; color: rgba(255,255,255,.94); font-size: 1.15rem; }
+    .charla-bloque { padding-block: 56px; border-bottom: 1px solid var(--line); background: #fff; }
+    .charla-bloque h2 { margin: 0 0 18px; }
+    .charla-texto > * { max-width: 780px; }
+    .charla-texto p { margin: 0 0 16px; font-size: 1.12rem; line-height: 1.7; }
+    .charla-texto p:last-child { margin-bottom: 0; }
+    .charla-intro { margin: 0; color: var(--muted); font-size: 1.12rem; }
+    .criterio-grid.charla-lentes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .charla-lentes .charla-ejemplo { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); color: var(--ink); font-size: .9rem; line-height: 1.5; }
+    .charla-nota { max-width: 900px; margin: 24px 0 0; color: var(--muted); font-size: .9rem; line-height: 1.55; }
+    .charla-tabla-marco { margin: 24px 0; overflow-x: auto; }
+    .charla-tabla { width: 100%; border-collapse: collapse; font-size: .98rem; font-variant-numeric: tabular-nums; }
+    .charla-tabla caption { padding-top: 8px; caption-side: bottom; color: var(--muted); font-size: .82rem; text-align: left; }
+    .charla-tabla th, .charla-tabla td { padding: 9px 10px; border-bottom: 1px solid var(--line); text-align: right; vertical-align: bottom; }
+    .charla-tabla th[scope="row"], .charla-tabla thead th:first-child { text-align: left; }
+    .charla-tabla thead th { color: var(--muted); font-size: .86rem; font-weight: 600; }
+    .charla-tabla .charla-indice th, .charla-tabla .charla-indice td { color: var(--ink); font-weight: 700; }
+    .charla-tabla .charla-criterio th, .charla-tabla .charla-criterio td { color: var(--muted); font-size: .86rem; }
+    .charla-tabla .charla-cambio { color: var(--blue); background: var(--blue-soft); }
+    .charla-etiqueta { display: block; margin-top: 3px; font-size: .66rem; font-weight: 700; letter-spacing: .03em; line-height: 1.2; text-transform: uppercase; }
+    .charla-texto .approach-pull { max-width: 900px; margin: 6px 0 0; font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: 1.25; }
+    .charla-texto .charla-tras-destacado { margin-top: 22px; color: var(--muted); }
+    .charla-cierre { padding-block: 72px; color: #fff; background: var(--ink); }
+    .charla-cierre p { margin: 0 0 22px; color: #fff; font-size: clamp(1.35rem, 2.6vw, 2rem); font-weight: 600; line-height: 1.35; }
+    .charla-cierre p:last-child { margin: 0; color: var(--blue-soft); }
+    .charla-pie { padding-block: 40px; background: var(--paper); }
+    .charla-enlaces { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-bottom: 14px; }
+    .charla-enlaces a { color: var(--blue); font-weight: 600; }
+    .charla-pie p { margin: 0; color: var(--muted); }
+    @media (max-width: 900px) {
+      .criterio-grid.charla-lentes { grid-template-columns: 1fr; }
+      .charla-hero { padding-block: 52px 46px; }
+      .charla-bloque, .charla-cierre { padding-block: 42px; }
+    }
+    @media (max-width: 480px) {
+      .charla-texto p { font-size: 1.04rem; }
+      .charla-tabla { font-size: .8rem; }
+      .charla-tabla th, .charla-tabla td { padding: 6px 3px; }
+      .charla-tabla thead th, .charla-tabla .charla-criterio th, .charla-tabla .charla-criterio td { font-size: .7rem; }
+      .charla-etiqueta { font-size: .56rem; letter-spacing: 0; }
+      .charla-tabla td { white-space: nowrap; }
+      .charla-tabla .charla-criterio td { font-size: .62rem; }
+    }
+    .approach-reflection { max-width: 900px; margin: 18px 0 0; color: var(--muted); font-size: 1.06rem; line-height: 1.6; }
+    .approach-pull { max-width: 900px; margin: 40px 0 0; padding: 4px 0 4px 22px; border-left: 4px solid var(--blue); color: var(--ink); font-size: clamp(1.25rem, 2vw, 1.6rem); font-weight: 600; line-height: 1.32; letter-spacing: -.01em; }
+    @media (max-width: 900px) { .approach { padding-block: 52px 46px; } .approach-grid { grid-template-columns: minmax(0, 1fr); } }
+    .story-head { max-width: 760px; margin-bottom: 30px; }
+    .story-head h2 { margin: 0 0 14px; }
+    .story-head p { margin: 0; color: var(--muted); }
+    .story-split { display: grid; grid-template-columns: .82fr 1.18fr; gap: 52px; align-items: start; }
+    .story-split p { margin: 0; }
+    .story-points, .example-grid, .method-grid, .layers-grid, .evidence-grid { display: grid; gap: 16px; }
+    .story-points { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 26px; }
+    .story-points article, .example-card, .method-step, .layer-card, .evidence-card {
+      min-width: 0; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: #fff;
+    }
+    .story-points h3, .example-card h3, .method-step h3, .layer-card h3, .evidence-card h3 { margin: 0 0 7px; font-size: 1.04rem; line-height: 1.3; }
+    .story-points p, .example-card p, .method-step p, .layer-card p, .evidence-card p { margin: 0; color: var(--muted); font-size: .96rem; }
+    .layers-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .example-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .example-scope { color: var(--blue); font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; }
+    .example-number { display: block; margin-bottom: 12px; color: var(--blue); font-size: clamp(1.5rem, 2.2vw, 2rem); font-weight: 700; letter-spacing: -.04em; }
+    .example-card { display: flex; flex-direction: column; }
+    .example-card .example-question { margin-top: auto !important; }
+    .example-card p:not(.example-question) { margin-bottom: 15px; }
+    .back-top { display: none; }
+    @media (max-width: 900px) { .back-top { display: inline-flex; position: fixed; right: 14px; bottom: 14px; z-index: 40; padding: 9px 14px; border-radius: 999px; background: #172033; color: #fff; font-size: .85rem; font-weight: 600; text-decoration: none; box-shadow: 0 6px 18px rgba(16,42,67,.25); } }
+    .example-question { margin-top: 15px !important; padding-top: 13px; border-top: 1px solid var(--line); color: var(--ink) !important; }
+    .example-note, .method-note { margin: 18px 0 0; color: var(--muted); font-size: .89rem; }
+    /* El botón de la demo va sobre fondo claro: necesita color propio para no quedar blanco sobre blanco. */
+    .example-note .button { border-color: var(--blue); color: #fff; background: var(--blue); }
+    .method-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); counter-reset: method; }
+    .method-step { counter-increment: method; }
+    .method-step::before { content: counter(method, decimal-leading-zero); display: block; margin-bottom: 15px; color: var(--blue); font-size: .85rem; font-weight: 700; }
+    .layers-title { margin: 38px 0 18px; font-size: 1.35rem; }
+    .layer-card strong { display: block; margin-bottom: 5px; color: var(--blue); }
+    .lenses-public .faq-lenses.explained { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .lenses-public .faq-lens > summary { min-height: 92px; position: relative; display: flex; flex-direction: column; justify-content: center; padding: 13px 44px 13px 16px; cursor: pointer; list-style: none; }
+    .lenses-public .faq-lens > summary::-webkit-details-marker { display: none; }
+    .lenses-public .faq-lens > summary::after { content: '+'; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--blue); font-size: 1.3rem; }
+    .lenses-public .faq-lens[open] > summary::after { content: '−'; }
+    .evidence-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .evidence-card { border-top: 4px solid var(--blue); }
+    .evidence-card.pending { border-top-color: var(--amber); }
+    .evidence-card ul, .limits-public ul, .pilot-public ul { margin: 12px 0 0; padding-left: 20px; }
+    .evidence-card li, .limits-public li, .pilot-public li { margin: 6px 0; }
+    .evidence-card strong.metric { display: block; margin-bottom: 5px; color: var(--blue); font-size: 2rem; line-height: 1; }
+    .receipt-note { margin-top: 22px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+    .receipt-note h3 { margin: 0 0 8px; font-size: 1.08rem; }
+    .receipt-note p { margin: 0; color: var(--muted); font-size: .95rem; }
+    .antecedent-note { margin-top: 24px; padding: 17px 20px; border-left: 3px solid var(--amber); color: var(--muted); background: var(--amber-soft); font-size: .92rem; }
+    .antecedent-note p { margin: 0; }
+    .antecedent-note a { color: var(--blue); }
+    .limits-public ul { columns: 2; column-gap: 42px; }
+    .limits-public li { break-inside: avoid; }
+    .pilot-public { padding-block: 80px; color: white; background: #49282e; }
+    .pilot-public .section-kicker { color: #fff; }
+    .pilot-public .section-kicker::before { background: #f3cbd1; }
+    .pilot-public h2 { max-width: 820px; margin: 0 0 22px; color: white; }
+    .pilot-public p { max-width: 850px; margin: 0; color: #f8ebed; }
+    .pilot-facts { display: flex; flex-wrap: wrap; gap: 9px; margin: 24px 0; }
+    .pilot-facts span { padding: 7px 13px; border: 1px solid rgba(255,255,255,.38); border-radius: 999px; font-size: .9rem; }
+    .pilot-public .button.primary { border-color: #fff; color: #831525; background: #fff; }
+    .pilot-public .button:not(.primary) { border-color: rgba(255,255,255,.65); color: white; background: transparent; }
+    .pilot-public .hero-actions { margin-top: 26px; }
+    .pilot-public h2 + p { margin-top: 6px; }
+    .pilot-public p + p { margin-top: 16px; }
+    .pilot-public p + .button { margin-top: 32px; }
+    .pilot-public .pilot-question { margin-top: 40px; padding-top: 26px; border-top: 1px solid rgba(255,255,255,.32); font-size: .95rem; }
+    .pilot-public .pilot-question a { color: #fff; text-underline-offset: 3px; }
+    body.page-landing .hero-scope { max-width: 690px; margin: 0 0 22px; color: #fff; font-size: .9rem; font-weight: 400; line-height: 1.75; }
+    body.page-landing .hero-decision { margin: -6px 0 28px; padding: 3px 0 3px 14px; border-left: 3px solid rgba(255,255,255,.75); color: #fff; font-size: 1.12rem; font-weight: 700; line-height: 1.35; }
+    body.page-landing .hero-actions .button { white-space: normal; text-align: center; }
+    body.page-landing .nav { gap: 14px; }
+    body.page-landing .nav a { font-size: .82rem; white-space: nowrap; }
+    @media (max-width: 1320px) and (min-width: 901px) {
+      .site-header .wrap { position: relative; }
+      .nav-toggle { display: flex; }
+      .nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; max-height: calc(100vh - 68px); overflow: auto; padding: 6px 20px 20px; border-bottom: 1px solid var(--line); background: var(--paper); }
+      .nav.is-open { display: flex; }
+      body.page-landing .nav { gap: 0; }
+      body.page-landing .nav a { white-space: normal; }
+      .nav a { padding: 13px 0; border-top: 1px solid var(--line); }
+      .nav .nav-contact, .nav .nav-login { margin-top: 14px; text-align: center; }
+    }
+    @media (max-width: 900px) {
+      .story-split, .story-points, .example-grid, .layers-grid, .evidence-grid, .trajectory-grid { grid-template-columns: 1fr; }
+      .nav { max-height: calc(100vh - 68px); overflow: auto; }
+      body.page-landing .nav { gap: 0; }
+      body.page-landing .nav a { white-space: normal; }
+      .method-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .lenses-public .faq-lenses.explained { grid-template-columns: 1fr; }
+      .limits-public ul { columns: 1; }
+    }
+    @media (max-width: 620px) {
+      body.page-landing .story, .pilot-public { padding-block: 58px; }
+      .method-grid { grid-template-columns: 1fr; }
+      .story-points article, .example-card, .method-step, .layer-card, .evidence-card { padding: 18px; }
+      .pilot-public .hero-actions { display: grid; }
+      .pilot-public .button { width: 100%; }
+    }
+
+    body.page-detail .site-header .wrap { width: min(calc(100% - 40px), 1500px); }
+    body.page-detail .nav { gap: 12px; }
+    body.page-detail .nav a { font-size: .82rem; white-space: nowrap; }
+    .detail-back { display: inline-block; margin-bottom: 24px; color: #fff; font-size: .88rem; font-weight: 650; text-decoration: underline; text-underline-offset: 4px; }
+    .detail-hero .eyebrow { margin: 0 0 10px; color: var(--amber); font-size: .85rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .detail-section { padding-block: 78px; background: #fff; }
+    .detail-section.alt { background: var(--paper); }
+    .detail-section .narrow { max-width: var(--max); }
+    .detail-section h2 { max-width: 820px; margin: 6px 0 20px; font-size: clamp(1.8rem, 3vw, 2.55rem); line-height: 1.18; }
+    .detail-section p { max-width: 930px; }
+    .detail-layer-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
+    .detail-layer-grid article { padding: 21px; border: 1px solid var(--line); border-radius: 12px; background: white; }
+    .detail-layer-grid article span { color: var(--amber); font-size: .82rem; font-weight: 750; }
+    .detail-layer-grid h3 { margin: 8px 0; font-size: 1.08rem; line-height: 1.3; }
+    .detail-layer-grid p { margin: 0; color: var(--muted); font-size: .96rem; }
+    .detail-lens-list .lens { grid-template-columns: 50px 230px 1fr; }
+    .detail-lens-list .lens h3 { margin: 0; font-size: 1.04rem; }
+    .detail-lens-list .lens p { margin: 0; font-size: .94rem; }
+    .detail-flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; padding: 0; margin: 30px 0; list-style: none; }
+    .detail-flow li { position: relative; padding: 16px 15px; border-top: 3px solid var(--amber); border-radius: 5px; background: #fff; }
+    .detail-flow strong, .detail-flow span { display: block; }
+    .detail-flow span { margin-top: 6px; color: var(--muted); font-size: .86rem; line-height: 1.4; }
+    .detail-callout { max-width: none !important; padding: 18px 22px; border-left: 3px solid var(--amber); background: #eaf2fc; }
+    .detail-table-wrap { overflow-x: auto; }
+    .detail-table { width: 100%; border-collapse: collapse; font-size: .96rem; }
+    .detail-table th, .detail-table td { padding: 16px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    .detail-table thead { color: #fff; background: var(--ink); }
+    .detail-table tbody th { width: 24%; }
+    .detail-limits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 24px; padding-left: 22px; }
+    .detail-antecedent { max-width: 100%; margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: .93rem; }
+    .validation-card code { word-break: break-all; }
+    /* La ficha conserva su profundidad técnica y comparte el sistema visual de la portada. */
+    body.page-detail .detail-hero { padding-block: 56px; background: var(--blue); }
+    body.page-detail .detail-hero .wrap { align-items: center; }
+    body.page-detail .detail-hero h1 { max-width: 900px; color: #fff; font-size: clamp(2.2rem, 3.1vw, 3.2rem); font-weight: 750; line-height: 1.12; }
+    body.page-detail .detail-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 18px; margin: 14px 0 16px; }
+    body.page-detail .detail-facts div { padding-top: 10px; border-top: 1px solid var(--line); }
+    body.page-detail .detail-facts dt { color: var(--muted); font-size: .78rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+    body.page-detail .detail-facts dd { margin: 2px 0 0; color: var(--ink); font-size: 1.05rem; font-weight: 700; }
+    body.page-detail .detail-index > span { font-size: .9rem; }
+    body.page-detail .detail-hero p { color: #f0f5ff; }
+    body.page-detail .detail-hero .eyebrow { color: #fbe3e6; }
+    body.page-detail .detail-back { color: #fff; }
+    body.page-detail .detail-index { border: 1px solid var(--line); border-radius: 8px; color: var(--ink); background: #fff; }
+    body.page-detail .detail-index strong { color: var(--blue); }
+    body.page-detail .detail-index span { color: var(--muted); }
+    body.page-detail .detail-section { padding-block: 76px; }
+    body.page-detail .detail-section.alt, body.page-detail .processing, body.page-detail .validation { background: var(--paper); }
+    body.page-detail .detail-layer-grid article, body.page-detail .processing-card,
+    body.page-detail .validation-card, body.page-detail .resource-card {
+      min-height: 0; padding: 22px; border: 1px solid var(--line); border-radius: 8px; box-shadow: none; background: #fff;
+    }
+    body.page-detail .processing-card > span { width: auto; height: auto; margin-bottom: 14px; color: var(--blue); background: transparent; font-size: .85rem; }
+    body.page-detail .processing-grid, body.page-detail .validation-grid { margin-top: 28px; gap: 16px; }
+    body.page-detail .lenses { color: var(--ink); background: var(--paper); }
+    body.page-detail .lenses::before { display: none; }
+    body.page-detail .lenses .section-intro { color: var(--muted); }
+    body.page-detail .detail-lens-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 30px; border: 0; }
+    body.page-detail .detail-lens-list .lens { display: block; padding: 20px; border: 1px solid #c8d8ee; border-radius: 8px; background: #eef6ff; transition: none; }
+    body.page-detail .detail-lens-list .lens:hover { padding: 20px; background: #e7f1fd; }
+    body.page-detail .detail-lens-list .lens-index { color: var(--blue); }
+    body.page-detail .detail-lens-list .lens h3 { margin: 6px 0 10px; color: var(--ink); }
+    body.page-detail .detail-lens-list .lens p { color: var(--muted); }
+    body.page-detail .detail-lens-list .lens p strong { color: var(--ink); }
+    body.page-detail .detail-lens-list .lens:last-child { grid-column: 1 / -1; width: calc(50% - 6px); justify-self: center; }
+    body.page-detail .privacy-box { margin-top: 30px; border-radius: 8px; box-shadow: none; }
+    body.page-detail .detail-table thead { background: var(--blue); }
+    body.page-detail .detail-callout, body.page-detail .revocation-note { border-left-color: var(--blue); background: var(--blue-soft); }
+    body.page-detail .resources { background: #fff; }
+    @media (max-width: 1320px) { body.page-detail .nav a { white-space: normal; } }
+    @media (max-width: 900px) {
+      .detail-layer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .detail-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      body.page-detail .detail-lens-list { grid-template-columns: 1fr; }
+      body.page-detail .detail-lens-list .lens:last-child { width: 100%; }
+    }
+    @media (max-width: 620px) {
+      .detail-section { padding-block: 58px; }
+      .detail-layer-grid, .detail-flow, .detail-limits { grid-template-columns: 1fr; }
+      body.page-detail .detail-hero { padding-block: 55px; }
+      body.page-detail .detail-index { padding: 18px; }
+      .detail-table { min-width: 650px; }
+    }
+
+    @media print {
+      .site-header, .hero-actions { display: none; }
+      body.page-detail .detail-only { display: block !important; }
+      body.page-detail .landing-only { display: none !important; }
+      body { background: white; }
+      .hero { color: var(--ink); background: white; }
+      .hero-lead { color: var(--muted); }
+      .hero .wrap { min-height: auto; padding-block: 40px; }
+      .hero-panel { color: var(--ink); border-color: var(--line); box-shadow: none; background: var(--paper); }
+      .signal-row span { color: var(--muted); }
+      section { padding-block: 45px; break-inside: avoid; }
+      .proof-facts, .processing-card { box-shadow: none; }
+      .pilot-actions { display: none; }
+      .lenses, .limits { color: var(--ink); background: white; }
+      .lenses .section-intro, .lens p, .limits-list li { color: var(--muted); }
+    }
+    /* 0.10.42: /presentacion ordenada en seis secciones; cada una con etiqueta, H2 y tarjetas con H3. */
+    .landing-lead { max-width: 860px; margin: 0; color: var(--ink-2); font-size: 1.12rem; font-weight: 400; line-height: 1.6; }
+    .pasos-grid { margin: 26px 0 0; padding: 0; list-style: none; }
+    .pasos-grid > li { display: flex; }
+    .pasos-grid > li > article { flex: 1; }
+    .paso-numero { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; margin-bottom: 12px; border-radius: 50%; color: #fff; background: var(--blue); font-size: .9rem; font-weight: 700; }
+    /* 0.10.41.5: «Cómo funciona» en cinco pasos alternados, como una cinta IA → persona → reglas → IA → persona. */
+    .sintesis .criterio-grid.pasos-cinco { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+    .pasos-cinco > li { position: relative; }
+    .pasos-cinco article { padding: 18px 18px 20px; }
+    .pasos-cinco h3 { font-size: 1rem; }
+    .pasos-cinco p { font-size: .95rem; line-height: 1.55; }
+    .paso-actor { display: inline-block; margin: 0 0 10px 8px; padding: 3px 10px; border-radius: 999px; font-size: .78rem; font-weight: 700; letter-spacing: .02em; vertical-align: 6px; }
+    .paso-actor-ia { color: #0b4f8a; background: #e3eef9; }
+    .paso-actor-persona { color: #1f5e2e; background: #e4f3e7; }
+    .paso-actor-reglas { color: #6b4300; background: #fbefd9; }
+    .pasos-rapida { max-width: 900px; margin: 18px 0 0; color: var(--ink); font-size: 1.02rem; font-weight: 600; }
+    @media (min-width: 1101px) {
+      .pasos-cinco > li:not(:last-child)::after { content: "→"; position: absolute; top: 22px; right: -12px; z-index: 1; color: var(--muted); font-weight: 700; }
+    }
+    @media (max-width: 1100px) { .sintesis .criterio-grid.pasos-cinco { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 620px) { .sintesis .criterio-grid.pasos-cinco { grid-template-columns: 1fr; } }
+    .landing-cierre { max-width: 900px; margin: 30px 0 0; padding: 4px 0 4px 18px; border-left: 4px solid var(--blue); color: var(--ink); font-size: 1.12rem; font-weight: 600; line-height: 1.45; }
+    .landing-enlaces { margin: 18px 0 0; color: var(--muted); font-size: .95rem; }
+    .landing-enlaces a { color: var(--blue); font-weight: 600; }
+    .medido-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 26px 0 22px; }
+    #medido .usage-note + .usage-note { margin-top: 8px; }
+    #medido .usage-note a { color: var(--blue); }
+    #probalo .hero-actions { margin-top: 8px; }
+    #probalo .button { border-color: var(--blue); color: var(--blue); background: #fff; }
+    #probalo .button.primary { color: #fff; background: var(--blue); }
+    @media (max-width: 900px) { .medido-grid { grid-template-columns: 1fr; } }
+    /* Video de presentación: un botón; el reproductor de YouTube sin cookies se crea recién al apretarlo
+       (presentacion-video.js; la CSP admite sólo youtube-nocookie.com en frame-src). Ver /privacidad#cookies. */
+    .video-section .wrap { max-width: 1040px; }
+    .video-marco { position: relative; margin-top: 28px; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #231c1e; box-shadow: var(--shadow); }
+    .video-marco iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .video-play { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 20px; text-align: center; font: inherit; color: #fff; background: radial-gradient(circle at 30% 30%, #4b3a3f, #231c1e 70%); }
+    .video-play:focus-visible { outline: 3px solid #fff; outline-offset: -8px; }
+    .video-icono { width: 76px; height: 76px; border-radius: 50%; background: var(--blue); position: relative; transition: transform .15s ease; }
+    .video-play:hover .video-icono, .video-play:focus-visible .video-icono { transform: scale(1.07); }
+    .video-icono::after { content: ""; position: absolute; left: 30px; top: 23px; border-style: solid; border-width: 15px 0 15px 23px; border-color: transparent transparent transparent #fff; }
+    .video-texto { max-width: 32em; font-size: .95rem; color: #eadfe2; }
+    .video-texto strong { display: block; margin-bottom: 4px; font-size: 1.2rem; color: #fff; }
+    .video-nota { margin: 14px 0 0; color: var(--muted); font-size: .95rem; }
+  </style>
+</head>
+<body>
+  <script src="/presentacion-theme.js?v=20260919-ux"></script>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/presentacion" aria-label="Gobernanza Multilente, ir al inicio">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>Gobernanza Multilente</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-principal">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav-principal" aria-label="Navegación principal">
+        __PAGE_NAV__
+        <a class="nav-login" href="/">Ingresar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero landing-only" id="inicio">
+      <div class="wrap">
+        <div class="hero-copy">
+          <div class="hero-brandline"><span>Para informes con datos agregados</span></div>
+          <h1>Una segunda lectura antes de decidir.</h1>
+          <p class="hero-lead">En general, en pocos minutos tenés una revisión adicional que puede ayudarte a detectar puntos ciegos en tu informe.</p>
+          <p class="hero-decision">Complementa tu revisión. La decisión sigue siendo tuya.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#como-funciona">Conocer cómo funciona</a>
+            <a class="button" href="#video">Ver el video</a>
+            <a class="button" href="#ejemplos">Ver ejemplos</a>
+          </div>
+        </div>
+        <div class="hero-photo" role="img" aria-label="Dos profesionales revisan juntos un informe y sus gráficos"></div>
+      </div>
+    </section>
+
+    <section class="approach video-section landing-only" id="video">
+      <div class="wrap">
+        <div class="section-kicker">En cinco minutos</div>
+        <h2>Gobernanza Multilente, en video.</h2>
+        <p class="landing-lead">Quién decide con informes, qué se puede ver dentro de ellos, las seis lentes, el recorrido en cinco pasos y las dos revisiones.</p>
+        <div class="video-marco">
+          <button type="button" class="video-play" data-yt="iWddq1wAOrY" data-titulo="Gobernanza Multilente: una segunda lectura antes de decidir (video, 5:25)"><span class="video-icono" aria-hidden="true"></span><span class="video-texto"><strong>Reproducir el video (5:25)</strong>Se carga desde YouTube recién cuando lo reproducís; YouTube puede usar cookies.</span></button>
+        </div>
+        <p class="video-nota">El video está en YouTube y no se carga hasta que lo reproducís (<a href="/privacidad#cookies">privacidad y cookies</a>). <a href="https://www.youtube.com/watch?v=iWddq1wAOrY" target="_blank" rel="noopener noreferrer">Verlo en YouTube <span aria-hidden="true">→</span></a></p>
+      </div>
+    </section>
+
+    <section class="approach sintesis landing-only" id="sintesis">
+      <div class="wrap">
+        <div class="section-kicker">El problema y la idea</div>
+        <h2>Gobernanza no da veredictos: hace preguntas.</h2>
+        <p class="landing-lead">Quien decide casi nunca tiene tiempo de revisar a fondo todos los informes. Un total que no cierra, una serie que cambió de criterio o un programa que ejecutó casi todo su presupuesto con pocas metas cumplidas pueden pasar inadvertidos.</p>
+        <div class="criterio-grid">
+          <article>
+            <h3>Pregunta qué explica cada diferencia</h3>
+            <p>Ante una diferencia así, pregunta qué la explica y revisa primero si puede deberse a cómo se cargó, acumuló o reclasificó el dato.</p>
+          </article>
+          <article>
+            <h3>Acompaña el trabajo de los equipos</h3>
+            <p>Facilita la identificación de puntos que requieren una revisión más detenida. Está pensada para datos agregados: no se cargan datos de personas. Si reconoce columnas con datos personales, como un CUIT o un documento, las deja fuera, pero ese filtro no las encuentra todas.</p>
+          </article>
+          <article>
+            <h3>No busca culpables</h3>
+            <p>No es una herramienta antifraude ni de auditoría forense, y no atribuye responsabilidades. La decisión queda siempre en manos de quien es responsable.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach sintesis landing-only" id="como-funciona">
+      <div class="wrap">
+        <div class="section-kicker">Cómo funciona</div>
+        <h2>La IA propone, las reglas comprueban, la persona decide.</h2>
+        <p class="landing-lead">Una segunda mirada, como una radiografía. Primero dice qué no miró: cada informe empieza diciendo qué pudo leer y qué no, y sobre lo que no leyó no opina. Después, cinco pasos que se alternan.</p>
+        <ol class="criterio-grid pasos-grid pasos-cinco" aria-label="El recorrido en cinco pasos: IA, persona, reglas, IA, persona">
+          <li><article id="lector-del-cuadro"><span class="paso-numero">1</span><span class="paso-actor paso-actor-ia">IA</span><h3>La IA interpreta</h3><p>Qué institución es y qué contiene cada cuadro. Dos proveedores, OpenAI y Google Gemini, leen rótulos y estructura con las cifras ocultas, años incluidos.</p></article></li>
+          <li><article><span class="paso-numero">2</span><span class="paso-actor paso-actor-persona">Persona</span><h3>La persona confirma</h3><p>Confirmás, corregís cada cuadro o pedís una lectura más detallada. Tu confirmación orienta y suma controles; no apaga las cuentas.</p></article></li>
+          <li><article><span class="paso-numero">3</span><span class="paso-actor paso-actor-reglas">Reglas</span><h3>Las reglas comprueban</h3><p>Reglas deterministas hacen las cuentas con los números originales. Corren siempre y, con los mismos datos y la misma versión, dan el mismo resultado. El conciliador, también por reglas, suma el contexto técnico de carga, corte o cobertura.</p></article></li>
+          <li><article><span class="paso-numero">4</span><span class="paso-actor paso-actor-ia">IA</span><h3>La IA lee las señales</h3><p>Dos o más modelos leen las señales ya calculadas, con sus valores, y proponen cómo entenderlas. Se conservan las coincidencias y las divergencias entre modelos, sin votar.</p></article></li>
+          <li><article><span class="paso-numero">5</span><span class="paso-actor paso-actor-persona">Persona</span><h3>La persona decide</h3><p>Preguntás al área, cerrás cada señal con «¿Qué resultó ser?» y la decisión queda registrada: una decisión humana trazable.</p></article></li>
+        </ol>
+        <p class="pasos-rapida">La revisión rápida usa sólo reglas y persona (pasos 3 y 5): los datos no salen del servidor.</p>
+        <p class="landing-cierre">Una diferencia es un motivo para revisar. No demuestra por sí sola cuál dato está mal.</p>
+        <p class="landing-enlaces"><a href="#faq-como-funciona">Ver cómo funciona →</a> · <a href="/detalle#lector-del-cuadro">Cómo funciona el lector →</a></p>
+      </div>
+    </section>
+
+    <section class="approach sintesis landing-only" id="dos-revisiones">
+      <div class="wrap">
+        <div class="section-kicker">Dos revisiones</div>
+        <h2>Revisión rápida y revisión profunda.</h2>
+        <div class="criterio-grid">
+          <article><h3>Revisión rápida</h3><p>Pasa los rayos X a todo el libro: sólo cuentas, sin IA, en segundos. Totales que no cierran, saltos de escala, valores fuera de lugar, un número escrito a mano donde la fila calcula otro. Es la opción por defecto, y las mediciones de abajo son de lo que corre en ella: el motor sin la lectura con IA.</p></article>
+          <article><h3>Revisión profunda</h3><p>Estudia en detalle lo que vale la pena: la IA interpreta cada cuadro, vos confirmás y corren todas las lentes, también los antecedentes y las asociaciones exploratorias. Tarda minutos. Se pide desde el final de una revisión rápida, con los mismos archivos.</p></article>
+          <article><h3>Qué sale del servidor</h3><p>La seguridad mira todo el recorrido de los datos, no sólo dónde se guardan. En la rápida, los datos del informe no salen del servidor: no se envía nada a proveedores de IA; por eso sirve para informes reservados, de uso interno; datos de personas no se cargan en ninguna de las dos. Sólo sale el aviso por correo de que terminó, con el número del informe y un enlace. En la profunda, las lectoras de IA reciben los rótulos y la estructura de cada cuadro sin las cifras, y la lectura de las señales recibe los hallazgos con sus valores.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach landing-only" id="medido">
+      <div class="wrap">
+        <div class="section-kicker">Qué podés esperar, medido</div>
+        <h2>Echa luz donde no se miraba.</h2>
+        <div class="usage-grid medido-grid">
+          <div class="usage-item"><strong>119 de 123</strong><span>En 123 copias de planillas oficiales con un error escondido a propósito, lo señala en 119: más de 9 de cada 10.</span></div>
+          <div class="usage-item"><strong>88 de 132</strong><span>De 132 planillas oficiales publicadas, sin alterar, 88 salen sin ninguna señal de prioridad alta. No es una tasa de acierto: las otras 44 tienen al menos una señal alta, que puede ser un error real o una falsa alarma.</span></div>
+          <div class="usage-item"><strong>8 de 8</strong><span>Posibles errores reales con la cuenta a la vista, en planillas oficiales publicadas sin alterar: el motor actual marca los 8.</span></div>
+        </div>
+        <p class="usage-note">No promete encontrarlo todo: se le pueden pasar errores. Su valor es echar luz sobre algo que antes nadie miraba.</p>
+        <p class="usage-note">Mediciones del 28/10/2026 con el motor multilente-0.10.59, sin la lectura con IA; las versiones posteriores no cambiaron los controles. <a href="/detalle#inicio-detalle">Detalle de las mediciones en la ficha técnica →</a></p>
+      </div>
+    </section>
+
+    <section class="approach landing-only" id="probalo">
+      <div class="wrap">
+        <div class="section-kicker">Probalo</div>
+        <h2>Probalo con ejemplos o con tus informes.</h2>
+        <div class="hero-actions">
+          <a class="button primary" href="/probar.html">Probar informes predefinidos sin clave</a>
+          <a class="button" href="/">Ingresar</a>
+        </div>
+        <p class="landing-enlaces"><a href="/detalle">Ficha técnica: metodología, pruebas y límites →</a> · <a href="https://doi.org/10.5281/zenodo.22063241" target="_blank" rel="noopener noreferrer">Documentación en Zenodo →</a></p>
+      </div>
+    </section>
+
+    <section class="usage-strip landing-only" id="uso">
+      <div class="wrap">
+        <div class="section-kicker">Uso registrado</div>
+        <div class="usage-grid">
+          <div class="usage-item"><strong>__USO_INFORMES__</strong><span>informes cargados por __USO_PARTICIPANTES__ participantes; __USO_INFORMES_CON_DEVOLUCION__ terminaron con devolución</span></div>
+          <div class="usage-item"><strong>__USO_OBSERVACIONES__</strong><span>observaciones devueltas como preguntas, no como veredictos</span></div>
+          <div class="usage-item"><strong>__USO_INFORMES_SIN_SENALES__</strong><span>informes con devolución en los que no se detectaron señales; no equivale a validarlos</span></div>
+          <div class="usage-item"><strong>__USO_PROYECTOS__</strong><span>proyectos en Incubadora, __USO_PROYECTOS_ENTREGADOS__ con entrega registrada</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="approach landing-only" id="principios">
+      <div class="wrap">
+        <div class="section-kicker">Enfoque</div>
+        <h2>De los principios a un dispositivo operativo</h2>
+        <div class="approach-grid">
+          <div class="approach-copy">
+            <p>Trazabilidad, supervisión humana, transparencia, gestión de riesgos y responsabilidad ya forman parte de los principales marcos de gobernanza de IA. Ese trabajo nos da una base valiosa.</p>
+            <p class="approach-lead">Gobernanza Multilente trabaja en el paso siguiente: cómo hacer visibles esos principios en una revisión concreta.</p>
+          </div>
+          <div>
+            <ul class="approach-list" aria-label="Por eso, Gobernanza Multilente">
+              <li>Registra qué se revisó, con qué evidencia y bajo qué condiciones.</li>
+              <li>Distingue lo comprobado de lo interpretado y de lo exploratorio.</li>
+              <li>Muestra qué no pudo evaluarse.</li>
+              <li>Conserva las decisiones humanas.</li>
+              <li>Permite reconstruir posteriormente la revisión.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="approach-pull">No propone nuevos principios. Propone una forma concreta de llevarlos a la práctica y poder contrastar cómo fueron aplicados.</p>
+      </div>
+    </section>
+
+    <section class="approach criterio landing-only" id="criterio">
+      <div class="wrap">
+        <div class="section-kicker">Criterio de uso</div>
+        <h2>La salida de la IA nunca se entrega cruda.</h2>
+        <p class="approach-lead">Todo lo que produce necesita cuatro verbos humanos antes de usarse: <strong>se revisa, se corrige, se contrasta y se asume</strong>. La devolución automática llega antes de ese paso: es un borrador para quien la recibe.</p>
+        <div class="criterio-grid">
+          <article>
+            <h3>La IA es insumo, nunca producto</h3>
+            <p>Entrega un borrador, una señal de dónde mirar y qué preguntarse. Nunca un resultado terminado. Por eso no existe «lo hizo la IA»: siempre hay una persona que analiza, decide y firma.</p>
+          </article>
+          <article>
+            <h3>La IA correlaciona, el humano comprende</h3>
+            <p>Una máquina asocia que cuando sale el sol canta el gallo, pero no entiende la causa. Gobernar es intervenir sobre causas. Lo que solo correlaciona puede optimizar; no puede gobernar.</p>
+          </article>
+          <article>
+            <h3>El sistema no aprende: se calibra</h3>
+            <p>Las personas ajustan sus reglas a partir de casos revisados: eso es calibración, no aprendizaje de la máquina. Ajustar reglas no es desarrollar criterio; el criterio sigue siendo humano.</p>
+          </article>
+          <article>
+            <h3>Se usa cuando se justifica</h3>
+            <p>No se cargan datos personales; frente a cada problema se evalúa si conviene resolverlo con IA o por otra vía; y se trata como un recurso, no como un juguete.</p>
+          </article>
+        </div>
+        <p class="approach-pull">La gobernanza no depende de quién revise: todos aplican las mismas reglas y queda registro de qué se controló en cada informe.</p>
+      </div>
+    </section>
+
+    <section class="faq-section landing-only" id="preguntas">
+      <div class="wrap">
+        <div class="faq-heading"><div>
+          <div class="section-kicker">Preguntas frecuentes</div>
+          <h2>Gobernanza Multilente, en pocas preguntas.</h2>
+        </div></div>
+        <div class="faq-body">
+          <nav class="faq-toc" aria-label="Índice de preguntas frecuentes">
+            <a href="#faq-para-que-sirve">¿Para qué sirve?</a>
+            <a href="#faq-a-quien">¿A quién está destinado?</a>
+            <a href="#faq-como-funciona">¿Cómo funciona?</a>
+            <a href="#faq-que-archivos">¿Qué archivos puede leer?</a>
+            <a href="#faq-que-produce">¿Qué produce?</a>
+            <a href="#faq-integra-ia">¿Cómo se integra la inteligencia artificial?</a>
+            <a href="#faq-por-que-no-chat">¿Por qué no usar directamente Claude o ChatGPT?</a>
+            <a href="#faq-principios-practica">¿Cómo lleva los principios a la práctica?</a>
+            <a href="#faq-principios">¿Qué necesita una observación para estar bien fundamentada?</a>
+            <a href="#faq-checklist">¿En qué se diferencia de un checklist?</a>
+            <a href="#faq-responsabilidad">Si algo sale mal, ¿quién responde?</a>
+            <a href="#faq-reemplaza">¿Reemplaza una auditoría o a los equipos técnicos?</a>
+            <a href="#faq-todos-los-errores">¿Encuentra todos los errores?</a>
+            <a href="#faq-como-sabemos">¿Cómo sabemos si funciona?</a>
+          </nav>
+          <div class="faq-main">
+            <div class="faq-list">
+              <details open>
+                <summary id="faq-para-que-sirve">¿Para qué sirve?</summary>
+                <div class="faq-answer" id="que-hace">
+                  <p>Para sumar una mirada adicional a informes con datos agregados, ya sea en proceso de elaboración o terminados, antes de cerrarlos o de decidir con ellos.</p>
+                  <p>Funciona como la doble lectura de un estudio médico: una segunda mirada independiente aumenta la probabilidad de advertir algo, sin garantizar que no quede nada por ver.</p>
+                  <p>Gobernanza Multilente puede señalar algunos problemas que merecen una revisión:</p>
+                  <ul>
+                    <li>totales que no cierran, o relaciones que no deberían darse, como un monto pagado mayor que el devengado en un programa público o un gasto por encima de lo presupuestado en una empresa;</li>
+                    <li>cálculos cuyo criterio cambió sin aviso;</li>
+                    <li>saltos o quiebres en una serie, y datos que no coinciden entre documentos.</li>
+                  </ul>
+                  <p>Cada punto llega como una pregunta con su evidencia, no como una acusación. Queda registrado qué se revisó, qué quedó fuera de la evaluación y qué contexto o información adicional sería necesario considerar. Que no aparezcan señales no significa que el informe esté bien.</p>
+                  <p id="problema">Trabaja con datos agregados —como presupuestos y su ejecución, estados contables, tableros de indicadores y metas—, no con expedientes ni personas identificables. <a href="/detalle#alcance">Ver alcance y propósito</a>.</p>
+                </div>
+              </details>
+              <details>
+                <summary id="faq-a-quien">¿A quién está destinado?</summary>
+                <div class="faq-answer">
+                  <p>A quienes deciden con informes de otras áreas: autoridades de organismos públicos y directorios, gerencias o consejos de empresas, cooperativas, ONG y universidades. También a los equipos que los elaboran y quieren revisarlos antes de cerrar una versión.</p>
+                  <p>No hace falta formación técnica: el resultado se presenta primero en lenguaje llano, y el detalle queda disponible para quien lo necesite. <a href="/detalle#alcance">Ver destinatarios y usos</a>.</p>
+                </div>
+              </details>
+              <details>
+                <summary id="faq-como-funciona">¿Cómo funciona?</summary>
+                <div class="faq-answer" id="como-funciona-publico">
+                  <ol>
+                    <li>Cargás el informe con sus datos agregados y el contexto disponible.</li>
+                    <li>Se aplican los controles que esos datos permiten realizar, organizados en seis lentes y una capa conciliadora.</li>
+                    <li>Recibís observaciones, preguntas y un registro de lo evaluado y lo no evaluable.</li>
+                    <li>Si corregís datos o criterios, podés realizar un nuevo análisis. La decisión sigue a cargo de una persona.</li>
+                  </ol>
+                  <p id="lentes-publicas"><strong>Seis lentes y una capa conciliadora: preguntas complementarias, no veredictos.</strong> No todas las lentes se ejecutan en todos los informes. Tocá cada una para ampliar:</p>
+                  <div class="faq-lenses explained" aria-label="Las seis lentes y la capa conciliadora">
+                    <details class="faq-lens"><summary><strong>Ajedrecista</strong><small>¿Las partes del informe son coherentes?</small></summary><p>Busca relaciones fuera de lugar, como totales que no cierran, un pagado mayor que el devengado, un gasto por encima de lo presupuestado o series acumuladas que retroceden. Una diferencia requiere contexto antes de concluir.</p></details>
+                    <details class="faq-lens"><summary><strong>Matemático</strong><small>¿Cierran fórmulas, totales y métodos?</small></summary><p>Revisa cálculos y posibles cambios de criterio cuando dispone de componentes y definiciones suficientes. No determina por sí solo qué método corresponde adoptar.</p></details>
+                    <details class="faq-lens"><summary><strong>Cronista</strong><small>¿Qué cambió a lo largo del tiempo?</small></summary><p>Señala saltos, quiebres o retrocesos en series comparables. No les atribuye una causa.</p></details>
+                    <details class="faq-lens"><summary><strong>Orquesta</strong><small>¿Coinciden magnitudes relacionadas?</small></summary><p>Contrasta datos agregados dentro del informe y entre documentos cuando existen fuentes comparables. Por ejemplo, si un programa ejecutó el 90 % de su presupuesto y cumplió el 30 % de sus metas físicas, pregunta qué explica la diferencia entre el avance físico y la ejecución presupuestaria: puede haber pagos anticipados o plazos distintos. Una diferencia no permite decidir automáticamente qué fuente es correcta.</p></details>
+                    <details class="faq-lens"><summary><strong>Radiólogo</strong><small>¿Qué muestran los antecedentes?</small></summary><p>En esta versión compara casos presupuestarios con antecedentes disponibles y comparables. Un patrón anterior no es una norma ni convierte una diferencia en error.</p></details>
+                    <details class="faq-lens"><summary><strong>Rizoma</strong><small>¿Hay conexiones para explorar?</small></summary><p>Propone asociaciones como hipótesis. No demuestra causalidad ni fundamenta conformidad institucional; sus señales se identifican por separado.</p></details>
+                    <details class="faq-lens"><summary><strong>Conciliador</strong><small>¿Hay contexto que cambie la prioridad?</small></summary><p>Aplica reglas de contexto técnico a señales ya detectadas y puede ajustar su severidad. También presenta las señales del lector del cuadro: relaciones que propusieron al menos dos modelos de IA sin ver las cifras y que las reglas comprobaron con los números. La cuenta la hacen siempre las reglas, y el conciliador no cierra una observación por sí solo.</p></details>
+                  </div>
+                  <p><a href="/detalle#lentes">Consultar evidencia y límites de cada lente</a>.</p>
+                </div>
+              </details>
+              <details>
+                <summary id="faq-que-archivos">¿Qué archivos puede leer?</summary>
+                <div class="faq-answer" id="archivos-que-lee">
+                  <p>Multilente analiza Excel y CSV con cuadros de datos agregados. Los PDF y las imágenes pasan antes por una revisión de lectura: ves el original al lado de la tabla leída, corregís lo necesario y confirmás; recién ahí se analiza. No lee Word ni datos individuales.</p>
+                  <p>La lectura de PDF e imágenes se hace en el servidor de Multilente: esos datos no se envían a proveedores de IA.</p>
+                </div>
+              </details>
+              <details>
+                <summary id="faq-que-produce">¿Qué produce?</summary>
+                <div class="faq-answer">
+                  <p>Un reporte ejecutivo con observaciones y preguntas, y un comprobante de los controles automáticos aplicados.</p>
+                  <ul>
+                    <li><strong>El reporte</strong> dice qué se encontró, qué pregunta conviene formular al área responsable y qué explicaciones alternativas podrían justificarlo.</li>
+                    <li><strong>El comprobante</strong> identifica el informe analizado, los controles ejecutados, sus resultados y lo que no pudo evaluarse.</li>
+                  </ul>
+                  <p>El comprobante no es una certificación de veracidad ni una aprobación: documenta qué se hizo. <a href="/detalle#constancia">Ver su alcance y la revisión institucional opcional</a>.</p>
+                </div>
+              </details>
+              <details>
+                <summary id="faq-integra-ia">¿Cómo se integra la inteligencia artificial?</summary>
+                <div class="faq-answer" id="reglas-ia">
+                  <p>La IA asiste; no calcula ni decide. Las comprobaciones las hacen reglas programadas. Cuando está habilitada, la IA ayuda a interpretar señales y a formular preguntas, siempre contrastada con la evidencia.</p>
+                  <p>La <a href="#lector-del-cuadro">interpretación previa</a> ocurre antes de los controles: dos proveedores, OpenAI y Google Gemini, proponen el significado de cada cuadro, sin ver las cifras, y la persona confirma o modifica la lectura. Esa decisión selecciona qué controles corresponden. Además, las relaciones que proponen los dos se contrastan con cuentas reproducibles.</p>
+                  <p><strong>Los resultados tienen distinto alcance, no una escala de certeza:</strong></p>
+                  <ul>
+                    <li><strong>Verificación determinística:</strong> cálculos y reglas que dan el mismo resultado bajo las mismas entradas, versión y condiciones.</li>
+                    <li><strong>Interpretación contextual:</strong> lectura de relaciones y significados; puede recibir asistencia de IA y requiere contraste con evidencia.</li>
+                    <li><strong>Exploración:</strong> hipótesis para investigar, identificadas aparte; no son evidencia de conformidad. Incluye las asociaciones de Rizoma y una función experimental separada.</li>
+                  </ul>
+                  <p>Un cálculo reproducible puede partir de datos incorrectos. La coincidencia entre modelos no prueba que una conclusión sea verdadera. <a href="/detalle#procesamiento">Ver datos y proveedores involucrados</a>.</p>
+                </div>
+              </details>
+              <details>
+                <summary id="faq-por-que-no-chat">¿Por qué no usar directamente Claude o ChatGPT?</summary>
+                <div class="faq-answer">
+                  <p>Un chat puede ayudar en una consulta puntual. Gobernanza añade un procedimiento: controles definidos, hipótesis separadas de la evidencia y un comprobante de lo realizado.</p>
+                  <p>¿Lo hubiera detectado igual un chat? En teoría sí, si alguien le hace todas las preguntas correctas, una por una, sin cansarse ni saltear nada, y sabe qué mirar en cada hoja. En la práctica, en un Excel de 27 hojas y cientos de cierres, eso casi nunca pasa. No es que una persona sea menos capaz: es que no escala. Gobernanza sistematiza esa segunda lectura: aplica los mismos controles a todos los cuadros, sin depender del momento ni de la energía de nadie.</p>
+                  <p>Además, en un chat se le pide al modelo lo que una regla hace mejor: sumar una columna, comprobar que un total cierre o comparar dos años. Un modelo de lenguaje puede equivocarse en una cuenta y no siempre responde lo mismo; una regla programada la hace siempre igual, al instante y sin costo. Gobernanza usa reglas para lo que se puede calcular y deja la IA para lo que necesita interpretación. Ninguna de sus piezas es nueva por separado —reglas reproducibles, registro, calibración con casos reales, lectura asistida y decisión humana—: lo propio es reunirlas para revisar informes con datos agregados.</p>
+                  <ul>
+                    <li>Los cálculos los hacen reglas programadas y reproducibles, no un modelo de lenguaje.</li>
+                    <li>Queda registrado qué se controló, qué no se pudo evaluar y con qué versión.</li>
+                    <li>La IA no recibe el archivo original. La interpretación previa recibe estructura y textos ya saneados con las cifras ocultas, incluidos los años. Las etapas posteriores de comentario de señales y exploración usan representaciones saneadas que pueden incluir valores del informe. El archivo original no se conserva como archivo permanente en el servidor.</li>
+                  </ul>
+                  <p>Puede utilizar modelos autorizados, pero no depende de que ellos decidan ni presume que sea más útil en todos los contextos. <a href="/detalle#reglas-ia-detalle">Ver reglas, IA y exploración</a>.</p>
+                </div>
+              </details>
+              <details>
+                <summary id="faq-principios-practica">¿Cómo lleva los principios a la práctica?</summary>
+                <div class="faq-answer">
+                  <p>Estos cinco principios de gobernanza de la IA se traducen en mecanismos concretos:</p>
+                  <ul>
+                    <li><strong>Trazabilidad:</strong> cada revisión registra qué se analizó, bajo qué criterios y qué se encontró.</li>
+                    <li><strong>Supervisión humana:</strong> el sistema señala y pregunta. La interpretación y la decisión permanecen en manos de las personas.</li>
+                    <li><strong>Transparencia:</strong> cada observación muestra la evidencia que la sostiene.</li>
+                    <li><strong>Gestión de riesgos:</strong> si faltan datos, contexto o evidencia suficiente, el sistema lo explicita en lugar de forzar una conclusión.</li>
+                    <li><strong>Responsabilidad:</strong> se automatizan verificaciones y controles, no las decisiones.</li>
+                  </ul>
+                  <p>Existe bastante consenso sobre esos principios. Aparecen, por ejemplo, en la Carta Iberoamericana de Inteligencia Artificial en la Administración Pública del CLAD y en las recomendaciones de la OCDE y la UNESCO sobre IA. Lo que sigue siendo menos frecuente es encontrar arquitecturas concretas que permitan observar cómo se aplican, se registran y se revisan en situaciones reales. Gobernanza Multilente propone esos mecanismos. El diálogo con cada marco, sin presentarlo como certificación ni cumplimiento, se desarrolla en el <a href="https://doi.org/10.5281/zenodo.22063241">documento metodológico</a>. <a href="/detalle#metodologia">Ver la arquitectura metodológica</a>.</p>
+                </div>
+              </details>
+              <details>
+                <summary id="faq-principios">¿Qué necesita una observación para estar bien fundamentada?</summary>
+                <div class="faq-answer">
+                  <p>La metodología reúne diez principios transversales en tres grupos: indican cuándo una observación se puede sostener. No todos son comprobaciones automáticas:</p>
+                  <ul>
+                    <li><strong>Origen de la evidencia:</strong> ¿qué se analizó, de dónde vino y bajo qué reglas? Proveniencia de la evidencia; integridad y registro de procedencia; versionado.</li>
+                    <li><strong>Calidad de la lectura:</strong> ¿los datos permiten comparar o concluir, y qué quedó fuera? Validez contextual; suficiencia; cobertura; calibración y verificación periódica.</li>
+                    <li><strong>Resultado revisable:</strong> ¿se puede reconstruir y cuestionar? Lo permiten la trazabilidad, reproducibilidad y refutabilidad.</li>
+                  </ul>
+                  <p>Las lentes indican dónde mirar; los principios, bajo qué condiciones sostener una observación. Quien decide conserva la decisión y la responsabilidad. <a href="/detalle#metodologia">Ver la arquitectura metodológica</a>.</p>
+                </div>
+              </details>
+              <details>
+                <summary id="faq-checklist">¿En qué se diferencia de un checklist?</summary>
+                <div class="faq-answer">
+                  <p>No lo reemplaza: lo hace evolucionar en cuatro puntos.</p>
+                  <ul>
+                    <li><strong>Parejo.</strong> Aplica siempre las mismas reglas, sin depender del cansancio o del apuro de quien revisa.</li>
+                    <li><strong>Ve más.</strong> Busca relaciones que un checklist rara vez verifica a mano: que un total no cierre con sus partes, que un valor se aparte de su propia serie o que dos aperturas del mismo importe dejen de coincidir.</li>
+                    <li><strong>Ahorra trabajo.</strong> El sistema hace los cálculos repetitivos y explica cómo llegó a cada observación. Cuánto tiempo ahorra todavía no está medido.</li>
+                    <li><strong>Sabe cuándo no aplicarse.</strong> Si el contexto cambió o falta información, lo declara en vez de forzar una conclusión. Ese momento de duda es justamente donde entra el criterio humano.</li>
+                  </ul>
+                  <p><a href="/detalle#metodologia">Ver cómo trabaja</a>.</p>
+                </div>
+              </details>
+              <details>
+                <summary id="faq-responsabilidad">Si algo sale mal, ¿quién responde?</summary>
+                <div class="faq-answer">
+                  <p>Quien firma. La IA es insumo y no recibe la responsabilidad: no existe «lo hizo la IA».</p>
+                  <p>Lo que agrega Gobernanza Multilente es con qué respaldar esa firma: qué controles se aplicaron, sobre qué datos, qué quedó fuera y qué decidió cada persona. Con eso, quien firma puede mostrar por qué quedó tranquilo con un informe, o por qué pidió revisarlo.</p>
+                  <p>Por eso tampoco proponemos decisiones automáticas: una decisión de la que nadie se hace responsable no es gobierno. <a href="/detalle#constancia">Ver qué queda registrado</a>.</p>
+                </div>
+              </details>
+              <details>
+                <summary id="faq-reemplaza">¿Reemplaza una auditoría o a los equipos técnicos?</summary>
+                <div class="faq-answer" id="limites-publicos">
+                  <p>No. No sustituye auditorías, controles internos ni asesoramiento jurídico. Tampoco decide, aprueba, sanciona, atribuye responsabilidades ni evalúa la conveniencia de una decisión.</p>
+                  <p>Lo que hace es preparar mejor esa conversación: a la auditoría, al área técnica o a quien decide les llega una pregunta acotada, con el dato y la evidencia a la vista.</p>
+                  <p>No certifica que un informe sea verdadero o esté libre de errores. Lo no evaluado no equivale a un control superado. <a href="/detalle#limites">Consultar los límites</a>.</p>
+                </div>
+              </details>
+              <details>
+                <summary id="faq-todos-los-errores">¿Encuentra todos los errores?</summary>
+                <div class="faq-answer">
+                  <p>No, y no lo promete. Una herramienta que promete encontrarlo todo invita a dejar de mirar: cada acierto baja un poco la guardia, y el error que se escapa llega cuando ya nadie revisa.</p>
+                  <p>Por eso cada informe empieza por lo que no pudo leer o revisar, y cada señal llega como pregunta. Preferimos una herramienta que encuentre una parte de los problemas y diga hasta dónde llegó, antes que una que parezca infalible. <a href="#faq-como-sabemos">Ver cómo se mide</a>.</p>
+                </div>
+              </details>
+              <details>
+                <summary id="faq-como-sabemos">¿Cómo sabemos si funciona?</summary>
+                <div class="faq-answer">
+                  <p>Hoy hay cinco fuentes: el uso real en una actividad formativa, las pruebas automatizadas del software, ocho pares de informes de ejemplo —uno sin señal y otro con señal— que cualquiera puede abrir sin clave (<a href="/probar.html">probar los ejemplos</a>), una evaluación adversarial interna y dos comprobaciones con métodos independientes del motor.</p>
+                  <p>En la actividad formativa, __USO_PARTICIPANTES__ agentes de la Administración Pública Nacional —en su gran mayoría de un ministerio nacional— cargaron __USO_INFORMES__ informes para revisar y desarrollaron __USO_PROYECTOS__ proyectos en Incubadora. Ese uso por personas que trabajan con estos informes fue la primera prueba real: sus consultas y sugerencias sobre las pantallas cambiaron cómo se presenta el recorrido, y los informes que cargaron mostraron errores del sistema que se corrigieron. Muestra que la herramienta se usó y mejoró con ese uso; no mide por sí solo su eficacia. Fue una capacitación: no implica adopción ni aval del Ministerio.</p>
+                  <p id="caso-real"><strong>Un caso real.</strong> Se revisó una publicación oficial de gasto social, un Excel de datos abiertos de 27 hojas. La herramienta recorrió sus 172 cuadros con los mismos controles, verificó 1.827 cierres entre totales y componentes y señaló una docena de puntos para consultar. Dos de ellos el propio organismo los corrigió en la edición siguiente: en una jurisdicción, un total cargado a mano pasó exactamente al valor que la herramienta había calculado con la fórmula de la fila; y en otra, un gasto por niño se redujo a menos de la mitad. Los demás siguen como consultas abiertas: pueden ser datos correctos que necesitan una explicación.</p>
+                  <p>La evaluación adversarial, de octubre de 2026, buscó a propósito dónde falla. Una primera ronda encontró problemas serios —formatos que no se leían, alarmas sobre datos correctos, cruces entre documentos no comparables y lecturas de IA sin verificación suficiente—, que se corrigieron en la versión 0.9.0. Después se la midió quince veces contra los <a href="/detalle#criterio-usable">tres criterios publicados</a>, cada vez con archivos nuevos que no se usaron para corregirla. En la decimoquinta medición, correspondiente a la versión 0.9.16, se detectó en la celda correcta el 100 % de los errores sembrados en Excel y CSV y el 92 % en PDF, sin alarmas altas en los 18 archivos correctos de ese conjunto. Pero en 2 de los 92 archivos hubo una parte sin revisar o una lectura incorrecta sin aviso. Ninguna de esas quince versiones cumplió los tres criterios a la vez. Son resultados de conjuntos acotados y de versiones anteriores, no porcentajes de eficacia de la versión actual.</p>
+                  <p>Las repeticiones del 22/10/2026 con 93 Excel públicos cerraron sin fallos técnicos: con la versión 0.10.1, 88 análisis completos, dos interpretaciones que requieren confirmación humana y tres archivos sin tabla numérica; con la 0.10.3, 84, seis y tres. En los análisis completos se generaron ambos PDF y se volvió a detectar una alteración conocida. Entre los originales analizados, 26 de 87 con la 0.10.1 y 24 de 83 con la 0.10.3 tuvieron al menos una señal alta, todavía sin revisar una por una. Estas pruebas del recorrido no alcanzan para dar por superados los tres criterios de eficacia, y las versiones posteriores no se repitieron todavía con esos archivos. Los resultados históricos, también los desfavorables, están en la <a href="/detalle#criterio-usable">ficha técnica</a>.</p>
+                  <p id="verificacion-independiente-resumen"><strong>Dos comprobaciones independientes del motor.</strong> Se tomaron libros con 25 errores sembrados y se los transformó sin cambiar su contenido —otro nombre, hojas renombradas o reordenadas, el cuadro desplazado, cifras en otra escala, fórmulas pegadas como valores—: en las 18 corridas el motor siguió señalando los 25 errores. Además, un segundo programa que no usa código de la aplicación y sigue otra lógica encontró los mismos 25 errores y, en un cuadro oficial de gasto social, las mismas cuatro inconsistencias aritméticas. Lo escribió el mismo autor: reduce, pero no elimina, el riesgo de supuestos compartidos (<a href="/detalle#verificacion-independiente">ver el detalle</a>).</p>
+                  <p>No reemplaza una evaluación externa, porque la hizo el mismo equipo que desarrolla la herramienta. Todavía falta medir con casos externos las falsas alarmas, omisiones, tiempos y utilidad para quienes deciden; por eso se propone una <a href="#prueba-institucional">prueba con informes cerrados</a>, que también puede concluir que no aporta valor suficiente.</p>
+                  <p><a href="/detalle#validacion">Ver la evidencia técnica y lo que falta demostrar</a> · <a href="/detalle#documentacion">Documento principal, autoría y antecedentes</a>.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="story landing-only" id="ejemplos">
+      <div class="wrap">
+        <div class="story-head"><div class="section-kicker">Cuatro ejemplos sencillos</div><h2>Del dato observado a la pregunta útil.</h2><p>Son casos ficticios. Muestran el tipo de revisión posible con datos, definiciones y documentos comparables.</p></div>
+        <div class="example-grid">
+          <article class="example-card"><span class="example-scope">Cualquier organización</span><span class="example-number">59,0 → 66,7</span><h3>Cambió el cálculo</h3><p>Con los mismos valores regionales, el resultado pasa de un promedio ponderado a uno simple. Para advertirlo hacen falta los componentes, sus pesos y el criterio declarado.</p><p class="example-question"><strong>Pregunta:</strong> ¿Se autorizó el cambio y desde cuándo rige?</p></article>
+          <article class="example-card"><span class="example-scope">Empresa o cooperativa</span><span class="example-number">840 ≠ 790</span><h3>Dos estados no concilian</h3><p>El efectivo final del flujo de caja y las disponibilidades del estado patrimonial difieren para la misma fecha.</p><p class="example-question"><strong>Pregunta:</strong> ¿Hay una partida conciliatoria, un corte distinto o un dato por corregir?</p></article>
+          <article class="example-card"><span class="example-scope">Organismo público</span><span class="example-number">820 &gt; 760</span><h3>Una relación pide contexto</h3><p>El monto pagado supera al devengado en una misma partida y período.</p><p class="example-question"><strong>Pregunta:</strong> ¿Hay una reclasificación o diferencia de corte documentada?</p></article>
+          <article class="example-card"><span class="example-scope">Cooperativa, ONG o pyme</span><span class="example-number">52 M &gt; 48 M</span><h3>Un gasto superó lo presupuestado</h3><p>La compra de energía de una cooperativa cerró 8,3 % por encima de lo previsto. Los ingresos también superaron el presupuesto, pero eso no se marca: es favorable.</p><p class="example-question"><strong>Pregunta:</strong> ¿Lo explica el precio, el volumen o una imputación, y está aprobada la diferencia?</p></article>
+        </div>
+        <p class="example-note">Ninguna de estas señales confirma por sí sola un error ni una responsabilidad.</p>
+        <p class="example-note"><a class="button" href="/probar.html">Probar informes predefinidos sin clave</a></p>
+      </div>
+    </section>
+
+    <section class="story landing-only" id="trayectoria">
+      <div class="wrap">
+        <div class="story-head"><div class="section-kicker">Trayectoria y desarrollos relacionados</div><h2>Proyectos distintos, una preocupación compartida.</h2><p>Aprovechar la IA sin perder criterio, trazabilidad ni responsabilidad humana.</p></div>
+        <div class="trajectory-grid">
+          <article class="trajectory-card"><div><span class="trajectory-label">Antecedente de OPEN LAB · UNQ</span><h3>Reconocimiento del BID</h3><p>Maximiliano Pérez, responsable de Gobernanza Multilente, también dirige OPEN LAB, proyecto de extensión de la UNQ. El equipo de OPEN LAB y una institución de salud recibieron en 2025 el Premio Gobernarte por otra iniciativa de IA educativa. Gobernanza Multilente es otro proyecto de OPEN LAB y no fue el proyecto premiado.</p><a href="https://www.unq.edu.ar/noticias/distincion-internacional-del-bid-para-proyecto-de-extension-unq/" target="_blank" rel="noopener noreferrer">Leer la nota de la UNQ <span aria-hidden="true">→</span></a></div></article>
+          <article class="trajectory-card"><span class="trajectory-label">Otro desarrollo</span><h3>Desarrollo2</h3><p>Desde OPEN LAB se desarrolla esta plataforma educativa para que el docente acompañe y observe el proceso de trabajo del estudiante con IA. En otro ámbito, comparte con Gobernanza Multilente la supervisión humana y la posibilidad de revisar cómo se llegó a un resultado.</p><a href="https://desarrollo2.entornodepruebas.com.ar/presentacion" target="_blank" rel="noopener noreferrer">Conocer Desarrollo2 <span aria-hidden="true">→</span></a></article>
+          <article class="trajectory-card trajectory-wide"><span class="trajectory-label">Charla · Departamento de Economía y Administración, UNQ</span><h3>Inteligencia artificial y gestión pública</h3><p>Primera charla del ciclo mensual del departamento. Gobernanza Multilente se muestra en vivo con informes a los que se les sembraron errores a propósito: lo que detecta, lo que se le escapa y por qué el criterio humano no se delega.</p><a href="https://www.youtube.com/watch?v=Ty_CXHiCT5Q&amp;t=2410s" target="_blank" rel="noopener noreferrer">Ver la charla en YouTube <span aria-hidden="true">→</span></a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pilot-public landing-only" id="prueba-institucional">
+      <div class="wrap">
+        <div class="section-kicker">Validación pendiente</div>
+        <h2>¿Tiene informes cerrados con los que podamos ponerlo a prueba?</h2>
+        <p>Se propone evaluar utilidad, errores y omisiones con casos cuyo resultado se conoce, sin intervenir sobre decisiones reales. Que no aporte valor suficiente también es un resultado válido.</p>
+        <p>Alcance acordado con la institución, criterios definidos antes de comenzar y sin integración inicial con sistemas internos. <a href="/detalle#prueba-detalle">Ver condiciones de la evaluación</a>.</p>
+        <p class="pilot-question" id="faq-mas-preguntas">Escribí a <strong>Maximiliano Pérez</strong>: <span style="overflow-wrap: anywhere">maximilianoperez1981@gmail.com</span>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <div><strong>Gobernanza Multilente</strong> · Concreta. Honesta. Humana.<br>Proyecto de OPEN LAB (Universidad Nacional de Quilmes) en etapa piloto · Responsable: Maximiliano Pérez.</div>
+      <div>Código abierto bajo licencia MIT.<br>Metodología y documentación bajo licencia CC BY 4.0.<br><a href="/privacidad">Privacidad, cookies y aviso legal</a></div>
+    </div>
+  </footer>
+  <script src="/presentacion-nav.js?v=20260919-ux" defer></script>
+  <script src="/presentacion-faq.js" defer></script>
+  <script src="/presentacion-video.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,375 @@
+    <style>
+      .filmina { min-height: calc(100vh - var(--alto-encabezado, 64px)); display: flex; align-items: center; padding-block: 64px; border-bottom: 1px solid var(--line); background: var(--white); scroll-margin-top: var(--alto-encabezado, 64px); }
+      .filmina:nth-of-type(even) { background: var(--paper); }
+      .filmina .wrap { width: min(calc(100% - 40px), 1040px); }
+      .filmina-num { margin: 0 0 18px; color: var(--muted); font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+      .filmina h1, .filmina h2 { margin: 0; color: var(--ink); font-size: clamp(2.2rem, 6vw, 4.4rem); line-height: 1.05; letter-spacing: -.02em; }
+      .filmina-grande { margin: 26px 0 0; color: var(--blue); font-size: clamp(1.6rem, 4vw, 2.8rem); font-weight: 600; line-height: 1.15; }
+      .filmina-chica { margin: 22px 0 0; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.35rem); line-height: 1.45; }
+      .filmina-lista { margin: 30px 0 0; padding: 0; list-style: none; display: grid; gap: 16px; }
+      .filmina-lista li { padding-left: 26px; position: relative; color: var(--ink); font-size: clamp(1.2rem, 2.6vw, 1.75rem); font-weight: 500; line-height: 1.3; }
+      .filmina-lista li::before { content: ""; position: absolute; left: 0; top: .55em; width: 12px; height: 12px; border-radius: 50%; background: var(--amber); }
+      .filmina-cadena { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 34px; font-size: clamp(1rem, 2.2vw, 1.4rem); font-weight: 600; }
+      .filmina-cadena span { padding: 10px 16px; border: 2px solid var(--line); border-radius: 8px; background: var(--white); color: var(--ink); }
+      .filmina-cadena span:first-child { border-color: var(--blue); color: var(--blue); }
+      .filmina-cadena b { color: var(--muted); font-weight: 400; }
+      .filmina-cadena-clara span { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.3); color: #fff; }
+      .filmina-cadena-clara span:first-child { border-color: rgba(255,255,255,.3); color: #fff; }
+      .filmina-cadena-clara span:last-child { border-color: #fff; }
+      .filmina-cadena-clara b { color: rgba(255,255,255,.7); }
+      .filmina-lentes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 34px; }
+      .filmina-lentes article { padding: 26px 24px; border-radius: 10px; background: var(--white); border-top: 5px solid var(--blue); box-shadow: var(--shadow); }
+      .filmina-lentes h3 { margin: 0 0 12px; color: var(--ink); font-size: 1.5rem; }
+      .filmina-lentes .lente-frase { margin: 0 0 18px; color: var(--blue); font-size: 1.25rem; font-weight: 600; line-height: 1.3; }
+      .filmina-lentes .lente-ejemplo { margin: 0; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 1rem; line-height: 1.4; }
+      .filmina-oscura { background: var(--ink) !important; }
+      .filmina-oscura h2, .filmina-oscura .filmina-grande { color: #fff; }
+      .filmina-oscura .filmina-chica, .filmina-oscura .filmina-num { color: rgba(255,255,255,.75); }
+      .filmina-portada { background: var(--blue) !important; }
+      .filmina-portada h1, .filmina-portada .filmina-chica, .filmina-portada .filmina-num { color: #fff; }
+      .filmina-portada .filmina-num { color: rgba(255,255,255,.85); }
+      .filmina .charla-tabla { font-size: clamp(1rem, 2vw, 1.3rem); }
+      .filmina-titulo-medio { font-size: clamp(1.9rem, 4.2vw, 3.2rem) !important; }
+      /* El recorrido en cinco pasos: título y lista más compactos para que entre en pantallas de notebook (1280×720). */
+      #lector-del-cuadro h2 { font-size: clamp(1.9rem, min(4.2vw, 6.4vh), 3.2rem); }
+      #lector-del-cuadro .filmina-lista { gap: 10px; margin-top: 22px; }
+      #lector-del-cuadro .filmina-lista li { font-size: clamp(1.05rem, min(1.9vw, 2.7vh), 1.4rem); }
+      #lector-del-cuadro .filmina-chica { margin-top: 16px; }
+      .hoja-calculo { font-size: clamp(.9rem, 1.5vw, 1.12rem) !important; margin-top: 4px; }
+      .hoja-calculo thead tr:first-child th { padding-block: 4px; background: var(--paper); color: var(--muted); font-size: .78rem; text-align: center; }
+      .hoja-calculo thead tr:nth-child(2) td { color: var(--muted); font-size: .8rem; font-weight: 600; }
+      .hoja-calculo .hoja-fila { width: 2.2em; background: var(--paper); color: var(--muted); font-size: .78rem; font-weight: 600; text-align: center !important; }
+      .hoja-calculo .hoja-texto { text-align: left; }
+      .hoja-calculo td.celda-marcada { outline: 3px solid var(--blue); outline-offset: -3px; background: var(--blue-soft); color: var(--blue); font-weight: 700; }
+      .hallazgos-charla { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; margin-top: 26px; }
+      .hallazgos-charla article { padding: 20px 22px; border-radius: 10px; border-top: 5px solid var(--blue); background: var(--white); box-shadow: var(--shadow); }
+      .hallazgos-charla p { margin: 0 0 12px; color: var(--ink); font-size: clamp(.98rem, 1.5vw, 1.15rem); line-height: 1.4; }
+      .hallazgos-charla p:last-child { margin-bottom: 0; }
+      .hallazgos-charla .hallazgo-prioridad { color: var(--blue); font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+      .hallazgos-charla .hallazgo-evidencia { padding: 10px 12px; border-radius: 6px; background: var(--blue-soft); color: var(--blue); font-family: ui-monospace, Consolas, monospace; font-size: clamp(.88rem, 1.3vw, 1.02rem); }
+      .hoja-notas { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; margin-top: 18px; }
+      .hoja-notas p { margin: 0; padding: 14px 16px; border-left: 4px solid var(--blue); border-radius: 6px; background: var(--blue-soft); color: var(--ink); font-size: clamp(1rem, 1.6vw, 1.2rem); line-height: 1.4; }
+      .hoja-notas strong { display: inline-block; margin-right: 6px; color: var(--blue); }
+      .hoja-notas code { display: block; margin: 4px 0 6px; font-size: .95em; color: var(--blue); }
+      .filmina-cifra { margin: 0 0 14px; color: var(--blue); font-size: clamp(3rem, 9vw, 6.5rem); font-weight: 700; line-height: 1; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+      .filmina-verbos { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+      .filmina-verbos span { padding: 10px 20px; border-radius: 999px; background: rgba(255,255,255,.12); color: #fff; font-size: clamp(1.05rem, 2.2vw, 1.4rem); font-weight: 600; }
+      .filmina-pie { padding-block: 44px; background: var(--paper); }
+      .filmina-gracias { margin: 0 0 36px; color: var(--ink); font-size: clamp(3.5rem, 11vw, 8rem); line-height: 1; letter-spacing: -.03em; }
+      .filmina-pie details { margin-top: 26px; max-width: 820px; }
+      .filmina-pie summary { cursor: pointer; color: var(--blue); font-weight: 600; }
+      .filmina-pie details p { font-size: 1.02rem; line-height: 1.65; }
+      .filmina-contador { position: fixed; right: 18px; bottom: 16px; z-index: 20; padding: 6px 12px; border-radius: 999px; background: var(--ink); color: #fff; font-size: .8rem; font-variant-numeric: tabular-nums; opacity: .85; box-shadow: 0 0 0 1px rgba(255,255,255,.45); }
+      .filmina-versus { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; margin-top: 30px; }
+      .filmina-versus > div { padding: 22px 24px; border-radius: 10px; background: var(--white); box-shadow: var(--shadow); }
+      .filmina-versus h3 { margin: 0 0 14px; font-size: 1.25rem; color: var(--muted); }
+      .filmina-versus .versus-nuestro { border-top: 5px solid var(--blue); }
+      .filmina-versus .versus-nuestro h3 { color: var(--blue); }
+      .filmina-versus .versus-chat { border-top: 5px solid var(--line); }
+      .filmina-versus ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+      .filmina-versus li { color: var(--ink); font-size: clamp(1rem, 1.7vw, 1.2rem); line-height: 1.35; }
+      .filmina-versus .versus-chat li { color: var(--muted); }
+      .filmina-botones { position: fixed; right: 18px; bottom: 16px; z-index: 21; display: none; gap: 8px; align-items: center; }
+      .filmina-botones button { width: 40px; height: 40px; border: 0; border-radius: 50%; background: var(--ink); color: #fff; font-size: 1.2rem; line-height: 1; cursor: pointer; opacity: .8; box-shadow: 0 0 0 1px rgba(255,255,255,.45); }
+      .filmina-botones button:hover, .filmina-botones button:focus-visible { opacity: 1; }
+      .filmina-botones .filmina-contador { position: static; }
+      /* Modo presentación: una filmina por vez, con transición, sin desplazar la página. */
+      body.modo-filminas { overflow: hidden; }
+      body.modo-filminas footer { display: none; }
+      body.modo-filminas .filmina-botones { display: flex; }
+      .filmina-proxima { position: fixed; left: 18px; bottom: 16px; z-index: 21; width: 240px; border-radius: 8px; overflow: hidden; background: var(--white); box-shadow: 0 6px 24px rgba(0,0,0,.28), 0 0 0 1px rgba(127,127,127,.35); opacity: .92; pointer-events: none; }
+      .filmina-proxima[hidden] { display: none; }
+      .filmina-proxima-lienzo { position: relative; width: 240px; overflow: hidden; }
+      .filmina-proxima-rotulo { padding: 5px 9px; background: var(--ink); color: #fff; font-size: .72rem; font-weight: 600; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      body.modo-filminas .filmina, body.modo-filminas .filmina-pie {
+        position: fixed; top: var(--alto-encabezado, 64px); right: 0; bottom: 0; left: 0; z-index: 5;
+        min-height: 0; margin: 0; border: 0; overflow-y: auto;
+        display: flex; align-items: center;
+        opacity: 0; visibility: hidden; transform: translateX(48px);
+        transition: opacity .45s ease, transform .45s ease, visibility 0s linear .45s;
+      }
+      body.modo-filminas .filmina-pie { align-items: center; padding-block: 56px; }
+      body.modo-filminas .pasada { transform: translateX(-48px); }
+      body.modo-filminas .activa { opacity: 1; visibility: visible; transform: none; transition: opacity .45s ease, transform .45s ease, visibility 0s; }
+      @media (prefers-reduced-motion: reduce) {
+        body.modo-filminas .filmina, body.modo-filminas .filmina-pie { transform: none; transition: none; }
+      }
+      @media (max-width: 760px) {
+        .filmina { min-height: auto; padding-block: 52px; }
+        .filmina-lentes, .filmina-versus, .hoja-notas, .hallazgos-charla { grid-template-columns: minmax(0, 1fr); }
+        .filmina-contador { display: none; }
+      }
+    </style>
+
+    <section class="filmina filmina-portada" id="charla">
+      <div class="wrap">
+        <p class="filmina-num">Charla relámpago · Encuentro Nacional de Tecnología Cívica · Guadalajara, 15 de octubre de 2026</p>
+        <h1>Una segunda lectura antes de decidir</h1>
+        <p class="filmina-chica">Maximiliano Pérez · Gobernanza Multilente</p>
+        <p class="filmina-num">Edición actualizada al 24/10/2026 · aplicación __APP_VERSION__</p>
+      </div>
+    </section>
+
+    <section class="filmina" id="cinco-frases">
+      <div class="wrap">
+        <h2>En cinco frases</h2>
+        <p class="filmina-chica">Es como llevarle una radiografía a otra persona: te dice qué parte pudo mirar y cuál está borrosa, te señala la mancha rara y te pide que lo verifiques.</p>
+        <ol class="filmina-chica cinco-frases"><li>Le traés un informe con datos antes de decidir o publicar.</li><li>Primero te dice qué partes pudo leer y cuáles no; sobre lo que no leyó no opina.</li><li>En lo que leyó, hace las cuentas y busca lo raro: totales que no cierran, saltos de escala, valores fuera de lugar.</li><li>Te marca la celda y te sugiere qué preguntarle al área, sin afirmar que es un error.</li><li>La decisión es tuya: es una segunda mirada, no un auditor.</li></ol>
+        <p class="filmina-chica">No promete encontrarlo todo: se le pueden pasar errores. Su valor es echar luz sobre algo que antes nadie miraba. Mediciones del 28/10/2026 con el motor multilente-0.10.59, sin la lectura con IA.</p>
+      </div>
+    </section>
+
+    <section class="filmina" id="dos-revisiones">
+      <div class="wrap">
+        <h2>Dos revisiones</h2>
+        <p class="filmina-grande">La rápida pasa los rayos X a todo. La profunda estudia en detalle.</p>
+        <p class="filmina-chica">Revisión rápida: sólo cuentas, sin IA, en segundos; es la que se usa por defecto, y las mediciones son de lo que corre en ella. Revisión profunda: la IA interpreta cada cuadro, vos confirmás y corren todas las lentes; tarda minutos. La rápida dice al comienzo lo que no hizo. La seguridad mira todo el recorrido de los datos: en la rápida, los datos del informe no salen del servidor, y por eso sirve para informes reservados, de uso interno; datos de personas no se cargan en ninguna de las dos.</p>
+      </div>
+    </section>
+
+    <section class="filmina" id="escritorio">
+      <div class="wrap">
+        <h2>¿Con qué decide quien decide?</h2>
+        <p class="filmina-grande">Con los informes que le llegan al escritorio.</p>
+        <p class="filmina-chica">Datos ya agregados: totales que vienen de otros totales.</p>
+      </div>
+    </section>
+
+    <section class="filmina" id="inviable">
+      <div class="wrap">
+        <h2>Controlar todo hacia atrás es inviable</h2>
+        <div class="filmina-cadena" aria-label="Cada informe depende de insumos, y estos de otros insumos">
+          <span>Informe final</span><b>←</b><span>insumos</span><b>←</b><span>insumos de los insumos</span><b>←</b><span>…</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="filmina" id="por-dentro">
+      <div class="wrap">
+        <h2>Mirar el informe por dentro</h2>
+        <ul class="filmina-lista">
+          <li>Saltos raros en una serie de números</li>
+          <li>Fórmulas que se cumplían y de golpe dejan de cumplirse</li>
+        </ul>
+        <p class="filmina-chica">De ahí nació Gobernanza Multilente.</p>
+      </div>
+    </section>
+
+    <section class="filmina" id="lentes">
+      <div class="wrap">
+        <h2>Una metáfora para cada lente</h2>
+        <div class="filmina-lentes">
+          <article>
+            <h3>El ajedrecista</h3>
+            <p class="lente-frase">«Eso no puede pasar.»</p>
+            <p class="lente-ejemplo">Un pagado mayor que el devengado.</p>
+          </article>
+          <article>
+            <h3>El cronista</h3>
+            <p class="lente-frase">«A ver, ¿qué pasó acá?»</p>
+            <p class="lente-ejemplo">Un salto o un quiebre en la serie.</p>
+          </article>
+          <article>
+            <h3>La orquesta</h3>
+            <p class="lente-frase">«Cada uno toca bien; juntos, no encajan.»</p>
+            <p class="lente-ejemplo">Ejecución presupuestaria y metas físicas que no se acompañan.</p>
+          </article>
+        </div>
+        <p class="filmina-chica">Y más: radiólogo · rizoma · matemático. Y después, el conciliador.</p>
+      </div>
+    </section>
+
+    <section class="filmina" id="lector-del-cuadro">
+      <div class="wrap">
+        <p class="filmina-num">Interpretar, confirmar, comprobar, leer y decidir</p>
+        <h2>La IA propone, las reglas comprueban, la persona decide.</h2>
+        <ol class="filmina-lista">
+          <li><strong>IA ·</strong> interpreta la institución y cada cuadro, con las cifras ocultas, años incluidos.</li>
+          <li><strong>Persona ·</strong> confirma, corrige o pide una lectura más detallada. La interpretación confirmada orienta y suma controles.</li>
+          <li><strong>Reglas ·</strong> hacen las cuentas: corren siempre y son reproducibles con los mismos datos y la misma versión.</li>
+          <li><strong>IA ·</strong> lee las señales ya calculadas; se conservan coincidencias y divergencias entre modelos.</li>
+          <li><strong>Persona ·</strong> decide: pregunta al área, cierra cada señal con «¿Qué resultó ser?» y queda registrado.</li>
+        </ol>
+        <p class="filmina-chica">La revisión rápida usa sólo reglas y persona: los datos no salen del servidor. Una lectura nueva vuelve a pedir confirmación.</p>
+      </div>
+    </section>
+
+    <section class="filmina" id="confirmar-lectura">
+      <div class="wrap">
+        <h2>Los números ponen a prueba la lectura</h2>
+        <ul class="filmina-lista">
+          <li>Si la relación se sostiene, las diferencias puntuales se señalan.</li>
+          <li>Si no se sostiene, se descarta esa lectura.</li>
+          <li>Si faltan repeticiones para decidir, se pide confirmación humana.</li>
+        </ul>
+        <p class="filmina-chica">Lo que no pudo leerse y las fallas de modelos se informan, incluso cuando no hay señales. En la prueba del 22/10 con 93 Excel públicos y la versión 0.10.1 hubo 88 análisis completos, dos interpretaciones pendientes y tres archivos sin tabla numérica; ningún fallo técnico. En 26 de los 87 originales analizados quedó al menos una señal alta todavía sin revisar. Todavía falta medir la eficacia general.</p>
+      </div>
+    </section>
+
+    <section class="filmina" id="canasta-crianza">
+      <div class="wrap">
+        <p class="filmina-num">Prueba del 21/10/2026 · Excel público de un instituto de estadística</p>
+        <h2 class="filmina-titulo-medio">Una hoja. 81 meses. Cuatro grupos de edad.</h2>
+        <div class="filmina-lentes">
+          <article><h3>324 sumas</h3><p class="lente-frase">Coinciden dentro de un centavo.</p><p class="lente-ejemplo">Se conservaron 972 importes y las 12 series mensuales de la canasta de crianza.</p></article>
+          <article><h3>4 alteraciones</h3><p class="lente-frase">Las cuatro fueron detectadas.</p><p class="lente-ejemplo">Se cambió un total por grupo, solo en copias de prueba. Al restaurarlo, desapareció esa señal.</p></article>
+          <article><h3>2 variaciones</h3><p class="lente-frase">Son preguntas de contexto.</p><p class="lente-ejemplo">Los cambios mensuales señalados en el original no son errores de suma.</p></article>
+        </div>
+        <p class="filmina-chica">Un caso acotado, sin garantía general. La exploración libre de IA todavía dio sugerencias poco útiles. <a href="/detalle#pruebas-instituto">Fuente, prueba y límites</a>.</p>
+      </div>
+    </section>
+
+    <section class="filmina filmina-oscura" id="conciliador">
+      <div class="wrap">
+        <p class="filmina-num">Capa transversal · corre al final</p>
+        <h2>Qué hace el conciliador</h2>
+        <p class="filmina-grande">Antes de escalar una señal, revisa si puede explicarse por cómo fue publicado o armado el dato:</p>
+        <div class="filmina-verbos" aria-label="Qué revisa el conciliador">
+          <span>acumulados</span><span>reversas</span><span>cierres parciales</span><span>mezclas de niveles</span><span>reclasificaciones</span>
+        </div>
+        <p class="filmina-chica">Si encuentra una explicación técnica, baja la prioridad. No borra la señal: deja registrado por qué cambió su lectura. También presenta las señales del lector del cuadro: relaciones que la IA propuso sin ver las cifras y que las reglas comprobaron con los números.</p>
+      </div>
+    </section>
+
+    <section class="filmina" id="ejemplo">
+      <div class="wrap">
+        <p class="filmina-num">Esto es lo que mira el matemático · Ejemplo sin clave: «Fórmula alterada y valor pegado»</p>
+        <h2 class="filmina-titulo-medio">¿Ven algo raro?</h2>
+        <div class="charla-tabla-marco">
+          <table class="charla-tabla hoja-calculo">
+            <caption>Grupos y notas sintéticos.</caption>
+            <thead>
+              <tr><th class="hoja-fila"></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th></tr>
+              <tr><th scope="row" class="hoja-fila">1</th><td class="hoja-texto">grupo</td><td>asistencia</td><td>tarea 1</td><td>tarea 2</td><td>tarea 3</td><td>proyecto</td><td>promedio ponderado</td><td class="hoja-texto">condición</td></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row" class="hoja-fila">2</th><td class="hoja-texto">GRUPO-001</td><td>0,90</td><td>8</td><td>7</td><td>8</td><td>9</td><td class="">8,35</td><td class="hoja-texto ">PROMOCIONA</td></tr>
+              <tr><th scope="row" class="hoja-fila">3</th><td class="hoja-texto">GRUPO-002</td><td>0,70</td><td>5</td><td>5</td><td>6</td><td>6</td><td class="">5,7</td><td class="hoja-texto">Promociona</td></tr>
+              <tr><th scope="row" class="hoja-fila">4</th><td class="hoja-texto">GRUPO-003</td><td>0,80</td><td>7</td><td>7</td><td>7</td><td>7</td><td>7</td><td class="hoja-texto ">PROMOCIONA</td></tr>
+              <tr><th scope="row" class="hoja-fila">5</th><td class="hoja-texto">GRUPO-004</td><td>0,55</td><td>3</td><td>3</td><td>4</td><td>4</td><td class="">3,7</td><td class="hoja-texto ">LIBRE</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="filmina-chica">Los números parecen estar bien. Mirando solo los valores, no se nota nada.</p>
+      </div>
+    </section>
+
+    <section class="filmina" id="hallazgo">
+      <div class="wrap">
+        <p class="filmina-num">Lo que devolvió Gobernanza Multilente</p>
+        <h2 class="filmina-titulo-medio">El 7 es el mismo. La fórmula, no.</h2>
+        <div class="hallazgos-charla">
+          <article>
+            <p class="hallazgo-prioridad">Prioridad alta · G4 · fórmula distinta del resto</p>
+            <p><strong>Qué pasó:</strong> En la columna «promedio_ponderado», la celda G4 («GRUPO-003») calcula un promedio simple, mientras que el resto de la columna usa un promedio ponderado.</p>
+            <p class="hallazgo-evidencia">G4: =PROMEDIO(C4:F4)<br>resto de la columna: =C4*0,15+D4*0,15+E4*0,2+F4*0,5</p>
+            <p><strong>Qué preguntar:</strong> ¿El cambio de criterio fue intencional y está autorizado? ¿Desde cuándo rige?</p>
+          </article>
+          <article>
+            <p class="hallazgo-prioridad">Prioridad alta · H3 · valor cargado a mano</p>
+            <p><strong>Qué pasó:</strong> En la columna «condicion», la celda H3 tiene un valor cargado a mano donde las demás tienen fórmula.</p>
+            <p class="hallazgo-evidencia">H3: «Promociona»<br>aplicando la fórmula de la columna: REGULAR</p>
+            <p><strong>Qué preguntar:</strong> ¿Pueden confirmar ese valor con la fuente?</p>
+          </article>
+        </div>
+        <p class="filmina-chica">El resultado coincide, pero el método cambió: eso es lo que hay que preguntar.</p>
+      </div>
+    </section>
+
+    <section class="filmina filmina-oscura" id="preguntas-no-veredictos">
+      <div class="wrap">
+        <h2>Preguntas, no veredictos</h2>
+        <p class="filmina-grande">Buscamos puntos ciegos, no culpables.</p>
+        <p class="filmina-chica">Cada señal vuelve con su evidencia y una pregunta que quien decide puede hacerle al área.</p>
+      </div>
+    </section>
+
+    <section class="filmina" id="chat">
+      <div class="wrap">
+        <h2>¿Y si lo hago directo con ChatGPT o Claude?</h2>
+        <div class="filmina-versus">
+          <div class="versus-chat">
+            <h3>Un chat</h3>
+            <ul>
+              <li>El alcance depende de las instrucciones y las herramientas que use</li>
+              <li>Puede ejecutar código; hay que comprobar qué calculó y con qué datos</li>
+              <li>Hay que revisar qué información se comparte con el servicio</li>
+              <li>La cobertura y el registro de controles deben pedirse y verificarse</li>
+            </ul>
+          </div>
+          <div class="versus-nuestro">
+            <h3>Gobernanza Multilente</h3>
+            <ul>
+              <li>Aplica controles definidos a los cuadros que puede leer y declara sus límites</li>
+              <li>Las reglas calculan de forma reproducible con iguales entradas y versión</li>
+              <li>El lector oculta cifras; la interpretación y la exploración pueden recibir valores saneados</li>
+              <li>Comprobante de qué se controló y qué no</li>
+            </ul>
+          </div>
+        </div>
+        <p class="filmina-chica">Un caso real: un Excel oficial de 27 hojas, 172 cuadros y 1.827 cierres verificados. El recorrido y sus límites quedan documentados.</p>
+      </div>
+    </section>
+
+    <section class="filmina" id="burocracia">
+      <div class="wrap">
+        <h2>¿Más burocracia?</h2>
+        <p class="filmina-grande">Al revés: una segunda opinión, como en el médico.</p>
+        <p class="filmina-chica">Antes de una decisión importante, pedís otra mirada. El tiempo depende del archivo y de las respuestas de los modelos.</p>
+      </div>
+    </section>
+
+    <section class="filmina" id="detecta-todo">
+      <div class="wrap">
+        <h2>¿Y si no detecta todo?</h2>
+        <p class="filmina-grande">La que promete encontrarlo todo es la peligrosa.</p>
+        <p class="filmina-chica">Invita a dejar de mirar. Si la segunda opinión encuentra un problema más, ya se justificó.</p>
+      </div>
+    </section>
+
+    <section class="filmina filmina-oscura" id="cierre">
+      <div class="wrap">
+        <h2>Mejores preguntas para decidir nosotros</h2>
+        <p class="filmina-grande">La máquina correlaciona; la persona comprende.</p>
+      </div>
+    </section>
+
+    <section class="filmina-pie" id="seguir">
+      <div class="wrap">
+        <h2 class="filmina-gracias">Gracias</h2>
+        <nav class="charla-enlaces" aria-label="Seguir leyendo">
+          <a href="/presentacion">Conocer Gobernanza Multilente</a>
+          <a href="/probar.html">Probar informes de ejemplo sin clave</a>
+          <a href="/detalle">Ficha técnica</a>
+        </nav>
+        <p>Contacto: Maximiliano Pérez · <span style="overflow-wrap: anywhere">maximilianoperez1981@gmail.com</span></p>
+        <details>
+          <summary>Texto de la charla actualizado al 24/10/2026</summary>
+          <p>Imaginen un subsecretario, un secretario, que tiene que tomar una decisión. ¿Con qué decide? Con los informes que le llegan al escritorio. Informes con datos ya agregados: totales que vienen de otros totales.</p>
+          <p>Uno podría pensar: bueno, ¿cómo puedo hacer para controlar esto? Este es un reporte final. Obviamente hay insumos para esto. Pero a su vez hay insumos de los insumos. Y así puedo seguir para atrás muchísimos informes. Si yo quisiera controlar de esa manera cada informe que me llega, se vuelve inviable.</p>
+          <p>Entonces, ¿qué nos queda? Mirar el informe en sí mismo, porque ahí tenemos muchas cosas para analizar. Hay saltos raros en una secuencia de números. Hay fórmulas que se venían cumpliendo sistemáticamente y de golpe se dejan de cumplir. A partir de estas ideas, de ir controlando cuestiones distintas de los informes, nació una herramienta que se llama Gobernanza Multilente.</p>
+          <p>Elegimos una metáfora para cada una de esas lentes. El ajedrecista mira el informe y detecta algo que no puede ser. El alfil que estaba en las casillas blancas de golpe aparece en las negras. En un informe, un monto pagado mayor que el devengado. El cronista mira la sucesión de los datos: en un momento el gasto en salud, ¡pum!, pega un salto, y después vuelve al mismo nivel. La orquesta: cada instrumento funciona a la perfección, pero al tocar juntos hay algo que no encaja; en un informe, la ejecución presupuestaria cierra perfecto, el avance de las metas físicas cierra perfecto, pero entre sí no se acompañan. Hay otras lentes —el radiólogo, que compara con casos anteriores; el rizoma, que explora conexiones no obvias; el matemático, que rehace fórmulas y métodos— y una capa conciliadora que revisa si una señal tiene una explicación técnica. El conciliador corre al final: antes de escalar una señal, revisa si puede explicarse por cómo fue publicado o armado el dato: acumulados, reversas, cierres parciales, mezclas de niveles o reclasificaciones. Si encuentra una explicación técnica, baja la prioridad. No borra la señal: deja registrado por qué cambió su lectura.</p>
+          <p>Esto es lo que mira el matemático. Un ejemplo con notas de grupos sintéticos: el promedio de cada grupo pondera las tareas y el proyecto, y la condición sale de una fórmula. Mirando los valores no se nota nada. Pero Gobernanza Multilente lo marcó con prioridad alta: en G4 el promedio pasa a ser simple; con estas notas da el mismo 7, pero cambió el método, y cambió el criterio sin que nadie lo diga. En H3 la condición quedó escrita a mano, «Promociona», donde la fórmula da REGULAR. Nadie dice que esté mal: puede haber una razón. Pero alguien tiene que preguntar por qué cambió el criterio, si estaba autorizado y desde cuándo rige.</p>
+          <p>No buscamos veredictos: hacemos preguntas. Buscamos detectar puntos ciegos. Cada señal vuelve con su evidencia y con una pregunta concreta que quien decide puede hacerle al área que armó el informe. No busca culpables.</p>
+          <p>La IA interpreta el documento antes de los controles. Dos proveedores, OpenAI y Google Gemini, leen estructura y rótulos, con las cifras ocultas, incluidos los años. La persona puede confirmar, modificar o pedir más detalle. Esa interpretación orienta y suma controles, pero no apaga las cuentas; en la revisión rápida no hay interpretación con IA. Las relaciones requieren que las propongan los dos y se comprueban con cuentas; cuando faltan repeticiones, se pide una confirmación específica. El alcance de la lectura y los controles pendientes se declaran.</p>
+          <p>Lo probamos con la canasta de crianza de un instituto de estadística: una hoja, 81 meses y cuatro grupos de edad. Conservó los 972 importes y las 12 series mensuales; las 324 sumas coincidieron dentro de un centavo. Alteramos cuatro totales en copias, uno por grupo, y detectó los cuatro. En el original señaló dos cambios mensuales que necesitan contexto, sin diferencias de suma fuera del redondeo. La exploración libre de IA todavía dio sugerencias poco útiles: eso también hay que decirlo. Es una prueba concreta, no una garantía de que encuentre cualquier error.</p>
+          <p>¿Y por qué no hacerlo directo con ChatGPT o con Claude? Un chat puede usar código y ayudar a revisar un archivo. Hay que definir el alcance, comprobar qué leyó y guardar qué controló. Gobernanza reúne ese recorrido: reglas reproducibles, lectura asistida y un comprobante con los límites. El lector recibe la estructura con las cifras ocultas; las otras etapas pueden recibir señales, evidencia y textos saneados con valores. No corresponde decir que toda la IA trabaja a ciegas.</p>
+          <p>Alguien podría pensar que esto agrega más burocracia. Todo lo contrario: la lógica es la del médico. Antes de un paso importante, como operarte la rodilla, pedís una segunda opinión. El tiempo de esa revisión depende del archivo, de los controles aplicables y de la disponibilidad de los modelos.</p>
+          <p>La decisión nunca la toma la máquina. La herramienta señala dónde mirar; quien decide y firma sigue siendo una persona. No existe «lo hizo la IA». La salida de la IA nunca se entrega cruda: se revisa, se corrige, se contrasta y se asume.</p>
+          <p>Les soy honesto: seguimos puliendo esta herramienta. En algunos organismos, en vez de tener los datos en Excel, los tienen en imágenes, y eso suma una carga. Publicamos tres criterios para considerarla usable y la medimos cada vez con archivos nuevos: ninguna de las quince mediciones históricas cumplió los tres a la vez. El 22 de octubre repetimos 93 Excel públicos con la versión 0.10.1: 88 análisis terminaron, dos interpretaciones quedaron para confirmación humana, tres archivos no tenían tabla numérica y no hubo fallos técnicos. En 26 de los 87 originales analizados quedó al menos una señal alta que todavía hay que revisar una por una. La prueba comprueba el recorrido y una alteración conocida, pero no mide todavía la tasa general de aciertos. Por eso la pongo a prueba y no la vendo: también se documentan los resultados desfavorables. Se usa como una mirada más, nunca como un visto bueno; «sin señales» no significa «está bien».</p>
+          <p>¿Y si no detecta todo? Volvamos al médico: si la segunda opinión no te detecta todos los problemas, pero gracias a esa radiografía te detecta un tema adicional, ya justificó con creces tener esa segunda mirada. La herramienta que promete encontrarlo todo es la peligrosa: invita a dejar de mirar.</p>
+          <p>No se trata de que la máquina decida mejor que nosotros, sino de que nos dé mejores preguntas para decidir nosotros. La máquina correlaciona; la persona comprende.</p>
+        </details>
+      </div>
+    </section>
+
+    <div class="filmina-botones" id="filmina-botones">
+      <button type="button" data-paso="-1" aria-label="Filmina anterior">‹</button>
+      <span class="filmina-contador" id="filmina-contador" aria-live="polite"></span>
+      <button type="button" data-paso="1" aria-label="Filmina siguiente">›</button>
+    </div>
+    <div class="filmina-proxima" id="filmina-proxima" hidden aria-hidden="true">
+      <div class="filmina-proxima-lienzo"></div>
+      <div class="filmina-proxima-rotulo"></div>
+    </div>
+    <script src="/charla-filminas.js?v=20261015d" defer></script>

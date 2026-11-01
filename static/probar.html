@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Probar casos predefinidos · Gobernanza Multilente</title>
+  <style>
+    :root { color-scheme: light; font-family: "Gobernanza Inter", Inter, Arial, sans-serif; --azul: #b01c2e; --tinta: #2e292a; --borde: #e5dadd; }
+    @font-face { font-family: "Gobernanza Inter"; src: url("/fonts/inter-variable-v4.woff2") format("woff2"); font-style: normal; font-weight: 100 900; font-display: swap; }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    body { margin: 0; background: #faf7f7; color: var(--tinta); }
+    a { color: #8c1626; }
+    .wrap { width: min(1220px, calc(100% - 40px)); margin: auto; }
+    header { background: white; border-bottom: 1px solid var(--borde); }
+    header .wrap { min-height: 70px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .brand { color: var(--tinta); text-decoration: none; font-weight: 800; letter-spacing: .02em; }
+    nav { display: flex; gap: 20px; flex-wrap: wrap; }
+    .hero { background: var(--azul); color: white; padding: 54px 0 50px; }
+    .eyebrow { color: #fbe3e6; text-transform: uppercase; font-weight: 800; font-size: .78rem; letter-spacing: .16em; }
+    h1 { max-width: 850px; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; margin: 15px 0; }
+    .hero p { max-width: 760px; line-height: 1.55; font-size: 1.12rem; margin: 0; }
+    main { padding: 36px 0 70px; }
+    .notice { background: #f8e9ec; border-left: 4px solid var(--azul); padding: 16px 20px; line-height: 1.55; margin-bottom: 28px; }
+    .picker { display: grid; gap: 9px; margin-bottom: 24px; max-width: 660px; }
+    label { font-weight: 800; }
+    select { width: 100%; min-height: 50px; border: 1px solid #d9c5c9; border-radius: 8px; background: white; color: var(--tinta); font: inherit; padding: 9px 12px; }
+    h2 { font-size: clamp(1.4rem, 3vw, 2rem); margin: 0 0 5px; }
+    #tema { color: #62595b; margin: 0 0 24px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    article { background: white; border: 1px solid var(--borde); border-radius: 12px; overflow: hidden; box-shadow: 0 8px 28px rgba(80, 30, 38, .06); }
+    .card-head { padding: 22px 24px 18px; min-height: 150px; }
+    .tag { display: inline-block; font-size: .76rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #8c1626; }
+    .card-head h3 { font-size: 1.35rem; margin: 10px 0; }
+    .card-head p { margin: 0; color: #62595b; line-height: 1.5; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; padding: 0 24px 18px; }
+    .button { display: inline-block; background: var(--azul); color: white; padding: 11px 14px; border-radius: 8px; font-weight: 700; text-decoration: none; }
+    .button.secondary { background: #f8e9ec; color: #8c1626; }
+    .bottom { margin-top: 25px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .bottom p { margin: 0; line-height: 1.5; }
+    .error { color: #9a2e24; }
+    .pie-privacidad { margin: 40px 0 28px; font-size: .9rem; }
+    .pie-privacidad a { color: inherit; }
+    @media (max-width: 790px) { .grid { grid-template-columns: 1fr; } header .wrap { padding: 15px 0; align-items: flex-start; flex-direction: column; } }
+  </style>
+</head>
+<body>
+  <header><div class="wrap"><a class="brand" href="/presentacion">GOBERNANZA MULTILENTE</a><nav><a href="/presentacion">Presentación</a><a href="/detalle">Ficha técnica</a><a href="/login">Ingresar para cargar informes</a></nav></div></header>
+  <div class="hero"><div class="wrap"><div class="eyebrow">Prueba pública</div><h1>Explorá informes predefinidos sin clave.</h1><p>Elegí un caso ficticio y compará el archivo sin señal esperada con otro que contiene una señal. Podés abrir los reportes en PDF y descargar los originales.</p></div></div>
+  <main class="wrap">
+    <div class="notice"><strong>Cómo funciona esta prueba:</strong> los reportes fueron generados previamente por la aplicación sobre archivos sintéticos. Cambiar de caso no ejecuta un análisis nuevo ni consulta modelos. “Señal esperada” describe el ejemplo; el reporte muestra lo que efectivamente observó el sistema. Para agregar o analizar un informe propio se necesita clave.</div>
+    <div class="picker"><label for="caso">Elegí un caso</label><select id="caso" disabled><option>Cargando casos…</option></select></div>
+    <h2 id="titulo">Casos de prueba</h2><p id="tema" role="status">Preparando la vista.</p>
+    <div class="grid" id="reportes" hidden>
+      <article><div class="card-head"><span class="tag">Sin señal esperada</span><h3 id="sin-nombre"></h3><p id="sin-descripcion"></p></div><div class="actions"><a class="button" id="sin-pdf" target="_blank" rel="noopener">Abrir reporte PDF</a><a class="button secondary" id="sin-xlsx">Descargar original</a></div></article>
+      <article><div class="card-head"><span class="tag">Con señal esperada</span><h3 id="con-nombre"></h3><p id="con-descripcion"></p></div><div class="actions"><a class="button" id="con-pdf" target="_blank" rel="noopener">Abrir reporte PDF</a><a class="button secondary" id="con-xlsx">Descargar original</a></div></article>
+    </div>
+    <div class="bottom" id="acciones" hidden><a class="button" id="zip">Descargar los cuatro archivos</a><p>¿Querés agregar un informe nuevo? <a href="/login">Ingresá con tu clave</a>.</p></div>
+    <p class="pie-privacidad"><a href="/privacidad">Privacidad, cookies y aviso legal</a></p>
+  </main>
+  <script src="/errores.js?v=20261022-1"></script>
+<script src="/probar.js" defer></script>
+</body>
+</html>

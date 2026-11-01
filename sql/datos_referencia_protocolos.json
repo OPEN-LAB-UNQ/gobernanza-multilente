@@ -1,0 +1,1378 @@
+{
+ "descripcion": "Definiciones de los protocolos institucionales (B-1, R-1) y sus controles. Datos de referencia sin información de usuarios; inicializar_base.py los carga en una base vacía.",
+ "exportado": "2026-10-11",
+ "versiones_protocolo": [
+  {
+   "id": 1,
+   "codigo": "B-1",
+   "version": "1.0",
+   "nombre": "Gobernanza Multilente B-1",
+   "tipo_objeto": "informe",
+   "descripcion": "Constancia de revisión documental bajo protocolo multilente, con evidencia y decisión humana.",
+   "activo": false,
+   "creado_en": "2026-09-13T16:49:09.434577",
+   "model_policy": {
+    "aplica": true,
+    "proveedores": {
+     "gpt": "OpenAI",
+     "llama": "Ollama / autoalojado",
+     "claude": "Anthropic",
+     "gemini": "Google",
+     "deepseek": "DeepSeek",
+     "renderix": "Renderix"
+    },
+    "limite_declarado": "El sistema registra el identificador lógico del proveedor configurado (p.ej. 'gpt', 'gemini'); todavía no captura el string de versión exacto que cada API devuelve en tiempo de ejecución. Se documenta como límite del manifiesto, no se simula un dato que no existe.",
+    "modelos_habilitados": [
+     "claude",
+     "gpt",
+     "gemini",
+     "deepseek",
+     "renderix",
+     "llama"
+    ],
+    "configuracion_minima": {
+     "entrada": "hallazgos_estructurados_del_informe_no_microdatos",
+     "formato_respuesta": "json_estructurado_validado_contra_esquema"
+    },
+    "modelos_minimos_con_respuesta": 2,
+    "controles_con_contraste_obligatorio": [
+     "B1-06",
+     "B1-07"
+    ]
+   },
+   "matriz_lentes": []
+  },
+  {
+   "id": 2,
+   "codigo": "R-1",
+   "version": "1.0",
+   "nombre": "Preparación para IA Responsable R-1",
+   "tipo_objeto": "proyecto_ia",
+   "descripcion": "Constancia de preparación de un proyecto de IA para continuar hacia la instancia humana correspondiente.",
+   "activo": false,
+   "creado_en": "2026-09-13T16:49:09.434577",
+   "model_policy": {
+    "aplica": false,
+    "motivo": "R-1 evalúa condiciones de preparación de un proyecto de IA declaradas por personas responsables; no ejecuta triangulación de modelos sobre un objeto propio, por lo que no corresponde exigir un mínimo de modelos con respuesta."
+   },
+   "matriz_lentes": []
+  },
+  {
+   "id": 3,
+   "codigo": "B-1",
+   "version": "1.1",
+   "nombre": "Gobernanza Multilente B-1",
+   "tipo_objeto": "informe",
+   "descripcion": "Protocolo técnico predecisional con controles obligatorios y condicionales, siete anexos versionados y decisión humana.",
+   "activo": false,
+   "creado_en": "2026-09-13T19:33:39.291998",
+   "model_policy": {
+    "aplica": true,
+    "modelos_habilitados": [
+     "claude",
+     "gpt",
+     "gemini",
+     "deepseek",
+     "renderix",
+     "llama"
+    ],
+    "configuracion_minima": {
+     "entrada": "hallazgos_estructurados_no_microdatos",
+     "formato_respuesta": "json_estructurado_validado"
+    },
+    "criterio_metodologico": "La IA es apoyo interpretativo opcional. La conformidad se funda en reglas, evidencia y decisión humana; si intervienen modelos, todos quedan en el manifiesto.",
+    "controles_que_requieren_ia": [],
+    "modelos_minimos_con_respuesta": 0,
+    "controles_con_contraste_obligatorio": []
+   },
+   "matriz_lentes": [
+    {
+     "id": "ajedrecista",
+     "rol": "Coherencia lógica y estructural",
+     "nombre": "Ajedrecista",
+     "limites": [
+      "No evalúa la pertinencia estadística del método.",
+      "No certifica verdad externa."
+     ],
+     "criterios": {
+      "conforme": "Las relaciones estructurales aplicables se cumplen o tienen una excepción documentada.",
+      "observado": "Existe una relación imposible o tensionada que necesita explicación o corrección.",
+      "no_evaluable": "No hay datos, componentes o regla suficiente para comprobar la relación."
+     },
+     "preguntas": [
+      "¿Los totales coinciden con sus componentes?",
+      "¿Las relaciones de orden y las restricciones declaradas se cumplen?",
+      "¿Hay valores incompatibles con la naturaleza del dato?",
+      "¿Las series acumuladas respetan la lógica de una acumulación?",
+      "¿La tensión puede explicarse por una excepción o regla documentada?"
+     ],
+     "salida_vacia": "No encontró imposibilidades lógicas ni relaciones estructurales prioritarias para revisar.",
+     "evidencia_minima": [
+      "valores comparados",
+      "regla o restricción aplicable",
+      "ubicación reproducible"
+     ],
+     "pregunta_central": "¿La estructura interna del informe es posible y coherente?"
+    },
+    {
+     "id": "matematico",
+     "rol": "Cálculo y pertinencia metodológica",
+     "nombre": "Matemático",
+     "limites": [
+      "No interpreta por sí solo la causa temporal.",
+      "Una señal estadística no demuestra irregularidad ni causalidad."
+     ],
+     "criterios": {
+      "conforme": "El cálculo es reproducible y el método corresponde al universo, unidades y finalidad declarados.",
+      "observado": "El resultado no se reproduce o el método, denominador, ponderación o técnica requiere justificación.",
+      "no_evaluable": "Faltan fórmula, datos de entrada, denominador o información metodológica."
+     },
+     "preguntas": [
+      "¿La fórmula reproduce el resultado informado?",
+      "¿El denominador, universo y período base son los correctos?",
+      "¿Corresponde promedio simple o ponderado?",
+      "¿Pesos, unidades, escalas, porcentajes y redondeos están bien aplicados?",
+      "¿Las variaciones y tendencias internas están correctamente calculadas?",
+      "¿La técnica estadística es válida para la cantidad y el tipo de datos?",
+      "¿Benford es aplicable y se comunica sólo como señal exploratoria?"
+     ],
+     "salida_vacia": "No detectó cálculos irreproducibles ni métodos cuantitativos que requieran revisión.",
+     "evidencia_minima": [
+      "fórmula o plan de cálculo",
+      "datos de entrada",
+      "resultado reproducido",
+      "supuestos metodológicos"
+     ],
+     "pregunta_central": "¿El cálculo y el método cuantitativo son adecuados para responder la pregunta del informe?"
+    },
+    {
+     "id": "cronista",
+     "rol": "Historia y comparabilidad temporal",
+     "nombre": "Cronista",
+     "limites": [
+      "No predice el futuro.",
+      "No atribuye causas sin documentación."
+     ],
+     "criterios": {
+      "conforme": "La serie es comparable y los cambios relevantes tienen contexto temporal suficiente.",
+      "observado": "Existe un quiebre relevante sin explicación documentada o con comparabilidad dudosa.",
+      "no_evaluable": "No hay suficientes períodos o no puede construirse una serie comparable."
+     },
+     "preguntas": [
+      "¿Los períodos son realmente comparables?",
+      "¿En qué período aparece el quiebre o cambio de régimen?",
+      "¿Cambió la definición, metodología, cobertura o forma de carga?",
+      "¿Puede influir estacionalidad, efecto de base, acumulación o carga tardía?",
+      "¿Existe un evento extraordinario documentado que explique el cambio?"
+     ],
+     "salida_vacia": "No detectó quiebres temporales comunicables con la información disponible.",
+     "evidencia_minima": [
+      "serie ordenada",
+      "período bisagra",
+      "criterios de comparabilidad",
+      "documentación del cambio"
+     ],
+     "pregunta_central": "¿Qué cambió a lo largo del tiempo, desde cuándo y con qué explicación documentada?"
+    },
+    {
+     "id": "orquesta",
+     "rol": "Coherencia interdocumental y sistémica",
+     "nombre": "Orquesta",
+     "limites": [
+      "No sustituye una auditoría contable.",
+      "No presume causalidad entre magnitudes relacionadas."
+     ],
+     "criterios": {
+      "conforme": "Las relaciones interdocumentales aplicables concilian o tienen diferencias documentadas.",
+      "observado": "Dos documentos o magnitudes relacionadas presentan una diferencia sin conciliación suficiente.",
+      "no_evaluable": "Faltan archivos relacionados, conceptos homologables o metadatos de comparabilidad."
+     },
+     "preguntas": [
+      "¿Los archivos corresponden a la misma entidad, período, moneda, escala y criterio?",
+      "¿Los saldos compartidos coinciden entre documentos?",
+      "¿El efectivo final concilia entre flujo de caja y estado patrimonial?",
+      "¿El resultado del ejercicio se refleja de manera compatible en el patrimonio?",
+      "¿Las magnitudes operativas, físicas y financieras evolucionan de forma explicable?",
+      "¿Una diferencia responde a rezago, cobertura o criterio documentado?"
+     ],
+     "salida_vacia": "No detectó rupturas interdocumentales o sistémicas con evidencia suficiente.",
+     "evidencia_minima": [
+      "archivos de origen",
+      "conceptos homologados",
+      "período y unidad",
+      "valores cruzados"
+     ],
+     "pregunta_central": "¿Los documentos y magnitudes que describen el mismo objeto son coherentes entre sí?"
+    },
+    {
+     "id": "radiologo",
+     "rol": "Comparación con preinformes y antecedentes",
+     "nombre": "Radiólogo",
+     "limites": [
+      "No usa el historial interno del mismo archivo como sustituto de preinformes.",
+      "Un caso atípico no demuestra error."
+     ],
+     "criterios": {
+      "conforme": "El caso se mantiene dentro del rango comparable o el desvío tiene explicación documentada.",
+      "observado": "El caso se aparta materialmente de antecedentes comparables sin explicación suficiente.",
+      "no_evaluable": "No existe un banco suficiente de preinformes comparables."
+     },
+     "preguntas": [
+      "¿Qué preinformes son comparables por entidad, dominio, período, escala y método?",
+      "¿El valor actual está dentro del rango histórico comparable?",
+      "¿El desvío es aislado o generalizado?",
+      "¿La diferencia apareció antes en condiciones semejantes?",
+      "¿Existe una explicación documentada para el alejamiento?"
+     ],
+     "salida_vacia": "No encontró diferencias históricas señalables o falta un banco comparable suficiente.",
+     "evidencia_minima": [
+      "preinformes identificados",
+      "criterios de comparabilidad",
+      "rango histórico",
+      "distancia observada"
+     ],
+     "pregunta_central": "¿En qué se parece o se diferencia este informe de antecedentes realmente comparables?"
+    },
+    {
+     "id": "rizoma",
+     "rol": "Conexiones no previstas",
+     "nombre": "Rizoma",
+     "limites": [
+      "Correlación no implica causalidad.",
+      "Toda salida conserva incertidumbre alta hasta validación externa."
+     ],
+     "criterios": {
+      "conforme": "No aparece una asociación inesperada suficientemente estable para comunicar.",
+      "observado": "Existe una conexión no prevista que justifica una hipótesis y evidencia adicional.",
+      "no_evaluable": "No hay volumen, variación o diversidad suficiente para explorar asociaciones."
+     },
+     "preguntas": [
+      "¿Qué variables, áreas o categorías se mueven juntas sin relación predefinida?",
+      "¿La asociación se mantiene en distintos períodos o grupos?",
+      "¿Puede explicarse por escala, agregación, denominador común o relación derivada?",
+      "¿Existe un mecanismo institucional plausible?",
+      "¿Qué nueva evidencia permitiría confirmar o descartar la hipótesis?"
+     ],
+     "salida_vacia": "No detectó asociaciones exploratorias con evidencia suficiente para comunicar.",
+     "evidencia_minima": [
+      "variables vinculadas",
+      "fuerza y estabilidad de la asociación",
+      "filtros de relaciones obvias"
+     ],
+     "pregunta_central": "¿Aparece una conexión inesperada que merezca formular una nueva pregunta?"
+    },
+    {
+     "id": "conciliador",
+     "rol": "Contexto transversal y reducción de falsos positivos",
+     "nombre": "Conciliador",
+     "limites": [
+      "No elimina señales sin evidencia.",
+      "No reemplaza la decisión del responsable institucional."
+     ],
+     "criterios": {
+      "conforme": "La explicación está documentada y permite cerrar o modular la señal.",
+      "observado": "La explicación es parcial o la señal continúa abierta.",
+      "no_evaluable": "Falta contexto o no se identificó una fuente responsable para validarlo."
+     },
+     "preguntas": [
+      "¿La señal puede explicarse por carga, acumulación o reclasificación?",
+      "¿Hay cambio de unidad, cobertura parcial o corte de período?",
+      "¿Existe una excepción autorizada o criterio de publicación documentado?",
+      "¿Qué fuente o responsable puede confirmar la explicación?",
+      "¿Corresponde cerrar, seguir, pedir información o escalar?"
+     ],
+     "salida_vacia": "No encontró contexto técnico suficiente para modular las señales existentes.",
+     "evidencia_minima": [
+      "señal de origen",
+      "explicación propuesta",
+      "fuente o responsable",
+      "decisión humana"
+     ],
+     "pregunta_central": "¿Existe una explicación documentada que permita cerrar o modular la señal?"
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "codigo": "R-1",
+   "version": "1.1",
+   "nombre": "Preparación para IA Responsable R-1",
+   "tipo_objeto": "proyecto_ia",
+   "descripcion": "Protocolo para decidir responsablemente si corresponde IA, otra automatización, una mejora de proceso o no implementar tecnología.",
+   "activo": true,
+   "creado_en": "2026-09-13T19:33:39.291998",
+   "model_policy": {
+    "aplica": false,
+    "motivo": "R-1 no exige triangulación de modelos para evaluar la preparación declarada del proyecto."
+   },
+   "matriz_lentes": []
+  },
+  {
+   "id": 5,
+   "codigo": "B-1",
+   "version": "1.2",
+   "nombre": "Gobernanza Multilente B-1",
+   "tipo_objeto": "informe",
+   "descripcion": "Protocolo técnico predecisional con controles obligatorios y condicionales, siete anexos versionados y decisión humana. Los resultados exploratorios no alimentan controles ni evidencia institucional.",
+   "activo": true,
+   "creado_en": "2026-09-17T23:34:57.599154",
+   "model_policy": {
+    "aplica": true,
+    "modelos_habilitados": [
+     "claude",
+     "gpt",
+     "gemini",
+     "deepseek",
+     "renderix",
+     "llama"
+    ],
+    "configuracion_minima": {
+     "entrada": "hallazgos_estructurados_no_microdatos",
+     "formato_respuesta": "json_estructurado_validado"
+    },
+    "criterio_metodologico": "La IA es apoyo interpretativo opcional. La conformidad se funda en reglas, evidencia y decisión humana; si intervienen modelos, todos quedan en el manifiesto.",
+    "controles_que_requieren_ia": [],
+    "modelos_minimos_con_respuesta": 0,
+    "excluir_resultados_exploratorios": true,
+    "controles_con_contraste_obligatorio": []
+   },
+   "matriz_lentes": [
+    {
+     "id": "ajedrecista",
+     "rol": "Coherencia lógica y estructural",
+     "nombre": "Ajedrecista",
+     "limites": [
+      "No evalúa la pertinencia estadística del método.",
+      "No certifica verdad externa."
+     ],
+     "criterios": {
+      "conforme": "Las relaciones estructurales aplicables se cumplen o tienen una excepción documentada.",
+      "observado": "Existe una relación imposible o tensionada que necesita explicación o corrección.",
+      "no_evaluable": "No hay datos, componentes o regla suficiente para comprobar la relación."
+     },
+     "preguntas": [
+      "¿Los totales coinciden con sus componentes?",
+      "¿Las relaciones de orden y las restricciones declaradas se cumplen?",
+      "¿Hay valores incompatibles con la naturaleza del dato?",
+      "¿Las series acumuladas respetan la lógica de una acumulación?",
+      "¿La tensión puede explicarse por una excepción o regla documentada?"
+     ],
+     "salida_vacia": "No encontró imposibilidades lógicas ni relaciones estructurales prioritarias para revisar.",
+     "evidencia_minima": [
+      "valores comparados",
+      "regla o restricción aplicable",
+      "ubicación reproducible"
+     ],
+     "pregunta_central": "¿La estructura interna del informe es posible y coherente?"
+    },
+    {
+     "id": "matematico",
+     "rol": "Cálculo y pertinencia metodológica",
+     "nombre": "Matemático",
+     "limites": [
+      "No interpreta por sí solo la causa temporal.",
+      "Una señal estadística no demuestra irregularidad ni causalidad."
+     ],
+     "criterios": {
+      "conforme": "El cálculo es reproducible y el método corresponde al universo, unidades y finalidad declarados.",
+      "observado": "El resultado no se reproduce o el método, denominador, ponderación o técnica requiere justificación.",
+      "no_evaluable": "Faltan fórmula, datos de entrada, denominador o información metodológica."
+     },
+     "preguntas": [
+      "¿La fórmula reproduce el resultado informado?",
+      "¿El denominador, universo y período base son los correctos?",
+      "¿Corresponde promedio simple o ponderado?",
+      "¿Pesos, unidades, escalas, porcentajes y redondeos están bien aplicados?",
+      "¿Las variaciones y tendencias internas están correctamente calculadas?",
+      "¿La técnica estadística es válida para la cantidad y el tipo de datos?",
+      "¿Benford es aplicable y se comunica sólo como señal exploratoria?"
+     ],
+     "salida_vacia": "No detectó cálculos irreproducibles ni métodos cuantitativos que requieran revisión.",
+     "evidencia_minima": [
+      "fórmula o plan de cálculo",
+      "datos de entrada",
+      "resultado reproducido",
+      "supuestos metodológicos"
+     ],
+     "pregunta_central": "¿El cálculo y el método cuantitativo son adecuados para responder la pregunta del informe?"
+    },
+    {
+     "id": "cronista",
+     "rol": "Historia y comparabilidad temporal",
+     "nombre": "Cronista",
+     "limites": [
+      "No predice el futuro.",
+      "No atribuye causas sin documentación."
+     ],
+     "criterios": {
+      "conforme": "La serie es comparable y los cambios relevantes tienen contexto temporal suficiente.",
+      "observado": "Existe un quiebre relevante sin explicación documentada o con comparabilidad dudosa.",
+      "no_evaluable": "No hay suficientes períodos o no puede construirse una serie comparable."
+     },
+     "preguntas": [
+      "¿Los períodos son realmente comparables?",
+      "¿En qué período aparece el quiebre o cambio de régimen?",
+      "¿Cambió la definición, metodología, cobertura o forma de carga?",
+      "¿Puede influir estacionalidad, efecto de base, acumulación o carga tardía?",
+      "¿Existe un evento extraordinario documentado que explique el cambio?"
+     ],
+     "salida_vacia": "No detectó quiebres temporales comunicables con la información disponible.",
+     "evidencia_minima": [
+      "serie ordenada",
+      "período bisagra",
+      "criterios de comparabilidad",
+      "documentación del cambio"
+     ],
+     "pregunta_central": "¿Qué cambió a lo largo del tiempo, desde cuándo y con qué explicación documentada?"
+    },
+    {
+     "id": "orquesta",
+     "rol": "Coherencia interdocumental y sistémica",
+     "nombre": "Orquesta",
+     "limites": [
+      "No sustituye una auditoría contable.",
+      "No presume causalidad entre magnitudes relacionadas."
+     ],
+     "criterios": {
+      "conforme": "Las relaciones interdocumentales aplicables concilian o tienen diferencias documentadas.",
+      "observado": "Dos documentos o magnitudes relacionadas presentan una diferencia sin conciliación suficiente.",
+      "no_evaluable": "Faltan archivos relacionados, conceptos homologables o metadatos de comparabilidad."
+     },
+     "preguntas": [
+      "¿Los archivos corresponden a la misma entidad, período, moneda, escala y criterio?",
+      "¿Los saldos compartidos coinciden entre documentos?",
+      "¿El efectivo final concilia entre flujo de caja y estado patrimonial?",
+      "¿El resultado del ejercicio se refleja de manera compatible en el patrimonio?",
+      "¿Las magnitudes operativas, físicas y financieras evolucionan de forma explicable?",
+      "¿Una diferencia responde a rezago, cobertura o criterio documentado?"
+     ],
+     "salida_vacia": "No detectó rupturas interdocumentales o sistémicas con evidencia suficiente.",
+     "evidencia_minima": [
+      "archivos de origen",
+      "conceptos homologados",
+      "período y unidad",
+      "valores cruzados"
+     ],
+     "pregunta_central": "¿Los documentos y magnitudes que describen el mismo objeto son coherentes entre sí?"
+    },
+    {
+     "id": "radiologo",
+     "rol": "Comparación con preinformes y antecedentes",
+     "nombre": "Radiólogo",
+     "limites": [
+      "No usa el historial interno del mismo archivo como sustituto de preinformes.",
+      "Un caso atípico no demuestra error."
+     ],
+     "criterios": {
+      "conforme": "El caso se mantiene dentro del rango comparable o el desvío tiene explicación documentada.",
+      "observado": "El caso se aparta materialmente de antecedentes comparables sin explicación suficiente.",
+      "no_evaluable": "No existe un banco suficiente de preinformes comparables."
+     },
+     "preguntas": [
+      "¿Qué preinformes son comparables por entidad, dominio, período, escala y método?",
+      "¿El valor actual está dentro del rango histórico comparable?",
+      "¿El desvío es aislado o generalizado?",
+      "¿La diferencia apareció antes en condiciones semejantes?",
+      "¿Existe una explicación documentada para el alejamiento?"
+     ],
+     "salida_vacia": "No encontró diferencias históricas señalables o falta un banco comparable suficiente.",
+     "evidencia_minima": [
+      "preinformes identificados",
+      "criterios de comparabilidad",
+      "rango histórico",
+      "distancia observada"
+     ],
+     "pregunta_central": "¿En qué se parece o se diferencia este informe de antecedentes realmente comparables?"
+    },
+    {
+     "id": "rizoma",
+     "rol": "Conexiones no previstas",
+     "nombre": "Rizoma",
+     "limites": [
+      "Correlación no implica causalidad.",
+      "Toda salida conserva incertidumbre alta hasta validación externa."
+     ],
+     "criterios": {
+      "conforme": "No aparece una asociación inesperada suficientemente estable para comunicar.",
+      "observado": "Existe una conexión no prevista que justifica una hipótesis y evidencia adicional.",
+      "no_evaluable": "No hay volumen, variación o diversidad suficiente para explorar asociaciones."
+     },
+     "preguntas": [
+      "¿Qué variables, áreas o categorías se mueven juntas sin relación predefinida?",
+      "¿La asociación se mantiene en distintos períodos o grupos?",
+      "¿Puede explicarse por escala, agregación, denominador común o relación derivada?",
+      "¿Existe un mecanismo institucional plausible?",
+      "¿Qué nueva evidencia permitiría confirmar o descartar la hipótesis?"
+     ],
+     "salida_vacia": "No detectó asociaciones exploratorias con evidencia suficiente para comunicar.",
+     "evidencia_minima": [
+      "variables vinculadas",
+      "fuerza y estabilidad de la asociación",
+      "filtros de relaciones obvias"
+     ],
+     "pregunta_central": "¿Aparece una conexión inesperada que merezca formular una nueva pregunta?"
+    },
+    {
+     "id": "conciliador",
+     "rol": "Contexto transversal y reducción de falsos positivos",
+     "nombre": "Conciliador",
+     "limites": [
+      "No elimina señales sin evidencia.",
+      "No reemplaza la decisión del responsable institucional."
+     ],
+     "criterios": {
+      "conforme": "La explicación está documentada y permite cerrar o modular la señal.",
+      "observado": "La explicación es parcial o la señal continúa abierta.",
+      "no_evaluable": "Falta contexto o no se identificó una fuente responsable para validarlo."
+     },
+     "preguntas": [
+      "¿La señal puede explicarse por carga, acumulación o reclasificación?",
+      "¿Hay cambio de unidad, cobertura parcial o corte de período?",
+      "¿Existe una excepción autorizada o criterio de publicación documentado?",
+      "¿Qué fuente o responsable puede confirmar la explicación?",
+      "¿Corresponde cerrar, seguir, pedir información o escalar?"
+     ],
+     "salida_vacia": "No encontró contexto técnico suficiente para modular las señales existentes.",
+     "evidencia_minima": [
+      "señal de origen",
+      "explicación propuesta",
+      "fuente o responsable",
+      "decisión humana"
+     ],
+     "pregunta_central": "¿Existe una explicación documentada que permita cerrar o modular la señal?"
+    }
+   ]
+  }
+ ],
+ "definiciones_control": [
+  {
+   "id": 1,
+   "protocolo_id": 1,
+   "codigo": "B1-01",
+   "nombre": "Objeto y alcance identificados",
+   "descripcion": "Define qué se revisó, para qué decisión y con qué alcance.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 1
+  },
+  {
+   "id": 2,
+   "protocolo_id": 1,
+   "codigo": "B1-02",
+   "nombre": "Integridad y suficiencia",
+   "descripcion": "Comprueba que el material necesario esté presente y permite declarar faltantes.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 2
+  },
+  {
+   "id": 3,
+   "protocolo_id": 1,
+   "codigo": "B1-03",
+   "nombre": "Trazabilidad de fuentes",
+   "descripcion": "Vincula afirmaciones y señales con fuentes, ubicaciones y evidencia reproducible.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 3
+  },
+  {
+   "id": 4,
+   "protocolo_id": 1,
+   "codigo": "B1-04",
+   "nombre": "Consistencia interna",
+   "descripcion": "Busca contradicciones, reglas explícitas incumplidas y tensiones dentro del objeto.",
+   "lente": "ajedrecista",
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 4
+  },
+  {
+   "id": 5,
+   "protocolo_id": 1,
+   "codigo": "B1-05",
+   "nombre": "Coherencia temporal",
+   "descripcion": "Revisa cortes de serie, cambios de criterio y comparabilidad entre períodos.",
+   "lente": "cronista",
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 5
+  },
+  {
+   "id": 6,
+   "protocolo_id": 1,
+   "codigo": "B1-06",
+   "nombre": "Cálculos reproducibles",
+   "descripcion": "Revisa operaciones y método mediante planes de cálculo seguros.",
+   "lente": "matematico",
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 6
+  },
+  {
+   "id": 7,
+   "protocolo_id": 1,
+   "codigo": "B1-07",
+   "nombre": "Relaciones y contraste",
+   "descripcion": "Distingue consistencia interna, contraste autorizado y análisis interdocumental.",
+   "lente": "orquesta",
+   "obligatorio": true,
+   "criticidad": "media",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 7
+  },
+  {
+   "id": 8,
+   "protocolo_id": 1,
+   "codigo": "B1-08",
+   "nombre": "Cobertura y límites",
+   "descripcion": "Explicita qué fue revisado, qué no y por qué.",
+   "lente": "conciliador",
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 8
+  },
+  {
+   "id": 9,
+   "protocolo_id": 1,
+   "codigo": "B1-09",
+   "nombre": "Corrección y reevaluación",
+   "descripcion": "Registra observación, acción, evidencia aportada y resultado de la nueva revisión.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 9
+  },
+  {
+   "id": 10,
+   "protocolo_id": 1,
+   "codigo": "B1-10",
+   "nombre": "Decisión humana",
+   "descripcion": "Una persona autorizada confirma si el objeto puede continuar a la instancia correspondiente.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 10
+  },
+  {
+   "id": 11,
+   "protocolo_id": 2,
+   "codigo": "R1-01",
+   "nombre": "Problema público definido",
+   "descripcion": "Describe el problema, población, proceso y resultado público esperado.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 1
+  },
+  {
+   "id": 12,
+   "protocolo_id": 2,
+   "codigo": "R1-02",
+   "nombre": "Necesidad real de IA",
+   "descripcion": "Justifica la IA frente a alternativas más simples y admite concluir que no corresponde usarla.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 2
+  },
+  {
+   "id": 13,
+   "protocolo_id": 2,
+   "codigo": "R1-03",
+   "nombre": "Datos y legitimidad de uso",
+   "descripcion": "Identifica datos, calidad, procedencia, permisos y límites de utilización.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 3
+  },
+  {
+   "id": 14,
+   "protocolo_id": 2,
+   "codigo": "R1-04",
+   "nombre": "Roles y responsabilidades",
+   "descripcion": "Asigna responsables técnicos, funcionales, institucionales y de respuesta ante incidentes.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 4
+  },
+  {
+   "id": 15,
+   "protocolo_id": 2,
+   "codigo": "R1-05",
+   "nombre": "Supervisión humana",
+   "descripcion": "Define intervención, revisión, posibilidad de corrección y autoridad decisoria humana.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 5
+  },
+  {
+   "id": 16,
+   "protocolo_id": 2,
+   "codigo": "R1-06",
+   "nombre": "Riesgos y poblaciones afectadas",
+   "descripcion": "Registra daños plausibles, grupos afectados y medidas de mitigación.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 6
+  },
+  {
+   "id": 17,
+   "protocolo_id": 2,
+   "codigo": "R1-07",
+   "nombre": "Privacidad",
+   "descripcion": "Define minimización, retención, acceso y tratamiento de datos personales.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 7
+  },
+  {
+   "id": 18,
+   "protocolo_id": 2,
+   "codigo": "R1-08",
+   "nombre": "Seguridad",
+   "descripcion": "Establece controles de acceso, registros, respuesta y continuidad operativa.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 8
+  },
+  {
+   "id": 19,
+   "protocolo_id": 2,
+   "codigo": "R1-09",
+   "nombre": "Métricas y evaluación",
+   "descripcion": "Define desempeño, impacto, umbrales, línea de base y criterio de éxito o detención.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 9
+  },
+  {
+   "id": 20,
+   "protocolo_id": 2,
+   "codigo": "R1-10",
+   "nombre": "Incidentes y escalamiento",
+   "descripcion": "Describe detección, comunicación, responsables, tiempos y decisiones excepcionales.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 10
+  },
+  {
+   "id": 21,
+   "protocolo_id": 2,
+   "codigo": "R1-11",
+   "nombre": "Comunicación a usuarios",
+   "descripcion": "Explica cuándo interviene IA, sus límites y los canales de revisión o reclamo.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 11
+  },
+  {
+   "id": 22,
+   "protocolo_id": 2,
+   "codigo": "R1-12",
+   "nombre": "Mantenimiento y retiro",
+   "descripcion": "Define monitoreo, actualizaciones, reevaluación, reversibilidad y salida ordenada.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 12
+  },
+  {
+   "id": 23,
+   "protocolo_id": 2,
+   "codigo": "R1-13",
+   "nombre": "Condiciones organizacionales",
+   "descripcion": "Incluye capacidades, recursos humanos, formación y gestión del cambio.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 13
+  },
+  {
+   "id": 24,
+   "protocolo_id": 2,
+   "codigo": "R1-14",
+   "nombre": "Modelos abiertos o autoalojados",
+   "descripcion": "Cuando aplica, define jurisdicción, logs, retención, excepciones y operación responsable.",
+   "lente": null,
+   "obligatorio": false,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 14
+  },
+  {
+   "id": 25,
+   "protocolo_id": 3,
+   "codigo": "B1-01",
+   "nombre": "Objeto y alcance identificados",
+   "descripcion": "Define qué se revisó, para qué decisión y con qué alcance.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 1
+  },
+  {
+   "id": 26,
+   "protocolo_id": 3,
+   "codigo": "B1-02",
+   "nombre": "Integridad y suficiencia",
+   "descripcion": "Comprueba que el material necesario esté presente y declara faltantes concretos.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 2
+  },
+  {
+   "id": 27,
+   "protocolo_id": 3,
+   "codigo": "B1-03",
+   "nombre": "Trazabilidad de fuentes",
+   "descripcion": "Vincula afirmaciones y señales con fuentes, ubicaciones y evidencia reproducible.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 3
+  },
+  {
+   "id": 28,
+   "protocolo_id": 3,
+   "codigo": "B1-04",
+   "nombre": "Consistencia interna",
+   "descripcion": "Busca contradicciones y tensiones dentro del objeto.",
+   "lente": "ajedrecista",
+   "obligatorio": false,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 4
+  },
+  {
+   "id": 29,
+   "protocolo_id": 3,
+   "codigo": "B1-05",
+   "nombre": "Coherencia temporal",
+   "descripcion": "Revisa comparabilidad, quiebres y cambios de criterio entre períodos.",
+   "lente": "cronista",
+   "obligatorio": false,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 5
+  },
+  {
+   "id": 30,
+   "protocolo_id": 3,
+   "codigo": "B1-06",
+   "nombre": "Cálculos reproducibles",
+   "descripcion": "Revisa operaciones, fórmulas y pertinencia del método cuantitativo.",
+   "lente": "matematico",
+   "obligatorio": false,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 6
+  },
+  {
+   "id": 31,
+   "protocolo_id": 3,
+   "codigo": "B1-07",
+   "nombre": "Relaciones y análisis interdocumental",
+   "descripcion": "Compara documentos relacionados y separa consistencia interna de contraste externo.",
+   "lente": "orquesta",
+   "obligatorio": false,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 7
+  },
+  {
+   "id": 32,
+   "protocolo_id": 3,
+   "codigo": "B1-08",
+   "nombre": "Cobertura y límites",
+   "descripcion": "Explicita qué fue revisado, qué no y por qué.",
+   "lente": "conciliador",
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 8
+  },
+  {
+   "id": 33,
+   "protocolo_id": 3,
+   "codigo": "B1-09",
+   "nombre": "Corrección y reevaluación",
+   "descripcion": "Registra observación, acción, evidencia y resultado de cada nueva revisión.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 9
+  },
+  {
+   "id": 34,
+   "protocolo_id": 3,
+   "codigo": "B1-10",
+   "nombre": "Decisión humana",
+   "descripcion": "Una persona autorizada confirma si el objeto puede continuar.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 10
+  },
+  {
+   "id": 35,
+   "protocolo_id": 3,
+   "codigo": "B1-11",
+   "nombre": "Contraste externo autorizado",
+   "descripcion": "Registra por separado si hubo contraste externo, contra qué fuente, fecha, alcance y resultado.",
+   "lente": null,
+   "obligatorio": false,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": {
+    "campos": [
+     "fuente",
+     "fecha",
+     "alcance",
+     "resultado"
+    ]
+   },
+   "orden": 11
+  },
+  {
+   "id": 36,
+   "protocolo_id": 4,
+   "codigo": "R1-01",
+   "nombre": "Problema público definido",
+   "descripcion": "Describe problema, población, proceso y resultado público esperado.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 1
+  },
+  {
+   "id": 37,
+   "protocolo_id": 4,
+   "codigo": "R1-02",
+   "nombre": "Necesidad real de IA",
+   "descripcion": "Compara IA con automatización simple, mejora de proceso y no implementación.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 2
+  },
+  {
+   "id": 38,
+   "protocolo_id": 4,
+   "codigo": "R1-03",
+   "nombre": "Datos y legitimidad de uso",
+   "descripcion": "Identifica datos, calidad, procedencia, permisos y límites de utilización.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 3
+  },
+  {
+   "id": 39,
+   "protocolo_id": 4,
+   "codigo": "R1-04",
+   "nombre": "Roles y responsabilidades",
+   "descripcion": "Asigna responsables técnicos, funcionales, institucionales y de incidentes.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 4
+  },
+  {
+   "id": 40,
+   "protocolo_id": 4,
+   "codigo": "R1-05",
+   "nombre": "Supervisión humana",
+   "descripcion": "Define revisión, corrección y autoridad decisoria humana.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 5
+  },
+  {
+   "id": 41,
+   "protocolo_id": 4,
+   "codigo": "R1-06",
+   "nombre": "Riesgos y poblaciones afectadas",
+   "descripcion": "Registra daños plausibles, grupos afectados y mitigaciones.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 6
+  },
+  {
+   "id": 42,
+   "protocolo_id": 4,
+   "codigo": "R1-07",
+   "nombre": "Privacidad",
+   "descripcion": "Define minimización, retención, acceso y tratamiento de datos personales.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 7
+  },
+  {
+   "id": 43,
+   "protocolo_id": 4,
+   "codigo": "R1-08",
+   "nombre": "Seguridad",
+   "descripcion": "Establece acceso, registros, respuesta y continuidad operativa.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 8
+  },
+  {
+   "id": 44,
+   "protocolo_id": 4,
+   "codigo": "R1-09",
+   "nombre": "Métricas y evaluación",
+   "descripcion": "Define línea de base, desempeño, impacto, umbrales y criterio de detención.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 9
+  },
+  {
+   "id": 45,
+   "protocolo_id": 4,
+   "codigo": "R1-10",
+   "nombre": "Incidentes y escalamiento",
+   "descripcion": "Define antes de operar qué se detecta, severidad, responsable, plazo, comunicación, decisión y cierre.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": {
+    "campos": [
+     "evento",
+     "severidad",
+     "detecta",
+     "escala_a",
+     "responsable",
+     "plazo",
+     "comunicacion",
+     "decision",
+     "cierre"
+    ]
+   },
+   "orden": 10
+  },
+  {
+   "id": 46,
+   "protocolo_id": 4,
+   "codigo": "R1-11",
+   "nombre": "Comunicación a usuarios",
+   "descripcion": "Explica cuándo interviene IA, límites y canales de revisión o reclamo.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 11
+  },
+  {
+   "id": 47,
+   "protocolo_id": 4,
+   "codigo": "R1-12",
+   "nombre": "Mantenimiento y retiro",
+   "descripcion": "Define monitoreo, actualizaciones, reevaluación, reversibilidad y retiro.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 12
+  },
+  {
+   "id": 48,
+   "protocolo_id": 4,
+   "codigo": "R1-13",
+   "nombre": "Condiciones organizacionales y RR.HH.",
+   "descripcion": "Incluye capacidades, formación, temores, tareas, responsabilidades, incentivos y gestión del cambio.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 13
+  },
+  {
+   "id": 49,
+   "protocolo_id": 4,
+   "codigo": "R1-14",
+   "nombre": "Modelos abiertos o autoalojados",
+   "descripcion": "Cuando aplica, asigna moderación, logs, retención, seguridad, excepciones y escalamiento a la organización.",
+   "lente": null,
+   "obligatorio": false,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 14
+  },
+  {
+   "id": 50,
+   "protocolo_id": 4,
+   "codigo": "R1-15",
+   "nombre": "Mapa jurisdiccional",
+   "descripcion": "Identifica jurisdicciones de organización, usuarios, datos, infraestructura, hechos y proveedores; deriva el análisis jurídico.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": {
+    "campos": [
+     "organizacion",
+     "usuarios",
+     "datos",
+     "infraestructura",
+     "lugar_del_hecho",
+     "proveedores",
+     "derivacion_juridica"
+    ]
+   },
+   "orden": 15
+  },
+  {
+   "id": 51,
+   "protocolo_id": 5,
+   "codigo": "B1-01",
+   "nombre": "Objeto y alcance identificados",
+   "descripcion": "Define qué se revisó, para qué decisión y con qué alcance.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 1
+  },
+  {
+   "id": 52,
+   "protocolo_id": 5,
+   "codigo": "B1-02",
+   "nombre": "Integridad y suficiencia",
+   "descripcion": "Comprueba que el material necesario esté presente y declara faltantes concretos.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 2
+  },
+  {
+   "id": 53,
+   "protocolo_id": 5,
+   "codigo": "B1-03",
+   "nombre": "Trazabilidad de fuentes",
+   "descripcion": "Vincula afirmaciones y señales con fuentes, ubicaciones y evidencia reproducible.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 3
+  },
+  {
+   "id": 54,
+   "protocolo_id": 5,
+   "codigo": "B1-04",
+   "nombre": "Consistencia interna",
+   "descripcion": "Busca contradicciones y tensiones dentro del objeto.",
+   "lente": "ajedrecista",
+   "obligatorio": false,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 4
+  },
+  {
+   "id": 55,
+   "protocolo_id": 5,
+   "codigo": "B1-05",
+   "nombre": "Coherencia temporal",
+   "descripcion": "Revisa comparabilidad, quiebres y cambios de criterio entre períodos.",
+   "lente": "cronista",
+   "obligatorio": false,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 5
+  },
+  {
+   "id": 56,
+   "protocolo_id": 5,
+   "codigo": "B1-06",
+   "nombre": "Cálculos reproducibles",
+   "descripcion": "Revisa operaciones, fórmulas y pertinencia del método cuantitativo.",
+   "lente": "matematico",
+   "obligatorio": false,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 6
+  },
+  {
+   "id": 57,
+   "protocolo_id": 5,
+   "codigo": "B1-07",
+   "nombre": "Relaciones y análisis interdocumental",
+   "descripcion": "Compara documentos relacionados y separa consistencia interna de contraste externo.",
+   "lente": "orquesta",
+   "obligatorio": false,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 7
+  },
+  {
+   "id": 58,
+   "protocolo_id": 5,
+   "codigo": "B1-08",
+   "nombre": "Cobertura y límites",
+   "descripcion": "Explicita qué fue revisado, qué no y por qué.",
+   "lente": "conciliador",
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 8
+  },
+  {
+   "id": 59,
+   "protocolo_id": 5,
+   "codigo": "B1-09",
+   "nombre": "Corrección y reevaluación",
+   "descripcion": "Registra observación, acción, evidencia y resultado de cada nueva revisión.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 9
+  },
+  {
+   "id": 60,
+   "protocolo_id": 5,
+   "codigo": "B1-10",
+   "nombre": "Decisión humana",
+   "descripcion": "Una persona autorizada confirma si el objeto puede continuar.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 10
+  },
+  {
+   "id": 61,
+   "protocolo_id": 5,
+   "codigo": "B1-11",
+   "nombre": "Contraste externo autorizado",
+   "descripcion": "Registra por separado si hubo contraste externo, contra qué fuente, fecha, alcance y resultado.",
+   "lente": null,
+   "obligatorio": false,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": {
+    "campos": [
+     "fuente",
+     "fecha",
+     "alcance",
+     "resultado"
+    ]
+   },
+   "orden": 11
+  }
+ ]
+}

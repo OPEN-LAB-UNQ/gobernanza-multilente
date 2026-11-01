@@ -1,0 +1,18 @@
+backups/
+*.db
+.env
+*.pyc
+__pycache__/
+.pytest_cache/
+_scripts_historicos/
+secrets/
+venv/
+*.xlsx
+# Los Excel de regresión se versionan: AGENTS.md pide conservarlos y sus manifiestos fijan la huella.
+!tests/fixtures/**/*.xlsx
+*.zip
+var/
+# Ejemplos que la app sirve (casos de prueba): no son datos de usuarios, deben versionarse.
+!static/samples/*.xlsx
+!static/public-samples/
+!static/public-samples/**

@@ -1,0 +1,1609 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gobernanza Multilente</title>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <!-- Bump el ?v= de styles.css y app.js en cada deploy que los toque -- StaticFiles
+       no manda cache-control y el navegador puede quedarse con la version vieja. -->
+  <link rel="stylesheet" href="/styles.css?v=20261026-lectura-54" />
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="app-header">
+    <a class="brand brand-link" href="#/inicio" title="Ir al inicio">
+      <div class="brand-mark"><svg viewBox="0 0 40 40" width="24" height="24" aria-hidden="true">
+        <defs>
+          <radialGradient id="lensHdrA" cx="35%" cy="30%" r="75%">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity=".16"/>
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="lensHdrB" cx="35%" cy="30%" r="75%">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity=".28"/>
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="lensHdrGold" cx="35%" cy="30%" r="75%">
+            <stop offset="0%" stop-color="var(--acento)" stop-opacity=".22"/>
+            <stop offset="100%" stop-color="var(--acento)" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="lensHdrShadow" x="-50%" y="-50%" width="200%" height="200%">
+            <feDropShadow dx="0" dy=".4" stdDeviation=".4" flood-color="#0b1f33" flood-opacity=".18"/>
+          </filter>
+        </defs>
+        <circle cx="15.5" cy="16" r="9" fill="url(#lensHdrA)" stroke="rgba(255,255,255,0.5)" stroke-width="1.6" filter="url(#lensHdrShadow)"/>
+        <circle cx="24.5" cy="16" r="9" fill="url(#lensHdrB)" stroke="rgba(255,255,255,0.85)" stroke-width="1.6" filter="url(#lensHdrShadow)"/>
+        <circle cx="20" cy="24" r="9" fill="url(#lensHdrGold)" stroke="var(--acento)" stroke-width="1.8" filter="url(#lensHdrShadow)"/>
+      </svg></div>
+      <div>
+        <h1>Gobernanza Multilente</h1>
+        <p>Una segunda lectura antes de decidir</p>
+      </div>
+    </a>
+    <div class="header-side">
+      <div class="disclaimer solo-avanzado">
+        Lectura institucional de datos agregados para ordenar señales, evidencia y preguntas.
+        Asiste la revisión responsable y deja la decisión final en manos del responsable humano.
+      </div>
+      <span id="usuario-actual" class="user-pill"></span>
+      <label class="modo-vista" title="El modo básico muestra sólo lo necesario; el avanzado, todo el detalle técnico."><input type="checkbox" id="modo-avanzado"> Modo avanzado</label>
+      <a class="about-link" href="/presentacion">Qué es Gobernanza</a>
+      <details class="account-menu">
+        <summary>Mi cuenta</summary>
+        <div class="account-panel">
+        <p class="account-user" id="usuario-actual-menu"></p>
+        <form id="form-cambio-password" class="account-form">
+          <label>Contraseña actual <input type="password" id="password-actual" autocomplete="current-password" required></label>
+          <label>Contraseña nueva (8 caracteres o más) <input type="password" id="password-nueva" autocomplete="new-password" minlength="8" required></label>
+          <button type="submit" class="btn btn-secondary btn-mini">Cambiar contraseña</button>
+          <p class="hint">Al cambiarla se cierran tus otras sesiones; esta sigue abierta.</p>
+        </form>
+        <button type="button" id="btn-cerrar-sesiones" class="btn btn-secondary btn-mini">Cerrar sesión en todos los dispositivos</button>
+        </div>
+      </details>
+      <a class="logout-link" href="/logout">Salir</a>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="top-nav" aria-label="Navegación principal">
+      <div class="top-nav-inner" id="main-nav"></div>
+    </nav>
+
+    <template id="nav-item-template">
+      <button type="button" class="nav-btn">
+        <span class="icon" aria-hidden="true"></span>
+        <span class="nav-label"></span>
+      </button>
+    </template>
+
+    <main class="content" id="contenido" tabindex="-1">
+
+      <!-- VISTA: INICIO -->
+      <section id="view-inicio" class="view active">
+        <div class="course-entry-hero">
+          <span class="welcome-kicker">Gobernanza Multilente y sus módulos</span>
+          <h2>De los principios de gobernanza a algo que se puede comprobar.</h2>
+          <p>Gobernanza acompaña el ciclo completo: ayuda a diseñar proyectos responsables, revisar la evidencia que sostiene decisiones, encontrar conexiones entre iniciativas y monitorear una implementación real sin reemplazar la decisión humana.</p>
+        </div>
+
+        <p class="hint solo-avanzado">Elegí el recorrido que necesitás. Son espacios independientes; no hace falta completarlos en orden.</p>
+        <p class="course-entry-fin solo-avanzado"><strong>¿Cuándo termina la actividad?</strong> Cuando entregás tu propuesta en la Incubadora (Recorrido 2) y recibís la devolución docente. Multilente, Conexiones y Monitoreo son para explorar y comparar: no tienen un paso final que marcar ni un botón de cierre.</p>
+
+        <section class="course-entry-grid" aria-label="Elegir recorrido de trabajo">
+          <article class="course-entry-card course-entry-card-governance">
+            <div class="course-entry-topline">
+              <span>Recorrido 1</span>
+              <strong>Caso común</strong>
+            </div>
+            <h3>Gobernanza Multilente</h3>
+            <span class="module-status module-status-operativo">Piloto operativo</span>
+            <p>Una segunda mirada a tu informe, como una radiografía: te dice qué pudo leer y qué no, te marca lo raro con su celda y vos decidís.</p>
+            <div class="course-entry-actions">
+              <button type="button" class="btn btn-primary" data-nav-target="analizar">Entrar a Multilente</button>
+              <button type="button" class="btn btn-secondary" data-nav-target="informes">Ver informes</button>
+            </div>
+            <div class="ruta solo-avanzado" data-ruta="multilente"></div>
+            <details class="plegable course-entry-mas solo-avanzado"><summary>Qué se trabaja</summary>
+              <ul class="course-entry-list">
+              <li>Practicar con información agregada</li>
+              <li>Distinguir señal, ruido y evidencia</li>
+              <li>Validar hallazgos sin delegar la decisión</li>
+            </ul>
+            </details>
+          </article>
+
+          <article class="course-entry-card course-entry-card-project">
+            <div class="course-entry-topline">
+              <span>Recorrido 2</span>
+              <strong>Caso propio</strong>
+            </div>
+            <h3>Gobernanza Incubadora</h3>
+            <span class="module-status module-status-operativo">Operativa</span>
+            <p>Transformá una necesidad de tu organismo u organización en un proyecto de IA responsable, claro, evaluable y supervisado. La Incubadora te acompaña a precisar el problema antes de elegir la herramienta.</p>
+            <div class="course-entry-actions">
+              <button type="button" class="btn btn-primary" data-nav-target="proyecto-ia">Entrar al asistente</button>
+            </div>
+            <div class="ruta solo-avanzado" data-ruta="incubadora"></div>
+            <details class="plegable course-entry-mas solo-avanzado"><summary>Qué se trabaja</summary>
+              <ul class="course-entry-list">
+              <li>Formular primero el problema, después la IA</li>
+              <li>Diseñar una implementación responsable en tu organismo u organización</li>
+              <li>Dejar el proyecto listo para compartir en Conexiones</li>
+            </ul>
+            </details>
+          </article>
+
+          <article class="course-entry-card course-entry-card-connections">
+            <div class="course-entry-topline">
+              <span>Recorrido 3</span>
+              <strong>Mapa común</strong>
+            </div>
+            <h3>Gobernanza Conexiones</h3>
+            <span class="module-status module-status-desarrollo">En desarrollo</span>
+            <p>Explorá puntos de contacto entre proyectos: problemas parecidos, datos que podrían conversar, riesgos compartidos y decisiones de implementación que conviene comparar.</p>
+            <div class="course-entry-actions">
+              <button type="button" class="btn btn-primary" data-nav-target="conexiones">Ver conexiones</button>
+              <button type="button" class="btn btn-secondary" data-nav-target="casos">Ver casos</button>
+            </div>
+            <div class="ruta solo-avanzado" data-ruta="conexiones"></div>
+            <details class="plegable course-entry-mas solo-avanzado"><summary>Qué se trabaja</summary>
+              <ul class="course-entry-list">
+              <li>Conectar proyectos, no personas</li>
+              <li>Detectar aprendizajes transversales</li>
+              <li>Encontrar ideas que pueden mejorar al compararse</li>
+            </ul>
+            </details>
+          </article>
+
+          <article class="course-entry-card course-entry-card-monitoring">
+            <div class="course-entry-topline">
+              <span>Recorrido 4</span>
+              <strong>Implementación real</strong>
+            </div>
+            <h3>Gobernanza Monitoreo (KPI)</h3>
+            <span class="module-status module-status-piloto">Piloto Presupuesto</span>
+            <!-- solo-grupo-por-defecto --><p>Habilitado para el proyecto ganador, de modificaciones presupuestarias: ahí se registran los avances, indicadores, riesgos, decisiones humanas y aprendizajes de su implementación. Los demás proyectos permanecen en cartera.</p><!-- /solo-grupo-por-defecto -->
+            <div class="course-entry-actions">
+              <button type="button" class="btn btn-primary" data-nav-target="proyecto-ia">Ir a mi proyecto</button>
+            </div>
+            <div class="ruta solo-avanzado" data-ruta="monitoreo"></div>
+            <details class="plegable course-entry-mas solo-avanzado"><summary>Qué se trabaja</summary>
+              <ul class="course-entry-list">
+              <li>Seguir avances y condiciones de implementación</li>
+              <li>Registrar decisiones, incidentes y ajustes</li>
+              <li>Convertir la operación real en aprendizaje institucional</li>
+            </ul>
+            </details>
+          </article>
+        </section>
+
+      </section>
+
+      <!-- VISTA: PROYECTO IA -->
+      <section id="view-proyecto-ia" class="view">
+        <h2 class="view-title">Gobernanza Incubadora</h2>
+        <p class="view-subtitle">Asistente para desarrollar proyectos propios de IA en organismos y organizaciones: transforma una necesidad concreta en una propuesta responsable, clara, evaluable y supervisada.</p>
+
+        <div id="proyecto-cuenta" class="project-account-note"></div>
+        <div id="incubadora-vistas" class="actions-row" hidden aria-label="Espacio de trabajo">
+          <button type="button" class="btn btn-secondary" data-incubadora-vista="docente">Supervisión docente</button>
+          <button type="button" class="btn btn-secondary" data-incubadora-vista="personal">Mi proyecto</button>
+        </div>
+        <section id="proyecto-admin-panel" class="card project-admin-card" style="display:none">
+          <div class="section-heading-row">
+            <div>
+              <h3>Supervisión docente</h3>
+              <p>Vista docente de proyectos, conversaciones, entregas e intervenciones. Cada registro queda asociado al usuario autenticado.</p>
+            </div>
+            <div class="actions-row compact-actions">
+              <button id="btn-exportar-cartera" type="button" class="btn btn-secondary btn-mini">Exportar cartera</button>
+              <button id="btn-recargar-supervision" type="button" class="btn btn-secondary btn-mini">Actualizar</button>
+            </div>
+          </div>
+          <div id="proyecto-escucha-metricas" class="project-listening-metrics"></div>
+          <div id="proyecto-cartera-docente" class="project-portfolio"></div>
+          <div class="project-admin-grid">
+            <div>
+              <h4>Participantes</h4>
+              <div id="proyectos-lista" class="project-list"></div>
+            </div>
+            <div>
+              <h4 id="proyecto-admin-titulo">Seleccioná un participante</h4>
+              <div id="proyecto-admin-detalle" class="project-admin-detail empty-state">Todavía no seleccionaste ningún proyecto.</div>
+              <div class="project-teacher-tools">
+                <label for="proyecto-docente-msg">Mensaje docente</label>
+                <div class="project-chat-input">
+                  <textarea id="proyecto-docente-msg" placeholder="Escribí una orientación para este participante..."></textarea>
+                  <button id="btn-docente-proyecto" type="button" class="btn btn-primary">Enviar</button>
+                </div>
+                <label for="proyecto-docente-retro">Retroalimentación docente</label>
+                <textarea id="proyecto-docente-retro" placeholder="Devolución o criterio de seguimiento..."></textarea>
+                <div class="actions-row">
+                  <select id="proyecto-docente-proyecto-estado">
+                    <option value="en_proceso">En proceso</option>
+                    <option value="entregado">Entregado · pendiente de revisión docente</option>
+                    <option value="revisado">Revisado por el docente</option>
+                  </select>
+                  <button id="btn-retro-proyecto" type="button" class="btn btn-secondary">Guardar retro</button>
+                  <button id="btn-reiniciar-proyecto" type="button" class="btn btn-secondary danger-lite">Reiniciar proyecto</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div id="incubadora-personal">
+        <div id="proyecto-accesos" class="actions-row" aria-label="Accesos del proyecto">
+          <button type="button" class="btn btn-secondary" data-scroll-target="proyecto-titulo">Continuar proyecto</button>
+          <button type="button" class="btn btn-secondary" id="btn-mi-devolucion" hidden>Mi devolución</button>
+          <button type="button" class="btn btn-secondary" data-scroll-target="proyecto-docente-chat">Consultar al docente (opcional)</button>
+        </div>
+        <div id="proyecto-progreso" class="project-progress"></div>
+        <div id="proyecto-escucha-estado" class="project-listening-status" aria-live="polite"></div>
+
+        <section class="project-stage-strip" aria-label="Etapas sugeridas del proyecto">
+          <span>Problema</span>
+          <span>Datos</span>
+          <span>Uso de IA</span>
+          <span>Riesgos</span>
+          <span>Supervisión humana</span>
+          <span>Indicadores</span>
+          <span>Reflexión final</span>
+        </section>
+
+        <details class="card"><summary>Ver el método y las habilidades que trabajamos</summary>
+        <section class='project-skills-bridge' aria-label='Continuidad con el diagnóstico de habilidades IA'>
+          <div class='project-skills-bridge-main'>
+            <span class='section-kicker'>Del método al proyecto propio</span>
+            <h3>El asistente te ayuda a implementar IA sin saltear la gobernanza.</h3>
+            <p>No busca entregar respuestas cerradas. Te ayuda a precisar el problema, contrastar alternativas, pensar datos reales, revisar límites y dejar evidencia de por qué una solución de IA tendría sentido en tu ámbito.</p>
+          </div>
+          <div class='project-skills-grid' aria-label='Habilidades trabajadas en el proyecto'>
+            <span>Oportunidad</span>
+            <span>Problema</span>
+            <span>Diseño</span>
+            <span>Evaluación</span>
+            <span>Integración</span>
+            <span>Uso responsable</span>
+          </div>
+        </section>
+
+        </details>
+        <div class="project-workspace">
+          <section class="card project-main-card">
+            <div class="section-heading-row">
+              <div>
+                <h3>Tu caso de implementación de IA</h3>
+                <p>Primero formulá el problema con precisión. Después definí qué parte podría asistir la IA, con qué datos, bajo qué controles y con qué resultado verificable.</p>
+              </div>
+              <span id="proyecto-estado" class="badge badge-neutral">en proceso</span>
+            </div>
+            <p id="proyecto-estado-aclaracion" class="hint" role="status" hidden></p>
+
+            <div class="form-grid project-form-grid">
+              <div>
+                <label for="proyecto-titulo">Título tentativo</label>
+                <input id="proyecto-titulo" type="text" placeholder="Ej: Asistente para ordenar consultas ciudadanas" />
+              </div>
+              <div>
+                <label for="proyecto-area">Organismo, organización o área</label>
+                <input id="proyecto-area" type="text" placeholder="Área, programa, oficina o unidad de negocio" />
+              </div>
+              <div class="full">
+                <label for="proyecto-situacion">Situación a mejorar</label>
+                <textarea id="proyecto-situacion" placeholder="Describí brevemente el proceso, decisión o flujo de información que querés mejorar con IA responsable. Usá solo información pública, anonimizada o preparada para la actividad."></textarea>
+                <p id="proyecto-situacion-contador" class="hint" role="status" aria-live="polite"></p>
+                <p class="field-hint safety-hint">No cargues información sensible, reservada, individualizada o con acceso restringido.</p>
+              </div>
+            </div>
+            <div class="actions-row">
+              <button id="btn-guardar-proyecto" type="button" class="btn btn-primary">Guardar contexto</button>
+              <span id="proyecto-guardado-estado" class="save-status"></span>
+            </div>
+          </section>
+
+          <section class="card project-guide-card">
+            <h3>Aspectos del curso que tienen que aparecer</h3>
+            <ul class="compact-list">
+              <li>Valor público o para la organización, y mejora esperada.</li>
+              <li>Datos necesarios, calidad, permisos y privacidad.</li>
+              <li>Reglas de gobernanza, trazabilidad y responsables.</li>
+              <li>Decisión humana, límites de automatización y transparencia.</li>
+              <li>Riesgos, sesgos, resguardos e indicadores de evaluación.</li>
+            </ul>
+          </section>
+        </div>
+
+        <section class="card project-clarity-card">
+          <div class="section-heading-row">
+            <div>
+              <span class="section-kicker">Revisión antes de entregar</span>
+              <h3>Revisión de la propuesta</h3>
+              <p>Antes de entregar, verificá si tu caso ya tiene problema, usuarios, evidencia, datos, flujo, rol de IA, supervisión, riesgos, indicador y próximo paso.</p>
+            </div>
+            <button id="btn-probar-claridad" type="button" class="btn btn-primary">Revisar mi propuesta con IA</button>
+          </div>
+          <p class="hint">Este botón guarda tu propuesta y solicita una revisión a la IA. No entrega el proyecto ni lo aprueba. El contador se calcula por separado y puede no cambiar.</p>
+          <p id="proyecto-prueba-estado" class="project-action-status" role="status" aria-live="polite">El contador es orientativo. La revisión de IA explica qué está sustentado y qué falta precisar.</p>
+          <div id="proyecto-prueba-respuesta" class="project-feedback" hidden></div>
+          <p class="hint">Podés dejar un punto para después sin perderlo. Los opcionales no bloquean la entrega y la revisión automática no reemplaza la devolución docente.</p>
+          <details><summary>Ver criterios completos, pendientes y opcionales</summary>
+          <div id="proyecto-claridad-checklist" class="project-clarity-checklist" aria-label="Diez criterios de la propuesta"></div>
+          </details>
+        </section>
+
+        <div class="project-workspace project-workspace-chat project-dual-chat">
+          <section class="card project-chat-card">
+            <div class="section-heading-row">
+              <div>
+                <h3>Asistente de formulación y diseño</h3>
+                <p>Usalo para probar si el problema está claro, comparar opciones y revisar qué faltaría antes de implementar IA. La decisión final es tuya. Trabajá solo con información pública o anonimizada.</p>
+                <p class="hint"><strong>Sobre los archivos:</strong> Incubadora trabaja con el texto que escribís o pegás en este espacio y no recibe adjuntos. Si necesitás analizar un archivo, usá Gobernanza Multilente; su contenido no se transfiere automáticamente a tu proyecto.</p>
+              </div>
+              <button id="btn-recargar-proyecto" type="button" class="btn btn-secondary btn-mini">Recargar</button>
+            </div>
+            <p class="hint">No hace falta responder todas las preguntas: elegí las que te ayuden a precisar el problema y marcá las demás como «Lo definiré después». Como referencia, en la cohorte de septiembre de 2026 las propuestas entregadas llevaron alrededor de 19 intercambios (la mitad, entre 10 y 31).</p>
+            <div id="proyecto-chat" class="project-chat-log"></div>
+            <div class="project-chat-input">
+              <textarea id="proyecto-mensaje" placeholder="Escribí tu idea, duda o decisión para discutir con la IA, siempre sin información sensible. Para textos de más de 12.000 caracteres, usá la entrega final."></textarea>
+              <p id="proyecto-mensaje-contador" class="hint" role="status" aria-live="polite"></p>
+              <button id="btn-enviar-proyecto" type="button" class="btn btn-primary">Enviar</button>
+            </div>
+            <div class="project-listening-actions" aria-label="Controles de avance de la conversación">
+              <button type="button" class="btn btn-secondary btn-mini" data-proyecto-control="entendido">¿Qué entendiste?</button>
+              <button type="button" class="btn btn-secondary btn-mini" data-proyecto-control="faltantes">Mostrar qué falta</button>
+              <button type="button" class="btn btn-secondary btn-mini" data-proyecto-control="siguiente">Siguiente paso</button>
+              <button type="button" class="btn btn-secondary btn-mini" data-proyecto-control="borrador">Generar borrador</button>
+              <button type="button" class="btn btn-secondary btn-mini" data-proyecto-control="trabado">Estoy trabado</button>
+            </div>
+
+          </section>
+
+          <section class="card project-teacher-chat-card">
+            <div class="section-heading-row">
+              <div>
+                <h3>Chat con el docente</h3>
+                <p>Usalo para pedir orientación, aclarar consignas o dejar una duda puntual sobre tu proyecto.</p>
+              </div>
+            </div>
+            <div id="proyecto-docente-estado" class="project-teacher-status" aria-live="polite"></div>
+            <div id="proyecto-docente-chat" class="project-chat-log project-teacher-chat-log"></div>
+            <div class="project-chat-input">
+              <textarea id="proyecto-docente-consulta" placeholder="Consultá al docente (hasta 30.000 caracteres). No pegues información sensible o de acceso restringido."></textarea>
+              <button id="btn-consultar-docente" type="button" class="btn btn-primary">Enviar</button>
+            </div>
+            <p id="proyecto-docente-consulta-contador" class="hint" role="status" aria-live="polite"></p>
+          </section>
+        </div>
+
+        <section class="card project-submit-card">
+          <h3 id="proyecto-entrega-titulo">Entrega final</h3>
+          <p class="hint"><strong>Importante:</strong> “Marcar como entregado” registra la presentación dentro de Gobernanza Incubadora. No realiza un envío automático al aula Moodle; si la actividad del curso también lo solicita, usá “Copiar resumen para Moodle” y presentalo allí.</p>
+          <textarea id="proyecto-entrega" aria-labelledby="proyecto-entrega-titulo" placeholder="Pegá acá tu propuesta final: objetivo, datos, alternativas, selección justificada, gobernanza, riesgos, indicadores y reflexión sobre el uso de IA."></textarea>
+          <p id="proyecto-entrega-contador" class="hint" role="status" aria-live="polite"></p>
+          <div class="actions-row">
+            <button id="btn-guardar-entrega" type="button" class="btn btn-secondary">Guardar borrador</button>
+            <button id="btn-entregar-proyecto" type="button" class="btn btn-primary">Marcar como entregado</button>
+            <button id="btn-copiar-proyecto-moodle" type="button" class="btn btn-secondary">Copiar resumen para Moodle</button>
+            <span id="proyecto-entrega-guardado" class="save-status"></span>
+          </div>
+          <p id="proyecto-entrega-confirmacion" class="project-action-status" role="status" aria-live="polite" hidden></p>
+          <div id="proyecto-predevolucion-ia" class="project-feedback" style="display:none"></div>
+          <div id="proyecto-retro" class="project-feedback" style="display:none"></div>
+        </section>
+
+        <section class="pilot-governance-card" aria-labelledby="pilot-governance-title">
+          <div>
+            <span class="section-kicker">Reglas de esta etapa</span>
+            <h3 id="pilot-governance-title">Cómo se revisan las mejoras del piloto.</h3>
+            <p>Las correcciones y mejoras se prueban antes de publicarse. Cada versión conserva un registro de cambios y sus límites.</p>
+          </div>
+          <div class="pilot-governance-grid">
+            <article><strong>Alcance</strong><span>Casos cerrados, información agregada y objetivos acordados antes de cargar.</span></article>
+            <article><strong>Medición</strong><span>Tiempo, hallazgos útiles, falsos positivos, omisiones y valoración del usuario.</span></article>
+            <article><strong>Responsabilidad</strong><span>Administración técnica, revisión metodológica, validación humana y comunicación diferenciadas.</span></article>
+            <article><strong>Cierre</strong><span>El piloto termina con hallazgos, límites detectados y una decisión documentada sobre continuidad.</span></article>
+          </div>
+        </section>
+
+        <details class="card project-r1-card">
+          <summary>Evaluación de IA responsable (protocolo R-1) · opcional, para una etapa posterior</summary>
+          <div class="section-heading-row">
+            <div>
+              <span class="section-kicker">Evaluación opcional y separada</span>
+              <h3>Preparación para IA Responsable R-1</h3>
+              <p><strong>R-1 es opcional.</strong> Entregar el proyecto o recibir una devolución no obliga a iniciarlo. Tiene su propia evaluación; la entrega y la devolución de IA no conceden un sello automáticamente.</p>
+              <p>Reúne evidencia sobre el problema que se quiere resolver, necesidad de IA, datos, responsabilidades, supervisión, riesgos, privacidad, seguridad, métricas y capacidad organizacional.</p>
+            </div>
+          </div>
+          <div id="proyecto-r1-panel"><div class="empty-state">Cargando protocolo R-1…</div></div>
+        </details>
+
+        <details id="proyecto-monitoreo-card" class="card project-monitoreo-card" style="display:none">
+          <summary>Monitoreo · seguimiento del proyecto ganador</summary>
+          <div class="section-heading-row">
+            <div>
+              <h3>Gobernanza Monitoreo</h3>
+              <p>El seguimiento activo está habilitado solamente para el proyecto ganador del piloto. Los demás proyectos permanecen en cartera.</p>
+            </div>
+            <span id="monitoreo-resumen" class="badge badge-neutral">sin registros</span>
+          </div>
+          <div id="monitoreo-estado-escucha" class="project-listening-status"></div>
+          <div id="monitoreo-lista" class="monitoreo-lista">
+            <div class="empty-state">Todavía no hay registros de monitoreo.</div>
+          </div>
+          <form id="form-monitoreo" class="monitoreo-form">
+            <div class="monitoreo-form-row">
+              <select id="monitoreo-tipo" required>
+                <option value="avance">Avance</option>
+                <option value="riesgo">Riesgo</option>
+                <option value="decision">Decisión</option>
+                <option value="indicador">Indicador</option>
+                <option value="aprendizaje">Aprendizaje</option>
+              </select>
+              <input id="monitoreo-titulo" type="text" maxlength="160" placeholder="Título breve" required>
+            </div>
+            <textarea id="monitoreo-contenido" maxlength="1800" placeholder="Qué pasó, qué se decidió o qué se está midiendo, con el detalle necesario para que otra persona lo entienda después." required></textarea>
+            <div class="monitoreo-form-row">
+              <input id="monitoreo-valor-indicador" type="number" step="any" placeholder="Valor del indicador (opcional)" style="display:none">
+              <button type="submit" class="btn btn-primary">Agregar registro</button>
+            </div>
+          </form>
+        </details>
+
+        
+        </div>
+      </section>
+
+      <!-- VISTA: CASOS COMPARTIDOS -->
+      <section id="view-casos" class="view">
+        <div class="cases-hero">
+          <div>
+            <span class="section-kicker">Gobernanza Conexiones</span>
+            <h2 class="view-title">Casos de mis compañeros</h2>
+            <p class="view-subtitle">Catálogo de ideas en construcción: permite ubicar líneas de trabajo, avances e intercambios sin exponer conversaciones privadas ni evaluar entregas.</p>
+          </div>
+          <div id="casos-proyectos-resumen" class="cases-summary">Cargando casos...</div>
+        </div>
+        <div class="vote-guidance" aria-label="Estado de la primera vuelta">
+          <strong>Votación pedagógica:</strong>
+          <span>Consultando el estado de la actividad.</span>
+          <button type="button" class="btn btn-primary" data-nav-target="segunda-vuelta">Ir a la segunda vuelta</button>
+        </div>
+        <div class="actions-row cases-toolbar"><label for="buscar-casos">Buscar proyecto</label><input id="buscar-casos" type="search" placeholder="Título, área o tema" /><label for="estado-casos">Estado del proyecto</label><select id="estado-casos"><option value="">Todos los estados</option><option value="en_proceso">En elaboración</option><option value="entregado">Entregado · pendiente de revisión docente</option><option value="revisado">Con devolución docente</option></select><label><input type="checkbox" id="solo-mi-caso" /> Solo mi proyecto</label><button type="button" id="limpiar-casos" class="btn btn-secondary btn-mini">Ver todos</button></div>
+        <div id="casos-proyectos-filtros" class="cases-filters" aria-label="Filtrar casos por línea de trabajo"></div>
+        <div id="casos-proyectos-grid" class="cases-grid"></div>
+      </section>
+
+      <!-- VISTA: SEGUNDA VUELTA -->
+      <section id="view-segunda-vuelta" class="view">
+        <div class="runoff-hero">
+          <div>
+            <span class="section-kicker">Votación finalizada</span>
+            <h2 class="view-title">Resultados finales</h2>
+            <p class="view-subtitle">La segunda vuelta está cerrada. Conocé el proyecto ganador y el resultado definitivo de la votación.</p>
+          </div>
+          <div id="segunda-vuelta-resumen" class="runoff-summary">Cargando votación...</div>
+        </div>
+
+        <section class="runoff-first-round" aria-labelledby="primera-vuelta-titulo">
+          <div class="runoff-section-heading">
+            <div>
+              <span class="section-kicker">Preferencias de la actividad</span>
+              <h3 id="primera-vuelta-titulo">Primera vuelta</h3>
+              <p>Votos recibidos en la actividad. Los finalistas corresponden a la configuración registrada por el docente.</p>
+            </div>
+          </div>
+          <div id="primera-vuelta-resultados" class="runoff-results"></div>
+        </section>
+
+        <section class="runoff-final" aria-labelledby="finalistas-titulo">
+          <div class="runoff-section-heading">
+            <div>
+              <span class="section-kicker">Preferencias de la segunda vuelta</span>
+              <h3 id="finalistas-titulo">Resultado de la segunda vuelta</h3>
+              <p>Votos recibidos por los proyectos finalistas de esta actividad.</p>
+            </div>
+          </div>
+          <form id="segunda-vuelta-form">
+            <div id="segunda-vuelta-finalistas" class="runoff-finalists"></div>
+            <label id="segunda-vuelta-justificacion-label">Justificación de la preferencia (40 a 1200 caracteres)
+              <textarea id="segunda-vuelta-justificacion" minlength="40" maxlength="1200" rows="3"></textarea>
+            </label>
+            <div class="runoff-vote-bar">
+              <p id="segunda-vuelta-estado" role="status">Consultando el estado de la actividad.</p>
+              <button type="submit" class="btn btn-primary">Confirmar voto de segunda vuelta</button>
+            </div>
+          </form>
+        </section>
+      </section>
+
+      <!-- VISTA: RIZOMA DE PROYECTOS -->
+      <section id="view-conexiones" class="view">
+        <div class="cases-hero">
+          <div>
+            <span class="section-kicker">Gobernanza Conexiones</span>
+            <h2 class="view-title">De proyectos aislados a capacidades compartidas</h2>
+            <p class="view-subtitle">Conexiones identifica qué iniciativas podrían compartir datos, reglas o componentes y propone pruebas conjuntas para convertir la cartera en capacidad institucional.</p>
+          </div>
+          <div class="cases-summary cases-summary-static"><strong>Hipótesis, no decisiones</strong><span>Cada oportunidad requiere validación de los equipos</span></div>
+        </div>
+        <!-- solo-grupo-por-defecto --><div class="synthesis-callout"><div><strong>Tres desarrollos conjuntos a partir de esta cartera</strong><p>Explorá qué aportaría cada proyecto, qué ganaríamos al combinarlos y cómo probar cada integración.</p></div><button type="button" class="btn btn-primary" data-nav-target="sintesis">Ver las tres síntesis</button></div><!-- /solo-grupo-por-defecto -->
+        <section class="cases-rizoma" aria-label="Conexiones entre proyectos">
+          <div class="section-heading-row">
+            <div>
+              <span class="section-kicker">Cartera de oportunidades</span>
+              <h3>Qué podrían construir juntos</h3>
+              <p>La plataforma propone combinaciones concretas y explica qué aportaría cada proyecto. No fusiona iniciativas ni asigna responsabilidades automáticamente.</p>
+            </div>
+          </div>
+          <div id="casos-rizoma-grid" class="rizoma-graph-wrap"></div>
+        </section>
+
+      </section>
+
+      <!-- VISTA: SÍNTESIS DE CONEXIONES -->
+      <section id="view-sintesis" class="view">
+        <!-- solo-otro-grupo --><h2 class="view-title">Tres síntesis</h2><p class="view-subtitle">Las síntesis se arman con los proyectos de cada grupo. Las de tu grupo todavía no están.</p><!-- /solo-otro-grupo -->
+        <!-- solo-grupo-por-defecto -->
+        <header id="sintesis-inicio" class="synthesis-hero">
+          <span class="section-kicker">Gobernanza Conexiones · propuestas de integración</span>
+          <h2 class="view-title">De la cartera a tres desarrollos conjuntos</h2>
+          <p class="synthesis-lead">Qué podríamos construir al combinar los problemas, conocimientos y soluciones que aportaron las distintas áreas.</p>
+          <p>Estas tres síntesis reúnen aportes de proyectos existentes y explican qué capacidad adicional podría surgir de su combinación. Son propuestas para discutir y probar con los equipos; no representan integraciones implementadas ni decisiones institucionales aprobadas.</p>
+          <p class="hint">Cada proyecto de origen conserva su autoría, alcance y estado. Los enlaces permiten consultar sus resúmenes compartidos. Esta síntesis editorial no modifica las entregas ni su evaluación docente.</p>
+        </header>
+        <nav class="synthesis-index" aria-label="Elegir una síntesis"><button type="button" class="synthesis-entry" data-scroll-target="sintesis-expedientes"><span>01</span><strong>Revisión de expedientes</strong><small>Reunir antecedentes, controles y preparación documental en una misma revisión trazable.</small><em>Ver propuesta ↓</em></button><button type="button" class="synthesis-entry" data-scroll-target="sintesis-atencion"><span>02</span><strong>Atención interna</strong><small>Conectar la consulta, la documentación y el aprendizaje a partir de los problemas recurrentes.</small><em>Ver propuesta ↓</em></button><button type="button" class="synthesis-entry" data-scroll-target="sintesis-informes"><span>03</span><strong>Informes económicos</strong><small>Compartir un procedimiento verificable desde la fuente hasta el borrador que revisa cada área.</small><em>Ver propuesta ↓</em></button></nav>
+        <article id="sintesis-expedientes" class="card synthesis-proposal" aria-labelledby="titulo-sintesis-expedientes">
+ <header class="synthesis-proposal-head"><span class="section-kicker">Síntesis 01</span><h3 id="titulo-sintesis-expedientes">Circuito asistido de revisión de expedientes</h3><p>Reunir antecedentes, controles y preparación documental en una misma revisión trazable.</p></header>
+ <ol class="synthesis-flow" aria-label="Recorrido propuesto"><li>Ordenar documentos</li><li>Vincular antecedentes</li><li>Aplicar controles</li><li>Preparar la revisión humana</li></ol>
+ <p>La lectura y normalización de documentos aporta una ficha común del expediente. La trazabilidad permite reconocer antecedentes y actuaciones relacionadas. Sobre esa base se aplican controles del trámite y se prepara un borrador para revisión humana. Cada observación conserva el vínculo con la evidencia que la originó.</p>
+ <div class="synthesis-grid"><section><h4>Qué aporta cada proyecto</h4><ul class="synthesis-sources"><li><button type="button" class="connection-case-link" data-abrir-caso="10">Asistente Inteligente para el Análisis y Normalización de Expedientes Públicos</button><p>Extraer y ordenar la información necesaria para la revisión.</p></li><li><button type="button" class="connection-case-link" data-abrir-caso="20">PROYECTO TRAZABILIDAD DE TRAMITACIONES</button><p>Relacionar actuaciones y antecedentes; revisar posibles duplicaciones.</p></li><li><button type="button" class="connection-case-link" data-abrir-caso="6">Verificar Modificaciones presupuestarias</button><p>Aportar controles de partidas y una matriz de facultades validada por el área.</p></li><li><button type="button" class="connection-case-link" data-abrir-caso="9">Asistente para redacción de actos administrativos</button><p>Preparar borradores conforme a los criterios de redacción acordados.</p></li></ul></section>
+ <section class="synthesis-value"><h4>Qué ganamos al combinarlos</h4><p>Una ficha común evita volver a extraer los mismos datos en cada etapa. Los antecedentes y las alertas acompañan al borrador, de modo que quien revisa puede reconstruir por qué se propone cada corrección.</p><h4>Qué recibiría el equipo</h4><p>Una ficha de revisión con antecedentes vinculados, documentación faltante, inconsistencias que requieren explicación y, cuando corresponda, un borrador del acto administrativo.</p></section></div>
+ <section class="synthesis-pilot"><h4>Una primera prueba acotada</h4><p>Elegir un solo tipo de modificación presupuestaria y un conjunto de expedientes históricos ya resueltos. Comparar la revisión asistida con la realizada por el área, antes de considerar conexiones con sistemas operativos.</p><p><strong>Qué medir:</strong> Tiempo de revisión, errores detectados, omisiones, falsas alertas y correcciones necesarias en el borrador.</p></section>
+ <details class="interior-details"><summary>Condiciones y límites de esta propuesta</summary><p>El área debe acordar los documentos utilizables, validar las reglas y fuentes normativas, y designar quién revisa cada resultado. La comprobación de facultades y la aprobación del trámite conservan revisión humana.</p><p>La prueba no aprueba, firma, bloquea ni modifica expedientes en sistema de expedientes. Se evalúa cuánto ayuda a revisar; no se promete eliminar todos los errores. El Monitoreo activo continúa limitado al proyecto ganador confirmado.</p></details>
+ <button type="button" class="btn btn-secondary btn-mini" data-scroll-target="sintesis-inicio">Volver a las tres síntesis ↑</button>
+ </article>
+<article id="sintesis-atencion" class="card synthesis-proposal" aria-labelledby="titulo-sintesis-atencion">
+ <header class="synthesis-proposal-head"><span class="section-kicker">Síntesis 02</span><h3 id="titulo-sintesis-atencion">Mesa de atención interna con conocimiento compartido</h3><p>Conectar la consulta, la documentación y el aprendizaje a partir de los problemas recurrentes.</p></header>
+ <ol class="synthesis-flow" aria-label="Recorrido propuesto"><li>Ordenar la consulta</li><li>Recuperar la fuente</li><li>Proponer respuesta o derivación</li><li>Aprender de las recurrencias</li></ol>
+ <p>El ingreso estructurado ayuda a entender qué necesita la persona. El asistente documental busca en instructivos y manuales seleccionados y propone una respuesta con su fuente. El agente revisa la respuesta o deriva la consulta. El análisis agregado de tickets permite reconocer qué dudas se repiten y dónde conviene mejorar la documentación o la capacitación.</p>
+ <div class="synthesis-grid"><section><h4>Qué aporta cada proyecto</h4><ul class="synthesis-sources"><li><button type="button" class="connection-case-link" data-abrir-caso="48">Canal Único Inteligente DTO para Solicitudes y Órdenes de Trabajo</button><p>Aportar el diseño de ingreso estructurado y orientación inicial de solicitudes.</p></li><li><button type="button" class="connection-case-link" data-abrir-caso="16">Asistente Documental Inteligente para la Mesa de Servicio y Atención al Usuario.</button><p>Recuperar conocimiento institucional vigente y fundamentar las respuestas.</p></li><li><button type="button" class="connection-case-link" data-abrir-caso="51">Analizador de tickets de mesa de ayuda</button><p>Identificar recurrencias, demoras y oportunidades de mejora con datos agregados.</p></li></ul></section>
+ <section class="synthesis-value"><h4>Qué ganamos al combinarlos</h4><p>Lo aprendido de las consultas permite elegir qué documentos preparar o actualizar. Esos documentos mejoran las respuestas posteriores, y el análisis de tickets permite comprobar si disminuyen las consultas repetidas.</p><h4>Qué recibiría el equipo</h4><p>Una propuesta de respuesta con fuente, una sugerencia de derivación cuando haga falta y una síntesis periódica de problemas recurrentes para el equipo responsable.</p></section></div>
+ <section class="synthesis-pilot"><h4>Una primera prueba acotada</h4><p>Elegir una categoría de soporte y consultas históricas, junto con un conjunto acotado de documentos vigentes. Probar las respuestas y las sugerencias de derivación con agentes del servicio. El aporte de DTO se adapta con sus responsables; no presupone unificar los servicios de las distintas áreas.</p><p><strong>Qué medir:</strong> Tiempo de búsqueda, respuestas correctas y sustentadas, derivaciones adecuadas y temas que requieren actualizar documentación. La reducción de consultas repetidas se evalúa en una etapa posterior de uso.</p></section>
+ <details class="interior-details"><summary>Condiciones y límites de esta propuesta</summary><p>Designar responsables de validar y actualizar las fuentes. Acordar permisos y un tratamiento de consultas que permita trabajar sin exponer datos personales innecesarios.</p><p>El piloto no responde automáticamente a usuarios, cierra tickets ni asigna tareas. No evalúa el desempeño de personas. La unificación de canales requiere una decisión institucional posterior.</p></details>
+ <button type="button" class="btn btn-secondary btn-mini" data-scroll-target="sintesis-inicio">Volver a las tres síntesis ↑</button>
+ </article>
+<article id="sintesis-informes" class="card synthesis-proposal" aria-labelledby="titulo-sintesis-informes">
+ <header class="synthesis-proposal-head"><span class="section-kicker">Síntesis 03</span><h3 id="titulo-sintesis-informes">Mesa de informes económicos trazables</h3><p>Compartir un procedimiento verificable desde la fuente hasta el borrador que revisa cada área.</p></header>
+ <ol class="synthesis-flow" aria-label="Recorrido propuesto"><li>Incorporar fuentes</li><li>Verificar y calcular</li><li>Seleccionar datos relevantes</li><li>Revisar el borrador</li></ol>
+ <p>Las propuestas de recaudación, subsidios y exportaciones comparten tareas: incorporar fuentes heterogéneas, ordenar períodos y unidades, comprobar cifras y preparar una explicación. Los controles de ejecución presupuestaria aportan criterios de consistencia que deben adaptarse al dominio correspondiente. Se propone construir componentes comunes para esas tareas, con reglas y responsables propios para cada informe.</p>
+ <div class="synthesis-grid"><section><h4>Qué aporta cada proyecto</h4><ul class="synthesis-sources"><li><button type="button" class="connection-case-link" data-abrir-caso="40">Análisis de Recaudación Nacional</button><p>Aportar el flujo de publicación mensual, cálculo verificable y selección de datos destacados.</p></li><li><button type="button" class="connection-case-link" data-abrir-caso="22">Sistema Asistido con Inteligencia Artificial sobre el Informe de Subsidios de la APN</button><p>Relacionar cuadros de gasto con fuentes de contexto verificables.</p></li><li><button type="button" class="connection-case-link" data-abrir-caso="27">Automatización y consistencia</button><p>Aportar recuperación de fuentes, controles de series de exportaciones y preparación periódica de información.</p></li><li><button type="button" class="connection-case-link" data-abrir-caso="34">Determinación Inconsistencias de la Ejecución, comunicación, respuesta y correcciones</button><p>Aportar controles explícitos y un circuito de revisión de diferencias.</p></li></ul></section>
+ <section class="synthesis-value"><h4>Qué ganamos al combinarlos</h4><p>Una base común para extracción, registro de fuentes, cálculo y trazabilidad puede reutilizarse en varios informes. Cada área aporta sus reglas particulares y conserva la revisión de las conclusiones. Los datos no se mezclan automáticamente por compartir componentes.</p><h4>Qué recibiría el equipo</h4><p>Tablas verificables y un borrador de informe en el que cada cifra destacada pueda rastrearse hasta la fuente, el período y el cálculo. Las diferencias pendientes quedan identificadas para revisión.</p></section></div>
+ <section class="synthesis-pilot"><h4>Una primera prueba acotada</h4><p>Aplicar el mismo procedimiento a recaudación y subsidios de un período histórico, con fuentes autorizadas. Mantener separados sus datos y criterios, y comparar ambos resultados con informes ya revisados por las áreas. Exportaciones y otros controles pueden incorporarse después de validar esa base.</p><p><strong>Qué medir:</strong> Exactitud de extracción y cálculos, trazabilidad de las cifras, correcciones requeridas y tiempo hasta obtener un borrador utilizable.</p></section>
+ <details class="interior-details"><summary>Condiciones y límites de esta propuesta</summary><p>Acordar fuentes, permisos, versiones y reglas de cada informe. Los cálculos se ejecutan mediante código o planillas comprobables; la IA puede asistir la extracción y redacción, sujetas a validación.</p><p>Los borradores requieren aprobación del analista antes de distribuirse. Una coincidencia entre noticias y variaciones de datos no demuestra causalidad. Compartir componentes no autoriza a compartir información reservada.</p></details>
+ <button type="button" class="btn btn-secondary btn-mini" data-scroll-target="sintesis-inicio">Volver a las tres síntesis ↑</button>
+ </article>
+        <section class="card synthesis-decision"><h3>Cómo pasar de esta propuesta a una prueba</h3><p>Para cada síntesis, las áreas involucradas deberían acordar un responsable, un proceso acotado, los datos que pueden utilizarse y una comparación con el trabajo actual. La prueba debe permitir decidir si conviene continuar, ajustar o descartar la integración.</p><p>Estas posibilidades de desarrollo no amplían el Monitoreo vigente: sigue habilitado únicamente para el proyecto ganador de modificaciones presupuestarias.</p><div class="actions-row"><button type="button" class="btn btn-secondary" data-nav-target="conexiones">Volver a Conexiones</button><button type="button" class="btn btn-secondary" data-nav-target="casos">Explorar proyectos de origen</button></div></section>
+        <!-- /solo-grupo-por-defecto -->
+      </section>
+
+      <!-- VISTA: ANALIZAR (flujo simple) -->
+      <section id="view-analizar" class="view">
+        <h2 class="view-title">Analizar información agregada</h2>
+        <p class="view-subtitle">Subí hasta 4 archivos de Excel o CSV con información agregada. Los PDF y las imágenes pasan antes por la revisión de lectura.</p>
+        <details class="cinco-frases-app" open><summary>Cómo funciona, en cinco frases</summary><ol class="cinco-frases"><li>Le traés un informe con datos antes de decidir o publicar.</li><li>Primero te dice qué partes pudo leer y cuáles no; sobre lo que no leyó no opina.</li><li>En lo que leyó, hace las cuentas y busca lo raro: totales que no cierran, saltos de escala, valores fuera de lugar.</li><li>Te marca la celda y te sugiere qué preguntarle al área, sin afirmar que es un error.</li><li>La decisión es tuya: es una segunda mirada, no un auditor.</li></ol></details>
+        <div class="design-assist-note solo-avanzado">
+          También podés usar Multilente antes de cerrar un informe, como asistencia metodológica para revisar datos, comparaciones, reglas, evidencia, límites y trazabilidad mientras lo estás construyendo.
+        </div>
+
+        <details class="lector-novedad solo-avanzado">
+          <summary>La IA propone, las reglas comprueban, la persona decide</summary>
+          <p>El lector del cuadro compara las propuestas de dos modelos, GPT y Gemini, sobre los rótulos y la estructura. Solo comprueba las relaciones que proponen los dos. Las cifras se ocultan durante esa lectura; se conservan los valores reconocidos como años.</p>
+          <p>Si faltan filas para decidir, te pregunta. Tu respuesta queda ligada a ese archivo, hoja y relación, y se aplica al volver a analizar. El detalle muestra la cobertura de esta lectura y lo que quedó fuera.</p>
+          <p>En libros grandes, esta etapa puede tardar varios minutos. <a href="/detalle#lector-del-cuadro" target="_blank" rel="noopener">Ver cómo funciona y sus límites</a>.</p>
+        </details>
+        <div class="actions-row" aria-label="Elegir cómo probar Multilente">
+          <button type="button" class="btn btn-secondary" id="btn-elegir-ejemplo">Probar un ejemplo</button>
+          <button type="button" class="btn btn-primary" id="btn-elegir-informe">Revisar mi informe</button>
+        </div>
+        <details id="ejemplos-disponibles" class="card interior-details"><summary>Ocho temas de ejemplo: ver archivos y reportes</summary><section class="sample-docs" aria-label="Documentos precargados para probar">
+            <div class="sample-docs-head">
+              <div>
+                <h3>Documentos para probar</h3>
+                <p id="sample-docs-summary">Ocho temas de prueba. Un botón ejecuta los dos archivos de cada tema y descarga los originales y sus dos reportes PDF en un ZIP.</p>
+              </div>
+              <div class="sample-docs-legend">
+                <span class="sample-pill ok" id="sample-count-ok">8 sin señal esperada</span>
+                <span class="sample-pill bad" id="sample-count-bad">8 con señal esperada</span>
+              </div>
+            </div>
+            <div id="sample-docs-list" class="sample-docs-list">
+              <p class="hint">Cargando documentos de prueba…</p>
+            </div>
+          </section></details>
+        <div class="card">
+          <p class="hint solo-avanzado" id="ayuda-formatos"><strong>Multilente analiza Excel y CSV.</strong> Para controles numéricos, subí tablas con encabezados claros, períodos y unidades. Si tenés el Excel original, preferilo al CSV para conservar hojas y fórmulas. Un PDF o una imagen pasa antes por la revisión de lectura: ves el original al lado de la tabla leída, corregís lo necesario y confirmás; recién ahí se analiza.</p>
+          <div id="dropzone" class="dropzone">
+            <input type="file" id="input-archivos" multiple accept=".xlsx,.xls,.csv,.pdf,.jpg,.jpeg,.png" hidden />
+            <div class="dropzone-icon"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13V3"/><path d="M6.5 6.5 10 3l3.5 3.5"/><path d="M3.5 13v2.5A1.5 1.5 0 0 0 5 17h10a1.5 1.5 0 0 0 1.5-1.5V13"/></svg></div>
+            <p class="dropzone-title">Arrastrá tus archivos acá, o hacé clic para elegirlos</p>
+            <p class="hint"><strong>Excel o CSV. Los PDF y las imágenes pasan antes por la revisión de lectura.</strong> Hasta 4 archivos, con datos agregados: por rubro, programa, área, unidad de negocio, región, período o indicador. Las columnas que identifican personas, proveedores, clientes o comprobantes (nombre, CUIT/DNI, factura, expediente) se descartan al cargar; los totales, como «Clientes activos» o «Deuda con proveedores», se conservan.</p>
+            <p class="hint solo-avanzado"><strong>¿El informe se publica todos los años?</strong> Subí también la edición anterior: Gobernanza compara los años que se repiten y señala valores históricos que cambiaron sin explicación.</p>
+          </div>
+          <div id="aviso-revision-lectura" class="aviso" role="status" aria-live="polite" hidden></div>
+          <div id="lista-archivos"></div>
+          <div class="series-options ambito-options" aria-label="Ámbito del informe">
+            <label for="opt-ambito">¿De quién es el informe?</label>
+            <select id="opt-ambito">
+              <option value="publico" selected>Organismo público</option>
+              <option value="organizacion">Organización (empresa, cooperativa, ONG, universidad)</option>
+            </select>
+            <p class="hint solo-avanzado">Define qué reglas se aplican. En una organización, por ejemplo, un ingreso que supera lo presupuestado no se marca, y un gasto que lo supera sí.</p>
+          </div>
+          
+          <div class="notify-panel solo-avanzado" aria-label="Aviso por correo al finalizar">
+            <label class="check-option notify-main">
+              <input type="checkbox" id="opt-aviso-correo" />
+              <span>
+                <strong>Avisarme por correo cuando termine</strong>
+                <small>El análisis entra en cola. Si dejás un correo guardado, se usa automáticamente en las próximas cargas.</small>
+              </span>
+            </label>
+            <div class="notify-fields">
+              <label for="input-correo-notificacion">Correo de aviso</label>
+              <input id="input-correo-notificacion" type="email" placeholder="tu-correo@dominio.com" disabled autocomplete="email" />
+              <label class="mini-check"><input type="checkbox" id="opt-guardar-correo" checked /> Guardar este correo en mi usuario</label>
+            </div>
+          </div>
+          <input type="hidden" id="opt-dominio" value="auto">
+          <p class="hint solo-avanzado">En la revisión profunda, después de la lectura previa podrás confirmar o modificar qué institución y qué tipo de informe contiene cada cuadro.</p>
+          <div class="mode-use-panel solo-avanzado" aria-label="Modo de uso de Multilente">
+ <label for="opt-modo-uso-multilente">Modo de uso</label>
+ <select id="opt-modo-uso-multilente">
+ <option value="informe_en_construccion" selected>Estoy construyendo un informe</option>
+ <option value="revision_final">Estoy revisando una versión cerrada</option>
+ </select>
+ <p class="hint">En construcción, la salida prioriza preguntas para mejorar datos, método, evidencia y trazabilidad antes de cerrar. En versión cerrada, ordena señales para revisión posterior.</p>
+ </div>
+          <div class="analysis-orientation-panel" aria-label="Pregunta u objetivo del análisis">
+            <label for="input-orientacion-analisis">¿Qué querés comprobar o calcular? <span>(opcional, recomendado)</span></label>
+            <textarea id="input-orientacion-analisis" maxlength="1500" rows="3" placeholder="Ejemplo: verificar si el total coincide con la suma de sus partes e identificar el mayor aumento entre meses."></textarea>
+            <p class="hint solo-avanzado">Escribí la relación concreta que querés verificar. Primero revisás qué interpretó la IA y confirmás o modificás esa lectura. Después se ejecutan los controles seleccionados para cada cuadro. Si una cuenta no puede verificarse, el resultado indica “no evaluado” y explica por qué.</p>
+          </div>
+ <details class="advanced-options solo-avanzado">
+            <summary>Opciones avanzadas <span class="hint">· opcionales: podés analizar sin abrirlas</span></summary>
+            <div class="advanced-options-body">
+              <details class="series-options data-conditions">
+                <summary>Reingreso y condiciones de validez</summary>
+                <label for="informe-anterior-id">Informe anterior, si esta carga es una nueva versión (ID)</label>
+                <input id="informe-anterior-id" type="number" min="1" step="1" placeholder="Opcional">
+                <label for="contexto-validacion">Condiciones que deben cumplir tus datos (opcional)</label>
+                <p id="contexto-validacion-ayuda" class="hint">Usá este campo si tu área acordó requisitos concretos: por ejemplo, que todos los registros tengan un valor en la columna “total” o que indiquen la moneda. Si lo dejás vacío, el análisis usa sus controles habituales y declara sus límites; no agrega requisitos personalizados. Si indicás un informe anterior, también compara su estructura.</p>
+                <div class="contrato-simple">
+                  <label for="contrato-campos">Columnas que no pueden faltar ni venir vacías (separadas por coma)</label>
+                  <input id="contrato-campos" type="text" placeholder="total" autocomplete="off">
+                  <label class="contrato-check" for="contrato-moneda"><input id="contrato-moneda" type="checkbox"> Exigir que la moneda esté informada y sea la misma en todos los registros</label>
+                  <p id="contrato-aviso" class="hint" role="status" aria-live="polite"></p>
+                </div>
+                <textarea id="contexto-validacion" rows="3" spellcheck="false" aria-describedby="contexto-validacion-ayuda" placeholder='{"condiciones_criticas":["moneda"],"campos_requeridos":["total"]}'></textarea>
+                <details><summary>Ver un ejemplo y cómo escribirlo</summary>
+                  <p>Para exigir que la columna “total” esté presente y tenga un valor en cada registro, escribí:</p>
+                  <pre><code>{"campos_requeridos":["total"]}</code></pre>
+                  <p>Reemplazá “total” por el nombre exacto de la columna de tu archivo. Para exigir además una moneda informada y consistente entre los registros:</p>
+                  <pre><code>{"campos_requeridos":["total"],"condiciones_criticas":["moneda"]}</code></pre>
+                  <p>La segunda condición busca el campo “moneda” en los registros leídos. Si falta, el sistema informa que no puede concluir bajo ese requisito. No la agregues si no corresponde a tus datos.</p>
+                  <p>Este formato se llama JSON: conservá las comillas, los corchetes y las llaves del ejemplo. Declarar estas condiciones no verifica la veracidad de los datos.</p>
+                </details>
+              </details>
+              <div class="series-options" aria-label="Alcance de lectura de series">
+                <label for="opt-alcance-series">Alcance para series con aperturas</label>
+                <select id="opt-alcance-series">
+                  <option value="auto">Automático (baja ruido en tablas muy abiertas)</option>
+                  <option value="nivel_general">Solo nivel general</option>
+                  <option value="principales">Nivel general y principales aperturas</option>
+                  <option value="todas" selected>Todas las aperturas</option>
+                </select>
+                <p class="hint">Útil cuando el archivo viene en formato período / apertura / valor. Por omisión se leen todas las aperturas, sin excluir ninguna; el modo automático deja solo las principales cuando la tabla tiene más de 40 series.</p>
+              </div>
+              <div class="technical-options" aria-label="Revisiones extra de fórmulas">
+                <p class="technical-options-title"><strong>Revisiones extra de fórmulas</strong> · solo archivos Excel</p>
+                <p class="hint">Las seis lentes, la capa conciliadora y el control básico de fórmulas (un número escrito a mano donde la fila calcula otro) corren siempre, marques o no estas casillas. Cada casilla suma una revisión más fina.</p>
+                <label class="check-option">
+                  <input type="checkbox" id="opt-formulas-excel" />
+                  <span>
+                    <strong>Fórmulas que no siguen el patrón de sus vecinas</strong>
+                    <small>Señala una celda cuya fórmula es distinta de las de su fila o columna, y los números escritos a mano en una serie de fórmulas aunque coincidan con el cálculo.</small>
+                  </span>
+                </label>
+                <label class="check-option">
+                  <input type="checkbox" id="opt-patrones-calculo" />
+                  <span>
+                    <strong>Cálculos en planillas sin fórmulas</strong>
+                    <small>Si el archivo trae solo números pegados, busca relaciones que se repiten (por ejemplo, una columna que siempre es la suma de otras dos) y avisa dónde se rompen.</small>
+                  </span>
+                </label>
+                <label class="check-option">
+                  <input type="checkbox" id="opt-metodo-calculo" checked />
+                  <span>
+                    <strong>Promedios que no ponderan</strong>
+                    <small>Avisa cuando un promedio de la planilla trata igual a todas sus partes aunque el archivo trae con qué ponderarlas; por ejemplo, un avance que pesa lo mismo para un subprograma chico que para uno grande.</small>
+                  </span>
+                </label>
+              </div>
+              <div class="series-options" aria-label="Modelos de IA para triangulación">
+                <label><input type="checkbox" id="ia-automatica" checked> IA automática: GPT y Gemini de respaldo si hace falta</label>
+                <label>Modelos para comparación manual (desactivar IA automática)</label>
+                <div class="modelos-selector">
+                  <label><input type="checkbox" class="modelo-check-rapido" value="gpt" checked> GPT <small class="modelo-costo" data-modelo="gpt"></small></label>
+                  <label><input type="checkbox" class="modelo-check-rapido" value="gemini" checked> Gemini <small class="modelo-costo" data-modelo="gemini"></small></label>
+                  <label><input type="checkbox" class="modelo-check-rapido" value="renderix"> Renderix <small class="modelo-costo" data-modelo="renderix"></small></label>
+                  <label><input type="checkbox" class="modelo-check-rapido" value="deepseek"> DeepSeek <small class="modelo-costo" data-modelo="deepseek"></small></label>
+                  <label><input type="checkbox" class="modelo-check-rapido" value="llama"> Llama <small class="modelo-costo" data-modelo="llama"></small></label>
+                </div>
+                <p class="costo-estimado-total" id="costo-total-rapido"></p>
+                <p class="hint">El modo automático usa un modelo principal y recurre al respaldo si la respuesta no resulta utilizable o la exploración queda incompleta. Podés sumar otros modelos habilitados manualmente si querés una triangulación más amplia, pero puede tardar más. El costo mostrado es una referencia de tarifa por modelo (para comparar cuál sale más caro), no un presupuesto de este archivo: el sistema todavía no sabe cuántas señales va a encontrar, y eso —no la cantidad de filas— es lo que determina el costo real.</p>
+              </div>
+            </div>
+          </details>
+          <label class="check-option es-prueba-opcion">
+            <input type="checkbox" id="opt-es-prueba" />
+            <span>
+              <strong>Es una prueba (no cuenta para las mediciones)</strong>
+              <small>Marcala si estás probando la herramienta con un archivo de ejemplo o inventado. Así no se mezcla con los informes de trabajo cuando medimos si la herramienta sirve.</small>
+            </span>
+          </label>
+          <div class="revision-opciones" role="group" aria-label="Elegir la revisión">
+            <div class="revision-opcion">
+              <button id="btn-revision-rapida" class="btn btn-primary" disabled>Revisión rápida</button>
+              <p class="hint">Sólo cuentas, sin IA. El procesamiento suele tardar segundos; si hay otro análisis en curso, espera en cola. Sirve para cualquier tamaño de libro.</p>
+              <p class="hint revision-datos">Tus datos no salen del servidor: no se envía nada a proveedores de IA. Sólo sale el aviso por correo de que terminó, con el número del informe y un enlace.</p>
+            </div>
+            <div class="revision-opcion">
+              <button id="btn-revision-profunda" class="btn btn-secondary" disabled>Revisión profunda</button>
+              <p class="hint">La IA interpreta cada cuadro, vos confirmás y corren todas las lentes. Minutos.</p>
+              <p class="hint revision-datos">Se envían a las lectoras de IA los rótulos y la estructura de cada cuadro, sin las cifras; la lectura de las señales recibe los hallazgos con sus valores.</p>
+            </div>
+          </div>
+        </div>
+
+        <details class="card interior-details ocr-acceso"><summary>¿Tenés un PDF o una imagen?</summary>
+          <p>Los PDF (con texto o escaneados) y las imágenes pasan antes por la revisión de lectura: ves el original al lado de la tabla leída, corregís lo necesario y confirmás; recién ahí se analiza. La lectura se hace en este servidor, sin proveedores de IA.</p>
+          <a class="btn btn-secondary" href="/api/ocr">Leer y revisar un PDF o una imagen</a>
+        </details>
+
+        <div id="analizar-cargando" class="card" style="display:none">
+          <div id="cargando-profunda">
+            <h3>Interpretando el archivo…</h3>
+            <p class="hint">Los modelos están leyendo títulos, rótulos y estructura con las cifras ocultas. Después podrás confirmar, modificar o pedir una lectura más detallada. Los controles todavía no se ejecutan.</p>
+            <p id="interpretacion-avance" class="hint" aria-live="polite"></p>
+            <button type="button" id="interpretacion-cancelar" class="btn btn-secondary">Cancelar lectura</button>
+          </div>
+          <div id="cargando-rapida" hidden>
+            <h3>Preparando la revisión rápida…</h3>
+            <p class="hint">Leemos el archivo y lo ponemos en cola para hacer las cuentas. Sin IA.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- VISTA: INFORMES (historial) -->
+      <section id="view-informes" class="view">
+        <h2 class="view-title">Historial</h2>
+        <p class="view-subtitle">Cargas anteriores, con su estado de análisis y decisión.</p>
+
+        <div class="card">
+          <h3>Listado</h3>
+          <div id="tabla-informes" class="interior-table-scroll" tabindex="0" role="region" aria-label="Informes; desplazamiento horizontal disponible"></div>
+        </div>
+      </section>
+
+
+
+      <!-- VISTA: ACTIVIDAD ADMIN -->
+      <section id="view-actividad" class="view">
+        <h2 class="view-title">Actividad</h2>
+        <p class="view-subtitle">Vista admin para seguir uso real: usuarios, cargas, modelos, hallazgos y decisiones.</p>
+
+        <div id="actividad-resumen" class="summary-row"></div>
+
+        <section class="card activity-card">
+          <h3>Resumen operativo</h3>
+          <div id="actividad-operativa" class="activity-operational"></div>
+        </section>
+
+        <section class="card activity-card pedagogical-report">
+          <div class="activity-section-head">
+            <div>
+              <h3>Reporte pedagógico</h3>
+              <p>Evidencia de uso, avance y aprendizaje para orientar intervenciones docentes.</p>
+            </div>
+            <span class="activity-pill">borrador vivo</span>
+          </div>
+          <div id="actividad-reporte-pedagogico"></div>
+        </section>
+
+        <section class='card activity-card'>
+          <h3>Progreso Incubadora</h3>
+          <div id='actividad-proyectos-ia'></div>
+        </section>
+
+        <section class="card activity-card">
+          <div class="activity-section-head">
+            <div>
+              <h3>Evidencia de gobernanza</h3>
+              <p>Lectura micro, meso y macro de protocolos, controles, correcciones y sellos.</p>
+            </div>
+            <span class="activity-pill">R-1</span>
+          </div>
+          <div id="actividad-certificaciones"></div>
+          <p><a href="/tecnico.html">Administración técnica: calibraciones y actividades de votación</a></p>
+        </section>
+
+        <section class="card activity-card">
+          <h3>Modelos usados</h3>
+          <div id="actividad-modelos" class="activity-pills"></div>
+        </section>
+
+        <section class="card activity-card">
+          <h3>Usuarios con actividad</h3>
+          <div id="actividad-usuarios"></div>
+        </section>
+
+        <section class="card activity-card">
+          <h3>Usuarios y accesos</h3>
+          <p class="hint">Desactivar a alguien corta su acceso y cierra sus sesiones; no borra nada de lo que cargó. «Cerrar sesiones» lo obliga a volver a ingresar en todos sus dispositivos.</p>
+          <div id="admin-usuarios"></div>
+        </section>
+
+        <section class="card activity-card">
+          <h3>Últimos informes</h3>
+          <div id="actividad-informes"></div>
+        </section>
+      </section>
+
+      <!-- VISTA: VALIDACION -->
+      <section id="view-validacion" class="view">
+        <h2 class="view-title">Validación</h2>
+        <p class="view-subtitle">Cómo sabemos si Gobernanza Multilente sirve: casos de prueba, métricas y revisión experta.</p>
+
+        <div class="validation-hero validation-protocol-hero">
+          <div>
+            <span class="welcome-kicker">Criterio de validación</span>
+            <h3>Validar no es contar alertas: es comprobar si mejora la revisión humana.</h3>
+            <p>Gobernanza Multilente funciona si ayuda a distinguir señal de ruido, formular mejores preguntas y dejar evidencia suficiente para una decisión responsable.</p>
+          </div>
+          <blockquote>Una prueba exitosa no exige que el sistema acierte todo. Exige que sea trazable, prudente y útil para quien debe revisar.</blockquote>
+        </div>
+
+        <section class="validation-protocol" aria-label="Protocolo de validación">
+          <div>
+            <span>1</span>
+            <h3>Se prueba con casos</h3>
+            <p>Casos normales, errores evidentes, anomalías sutiles, falsos positivos, no aplicables y casos límite.</p>
+          </div>
+          <div>
+            <span>2</span>
+            <h3>Se mide con métricas</h3>
+            <p>Funcionamiento, utilidad analítica y adopción institucional.</p>
+          </div>
+          <div>
+            <span>3</span>
+            <h3>Lo revisa un experto</h3>
+            <p>Marca falsos positivos, detecta omisiones y decide qué evidencia alcanza.</p>
+          </div>
+          <div>
+            <span>4</span>
+            <h3>Se incorpora aprendizaje</h3>
+            <p>Lo que se confirma se transforma en criterio reutilizable del programa.</p>
+          </div>
+        </section>
+
+        <section class="card validation-section-card">
+          <div class="section-heading-row">
+            <div>
+              <h3>Con qué se prueba</h3>
+              <p>La batería tiene que incluir archivos donde Gobernanza Multilente debe marcar, bajar prioridad o directamente no actuar.</p>
+            </div>
+          </div>
+          <div class="validation-grid compact-validation-grid" aria-label="Tipos de casos para probar">
+            <section class="validation-card"><span>01</span><h3>Casos normales</h3><p>Archivos consistentes. La respuesta esperada es calma: pocas señales, límites explícitos y ninguna conclusión forzada.</p></section>
+            <section class="validation-card"><span>02</span><h3>Errores evidentes</h3><p>Totales que no cierran, acumulados que retroceden, porcentajes imposibles o fórmulas que contradicen el dato visible.</p></section>
+            <section class="validation-card"><span>03</span><h3>Anomalías sutiles</h3><p>Cambios de régimen, desvíos moderados, relaciones que dejan de acompañarse o saltos que piden contexto.</p></section>
+            <section class="validation-card"><span>04</span><h3>Falsos positivos</h3><p>Señales explicables por reclasificación, cierre parcial, cambio metodológico o dato agregado de otra manera.</p></section>
+            <section class="validation-card"><span>05</span><h3>No aplicables</h3><p>Cuando una lente no corresponde o no hay evidencia suficiente, el sistema debe explicarlo sin inventar una lectura.</p></section>
+            <section class="validation-card"><span>06</span><h3>Casos límite</h3><p>Planillas incompletas, encabezados raros, columnas mezcladas o datos diseñados para probar límites técnicos.</p></section>
+          </div>
+        </section>
+
+        <section class="card validation-section-card">
+          <div class="section-heading-row">
+            <div>
+              <h3>Qué se mide</h3>
+              <p>Las métricas no buscan demostrar que la herramienta “descubre más”, sino si aporta una revisión más clara, trazable y útil.</p>
+            </div>
+          </div>
+          <div class="validation-metrics validation-metrics-clear">
+            <section>
+              <h3>Funcionamiento</h3>
+              <ul>
+                <li>Distingue controles base siempre activos de lentes aplicadas por pertinencia.</li>
+                <li>Justifica cuándo una lente no corresponde o no tiene evidencia suficiente.</li>
+                <li>Conecta dato, señal, regla y pregunta sugerida.</li>
+                <li>Mantiene resultados consistentes ante el mismo caso.</li>
+              </ul>
+            </section>
+            <section>
+              <h3>Utilidad analítica</h3>
+              <ul>
+                <li>Genera preguntas útiles para quien revisa.</li>
+                <li>Reduce falsos positivos y omisiones relevantes.</li>
+                <li>Acorta el tiempo hasta una primera lectura defendible.</li>
+                <li>Evita que todas las lentes digan lo mismo.</li>
+              </ul>
+            </section>
+            <section>
+              <h3>Uso institucional</h3>
+              <ul>
+                <li>Se usa con archivos reales del programa o del área.</li>
+                <li>Produce pedidos de contexto documentados.</li>
+                <li>Convierte aprendizajes validados en criterios del sistema.</li>
+                <li>Mejora la claridad para decidir o comunicar.</li>
+              </ul>
+            </section>
+          </div>
+        </section>
+
+        <div class="validation-expert-grid">
+          <section class="card validation-section-card">
+            <h3>Quién valida</h3>
+            <p>El experto no queda reemplazado por Gobernanza Multilente. Queda ubicado como evaluador de la lectura: revisa si la señal tiene sentido, marca falsos positivos, detecta omisiones y define qué evidencia alcanza.</p>
+          </section>
+          <section class="validation-note validation-success-note">
+            <h3>Criterio de éxito</h3>
+            <p>Gobernanza Multilente sirve si mejora la calidad de las preguntas y la solidez del análisis humano posterior. No necesita ser infalible; necesita ser explicable, prudente y útil.</p>
+          </section>
+        </div>
+      </section>
+
+      <!-- VISTA: GUIA -->
+      <section id="view-guia" class="view">
+        <p class="volver-inicio"><a class="btn btn-secondary btn-mini" href="#/inicio" data-nav-target="inicio">← Volver al inicio</a></p>
+        <h2 class="view-title">Guía de lectura</h2>
+        <p class="view-subtitle">Qué mira cada lente, cuándo entiende que hay un problema y cómo leer el resultado sin convertir una señal en una conclusión automática.</p>
+
+        <div class="guide-intro">
+          <div>
+            <h3>Cómo usar esta hoja</h3>
+            <p>Una lente no decide por la institución. Ordena preguntas. Cuando marca algo, está diciendo: "esto merece una explicación documentada".</p>
+          </div>
+          <div>
+            <h3>Regla de oro</h3>
+            <p>Una señal fuerte no equivale a culpa, fraude ni incumplimiento. Puede ser dato mal cargado, cambio de criterio, reclasificación, corte de serie o una tensión real de consistencia operativa.</p>
+          </div>
+        </div>
+
+        <div class="guide-note">
+          <strong>El conciliador no es una lente más:</strong> corre al final, sobre el conjunto de hallazgos que ya produjeron las seis lentes sustantivas, y puede bajarle severidad a una señal o adjuntarle contexto técnico en vez de duplicarla como alerta aparte.
+        </div>
+
+        <div class="guide-lens-grid" id="guia-lentes">
+          <article class="guide-lens-card guide-lens-ajedrecista">
+            <span class="guide-kicker">Lógica institucional</span>
+            <h3>Ajedrecista</h3>
+            <p>Busca posiciones imposibles o muy difíciles de sostener dentro del propio archivo.</p>
+            <dl>
+              <dt>Qué mira</dt>
+              <dd>Relaciones de orden: pagado no debería superar devengado, devengado no debería superar crédito vigente, acumulados no deberían retroceder y totales deberían cerrar.</dd>
+              <dt>Cuándo comunica</dt>
+              <dd>Cuando una regla formal, aritmética o configuracional queda tensionada por los valores.</dd>
+              <dt>Qué pediría</dt>
+              <dd>Conciliación del dato, criterio de carga, regla aplicable o revisión de celda, rango, fórmula o valor pegado.</dd>
+            </dl>
+          </article>
+
+          <article class="guide-lens-card guide-lens-cronista">
+            <span class="guide-kicker">Lectura temporal</span>
+            <h3>Cronista</h3>
+            <p>Busca el momento en que una serie cambia de historia.</p>
+            <dl>
+              <dt>Qué mira</dt>
+              <dd>Saltos, quiebres, meses bisagra y variaciones que superan claramente el movimiento típico de la serie.</dd>
+              <dt>Cuándo comunica</dt>
+              <dd>Cuando una serie deja de moverse como venía y el corte temporal requiere contexto.</dd>
+              <dt>Qué pediría</dt>
+              <dd>Evento extraordinario, cambio de criterio, arrastre, recorte de período, carga tardía o documentación del quiebre.</dd>
+            </dl>
+          </article>
+
+          <article class="guide-lens-card guide-lens-orquesta">
+            <span class="guide-kicker">Coherencia sistémica</span>
+            <h3>Orquesta</h3>
+            <p>Busca magnitudes agregadas que deberían conversar entre sí, pero dejan de hacerlo.</p>
+            <dl>
+              <dt>Qué mira</dt>
+              <dd>Avance físico y financiero, gasto y producción, metas y recursos, demanda y respuesta institucional.</dd>
+              <dt>Cuándo comunica</dt>
+              <dd>Cuando una parte del sistema cambia y otra no acompaña, o cuando la relación se aparta de su patrón reciente.</dd>
+              <dt>Qué pediría</dt>
+              <dd>Contexto operativo, cambio de medición, demora administrativa, actualización pendiente o explicación documentada de gestión.</dd>
+            </dl>
+          </article>
+
+          <article class="guide-lens-card guide-lens-radiologo">
+            <span class="guide-kicker">Comparación histórica</span>
+            <h3>Radiólogo</h3>
+            <p>Busca si el caso se sale de lo esperable frente a antecedentes comparables.</p>
+            <dl>
+              <dt>Qué mira</dt>
+              <dd>Distancia respecto de períodos anteriores, informes del mismo dominio o grupos comparables, cuando hay base suficiente.</dd>
+              <dt>Cuándo comunica</dt>
+              <dd>Cuando el valor actual queda muy lejos del rango que venía funcionando como normalidad comparable.</dd>
+              <dt>Qué pediría</dt>
+              <dd>Evento extraordinario, cambio normativo, shock, recategorización o documentación que justifique el salto.</dd>
+            </dl>
+          </article>
+
+          <article class="guide-lens-card guide-lens-matematico">
+            <span class="guide-kicker">Pertinencia del cálculo</span>
+            <h3>Matemático</h3>
+            <p>Busca si el método de cálculo corresponde al tipo de decisión que el informe sostiene.</p>
+            <dl>
+              <dt>Qué mira</dt>
+              <dd>Promedios, sumas, ratios, ponderadores, denominadores y universos de cálculo.</dd>
+              <dt>Cuándo comunica</dt>
+              <dd>Cuando el cálculo puede estar bien escrito, pero responder débilmente la pregunta institucional.</dd>
+              <dt>Qué pediría</dt>
+              <dd>Criterio metodológico, ponderadores aplicables, norma de cálculo o recálculo ponderado si corresponde.</dd>
+            </dl>
+          </article>
+
+          <article class="guide-lens-card guide-lens-rizoma">
+            <span class="guide-kicker">Conexiones no obvias</span>
+            <h3>Rizoma</h3>
+            <p>Busca asociaciones inesperadas que abren una pregunta nueva.</p>
+            <dl>
+              <dt>Qué mira</dt>
+              <dd>Variables que se mueven juntas sin una relación evidente, siempre filtrando vínculos mecánicos, obvios o derivados.</dd>
+              <dt>Cuándo comunica</dt>
+              <dd>Cuando aparece una conexión fuerte que no debería darse por descontada.</dd>
+              <dt>Qué pediría</dt>
+              <dd>Explicación institucional, cruce cualitativo, revisión territorial o validación con otra fuente.</dd>
+            </dl>
+          </article>
+
+          <article class="guide-lens-card guide-lens-conciliador guide-lens-transversal">
+            <span class="guide-kicker">Capa transversal · corre al final</span>
+            <h3>Conciliador</h3>
+            <p>No es una lente sustantiva más: revisa el conjunto de hallazgos de las seis lentes de arriba y busca si la señal puede venir del modo en que el dato fue publicado, agregado o cargado.</p>
+            <dl>
+              <dt>Qué mira</dt>
+              <dd>Ceros con actividad, reversas, acumulados que bajan, porcentajes extremos, reclasificaciones y mezcla de niveles de agregación.</dd>
+              <dt>Cuándo actúa</dt>
+              <dd>Cuando una alerta puede ser real, pero también puede explicarse como artefacto de producción del dato: le baja la severidad y adjunta el contexto en vez de escalarla tal cual.</dd>
+              <dt>Qué pediría</dt>
+              <dd>Fuente original, nivel de agregación, notas de cierre y validación de si los campos son acumulados o movimientos del período.</dd>
+            </dl>
+          </article>
+        </div>
+
+        <details class="guide-compare-details">
+          <summary>Ver comparación compacta en tabla</summary>
+          <div class="guide-compare-wrap">
+            <table class="guide-compare" id="tabla-guide-compare">
+              <caption class="sr-only">Comparación de las seis lentes sustantivas y el conciliador (capa transversal que revisa el conjunto al final): qué mira cada uno, por qué comunica una señal y qué pediría antes de escalarla</caption>
+              <thead>
+                <tr><th>Lente</th><th>Qué mira</th><th>Cuándo comunica</th><th>Qué pediría</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>Ajedrecista</th><td>Relaciones de orden y reglas internas.</td><td>Regla formal o aritmética tensionada.</td><td>Conciliación, regla aplicable o revisión de celda/fórmula.</td></tr>
+                <tr><th>Cronista</th><td>Saltos, quiebres y meses bisagra.</td><td>La serie cambia de régimen.</td><td>Evento, cambio de criterio, arrastre o carga tardía.</td></tr>
+                <tr><th>Orquesta</th><td>Coherencia entre magnitudes relacionadas.</td><td>Una variable cambia y otra no acompaña.</td><td>Contexto operativo o explicación documentada.</td></tr>
+                <tr><th>Radiólogo</th><td>Distancia contra antecedentes comparables.</td><td>El valor se aleja del rango esperable.</td><td>Evento, cambio normativo, shock o recategorización.</td></tr>
+                <tr><th>Matemático</th><td>Método de cálculo, ponderadores y denominadores.</td><td>El cálculo responde débilmente la pregunta institucional.</td><td>Criterio metodológico o recálculo justificado.</td></tr>
+                <tr><th>Rizoma</th><td>Asociaciones no obvias.</td><td>Una conexión fuerte abre una hipótesis.</td><td>Validación institucional o cruce con otra fuente.</td></tr>
+                <tr class="guide-compare-transversal"><th>Conciliador (al final)</th><td>Artefactos de carga, publicación y agregación en el conjunto ya señalado.</td><td>Una señal de las anteriores puede explicarse por producción del dato.</td><td>Fuente, nivel de agregación y notas de cierre.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <div class="guide-note">
+          <strong>Lectura correcta:</strong> el sistema no acusa ni resuelve. Ayuda a decidir qué pregunta hacer primero, con qué evidencia mínima y qué unidad debería poder explicar el comportamiento observado.
+        </div>
+
+        <div class="guide-note">
+          <strong>Alcance de uso:</strong> trabaja con reportes consolidados, indicadores y series agregadas; ordena evidencia, propone preguntas y deja la decisión en manos del responsable humano.
+        </div>
+      </section>
+
+
+
+      <!-- VISTA: MARCO -->
+      <section id="view-marco" class="view">
+        <h2 class="view-title">Marco de gobernanza</h2>
+        <p class="view-subtitle">La regla de uso del programa: qué mira, qué devuelve, qué límites tiene y quién toma la decisión.</p>
+
+        <section class="marco-clear-hero" aria-label="Resumen claro del marco">
+          <div>
+            <span class="marco-kicker">Idea central</span>
+            <h3>Gobernanza Multilente no reemplaza el control humano: prepara mejor la revisión.</h3>
+            <p>Toma información agregada, busca tensiones de consistencia y las convierte en preguntas trazables. Una señal no es una acusación ni una conclusión: es algo que merece explicación documentada.</p>
+          </div>
+          <aside>
+            <strong>Salida esperada</strong>
+            <span>Una pregunta institucional clara: qué dato, fuente, período, criterio o fórmula explica lo observado.</span>
+          </aside>
+        </section>
+
+        <div class="marco-answer-grid" aria-label="Qué hay que entender primero">
+          <section>
+            <span>1</span>
+            <h3>Qué mira</h3>
+            <p>Reportes consolidados, series, indicadores, presupuestos, metas, métricas y controles agregados.</p>
+          </section>
+          <section>
+            <span>2</span>
+            <h3>Qué produce</h3>
+            <p>Señales revisables, evidencia, límites de lectura y preguntas para pedir contexto o decidir próximos pasos.</p>
+          </section>
+          <section>
+            <span>3</span>
+            <h3>Qué no hace</h3>
+            <p>No trabaja con personas, proveedores ni expedientes individuales. No determina fraude, dolo, culpa ni mérito político.</p>
+          </section>
+          <section>
+            <span>4</span>
+            <h3>Quién decide</h3>
+            <p>La persona responsable cierra, pide contexto, continúa el seguimiento o escala. El sistema no decide por ella.</p>
+          </section>
+        </div>
+
+        <section class="card marco-readable-card">
+          <h3>Doble capa de análisis</h3>
+          <p>Gobernanza Multilente no aplica todo del mismo modo. Primero ejecuta controles base que corresponden siempre: legibilidad, estructura, totales, campos críticos, consistencia básica y trazabilidad.</p>
+          <p>Después activa lentes específicas solo cuando el archivo ofrece evidencia suficiente. Si una lente no corresponde, debe figurar como no aplicable y no inventar una lectura.</p>
+        </section>
+        <section class="marco-simple-flow" aria-label="Flujo de lectura">
+          <h3>Cómo se lee un resultado</h3>
+          <div>
+            <span>Dato agregado</span>
+            <span>Señal</span>
+            <span>Contexto técnico</span>
+            <span>Pregunta institucional</span>
+            <span>Decisión humana</span>
+            <span>Registro</span>
+          </div>
+        </section>
+
+        <div class="marco-two-columns">
+          <section class="card marco-readable-card">
+            <h3>Regla de oro</h3>
+            <p>Una señal fuerte no equivale a irregularidad. Puede ser un error de carga, una reclasificación, un cambio de criterio, un corte de serie o una tensión real que requiere explicación.</p>
+            <blockquote>La forma correcta de leerlo no es “hay problema”, sino “esto necesita una explicación verificable”.</blockquote>
+          </section>
+
+          <section class="card marco-readable-card">
+            <h3>Qué hace el conciliador</h3>
+            <p>Antes de escalar una señal, revisa si puede explicarse por cómo fue publicado o armado el dato: acumulados, reversas, cierres parciales, mezclas de niveles o reclasificaciones.</p>
+            <p>Si encuentra una explicación técnica, baja la prioridad. No borra la señal: deja registrado por qué cambió su lectura.</p>
+          </section>
+        </div>
+
+        <details class="accordion-card marco-readable-card">
+          <summary><span>Por qué la triangulación es económica</span><small>Qué se envía a los modelos y cuánto cuesta</small></summary>
+          <p>En el análisis ordinario, los modelos de IA reciben el contexto y las observaciones estructuradas producidas por las lentes. Esas evidencias pueden incluir valores extraídos del informe; no se envía el archivo completo. La exploración experimental es una ruta separada que puede enviar una muestra de hasta cinco filas saneadas. El costo depende del contenido enviado a cada modelo.</p>
+          <p>Los costos de referencia que se muestran al elegir modelos (GPT, Gemini, Renderix, DeepSeek, Llama) están tomados de tarifas públicas o de referencia medidas a enero 2026: sirven para comparar qué modelo sale más caro entre sí, no como presupuesto exacto de un análisis puntual.</p>
+          <p>Si ninguna lente encuentra algo que comunicar, no se consultan los modelos de triangulación.</p>
+        </details>
+
+        <section class="card marco-readable-card">
+          <h3>Las lentes en una línea</h3>
+          <div class="marco-lens-lines">
+            <div><strong>Ajedrecista</strong><span>Busca reglas internas imposibles o muy difíciles de sostener.</span></div>
+            <div><strong>Cronista</strong><span>Mira cuándo una serie cambia de comportamiento.</span></div>
+            <div><strong>Orquesta</strong><span>Revisa variables que deberían moverse juntas y dejan de hacerlo.</span></div>
+            <div><strong>Radiólogo</strong><span>Compara contra antecedentes o patrones históricos.</span></div>
+            <div><strong>Matemático</strong><span>Pregunta si el cálculo elegido sirve para esa decisión.</span></div>
+            <div><strong>Rizoma</strong><span>Detecta asociaciones no obvias para abrir hipótesis, no causas automáticas.</span></div>
+          </div>
+          <button type="button" class="btn btn-secondary" data-nav-target="guia">Ver guía completa de lentes</button>
+        </section>
+
+        <div class="marco-two-columns">
+          <section class="card marco-readable-card">
+            <h3>Criterio razonable</h3>
+            <ul class="marco-check-list">
+              <li>La evidencia está explicitada.</li>
+              <li>El contexto técnico fue considerado.</li>
+              <li>La incertidumbre queda visible.</li>
+              <li>Se puede reconstruir qué lente intervino.</li>
+              <li>La decisión final sigue siendo humana.</li>
+            </ul>
+          </section>
+
+          <details class="accordion-card marco-responsibilities-card marco-readable-card">
+          <summary><span>Responsabilidades operativas</span><small>Quién sostiene cada parte de la revisión</small></summary>
+            <p>Gobernanza Multilente se entiende mejor si cada uso deja claro quién sostiene cada parte de la revisión. No es una pantalla aparte: es una condición de buen uso del programa.</p>
+            <div class="marco-responsibility-grid">
+              <div><strong>Propósito</strong><span>Define qué se quiere revisar, para qué decisión importa y qué queda fuera de alcance.</span></div>
+              <div><strong>Datos</strong><span>Valida fuentes, calidad, agregación, privacidad y advertencias de lectura.</span></div>
+              <div><strong>Criterio experto</strong><span>Revisa si la señal tiene sentido en el contexto institucional real.</span></div>
+              <div><strong>Tecnología</strong><span>Mantiene lentes, trazabilidad, ejecución técnica y límites del sistema.</span></div>
+              <div><strong>Validación</strong><span>Prueba casos, registra falsos positivos, omisiones y criterios de aceptación.</span></div>
+              <div><strong>Comunicación</strong><span>Explica preguntas, evidencia, riesgos y decisión final sin convertir señales en acusaciones.</span></div>
+            </div>
+          </details>
+        </div>
+
+        <section class="marco-closing-note">
+          <strong>En síntesis:</strong> Gobernanza Multilente no busca encontrar culpables. Busca que una persona llegue mejor preparada a decidir qué debe explicarse, con qué evidencia y bajo qué responsabilidad.
+        </section>
+
+        <section class="governance-output" aria-label="Qué produce la gobernanza">
+          <div>
+            <span class="marco-kicker">Cierre del recorrido</span>
+            <h3>¿Qué produce la gobernanza?</h3>
+            <p>Produce evidencia y preparación para decidir. Lo hace visible mediante una constancia de proceso, con protocolo, controles, límites y responsabilidad humana.</p>
+          </div>
+          <div class="governance-output-seals">
+            <article><strong>R-1</strong><span>Preparación para IA Responsable</span><p>Para proyectos y anteproyectos que evalúan incorporar IA.</p></article>
+          </div>
+          <blockquote>La buena gobernanza no garantiza que no existan errores: hace demostrable qué se revisó, qué se sabe, qué falta, quién decidió y por qué correspondía avanzar.</blockquote>
+        </section>
+      </section>
+
+      <!-- VISTA: APRENDIZAJE -->
+      <section id="view-aprendizaje" class="view">
+        <h2 class="view-title">Calibración del sistema</h2>
+        <p class="view-subtitle">Dos memorias conectadas pero distintas: una calibra el análisis multilente; la otra mejora el acompañamiento de Gobernanza Incubadora para diseñar proyectos de IA en organismos y organizaciones.</p>
+
+        <div class="aprendizaje-toolbar">
+          <p id="aprendizaje-meta" class="aprendizaje-meta">Cargando APRENDIZAJES.md…</p>
+          <button id="btn-recargar-aprendizaje" class="btn btn-secondary">Actualizar</button>
+        </div>
+
+        <section class="aprendizaje-clear-hero" aria-label="Resumen de la calibración del sistema">
+          <div>
+            <span class="aprendizaje-kicker">Idea central</span>
+            <h3>Gobernanza se calibra en dos planos: cómo analiza casos y cómo acompaña a las personas que diseñan IA.</h3>
+            <p>Una memoria calibra señales, lentes y reportes. La otra ordena aprendizajes pedagógicos: cómo pasar de una idea difusa a un problema claro, evaluable y gobernable.</p>
+          </div>
+          <aside>
+            <strong>Regla práctica</strong>
+            <span>No se mezclan conversaciones completas con criterios. Se guardan reglas curadas, brechas comunes y decisiones metodológicas.</span>
+          </aside>
+        </section>
+
+        <section class="learning-lanes" aria-label="Dos planos de calibración">
+          <article class="learning-lane learning-lane-multilente">
+            <div class="learning-lane-head">
+              <span>Calibración 1</span>
+              <h3>Gobernanza Multilente</h3>
+              <p>Memoria del motor de análisis: señales, lentes, falsos positivos, omisiones, reportes y criterios de validación.</p>
+            </div>
+            <div class="learning-lane-flow">
+              <span>Archivo o informe</span>
+              <span>Señal o ruido</span>
+              <span>Criterio curado</span>
+              <span>Ajuste del sistema</span>
+            </div>
+            <div id="learning-lane-multilente-stats" class="learning-lane-stats"></div>
+          </article>
+
+          <article class="learning-lane learning-lane-proyecto">
+            <div class="learning-lane-head">
+              <span>Calibración 2</span>
+              <h3>Gobernanza Incubadora</h3>
+              <p>Memoria pedagógica de la Incubadora: formulación del problema, evidencia mínima, datos, límites, supervisión e indicadores.</p>
+            </div>
+            <div class="learning-lane-flow">
+              <span>Idea inicial</span>
+              <span>Problema claro</span>
+              <span>Diseño responsable</span>
+              <span>Proyecto defendible</span>
+            </div>
+            <div id="learning-lane-proyecto-stats" class="learning-lane-stats"></div>
+          </article>
+        </section>
+
+        <section class="aprendizaje-purpose-grid" aria-label="Qué se calibra y qué se guarda">
+          <div>
+            <span>1</span>
+            <h3>Para qué sirve</h3>
+            <p>Conserva criterios de lectura, límites por lente, falsos positivos conocidos, reglas técnicas y mejoras pendientes.</p>
+          </div>
+          <div>
+            <span>2</span>
+            <h3>Qué no es</h3>
+            <p>No es historial de conversaciones, registro técnico de ejecuciones ni transcripción de pruebas. Tampoco cambia reglas automáticamente.</p>
+          </div>
+          <div>
+            <span>3</span>
+            <h3>Cómo entra</h3>
+            <p>Una persona valida que el ajuste reduce ruido, conserva límites y puede aplicarse en casos futuros.</p>
+          </div>
+          <div>
+            <span>4</span>
+            <h3>Dónde impacta</h3>
+            <p>Puede ajustar la herramienta, el marco, los reportes, los filtros por lente o los criterios de validación.</p>
+          </div>
+        </section>
+
+        <section class="aprendizaje-diagrama aprendizaje-cycle-card" aria-label="Diagrama del ciclo de calibración">
+          <div class="diagrama-head">
+            <h3>Cómo una observación se vuelve criterio</h3>
+            <p>Un ajuste solo entra al programa cuando se prueba y se valida como criterio defendible.</p>
+          </div>
+          <div class="learning-map learning-map-compact" role="list" aria-label="Ciclo compacto de calibración">
+            <div class="learning-node node-pruebas" role="listitem">
+              <strong>1. Observación</strong>
+              <span>Archivo, reporte o resultado que muestra algo útil.</span>
+            </div>
+            <div class="learning-node node-senales" role="listitem">
+              <strong>2. Señal o ruido</strong>
+              <span>Se distingue hallazgo real, falso positivo, límite u omisión.</span>
+            </div>
+            <div class="learning-node node-curacion" role="listitem">
+              <strong>3. Validación</strong>
+              <span>Se define qué queda como regla, criterio, filtro o descarte.</span>
+            </div>
+            <div class="learning-node node-md principal" role="listitem">
+              <strong>4. Registro</strong>
+              <span>Se documenta en APRENDIZAJES.md con estado y alcance.</span>
+            </div>
+            <div class="learning-output" role="listitem">
+              <strong>Impacta en</strong>
+              <span>Herramienta</span>
+              <span>Marco</span>
+              <span>Reportes</span>
+              <span>Validación</span>
+            </div>
+          </div>
+        </section>
+
+        <div class="aprendizaje-operational-grid">
+          <section class="card aprendizaje-operational-card">
+            <h3>Qué se registra</h3>
+            <ul>
+              <li>Origen y lente afectada.</li>
+              <li>Problema observado o falso positivo.</li>
+              <li>Criterio nuevo o cambio técnico sugerido.</li>
+              <li>Impacto esperado y límite que se conserva.</li>
+              <li>Estado: propuesto, validado, implementado o descartado.</li>
+            </ul>
+          </section>
+          <section class="card aprendizaje-operational-card">
+            <h3>Roles de calibración</h3>
+            <p>El rol lector puede consultar la memoria. El rol analista puede proponer ajustes. Solo admin puede validar, implementar o descartar criterios que modifican el conocimiento institucional.</p>
+          </section>
+          <section class="card aprendizaje-operational-card">
+            <h3>Ejemplo de lectura</h3>
+            <p>Si Rizoma marca una correlación perfecta entre columnas que en realidad son períodos, eso no queda como hallazgo institucional: queda como falso positivo conocido y se transforma en filtro.</p>
+          </section>
+        </div>
+
+        <section class="aprendizaje-overview aprendizaje-live-summary" aria-label="Resumen vivo de APRENDIZAJES.md">
+          <div class="aprendizaje-focus">
+            <span class="aprendizaje-kicker">Nota viva</span>
+            <h3>Estado de la memoria del programa</h3>
+            <p>Estos indicadores salen de APRENDIZAJES.md y muestran si la memoria sigue activa: lentes con criterios, reglas, límites y pendientes.</p>
+          </div>
+          <div class="aprendizaje-quick" id="aprendizaje-quick"></div>
+        </section>
+
+        <section id="aprendizaje-indice" class="aprendizaje-indice" aria-label="Índice de la nota"></section>
+
+        <section class="aprendizaje-closing-note">
+          <strong>En síntesis:</strong> la calibración de Multilente mejora los controles del análisis; la de Gobernanza Incubadora ajusta los criterios de acompañamiento al estudiante. Juntos sostienen el método, pero cada uno guarda criterios distintos.
+        </section>
+
+        <article id="aprendizaje-contenido" class="obsidian-note"></article>
+      </section>
+
+      <!-- VISTA: DETALLE DE INFORME -->
+      <section id="view-detalle" class="view">
+        <nav class="detalle-route-actions" aria-label="Salir del informe actual">
+          <button type="button" class="btn btn-primary" data-nav-target="analizar">+ Hacer otro control</button>
+        <button type="button" class="btn secondary solo-avanzado" id="consultar-datos">Consultar datos analizados</button>
+          <button type="button" class="btn btn-secondary" data-nav-target="informes">← Volver al historial</button>
+        </nav>
+        <div class="detalle-head">
+          <div>
+            <h2 class="view-title" id="detalle-titulo">Informe</h2>
+            <p class="view-subtitle" id="detalle-subtitulo"></p>
+          </div>
+          <div id="detalle-actions" class="detalle-actions" style="display:none">
+            <span id="reporte-global-contador" class="solo-avanzado">Control finalizado automáticamente</span>
+            <a class="btn btn-primary" id="btn-descargar-comprobante" href="#">Descargar informe de revisión</a>
+          </div>
+        </div>
+        <div id="saneamiento-aviso" style="display:none"></div>
+
+        <div class="stepper">
+          <div class="step" data-step="cargado">1. Archivo recibido</div>
+          <div class="step" data-step="analizado">2. Controles aplicados</div>
+          <div class="step" data-step="resultado">3. Resultado listo</div>
+        </div>
+
+        <div id="detalle-pendiente" class="card" style="display:none">
+          <h3>Este informe todavía no fue analizado</h3>
+          <p class="hint">Al iniciar el análisis, el trabajo entra en una cola secuencial. Podés cerrar la pantalla: cuando termine quedará en el historial.</p>
+          <div class="modelos-selector">
+            <span class="hint">Modelos a triangular:</span>
+            <label><input type="checkbox" class="modelo-check" value="gpt" checked> GPT <small class="modelo-costo" data-modelo="gpt"></small></label>
+            <label><input type="checkbox" class="modelo-check" value="gemini" checked> Gemini <small class="modelo-costo" data-modelo="gemini"></small></label>
+            <label><input type="checkbox" class="modelo-check" value="renderix"> Renderix <small class="modelo-costo" data-modelo="renderix"></small></label>
+            <label><input type="checkbox" class="modelo-check" value="deepseek"> DeepSeek <small class="modelo-costo" data-modelo="deepseek"></small></label>
+            <label><input type="checkbox" class="modelo-check" value="llama"> Llama <small class="modelo-costo" data-modelo="llama"></small></label>
+          </div>
+          <p class="costo-estimado-total" id="costo-total-detalle"></p>
+          <div class="btn-row">
+            <button id="btn-analizar" class="btn btn-primary">Analizar informe</button>
+          </div>
+        </div>
+
+        <div id="analizar-progreso" class="card analysis-live" style="display:none">
+          <div class="analysis-spectacle" aria-hidden="true">
+            <div class="analysis-orbit analysis-orbit-a"><span></span></div>
+            <div class="analysis-orbit analysis-orbit-b"><span></span></div>
+            <div class="analysis-core"><span>6+1</span><small>lentes y conciliador</small></div>
+            <div class="analysis-scan"></div>
+          </div>
+          <div class="analysis-live-head">
+            <span class="analysis-live-kicker"><i></i> ANÁLISIS EN VIVO<span id="progreso-modo-revision"></span></span>
+            <h3>Gobernanza está aplicando los controles</h3>
+            <p>Cada luz y cada mensaje corresponden a una acción registrada. Podés cerrar y volver: la bitácora se conserva.</p>
+          </div>
+          <div class="analysis-current" aria-live="polite">
+            <span class="analysis-current-icon">✦</span>
+            <div><strong id="progreso-estado-vivo">Preparando el análisis…</strong><small id="progreso-conteo-vivo">Esperando el primer evento verificable</small></div>
+          </div>
+          <div class="analysis-meter" aria-hidden="true"><span id="progreso-meter-bar"></span></div>
+          <div id="progreso-etapas" class="progreso-etapas" aria-label="Etapas del análisis"></div>
+          <ul id="progreso-log" class="progreso-log"></ul>
+          <div id="progreso-falta" class="progreso-falta" style="display:none">
+            <strong>Qué falta / sin señales:</strong>
+            <span id="progreso-falta-texto"></span>
+          </div>
+        </div>
+
+        <div id="detalle-resultado" style="display:none">
+          <div id="resumen-simple" class="card resumen-simple"></div>
+          <details id="detalle-completo" class="detalle-completo solo-avanzado">
+          <summary>Ver todo el detalle</summary>
+          <div id="detalle-completo-cuerpo">
+          <div id="garantias-ejecucion"></div>
+          <div class="summary-row" id="resumen-tiles"></div>
+          <div id="resumen-principales" class="card resumen-principales-card"></div>
+
+          <div class="card lectura-card">
+            <div class="trace-card-head">
+              <h3>Lectura ejecutiva</h3>
+              <button type="button" class="btn btn-primary" data-reporte-formato="pdf" id="btn-descargar-pdf-resumen" disabled>Informe de revisión PDF</button>
+            </div>
+            <p class="hint">Una segunda lectura, no una garantía de verdad. No detectar inconsistencias no demuestra que el informe esté libre de errores. El resultado se limita a los datos disponibles, los controles ejecutados y las condiciones de esta revisión. Lo no evaluado no equivale a un control superado.</p>
+            <div id="lectura-ejecutiva"></div>
+            <p id="resumen-apoyo-ia" class="hint"></p>
+          </div>
+
+          <div class="accordion-stack">
+            <details class="accordion-card" open>
+              <summary>
+                <span>Qué conviene revisar</span>
+                <small>La pregunta principal y la evidencia concreta</small>
+              </summary>
+              <div id="pregunta-sugerida" class="pregunta-box"></div>
+              <div id="lista-hallazgos"></div>
+            </details>
+
+            <details class="accordion-card">
+              <summary>
+                <span>Cómo se hizo el control</span>
+                <small>Recorrido, lentes y contraste entre modelos</small>
+              </summary>
+              <div class="trace-card-head">
+                <div>
+                  <span class="section-kicker">Procedimiento visible</span>
+                  <h3>Cómo llegó Gobernanza a esta lectura</h3>
+                </div>
+                <span id="trace-version" class="analysis-version"></span>
+              </div>
+              <div id="trazabilidad-analisis"></div>
+              <h3>Revisión por lentes</h3>
+              <div id="informe-lentes"></div>
+              <h3>Contraste entre modelos</h3>
+              <div id="triangulacion-body"></div>
+            </details>
+
+            <details class="accordion-card">
+              <summary>
+                <span>Detalle técnico y descargas</span>
+                <small>Alcance, límites y reportes completos</small>
+              </summary>
+              <h3>Cómo debe leerse</h3>
+              <div id="que-no-es" class="no-es-grid"></div>
+              <h3>Criterios de lectura responsable</h3>
+              <div id="criterio-razonable"></div>
+              <h3>Cobertura y límites</h3>
+              <div id="cobertura-limites"></div>
+              <h3>Texto para devolución</h3>
+              <div class="devolucion-box" id="devolucion-mensaje"></div>
+              <div class="btn-row">
+                <button type="button" class="btn btn-secondary" id="btn-descargar-reporte-global">Informe de revisión PDF</button>
+                <details><summary>Detalle técnico opcional</summary><button type="button" class="btn btn-secondary" data-reporte-formato="pdf" data-reporte-pieza="anexo">Detalle técnico PDF</button></details>
+        <button type="button" class="btn btn-secondary" data-reporte-formato="markdown">Descargar Markdown</button>
+              </div>
+              <div class="pilot-evaluation-card" id="evaluacion-piloto-card">
+                <h3>Evaluar esta revisión</h3>
+                <p class="hint">Esta devolución ayuda a medir la utilidad del piloto y no modifica automáticamente las reglas.</p>
+                <form id="form-evaluacion-piloto">
+                  <div class="pilot-rating" role="radiogroup" aria-label="Resultado de la revisión">
+                    <label><input type="radio" name="resultado_piloto" value="util" required> Útil</label>
+                    <label><input type="radio" name="resultado_piloto" value="parcial"> Parcial</label>
+                    <label><input type="radio" name="resultado_piloto" value="falso_positivo"> Falso positivo</label>
+                    <label><input type="radio" name="resultado_piloto" value="omision"> Omitió algo relevante</label>
+                  </div>
+                  <label for="comentario-evaluacion-piloto">Comentario breve (opcional)</label>
+                  <textarea id="comentario-evaluacion-piloto" maxlength="1500" rows="2" placeholder="Qué ayudó, qué sobró o qué faltó detectar."></textarea>
+                  <div class="btn-row"><button type="submit" class="btn btn-secondary">Guardar evaluación</button></div>
+                  <p id="evaluacion-piloto-estado" class="hint"></p>
+                </form>
+              </div>
+            </details>
+          </div>
+          </div>
+          </details>
+
+          <div id="cierre-informe" class="card cierre-informe" hidden></div>
+
+          <div id="pasar-profunda" class="card pasar-profunda" hidden>
+            <h3>¿Querés mirar más a fondo?</h3>
+            <p>Esta fue una revisión rápida: sólo cuentas, sin IA. En la revisión profunda la IA interpreta cada cuadro, vos confirmás y corren todas las lentes.</p>
+            <button type="button" class="btn btn-primary" id="btn-pasar-profunda">Pasar a revisión profunda</button>
+            <p id="pasar-profunda-aviso" class="hint" role="status" aria-live="polite"></p>
+          </div>
+
+          <nav class="detalle-route-actions detalle-route-actions-bottom" aria-label="Siguiente acción">
+            <div>
+              <strong>¿Terminaste este control?</strong>
+              <span>El informe ya quedó guardado en el historial.</span>
+            </div>
+            <button type="button" class="btn btn-primary" data-nav-target="analizar">+ Hacer otro control</button>
+            <button type="button" class="btn btn-secondary" data-nav-target="informes">Ver historial</button>
+          </nav>
+        </div>
+      </section>
+
+      <p class="pie-privacidad" style="margin:32px 0 8px;font-size:.85rem"><a href="/privacidad">Privacidad, cookies y aviso legal</a></p>
+    </main>
+  </div>
+
+  <script src="/errores.js?v=20261022-1"></script>
+<script src="/interpretacion.js?v=20261025-lema-1"></script>
+<script src="/revision-modo.js?v=20261024-respuestas-1"></script>
+<script src="/app.js?v=20261026-lectura-54"></script>
+<dialog id="datos-dialog" style="width:min(1100px,90vw);max-height:85vh;border:1px solid #b8c8d8;border-radius:12px;padding:20px">
+<h2>Datos analizados</h2>
+<p>Consultá los registros procesados que se conservaron. El archivo original no está guardado.</p>
+<form id="datos-buscar"><label for="datos-query">Buscar en los registros</label> <input id="datos-query" maxlength="200" type="search"><button class="btn" type="submit">Buscar</button></form>
+<p id="datos-estado" role="status" aria-live="polite"></p><p id="datos-fuentes"></p>
+<div id="datos-tabla" style="overflow:auto;max-height:42vh" tabindex="0" aria-label="Tabla de datos procesados"></div>
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:16px">
+<button type="button" id="datos-anterior" class="btn secondary">Anterior</button><button type="button" id="datos-siguiente" class="btn secondary">Siguiente</button>
+<button type="button" id="datos-exportar" class="btn secondary">Descargar todos los datos (JSON)</button>
+<button type="button" id="datos-cerrar" class="btn">Cerrar</button></div>
+</dialog>
+<script src="/datos-analizados.js?v=20260926"></script>
+<dialog id="origen-dialog" style="width:min(1000px,90vw);max-height:85vh;border:1px solid #b8c8d8;border-radius:12px;padding:20px;overflow-wrap:anywhere">
+<h2>Origen y evidencia de la observación</h2>
+<p id="origen-estado" role="status" aria-live="polite"></p>
+<div id="origen-contenido"></div>
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:16px">
+<button type="button" id="origen-reintentar" class="btn btn-secondary" hidden>Reintentar</button>
+<button type="button" id="origen-descargar" class="btn btn-secondary">Descargar evidencia (JSON)</button>
+<button type="button" id="origen-cerrar" class="btn">Cerrar</button></div>
+</dialog>
+<script src="/origen-evidencia.js?v=20260926"></script>
+<script src="/incubadora-pasos.js?v=20260926"></script>
+<script src="/contrato-simple.js?v=20260926-contrato"></script>
+</body>
+</html>
