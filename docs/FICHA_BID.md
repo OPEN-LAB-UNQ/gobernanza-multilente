@@ -33,8 +33,8 @@ comprueban, la persona decide». La revisión rápida, que es la que se usa por 
 Gobernanza Incubadora, un entorno en el que cada persona formula un proyecto de aplicación responsable
 de IA para un problema de su área, acompañada por una IA que hace preguntas en lugar de dar respuestas
 cerradas. Se desarrolló en OPEN LAB, proyecto de extensión de la Universidad Nacional de Quilmes, y se
-usó en una capacitación para agentes de la Administración Pública Nacional (Argentina): al 29/10/2026,
-50 participantes cargaron 144 informes y formularon 67 proyectos.
+usó en una capacitación para agentes de la Administración Pública Nacional (Argentina): al 31/10/2026,
+52 participantes cargaron 151 informes y formularon 74 proyectos.
 
 ## ¿Qué problemas resuelve?
 

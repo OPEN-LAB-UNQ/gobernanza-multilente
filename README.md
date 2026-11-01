@@ -71,9 +71,9 @@ proyecto de aplicación responsable de IA para un problema de su área, acompañ
 preguntas en lugar de dar respuestas cerradas. Cada grupo de cursada ve sólo los proyectos y la
 votación de su grupo.
 
-**Uso registrado** (al 29/10/2026). En una actividad formativa con agentes de la Administración Pública
-Nacional (Argentina), 50 participantes cargaron 144 informes (142 terminaron con devolución) y formularon
-67 proyectos en Incubadora (33 con entrega final). Para el más votado, sobre
+**Uso registrado** (al 31/10/2026). En una actividad formativa con agentes de la Administración Pública
+Nacional (Argentina), 52 participantes cargaron 151 informes (148 terminaron con devolución) y formularon
+74 proyectos en Incubadora (35 con entrega final). Para el más votado, sobre
 verificación de modificaciones presupuestarias, hay un prototipo de su parte de reglas.
 
 **Estado: piloto.** La herramienta publica sus propios criterios para considerarse usable y se mide
