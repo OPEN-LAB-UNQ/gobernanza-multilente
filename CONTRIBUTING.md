@@ -1,6 +1,6 @@
 # Cómo contribuir
 
-Gracias por tu interés en Gobernanza Multilente. Estas pautas buscan que cada cambio mantenga lo que
+Gracias por tu interés en Gobernanza Multilente e Incubadora. Estas pautas buscan que cada cambio mantenga lo que
 la herramienta promete: decir siempre qué no revisó, no alarmar sin motivo y encontrar una parte
 razonable de los errores comunes.
 

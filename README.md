@@ -1,8 +1,8 @@
 *Esta herramienta digital forma parte del catálogo de herramientas del **Banco Interamericano de Desarrollo**. Puedes conocer más sobre la iniciativa del BID en [https://knowledge.iadb.org/es/codigo-para-el-desarrollo](https://knowledge.iadb.org/es/codigo-para-el-desarrollo).*
 
-<h1 align="center">Gobernanza Multilente</h1>
-<p align="center"><b>Una segunda lectura antes de decidir.</b></p>
-<p align="center"><img src="docs/capturas/portada.png" alt="Portada de Gobernanza Multilente" width="760"/></p>
+<h1 align="center">Gobernanza Multilente e Incubadora</h1>
+<p align="center"><b>Una segunda lectura de informes antes de decidir y un espacio para formular proyectos de IA responsable.</b></p>
+<p align="center"><img src="docs/capturas/portada.png" alt="Portada de Gobernanza Multilente e Incubadora" width="760"/></p>
 
 ## Tabla de contenidos:
 ---
@@ -33,15 +33,25 @@
 ## Descripción y contexto
 ---
 
+**Gobernanza Multilente e Incubadora** es una aplicación web de OPEN LAB, proyecto de extensión de la
+Universidad Nacional de Quilmes (Argentina). Tiene dos ejes:
+
+- **Multilente**, para revisar informes con datos agregados antes de decidir con ellos.
+- **Incubadora**, para formular proyectos de aplicación responsable de IA.
+
+En los dos, la herramienta no da veredictos: hace **preguntas** con su evidencia, y la decisión queda
+siempre en manos de una persona.
+
+### Multilente
+
 Quien decide casi nunca tiene tiempo de revisar a fondo los informes que le llegan: totales que vienen
 de otros totales, series de varios años, cuadros con decenas de hojas. Un total que no cierra, una serie
 que cambió de criterio o un programa que ejecutó casi todo su presupuesto con pocas metas cumplidas
 pueden pasar inadvertidos.
 
-**Gobernanza Multilente** es una aplicación web que hace una segunda lectura de informes con **datos
-agregados** (Excel, CSV y PDF) antes de decidir con ellos. No da veredictos: devuelve **preguntas** con
-su evidencia, para que quien decide se las haga al área que armó el informe. Está pensada para datos
-agregados: no se cargan datos de personas. La decisión queda siempre en manos de una persona.
+**Multilente** hace una segunda lectura de informes con **datos agregados** (Excel, CSV y PDF) antes de
+decidir con ellos. Devuelve **preguntas** con su evidencia, para que quien decide se las haga al área
+que armó el informe. Está pensada para datos agregados: no se cargan datos de personas.
 
 Cada archivo pasa por **seis lentes analíticas** y una **capa conciliadora**:
 
@@ -66,18 +76,31 @@ programadas y reproducibles**, no un modelo de lenguaje. Hay dos revisiones:
 Cada informe empieza por **lo que no pudo leer o revisar**, y queda un comprobante de qué se controló y
 con qué versión.
 
-La herramienta incluye además **Gobernanza Incubadora**, un entorno en el que cada persona formula un
-proyecto de aplicación responsable de IA para un problema de su área, acompañada por una IA que hace
-preguntas en lugar de dar respuestas cerradas. Cada grupo de cursada ve sólo los proyectos y la
-votación de su grupo.
+### Incubadora
+
+Muchas iniciativas de IA en el sector público empiezan por la tecnología y no por el problema: sin
+definir a quién sirven, qué datos usan, qué riesgos traen ni quién las supervisa. En **Incubadora**,
+cada persona formula un proyecto de aplicación responsable de IA para un problema de su área,
+acompañada por una IA tutora que hace preguntas en lugar de dar respuestas cerradas: primero el
+problema, después la IA. El proyecto se revisa con un protocolo de quince controles (definición del
+problema, pertinencia de la IA, datos, riesgos, supervisión y trazabilidad), con citas literales de lo
+que aportó la persona. Cada grupo de cursada ve sólo los proyectos y la votación de su grupo.
+
+### En segundo plano
+
+La misma aplicación incluye **Conexiones**, en desarrollo, para explorar puntos de contacto entre
+proyectos (problemas parecidos, datos que podrían conversar, riesgos compartidos), y **Monitoreo**, que
+registra avances, indicadores, riesgos, decisiones y aprendizajes de un proyecto en piloto.
+
+### Uso y estado
 
 **Uso registrado** (al 31/10/2026). En una actividad formativa con agentes de la Administración Pública
 Nacional (Argentina), 52 participantes cargaron 151 informes (148 terminaron con devolución) y formularon
 74 proyectos en Incubadora (35 con entrega final). Para el más votado, sobre
 verificación de modificaciones presupuestarias, hay un prototipo de su parte de reglas.
 
-**Estado: piloto.** La herramienta publica sus propios criterios para considerarse usable y se mide
-contra ellos con archivos nuevos que no se usaron para corregirla. Tras quince mediciones independientes
+**Estado: piloto.** La revisión de informes (Multilente) tiene criterios publicados para considerarse
+usable y se mide contra ellos con archivos nuevos que no se usaron para corregirla. Tras quince mediciones independientes
 cumple dos de los tres criterios (detecta en la celda correcta la gran mayoría de los errores comunes
 en Excel, CSV y PDF —entre 75 % y 100 % por formato en las últimas siete— y no alarma sin motivo), pero todavía no el tercero: en cada conjunto nuevo apareció
 algún caso en que una parte del archivo se leyó mal sin aviso. Por eso, según sus propios criterios,
@@ -110,6 +133,8 @@ son las planillas Excel y CSV**; el PDF requiere que una persona revise la tabla
 ## Guía de usuario
 ---
 
+### Multilente
+
 1. **Cargar el informe.** Excel (`.xlsx`, `.xls`) o CSV con cuadros de datos agregados. Se elige el
    ámbito (organismo público u organización), la revisión (rápida o profunda) y, si se quiere, el período
    y el contexto. En la profunda, antes de los controles se confirma cómo se interpretó cada cuadro.
@@ -134,6 +159,16 @@ ponderado a promedio simple y da el mismo 7. Mirando los valores no se nota nada
 con prioridad alta, con la evidencia y la pregunta para el área.
 
 <p align="center"><img src="docs/capturas/informe.png" alt="Consultas para el área con su evidencia" width="760"/></p>
+
+### Incubadora
+
+1. **Formular el problema.** La tutora conversa a partir de diez criterios (problema, usuarios,
+   evidencia, datos, flujo actual, rol de la IA, supervisión, riesgos, indicador y próximo paso) y
+   pregunta por lo que falta.
+2. **Revisar.** Cada criterio se revisa con citas literales de lo que aportó la persona; un segundo
+   modelo comprueba que cada cita sea pertinente y que la persona no la haya corregido después.
+3. **Entregar.** La propuesta final recibe la devolución docente. Cada grupo de cursada ve la galería
+   de trabajos y la votación de su grupo.
 
 ## Guía de instalación
 ---

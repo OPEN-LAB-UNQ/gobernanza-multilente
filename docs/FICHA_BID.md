@@ -5,7 +5,7 @@ Borrador con los mismos campos que la ficha publicada del
 
 ## Título
 
-Gobernanza Multilente
+Gobernanza Multilente e Incubadora
 
 ## Datos
 
@@ -16,37 +16,53 @@ Gobernanza Multilente
 | Licencia | The MIT License |
 | Versión | 0.10.65 |
 | Responsable | OPEN LAB · Universidad Nacional de Quilmes |
-| Repositorio | https://github.com/OPEN-LAB-UNQ/gobernanza-multilente *(a confirmar al crearlo)* |
+| Repositorio | https://github.com/OPEN-LAB-UNQ/gobernanza-multilente |
 
 ## ¿Qué es?
 
-Gobernanza Multilente es una aplicación web desarrollada en Python (FastAPI y PostgreSQL) que hace una
-segunda lectura de informes con datos agregados —presupuestos y su ejecución, estados contables,
-tableros de indicadores y metas— antes de decidir con ellos. Lee planillas Excel, CSV y PDF, y aplica
-a cada cuadro los mismos controles reproducibles, organizados en seis lentes analíticas (ajedrecista,
-matemático, cronista, orquesta, radiólogo y rizoma) y una capa conciliadora que revisa si una señal
-tiene una explicación técnica antes de escalarla. No da veredictos: devuelve preguntas con su evidencia,
-en lenguaje llano, para que quien decide se las haga al área que armó el informe. Cada informe empieza
-por lo que no pudo leer o revisar y queda un comprobante de qué se controló. La inteligencia artificial
-propone cómo leer cada cuadro y lee las señales, pero no calcula ni decide: «la IA propone, las reglas
-comprueban, la persona decide». La revisión rápida, que es la que se usa por defecto, no usa IA. Incluye
-Gobernanza Incubadora, un entorno en el que cada persona formula un proyecto de aplicación responsable
-de IA para un problema de su área, acompañada por una IA que hace preguntas en lugar de dar respuestas
-cerradas. Se desarrolló en OPEN LAB, proyecto de extensión de la Universidad Nacional de Quilmes, y se
-usó en una capacitación para agentes de la Administración Pública Nacional (Argentina): al 31/10/2026,
-52 participantes cargaron 151 informes y formularon 74 proyectos.
+Gobernanza Multilente e Incubadora es una aplicación web desarrollada en Python (FastAPI y PostgreSQL)
+por OPEN LAB, proyecto de extensión de la Universidad Nacional de Quilmes. Tiene dos ejes, y en los dos
+no da veredictos: hace preguntas con su evidencia y la decisión queda en manos de una persona.
+
+**Multilente** hace una segunda lectura de informes con datos agregados —presupuestos y su ejecución,
+estados contables, tableros de indicadores y metas— antes de decidir con ellos. Lee planillas Excel,
+CSV y PDF, y aplica a cada cuadro los mismos controles reproducibles, organizados en seis lentes
+analíticas (ajedrecista, matemático, cronista, orquesta, radiólogo y rizoma) y una capa conciliadora
+que revisa si una señal tiene una explicación técnica antes de escalarla. Devuelve preguntas con su
+evidencia, en lenguaje llano, para que quien decide se las haga al área que armó el informe. Cada
+informe empieza por lo que no pudo leer o revisar y queda un comprobante de qué se controló. La
+inteligencia artificial propone cómo leer cada cuadro y lee las señales, pero no calcula ni decide:
+«la IA propone, las reglas comprueban, la persona decide». La revisión rápida, que es la que se usa por
+defecto, no usa IA.
+
+**Incubadora** es el espacio formativo: cada persona formula un proyecto de aplicación responsable de
+IA para un problema de su área, acompañada por una IA tutora que hace preguntas en lugar de dar
+respuestas cerradas. El proyecto se revisa con un protocolo de quince controles, con citas literales de
+lo que aportó la persona, y cada grupo de cursada tiene su galería de trabajos y su votación.
+
+En segundo plano, la misma aplicación incluye Conexiones, para explorar puntos de contacto entre
+proyectos, y Monitoreo, que registra avances, indicadores, riesgos y decisiones de un proyecto en piloto.
+Se usó en una capacitación para agentes de la Administración Pública Nacional (Argentina): al
+31/10/2026, 52 participantes cargaron 151 informes y formularon 74 proyectos.
 
 ## ¿Qué problemas resuelve?
 
 Quien decide casi nunca tiene tiempo de revisar a fondo los informes que recibe, y controlarlos hacia
 atrás, insumo por insumo, es inviable. Un total que no cierra, un valor cargado en otra escala, una
 fórmula que cambió de criterio sin aviso o una serie con un quiebre pueden pasar inadvertidos y llegar a
-una decisión. Gobernanza Multilente sistematiza esa segunda lectura: aplica los mismos controles a todos
+una decisión. Multilente sistematiza esa segunda lectura: aplica los mismos controles a todos
 los cuadros, sin depender del cansancio ni del apuro de quien revisa, y convierte cada hallazgo en una
 pregunta concreta para el área responsable. Así prepara mejor la conversación con la auditoría o el área
 técnica, sin reemplazarlas.
 
+Al mismo tiempo, muchas iniciativas de IA en el sector público empiezan por la tecnología y no por el
+problema: sin definir a quién sirven, qué datos usan, qué riesgos traen ni quién las supervisa.
+Incubadora acompaña a cada persona a formular su proyecto respondiendo esas preguntas antes de
+implementarlo, sin reemplazar el juicio de quien decide.
+
 ## ¿Cómo funciona la herramienta?
+
+### Multilente
 
 **Carga y lectura.** Se carga el informe (Excel o CSV) y se elige el ámbito (organismo público u
 organización) y la revisión: rápida, sólo con las cuentas y sin IA, o profunda, en la que modelos de IA
@@ -67,6 +83,16 @@ consultas para el área, cada una con qué pasó, qué preguntar, la evidencia y
 profunda, la IA lee las señales y ayuda a formularlas, contrastada con la evidencia. La decisión y la firma
 quedan siempre en manos de una persona, y queda registrado qué se controló y con qué versión.
 
+### Incubadora
+
+**Conversación con la tutora.** La tutora conversa con la persona a partir de diez criterios
+(problema, usuarios, evidencia, datos, flujo actual, rol de la IA, supervisión, riesgos, indicador y
+próximo paso) y pregunta por lo que falta. Recuerda sólo lo que aportó la persona.
+
+**Revisión y entrega.** Cada criterio se revisa con citas literales de lo aportado, que un segundo
+modelo comprueba antes de mostrarlas, y el proyecto se evalúa con un protocolo de quince controles. La
+propuesta final recibe la devolución docente.
+
 ## Estándares abiertos
 
 - HTTP/HTTPS (IETF RFC 9110 / RFC 2818) → comunicación cliente-servidor
@@ -81,7 +107,7 @@ quedan siempre en manos de una persona, y queda registrado qué se controló y c
 
 ## Sector
 
-Gobierno y gestión pública / Finanzas públicas / Ciencia y Tecnología
+Gobierno y gestión pública / Finanzas públicas / Educación / Ciencia y Tecnología
 
 ## Características
 
@@ -89,7 +115,7 @@ Análisis y visualización de recopilación de datos / Inteligencia artificial /
 
 ## Objetivos de desarrollo sostenible
 
-Paz, justicia e instituciones sólidas (ODS 16) / Industria, innovación e infraestructura (ODS 9)
+Paz, justicia e instituciones sólidas (ODS 16) / Educación de calidad (ODS 4) / Alianzas para lograr los objetivos (ODS 17)
 
 ## Recursos
 
