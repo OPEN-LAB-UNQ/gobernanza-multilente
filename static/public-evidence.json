@@ -1,13 +1,13 @@
 {
   "tests": {
-    "date": "31/10/2026",
+    "date": "01/11/2026",
     "collected": 2642,
     "passed": 2642,
     "failed": 0,
     "skipped": 0,
     "xfailed": 0
   },
-  "code_fingerprint": "13ae175fc6d6fb556e4281ca18f29b4eb9b5deb00e786e6ae70e92558ede2119",
+  "code_fingerprint": "643e161cbe3e5e0ebf81312104c373d8b4bb59e1fd85e3bb3d62b1076953e705",
   "uso": {
     "informes": 151,
     "informes_con_devolucion": 148,
@@ -18,6 +18,6 @@
     "proyectos_entregados": 35,
     "desde": "25/08/2026",
     "hasta": "30/10/2026",
-    "fecha": "31/10/2026"
+    "fecha": "01/11/2026"
   }
 }

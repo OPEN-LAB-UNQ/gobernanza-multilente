@@ -30,7 +30,7 @@ def test_cifras_publicas_dicen_que_se_midio():
 
 def test_ficha_cita_el_documento_vigente_y_se_lee_el_recuadro():
     ficha = (STATIC / "detalle-body.html").read_text(encoding="utf-8")
-    assert "zenodo.23649172" in ficha and "zenodo.23623905" not in ficha and "zenodo.23609356" not in ficha and "zenodo.23329097" not in ficha and "Publicado en Zenodo el 25/10/2026" in ficha
+    assert "zenodo.23851688" in ficha and "zenodo.23649172" not in ficha and "zenodo.23623905" not in ficha and "zenodo.23609356" not in ficha and "zenodo.23329097" not in ficha and "Publicado en Zenodo el 1/11/2026" in ficha
     css = (STATIC / "presentacion.html").read_text(encoding="utf-8")
     assert "body .detail-hero p.detail-callout, body.page-detail .detail-hero p.detail-callout { margin-top: 18px; color: var(--ink); }" in css
 

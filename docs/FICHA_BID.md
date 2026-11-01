@@ -14,7 +14,7 @@ Gobernanza Multilente
 | Idioma | Python |
 | Tipo de herramienta | Aplicación web |
 | Licencia | The MIT License |
-| Versión | 0.10.64 |
+| Versión | 0.10.65 |
 | Responsable | OPEN LAB · Universidad Nacional de Quilmes |
 | Repositorio | https://github.com/OPEN-LAB-UNQ/gobernanza-multilente *(a confirmar al crearlo)* |
 

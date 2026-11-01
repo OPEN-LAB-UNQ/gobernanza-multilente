@@ -69,7 +69,7 @@ def test_presentacion_es_publica_institucional_y_explica_los_limites():
     assert "Todavía falta medir con casos externos" in html
     assert "evaluación adversarial interna" in html and "No reemplaza una evaluación externa" in html
     assert "el uso real en una actividad formativa" in html and "no mide por sí solo su eficacia" in html
-    assert "un ministerio" in html and "no implica adopción ni aval del Ministerio" in html
+    assert "un ministerio" not in html and "no implica adopción ni aval de ningún organismo" in html
     # Las respuestas explican con ejemplos concretos y conservan la abstención como resultado.
     assert "un monto pagado mayor que el devengado" in html
     assert "Que no aparezcan señales no significa que el informe esté bien" in html
@@ -172,7 +172,7 @@ def test_detalle_es_una_ficha_institucional_consistente_con_el_comprobante():
     assert "Las 286 pruebas automatizadas de esta versión pasan" not in respuesta.text
     assert "informes ya cerrados y resultado conocido" in respuesta.text
     assert 'href="https://doi.org/10.5281/zenodo.22063241"' in respuesta.text  # serie
-    assert 'href="https://doi.org/10.5281/zenodo.23649172"' in respuesta.text  # versión 9.3
+    assert 'href="https://doi.org/10.5281/zenodo.23851688"' in respuesta.text  # versión 9.4
     assert "zenodo.23623905" not in respuesta.text  # la 9.2 ya no es la vigente
     assert "No se encontró todavía un DOI" not in respuesta.text
     assert "no aporta valor suficiente" in respuesta.text

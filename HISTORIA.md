@@ -1,3 +1,11 @@
+## 0.10.65 · 01/11/2026
+
+Documento metodológico v9.4 y presentación sin el nombre del ministerio. Motor sin cambios (multilente-0.10.61).
+
+- **Ficha técnica.** Cita el documento metodológico v9.4, publicado en Zenodo el 1/11/2026 (10.5281/zenodo.23851688): actualiza la v9.3 con los cortes 0.10.41.4 a 0.10.64 (adenda K) y deja de nombrar organismos, jurisdicciones y publicaciones oficiales asociados a posibles errores reales o a las validaciones, sin cambiar sus resultados.
+- **Presentación.** La actividad formativa se describe sin nombrar el ministerio al que pertenece la mayoría de los participantes, con el mismo criterio que la copia pública del código y la v9.4; la aclaración final dice que no implica adopción ni aval de ningún organismo.
+- Las pruebas que fijaban los textos anteriores se actualizaron: ahora exigen que la presentación no nombre al ministerio y que la ficha cite la v9.4.
+
 ## 0.10.64 · 31/10/2026
 
 Python 3.12 y dependencias actualizadas. Motor sin cambios (multilente-0.10.61). La aplicación corría con Python 3.9, que dejó de tener soporte en octubre de 2025, y declaraba versiones con avisos de seguridad conocidos en la base OSV: Starlette 0.41 (por FastAPI 0.115), python-multipart 0.0.20, pypdf 6.16, Pillow 11.3, python-dotenv 1.0 y pdfminer.six 20251107 (por pdfplumber 0.11.8); en desarrollo, pytest 8.4. Las correcciones de varias exigen Python 3.11 o posterior.
