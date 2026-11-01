@@ -99,7 +99,6 @@ Paz, justicia e instituciones sólidas (ODS 16) / Industria, innovación e infra
 | Presentación | Qué es, cómo funciona, criterio de uso y preguntas frecuentes. | https://gobernanza.entornodepruebas.com.ar/presentacion |
 | Ficha técnica | Arquitectura, criterios de uso y resultados de cada medición independiente. | https://gobernanza.entornodepruebas.com.ar/detalle |
 | Charla | Charla relámpago en el Encuentro Nacional de Tecnología Cívica (Guadalajara, 15/10/2026). | https://gobernanza.entornodepruebas.com.ar/multilente |
-| Documento metodológico | Metodología completa (Zenodo, CC BY 4.0; enlace a la última versión). | https://doi.org/10.5281/zenodo.22063241 |
 
 ## Capturas
 

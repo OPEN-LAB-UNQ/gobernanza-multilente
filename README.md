@@ -219,7 +219,6 @@ Institución responsable: **OPEN LAB · Universidad Nacional de Quilmes** (Argen
 - **Sitio y presentación:** <https://gobernanza.entornodepruebas.com.ar/presentacion>
 - **Ficha técnica, criterios de uso y resultados de cada medición:** <https://gobernanza.entornodepruebas.com.ar/detalle>
 - **Ejemplos sin clave:** <https://gobernanza.entornodepruebas.com.ar/probar.html>
-- **Documento metodológico** (Zenodo, CC BY 4.0): versión 9.3, [10.5281/zenodo.23649172](https://doi.org/10.5281/zenodo.23649172); la última versión siempre en [10.5281/zenodo.22063241](https://doi.org/10.5281/zenodo.22063241)
 - **Historia técnica de cada versión:** [`HISTORIA.md`](HISTORIA.md). Detalle técnico ampliado del
   proyecto: [`docs/README-tecnico.md`](docs/README-tecnico.md).
 - **Proyecto relacionado:** [Asistente IA para Consultas Académicas](https://knowledge.iadb.org/es/conocimiento-abierto/codigo-para-el-desarrollo/solucion-de-codigo-abierto/asistente-ia-para-consultas-academicas),

@@ -2,9 +2,7 @@
 
 # Gobernanza Multilente
 
-Aplicación **v0.10.62**; documento principal **v9.3**, publicado en Zenodo el 25/10/2026
-(DOI de la versión [10.5281/zenodo.23649172](https://doi.org/10.5281/zenodo.23649172);
-DOI de la serie [10.5281/zenodo.22063241](https://doi.org/10.5281/zenodo.22063241)); motor
+Aplicación **v0.10.62**; documento principal **v9.3** (25/10/2026); motor
 **multilente-0.10.61**; API **0.4.3**; protocolos **B-1 v1.2** y **R-1 v1.1**.
 
 Gobernanza Multilente lleva los principios de gobernanza a algo que se puede
@@ -17,8 +15,8 @@ cada versión del motor están en `HISTORIA.md`. El documento v7
 describe la aplicación 0.9.6 con el motor multilente-0.9.4 y anticipa la etiqueta de cohorte de
 Conexiones, que llega en la 0.9.7; los cambios posteriores (hasta la versión vigente, en `versiones.py`) están en
 `HISTORIA.md` y se incorporarán en la próxima edición. El documento v7 es la edición
-depositada en Zenodo (DOI 10.5281/zenodo.23329097); las versiones anteriores se consultan allí y los
-informes de revisión fechados quedan en `docs/documento/` y `docs/revision-070/`. El Word no se
+publicada; los informes de revisión
+fechados no se incluyen en esta copia. El Word no se
 distribuye desde la aplicación.
 Las correcciones de evidencia, reportes y pares de ejemplos se detallan en
 `docs/historico-07x/revision_ocho_casos.md`.
